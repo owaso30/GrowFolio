@@ -13,6 +13,12 @@ from content.trends import fetch_trend_context
 from images.generator import process_images
 from seo.content_policy import filter_auto_keywords, get_editorial_policy, is_allowed_for_auto
 from seo.internal_links import build_link_map, pick_internal_links, render_related_section
+from seo.ssp_meta import (
+    SSP_META_DESCRIPTION,
+    SSP_META_TITLE,
+    build_ssp_meta,
+    ensure_featured_alt_in_prompts,
+)
 from wordpress.client import WordPressClient
 
 
@@ -72,6 +78,7 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
 
         internal = pick_internal_links(keyword, link_map, titles)
         article = generate_article(item, internal, trend_context=trend_text)
+        ensure_featured_alt_in_prompts(article, keyword)
 
         if dry_run:
             print("DRY RUN - title:", article["title"])
@@ -106,6 +113,7 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
 
         cat_id = client.ensure_category(cat_name)
         status = site.get("publish", {}).get("default_status", "publish")
+        ssp = build_ssp_meta(article)
 
         post = client.create_post(
             title=article["title"],
@@ -114,8 +122,8 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
             category_id=cat_id,
             status=status,
             featured_media=featured_id,
-            meta_title=article["title"],
-            meta_description=article["meta_description"],
+            meta_title=ssp[SSP_META_TITLE],
+            meta_description=ssp[SSP_META_DESCRIPTION],
         )
 
         post_url = post.get("link", "")

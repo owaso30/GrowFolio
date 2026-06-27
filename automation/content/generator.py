@@ -14,6 +14,7 @@ from content.affiliate_catalog import (
 )
 from seo.content_policy import get_auto_policy, get_editorial_policy
 from seo.validator import apply_legal_filter, strip_markdown_fences, validate_meta, validate_title
+from seo.ssp_meta import ensure_featured_alt_in_prompts
 
 PROMPT_PATH = AUTOMATION_ROOT / "config" / "prompts" / "article_system.txt"
 
@@ -158,6 +159,7 @@ affiliate_placements:
         data.get("affiliate_placements"),
         keyword,
     )
+    ensure_featured_alt_in_prompts(data, keyword)
 
     return data
 

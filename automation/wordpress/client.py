@@ -8,6 +8,7 @@ from typing import Any
 import requests
 
 from config_loader import get_wp_credentials
+from seo.ssp_meta import SSP_META_DESCRIPTION, SSP_META_TITLE
 
 
 class WordPressClient:
@@ -73,9 +74,15 @@ class WordPressClient:
         mime, _ = mimetypes.guess_type(filename)
         mime = mime or "image/png"
         files = {"file": (filename, file_bytes, mime)}
-        data = {"alt_text": alt_text, "title": alt_text}
+        data = {"alt_text": alt_text, "title": alt_text, "caption": alt_text}
         result = self._post("media", data, files=files)
-        return int(result["id"])
+        media_id = int(result["id"])
+        if alt_text:
+            self.update_media_alt(media_id, alt_text)
+        return media_id
+
+    def update_media_alt(self, media_id: int, alt_text: str) -> None:
+        self._post(f"media/{media_id}", {"alt_text": alt_text, "title": alt_text})
 
     def create_post(
         self,
@@ -95,10 +102,24 @@ class WordPressClient:
             "status": status,
             "categories": [category_id],
             "meta": {
-                "_ssp_meta_title": meta_title,
-                "_ssp_meta_description": meta_description,
+                SSP_META_TITLE: meta_title,
+                SSP_META_DESCRIPTION: meta_description,
             },
         }
         if featured_media:
             payload["featured_media"] = featured_media
-        return self._post("posts", payload)
+        post = self._post("posts", payload)
+        self.update_post_ssp_meta(int(post["id"]), meta_title, meta_description)
+        return post
+
+    def update_post_ssp_meta(self, post_id: int, meta_title: str, meta_description: str) -> None:
+        """create 時に meta が落ちる環境向けに再設定。"""
+        self._post(
+            f"posts/{post_id}",
+            {
+                "meta": {
+                    SSP_META_TITLE: meta_title,
+                    SSP_META_DESCRIPTION: meta_description,
+                },
+            },
+        )

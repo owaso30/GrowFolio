@@ -5,6 +5,7 @@ from typing import Any
 
 from config_loader import load_yaml
 from images.flux_client import generate_image_bytes
+from seo.ssp_meta import build_featured_alt
 
 
 def _image_limits() -> tuple[int, str, str]:
@@ -26,7 +27,7 @@ def process_images(article: dict[str, Any], keyword: str) -> tuple[list[dict], s
 
     feat = prompts[0] if prompts else {}
     feat_prompt = feat.get("prompt") or f"Conceptual illustration about {keyword}, fintech, no text"
-    feat_alt = feat.get("alt", keyword)
+    feat_alt = build_featured_alt(article, keyword)
     images.append({
         "bytes": generate_image_bytes(feat_prompt, size=featured_size, role="featured"),
         "filename": "featured.png",
