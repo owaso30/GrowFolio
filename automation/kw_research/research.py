@@ -27,11 +27,15 @@ def fetch_suggestions(seed: str) -> list[str]:
     import urllib.parse
 
     url = SUGGEST_URL + urllib.parse.quote(seed)
-    r = requests.get(url, headers={"User-Agent": "GrowfolioBot/1.0"}, timeout=15)
-    r.raise_for_status()
-    r.encoding = r.apparent_encoding or "utf-8"
-    data = r.json()
-    return [s for s in data[1] if isinstance(s, str)]
+    try:
+        r = requests.get(url, headers={"User-Agent": "GrowfolioBot/1.0"}, timeout=15)
+        r.raise_for_status()
+        r.encoding = r.apparent_encoding or "utf-8"
+        data = r.json()
+        return [s for s in data[1] if isinstance(s, str)]
+    except Exception as exc:
+        print(f"  suggest skip ({seed[:40]}...): {exc}")
+        return []
 
 
 def classify_intent(keyword: str) -> str:
@@ -40,6 +44,8 @@ def classify_intent(keyword: str) -> str:
         return "A"
     if any(x in kw for x in ["税金", "確定申告", "雑所得"]):
         return "B"
+    if any(x in kw for x in ["キャリア", "転職", "スキル", "資格", "学習", "エンジニア", "プログラミング", "開発", "ポートフォリオ"]):
+        return "C"
     if any(x in kw for x in ["怪しい", "危険", "比較", "vs", "やめた", "評判"]):
         return "D"
     if any(x in kw for x in ["運用報告", "実際", "レビュー", "体験", "口コミ"]):

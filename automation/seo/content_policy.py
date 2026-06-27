@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from config_loader import load_yaml
+from seo.keyword_safety import is_desired_for_auto, is_safe_for_auto
 
 
 def get_auto_policy() -> dict:
@@ -23,6 +24,10 @@ def get_intent_categories() -> dict:
 def is_allowed_for_auto(keyword: str) -> bool:
     kw = (keyword or "").strip()
     if not kw:
+        return False
+    if not is_safe_for_auto(kw):
+        return False
+    if not is_desired_for_auto(kw):
         return False
     topics = get_auto_policy().get("topic_keywords", [])
     if not topics:

@@ -95,6 +95,29 @@ noindex でも meta description タグ自体は出力されるので、**Meta De
 | 出金・トラブル | `withdrawal` | `/category/withdrawal/` | BitradeXの出金・トラブル｜出金方法と対処法一覧 | BitradeXの出金方法、USDTをBitgetへ送る手順、出金できない・反映されない時の対処法など、資金を引き出すときに必要な情報をまとめた記事一覧です。 |
 | 紹介報酬 | `referral` | `/category/referral/` | BitradeXの紹介報酬｜仕組み・アフィリエイトのやり方一覧 | BitradeXの紹介報酬の仕組み・アフィリエイトのやり方・報酬率の解説など、紹介で稼ぐ方法をまとめた記事一覧です。※報酬は保証されません。 |
 | 税金 | `tax` | `/category/tax/` | BitradeXの税金・確定申告｜仮想通貨の税務解説一覧 | BitradeXの利益・報酬にかかる税金と確定申告のやり方など、仮想通貨投資の税務に関する記事一覧です。※最終判断は税理士にご確認を。 |
+| ITキャリア | `it-career` | `/category/it-career/` | ITキャリア｜開発スキル・ITツール・学習ロードマップ一覧 | プログラミング学習・生成AI開発ツール・資格・転職・リモートワークなど、ITキャリアアップに役立つ実践ガイドと最新トレンドの記事一覧です。Money×Technologyの視点でスキルと収入の両立を解説。※内容は変更される場合があります。 |
+| 投資入門 | `investing-basics` | `/category/investing-basics/` | 投資入門｜NISA・資産形成・初心者向けガイド一覧 | NISA・iDeCo・積立投資・資産形成の基礎など、投資初心者が最初に知っておきたい制度と手順を解説した記事一覧です。最新の制度動向も踏まえてわかりやすく整理。※投資は自己責任・元本保証なし。 |
+| AI副業 | `ai-side-hustle` | `/category/ai-side-hustle/` | AI副業｜生成AIで稼ぐ・副業の始め方一覧 | ChatGPT・生成AIを使った副業の始め方、コンテンツ制作、業務自動化、収益化の考え方など、AI×副業に関する実践ガイドと最新トレンドの記事一覧です。※収益は保証されません。 |
+
+### ITキャリア — WordPress「説明」欄（カテゴリ編集画面・本文上部用）
+
+カテゴリ編集画面の **説明** 欄に貼り付け（アーカイブページの紹介文として表示される場合があります）。
+
+```
+ITキャリアアップに関する記事一覧です。プログラミングの学習法、Python・TypeScriptなどの入門、Cursor・GitHub・生成AIツールの活用法、クラウド資格、エンジニア転職・リモートワークの考え方まで、Money×Technologyの視点で実務に役立つ情報を発信しています。
+```
+
+### 投資入門 — WordPress「説明」欄
+
+```
+投資初心者向けの記事一覧です。NISA・iDeCo・積立投資・資産形成の基礎、制度の最新動向、はじめ方の手順まで、Money×Technologyの視点でわかりやすく解説しています。特定の金融商品の推奨ではなく、情報整理を目的とした内容です。※投資は自己責任です。
+```
+
+### AI副業 — WordPress「説明」欄
+
+```
+生成AIを活用した副業に関する記事一覧です。ChatGPTなどのツールを使った収益化の考え方、コンテンツ制作・業務自動化の実践、最新のAIトレンドと副業の組み合わせ方まで、Money×Technologyの視点で発信しています。※収益は個人差があり保証されません。
+```
 
 ---
 
@@ -125,6 +148,9 @@ $urls = @(
   "https://growfolio-note.com/category/withdrawal/",
   "https://growfolio-note.com/category/referral/",
   "https://growfolio-note.com/category/tax/",
+  "https://growfolio-note.com/category/it-career/",
+  "https://growfolio-note.com/category/investing-basics/",
+  "https://growfolio-note.com/category/ai-side-hustle/",
   "https://growfolio-note.com/author/owaso30/"
 )
 foreach ($url in $urls) {

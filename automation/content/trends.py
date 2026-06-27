@@ -124,7 +124,9 @@ def fetch_trend_context(keyword: str, max_items: int = 8) -> dict[str, Any]:
 
     lines = [
         f"収集日時（UTC）: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')}",
-        "以下は公開前に収集したヘッドラインです。本文では出典を明記し、未確認の数値は断定しないこと。",
+        "以下は公開前に収集したヘッドラインです。",
+        "記事執筆時はこれらに加え、最低3つ以上の独立情報源（公式・報道・公的機関等）を想定して事実を突合すること。",
+        "本文では出典を明記し、未確認の数値は断定しないこと。",
         "",
     ]
     for i, h in enumerate(headlines, 1):

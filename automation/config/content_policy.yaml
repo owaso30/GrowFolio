@@ -10,6 +10,7 @@ auto_publish:
     - 税金
     - AI副業
     - 投資入門
+    - ITキャリア
   # キューに載せるKWのトピックフィルタ（いずれかを含むもの）
   topic_keywords:
     - AI
@@ -26,40 +27,217 @@ auto_publish:
     - 税金
     - 確定申告
     - 金融
+    - キャリア
+    - 転職
+    - エンジニア
+    - プログラミング
+    - 開発
+    - ITスキル
+    - スキルアップ
+    - Python
+    - JavaScript
+    - TypeScript
+    - GitHub
+    - VSCode
+    - Cursor
+    - 資格
+    - ポートフォリオ
+    - リモートワーク
+    - ITツール
+
+# 自動投稿から除外するKW（個人名×評判・口コミ系）
+keyword_safety:
+  block_all_reputation_keywords: true
+  reputation_modifiers:
+    - 評判
+    - 口コミ
+    - 怪しい
+    - 炎上
+    - 批判
+    - やばい
+    - 詐欺
+    - 返金
+    - やめた
+  blocked_names:
+    - フジマナ
+  blocked_topics:
+    - オンラインカジノ
+    - カジノ
+    - パチンコ
+    - ギャンブル
+    - 知恵袋
+    - スロット
+  low_quality_modifiers:
+    - おかしい
+    - やばい
+  trusted_entities:
+    - bitradex
+    - nisa
+    - chatgpt
+    - sbi
+    - coincheck
+    - bitflyer
+    - bitbank
+    - gmo
+    - okj
+    - btcc
+    - nexo
+    - 確定申告
+    - 金融庁
+    - 国税庁
+    - 取引所
+    - python
+    - javascript
+    - typescript
+    - github
+    - vscode
+    - cursor
+    - aws
+    - azure
+    - docker
+    - claude
+    - openai
+    - copilot
+    - defi
+    - dex
+    - etf
+    - クリプタクト
+    - bitradex
+  # 手順・やり方系（画像依存が高い → キューから除外）
+  procedure_modifiers:
+    - やり方
+    - 手順
+    - 方法
+    - 始め方
+    - 設定方法
+    - ロードマップ
+    - ロード マップ
+    - 超初心者
+    - 初心者
+    - 設定
+    - 申請
+    - 登録
+    - サイト 無料
+    - 学習サイト
+    - 学習 アプリ
+    - 学習 ゲーム
+  # 汎用修飾語（特定サービス名なし → 除外）
+  generic_modifiers:
+    - おすすめ
+    - 学習
+    - スキルアップ
+    - キャリアアップ
+    - 例
+    - 無料
+    - 比較 特徴
+    - 比較 時価総額
+  # 特定サービス・技術名（特定感ボーナス）
+  specific_entities:
+    - BitradeX
+    - ChatGPT
+    - Claude
+    - Cursor
+    - Copilot
+    - GitHub
+    - OpenAI
+    - NISA
+    - SBI
+    - Coincheck
+    - bitFlyer
+    - GMO
+    - DeFi
+    - DEX
+    - ETF
+    - クリプタクト
+    - 金融庁
+    - 国税庁
+    - TypeScript
+    - Python
+    - AWS
+    - Docker
+  trend_focus_modifiers:
+    - 最新
+    - ニュース
+    - 制度
+    - 規制
+    - 改正
+    - 発表
+    - 動向
+    - 影響
+    - 見通し
+    - 将来
+    - トレンド
+    - 展望
+    - 税金
+    - 確定申告
+    - 対処
+  # 後方互換（参照のみ・手順語は含めない）
+  news_focus_modifiers:
+    - 最新
+    - ニュース
+    - 制度
+    - 規制
+    - 改正
+    - 発表
+    - 動向
+    - 影響
+    - 見通し
+    - 税金
+    - 確定申告
+    - 対処
 
 # トレンド収集・KW調査（柱の代わり）
 trend_research:
   news_queries:
-    - 生成AI 副業
-    - ChatGPT 最新
-    - 仮想通貨 AI
-    - BitradeX
-    - 暗号資産 規制
-    - NISA 投資
-    - 資産運用 初心者
-    - AI 自動売買
-    - 仮想通貨 税金
+    - ChatGPT 最新 機能
+    - Claude AI 開発 ツール
+    - 生成AI 副業 トレンド
+    - Cursor エディタ AI
+    - GitHub Copilot 最新
+    - BitradeX 仮想通貨
+    - 暗号資産 規制 2026
+    - 仮想通貨 税金 改正
+    - NISA 制度 改正
+    - DeFi 規制 動向
+    - AI 自動売買 最新
+    - 仮想通貨 取引所 規制
+    - OpenAI 発表
+    - ITエンジニア AI ツール
+    - クラウド AWS 最新
   suggest_seeds:
-    - AI 投資 最新
-    - 仮想通貨 確定申告
-    - 生成AI ニュース
+    - ChatGPT 最新 ニュース
+    - Claude API 開発
+    - BitradeX 最新 動向
+    - 暗号資産 規制 2026
+    - NISA 制度 改正 2026
+    - Cursor AI エディタ
+    - GitHub Copilot 機能
+    - 生成AI 副業 トレンド
+    - DeFi 規制 影響
+    - 仮想通貨 税金 改正
 
 # ブルーオーシャンKW戦略（ロングテール × 競合回避）
 blue_ocean:
-  min_chars: 10
-  min_words: 2
+  min_chars: 12
+  min_words: 3
   max_words: 10
   prefer_words_min: 3
   reject_raw_news_headlines: true
   reject_high_competition: true
   use_serp_related: true
   max_expansion_per_seed: 8
-  trend_bonus: 5
-  long_tail_bonus: 12
-  intent_modifier_bonus: 10
+  trend_bonus: 15
+  trend_focus_bonus: 22
+  news_focus_bonus: 22
+  specificity_bonus: 25
+  long_tail_bonus: 10
+  intent_modifier_bonus: 6
   high_intent_bonus: 8
-  head_term_penalty: 25
-  preferred_intents: [A, B, C, D, E]
+  head_term_penalty: 30
+  procedure_penalty: 45
+  generic_penalty: 35
+  reputation_penalty: 35
+  preferred_intents: [A, B, D]
   head_terms:
     - 投資
     - 仮想通貨
@@ -69,32 +247,38 @@ blue_ocean:
     - NISA
     - 副業
     - AI
+    - プログラミング
+    - エンジニア
+    - 開発
+    - Python
   intent_modifiers:
-    - 始め方
-    - やり方
-    - 方法
-    - 手順
-    - 初心者
-    - 比較
-    - 口コミ
-    - 評判
-    - できない
-    - 対処
+    - 最新
+    - 制度
+    - 規制
+    - 改正
+    - 発表
+    - 動向
+    - 影響
+    - 見通し
+    - 将来
+    - 展望
     - 税金
     - 確定申告
-    - ログイン
-    - 設定
-    - レビュー
-    - 体験
-  expansion_modifiers:
-    - 始め方 初心者
-    - やり方
     - 比較
-    - 口コミ
-    - できない 対処
-    - 評判
-    - 税金
-    - 設定方法
+    - できない
+    - 対処
+    - トレンド
+  expansion_modifiers:
+    - 最新 動向
+    - 規制 影響
+    - 発表 内容
+    - 将来 展望
+    - 制度 改正
+    - 税金 改正
+    - 2026 最新
+    - トレンド 分析
+    - ニュース 解説
+    - 比較 特徴
   news_headline_markers:
     - 速報
     - 発表
@@ -145,7 +329,10 @@ editorial:
   trend_research: true
   max_trend_headlines: 8
   require_fact_opinion_split: true
+  require_multi_source: true
+  min_reference_sources: 3
   fact_section_heading: "いま起きていること（事実）"
   opinion_section_heading: "筆者の考察・見解"
   opinion_label: "【考察】"
   fact_label: "【事実】"
+  source_section_heading: "参考・関連情報"

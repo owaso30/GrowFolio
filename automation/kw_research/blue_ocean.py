@@ -10,6 +10,14 @@ from typing import Any
 
 from config_loader import load_yaml
 from seo.content_policy import get_intent_categories
+from seo.keyword_safety import (
+    has_specific_entity,
+    is_generic_keyword,
+    is_news_focus_keyword,
+    is_procedure_keyword,
+    is_reputation_framing_keyword,
+    is_trend_focus_keyword,
+)
 
 
 def get_blue_ocean_config() -> dict:
@@ -171,6 +179,16 @@ def score_keyword(
     base += min(len(keyword) / 20, 2)
     if from_news:
         base += cfg.get("trend_bonus", 5)
+    if is_trend_focus_keyword(keyword) or is_news_focus_keyword(keyword):
+        base += cfg.get("trend_focus_bonus", cfg.get("news_focus_bonus", 15))
+    if has_specific_entity(keyword):
+        base += cfg.get("specificity_bonus", 20)
+    if is_procedure_keyword(keyword):
+        base -= cfg.get("procedure_penalty", 40)
+    if is_generic_keyword(keyword):
+        base -= cfg.get("generic_penalty", 30)
+    if is_reputation_framing_keyword(keyword):
+        base -= cfg.get("reputation_penalty", 35)
 
     heuristic, level = heuristic_competition_score(keyword, intent)
     total = base + heuristic
@@ -202,7 +220,7 @@ def expand_long_tail_seeds(seeds: list[str], fetch_suggestions) -> list[str]:
 
     for seed in seeds:
         batch = [seed]
-        for mod in modifiers[:6]:
+        for mod in modifiers[:10]:
             batch.append(f"{seed} {mod}".strip())
         for query in batch:
             for kw in fetch_suggestions(query)[:max_per_seed]:

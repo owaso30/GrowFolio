@@ -479,6 +479,7 @@ https://growfolio-note.com/wp-json/wp/v2/posts/記事ID?context=edit
 
 | ファイル                                                                                 | 内容              |
 | ------------------------------------------------------------------------------------ | --------------- |
+| [`../カテゴリ・著者ページ_SEO設定.md`](../カテゴリ・著者ページ_SEO設定.md) | カテゴリ・著者・固定ページのSEOメタ |
 | `[../BitradeX/BitradeX_アフィリエイト完全ロードマップ.md](../BitradeX/BitradeX_アフィリエイト完全ロードマップ.md)` | 収益KPI・KW戦略      |
 | `[../BitradeX/WordPress初期セットアップ手順書.md](../BitradeX/WordPress初期セットアップ手順書.md)`         | SWELL・プラグイン初期設定 |
 | `[config/](config/)`                                                                 | YAML 設定一式       |

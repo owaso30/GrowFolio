@@ -1,97 +1,93 @@
 {
-  "updated_at": "2026-06-27T14:24:09.076088+00:00",
+  "updated_at": "2026-06-27T15:39:30.185692+00:00",
   "keywords": [
     {
-      "keyword": "フジマナ 仮想通貨 評判",
+      "keyword": "github copilot 機能比較",
       "intent": "D",
-      "score": 129.6,
+      "score": 139.9,
       "status": "pending",
-      "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 1,
-        "opportunity_ratio": 0.1
-      },
-      "trend_fetched_at": "2026-06-27T14:25:12.907176+00:00"
+      "source": "suggest",
+      "competition": "low"
     },
     {
-      "keyword": "okj 仮想通貨 評判",
+      "keyword": "github copilot vscode 拡張 機能",
       "intent": "D",
-      "score": 126.5,
+      "score": 134.3,
       "status": "pending",
-      "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 1,
-        "opportunity_ratio": 0.11
-      }
+      "source": "suggest",
+      "competition": "medium"
     },
     {
-      "keyword": "ウルトロン 仮想通貨 評判",
+      "keyword": "vscode github copilot 機能",
       "intent": "D",
-      "score": 125.7,
+      "score": 134.2,
       "status": "pending",
-      "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      }
+      "source": "suggest",
+      "competition": "medium"
     },
     {
-      "keyword": "バンテージ 仮想通貨 評判",
-      "intent": "D",
-      "score": 125.7,
+      "keyword": "仮想通貨 税金 タイミング",
+      "intent": "B",
+      "score": 132.7,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      }
+      "competition": "low"
     },
     {
-      "keyword": "仮想通貨 比較 時価総額",
-      "intent": "D",
-      "score": 125.6,
+      "keyword": "仮想通貨 税金 クリプタクト",
+      "intent": "B",
+      "score": 132.7,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      }
+      "competition": "low"
     },
     {
-      "keyword": "nexo 仮想通貨 評判",
-      "intent": "D",
-      "score": 125.6,
+      "keyword": "仮想通貨 税金 変わる",
+      "intent": "B",
+      "score": 132.6,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      }
+      "competition": "low"
     },
     {
-      "keyword": "仮想通貨 比較 特徴",
-      "intent": "D",
-      "score": 125.5,
+      "keyword": "自由研究 税金 ロボット",
+      "intent": "B",
+      "score": 132.6,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      }
+      "competition": "low"
+    },
+    {
+      "keyword": "仮想通貨 税金 改正",
+      "intent": "B",
+      "score": 132.5,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "low"
+    },
+    {
+      "keyword": "仮想通貨 税金 計算",
+      "intent": "B",
+      "score": 132.5,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "low"
+    },
+    {
+      "keyword": "仮想通貨 税金 いつ",
+      "intent": "B",
+      "score": 132.5,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "low"
+    },
+    {
+      "keyword": "chatgpt トレンド 分析",
+      "intent": "F",
+      "score": 122.8,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "medium"
     },
     {
       "keyword": "スプレッド 仮想通貨 比較",
@@ -99,25 +95,15 @@
       "score": 122.7,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      }
+      "competition": "medium"
     },
     {
-      "keyword": "btcc 仮想通貨 評判",
-      "intent": "D",
-      "score": 122.6,
+      "keyword": "chatgpt 最新 動向",
+      "intent": "F",
+      "score": 122.7,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      }
+      "competition": "medium"
     },
     {
       "keyword": "仮想通貨 比較 取引所",
@@ -125,12 +111,7 @@
       "score": 122.5,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      }
+      "competition": "medium"
     },
     {
       "keyword": "BitradeX ログインできない 対処",
@@ -141,33 +122,121 @@
       "competition": "low"
     },
     {
-      "keyword": "NISA 始め方 初心者 2026",
-      "intent": "C",
-      "score": 110.8,
+      "keyword": "仮想通貨 税金 改正 いつから",
+      "intent": "B",
+      "score": 118.8,
       "status": "pending",
       "source": "suggest",
       "competition": "low"
     },
     {
-      "keyword": "ChatGPT 副業 始め方 口コミ",
-      "intent": "C",
-      "score": 92.9,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "low"
-    },
-    {
-      "keyword": "仮想通貨 確定申告 雑所得 やり方",
+      "keyword": "仮想通貨 税金 改正 個人",
       "intent": "B",
-      "score": 88.5,
+      "score": 118.7,
       "status": "pending",
       "source": "suggest",
       "competition": "low"
     },
     {
-      "keyword": "AI自動売買 税金 計算 方法",
+      "keyword": "日本 仮想通貨 税金 改正",
       "intent": "B",
-      "score": 85.2,
+      "score": 118.7,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "low"
+    },
+    {
+      "keyword": "github copilot 最新バージョン",
+      "intent": "F",
+      "score": 108.1,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "github copilot 最新 ニュース",
+      "intent": "F",
+      "score": 108.1,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "github copilot 最新情報",
+      "intent": "F",
+      "score": 108.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "github copilot 最新機能",
+      "intent": "F",
+      "score": 108.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "chatgpt 最新 ニュース 取得",
+      "intent": "F",
+      "score": 107.9,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "ai エディタ cursor 最新",
+      "intent": "F",
+      "score": 107.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "github copilot 最新",
+      "intent": "F",
+      "score": 107.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "nisa 制度 改正 2026",
+      "intent": "F",
+      "score": 107.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "nisa 制度 改正 いつから",
+      "intent": "F",
+      "score": 107.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "nisa 制度 改正 2026 年",
+      "intent": "F",
+      "score": 107.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "ジュニア nisa 制度 改正",
+      "intent": "F",
+      "score": 107.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    },
+    {
+      "keyword": "openai chatgpt 発表",
+      "intent": "F",
+      "score": 107.8,
       "status": "pending",
       "source": "suggest",
       "competition": "medium"
