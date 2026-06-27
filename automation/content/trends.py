@@ -1,7 +1,9 @@
 """直近のIT・金融ニューストレンド取得（記事生成・KW調査用）。"""
 from __future__ import annotations
 
+import os
 import re
+import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from typing import Any
@@ -12,6 +14,28 @@ import requests
 from seo.content_policy import get_trend_config
 
 GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q={query}&hl=ja&gl=JP&ceid=JP:ja"
+_HTTP_TIMEOUT = float(os.environ.get("TREND_HTTP_TIMEOUT", "12"))
+_HTTP_RETRIES = int(os.environ.get("TREND_HTTP_RETRIES", "2"))
+_USER_AGENT = "GrowfolioBot/1.0"
+
+
+def _http_get(url: str, *, label: str) -> requests.Response | None:
+    last_error: Exception | None = None
+    for attempt in range(1, _HTTP_RETRIES + 1):
+        try:
+            response = requests.get(
+                url,
+                headers={"User-Agent": _USER_AGENT},
+                timeout=_HTTP_TIMEOUT,
+            )
+            response.raise_for_status()
+            return response
+        except Exception as exc:
+            last_error = exc
+            if attempt < _HTTP_RETRIES:
+                time.sleep(min(attempt, 2))
+    print(f"  news skip ({label}): {last_error}")
+    return None
 
 
 def _parse_rss(xml_text: str, limit: int = 5) -> list[dict[str, str]]:
@@ -32,24 +56,28 @@ def _parse_rss(xml_text: str, limit: int = 5) -> list[dict[str, str]]:
 
 def _fetch_google_news(query: str, limit: int = 5) -> list[dict[str, str]]:
     url = GOOGLE_NEWS_RSS.format(query=quote(query))
-    r = requests.get(url, headers={"User-Agent": "GrowfolioBot/1.0"}, timeout=15)
-    r.raise_for_status()
-    return _parse_rss(r.text, limit=limit)
+    response = _http_get(url, label=f"google-news:{query[:40]}")
+    if not response:
+        return []
+    return _parse_rss(response.text, limit=limit)
 
 
 def _fetch_serpapi_news(query: str, limit: int = 5) -> list[dict[str, str]]:
-    import os
-
     key = os.environ.get("SERPAPI_KEY", "")
-    if not key:
+    if not key or os.environ.get("TREND_SKIP_SERPAPI_NEWS", "").lower() in ("1", "true", "yes"):
         return []
     url = (
         f"https://serpapi.com/search.json?engine=google_news"
         f"&q={quote(query)}&hl=ja&gl=jp&api_key={key}"
     )
-    r = requests.get(url, timeout=20)
-    r.raise_for_status()
-    data = r.json()
+    response = _http_get(url, label=f"serpapi-news:{query[:40]}")
+    if not response:
+        return []
+    try:
+        data = response.json()
+    except ValueError as exc:
+        print(f"  news skip (serpapi-json:{query[:40]}): {exc}")
+        return []
     out: list[dict[str, str]] = []
     for item in data.get("news_results", [])[:limit]:
         out.append({
@@ -62,7 +90,11 @@ def _fetch_serpapi_news(query: str, limit: int = 5) -> list[dict[str, str]]:
 
 
 def fetch_news_headlines(query: str, limit: int = 5) -> list[dict[str, str]]:
-    return _fetch_serpapi_news(query, limit=limit) or _fetch_google_news(query, limit=limit)
+    """SerpAPI → Google News RSS の順で取得。失敗時は空リスト。"""
+    headlines = _fetch_serpapi_news(query, limit=limit)
+    if headlines:
+        return headlines
+    return _fetch_google_news(query, limit=limit)
 
 
 def headline_to_keyword(title: str) -> str:
@@ -79,6 +111,10 @@ def collect_trend_keywords(max_per_query: int = 4) -> list[dict[str, Any]]:
     """設定された news_queries からトレンドKW候補を収集。"""
     cfg = get_trend_config()
     queries = cfg.get("news_queries", [])
+    max_queries = int(os.environ.get("TREND_MAX_NEWS_QUERIES", len(queries) or 0))
+    if max_queries > 0:
+        queries = queries[:max_queries]
+
     seen: set[str] = set()
     results: list[dict[str, Any]] = []
 

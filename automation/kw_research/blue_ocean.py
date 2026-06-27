@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 import urllib.parse
 import urllib.request
 from typing import Any
@@ -114,10 +115,21 @@ def analyze_serp(keyword: str) -> dict[str, Any] | None:
     cfg = get_blue_ocean_config().get("serp", {})
     q = urllib.parse.quote(keyword)
     url = f"https://serpapi.com/search.json?engine=google&q={q}&hl=ja&gl=jp&api_key={key}&num=10"
-    try:
-        with urllib.request.urlopen(url, timeout=20) as resp:
-            data = json.loads(resp.read().decode())
-    except Exception:
+    timeout = float(os.environ.get("TREND_HTTP_TIMEOUT", "12"))
+    retries = int(os.environ.get("TREND_HTTP_RETRIES", "2"))
+    data: dict[str, Any] | None = None
+    last_error: Exception | None = None
+    for attempt in range(1, retries + 1):
+        try:
+            with urllib.request.urlopen(url, timeout=timeout) as resp:
+                data = json.loads(resp.read().decode())
+            break
+        except Exception as exc:
+            last_error = exc
+            if attempt < retries:
+                time.sleep(min(attempt, 2))
+    if data is None:
+        print(f"  serp skip ({keyword[:40]}): {last_error}")
         return None
 
     organic = data.get("organic_results", [])

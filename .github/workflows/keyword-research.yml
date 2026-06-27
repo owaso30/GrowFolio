@@ -20,6 +20,10 @@ jobs:
         working-directory: automation
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          TREND_SKIP_SERPAPI_NEWS: 'true'
+          TREND_MAX_NEWS_QUERIES: '8'
+          TREND_HTTP_TIMEOUT: '12'
+          TREND_HTTP_RETRIES: '2'
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: update keyword queue'
