@@ -14,7 +14,7 @@ def _llm_config() -> dict:
 
 _JSON_RULES = (
     "【JSON出力ルール】"
-    "応答は有効なJSONオブジェクト1つのみ。"
+    "応答は有効なJSONオブジェクト1つのみ。最初の文字は { で始める。"
     "文字列内の改行は \\n、ダブルクォートは \\\" でエスケープ。"
     "markdown_body も1行のJSON文字列として出力（生の改行を入れない）。"
     "説明文・コードフェンスは付けない。"
@@ -36,13 +36,10 @@ def complete_json(system: str, user: str, *, repair_hint: str = "") -> str:
         max_tokens=max_tokens,
         temperature=temperature,
         system=system_full,
-        messages=[
-            {"role": "user", "content": prompt},
-            {"role": "assistant", "content": "{"},
-        ],
+        messages=[{"role": "user", "content": prompt}],
     )
 
-    parts: list[str] = ["{"]
+    parts: list[str] = []
     for block in message.content:
         if block.type == "text":
             parts.append(block.text)
