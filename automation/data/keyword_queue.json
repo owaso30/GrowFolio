@@ -1,16 +1,18 @@
 {
-  "updated_at": "2026-06-27T15:39:30.185692+00:00",
+  "updated_at": "2026-06-27T23:25:50.825370+00:00",
   "keywords": [
     {
-      "keyword": "github copilot 機能比較",
+      "keyword": "Cursor VSCode 違い",
       "intent": "D",
-      "score": 139.9,
-      "status": "done",
-      "source": "suggest",
-      "competition": "low",
-      "trend_fetched_at": "2026-06-27T15:44:37.889072+00:00",
-      "published_at": "2026-06-27T15:46:34.836766+00:00",
-      "post_url": "https://growfolio-note.com/github-copilot-plan-comparison-2026/"
+      "score": 137.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.12
+      }
     },
     {
       "keyword": "github copilot vscode 拡張 機能",
@@ -149,6 +151,32 @@
       "competition": "low"
     },
     {
+      "keyword": "ChatGPT アップデート 最新",
+      "intent": "F",
+      "score": 108.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.11
+      }
+    },
+    {
+      "keyword": "新NISA スイッチング 将来",
+      "intent": "F",
+      "score": 108.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.11
+      }
+    },
+    {
       "keyword": "github copilot 最新バージョン",
       "intent": "F",
       "score": 108.1,
@@ -243,6 +271,97 @@
       "status": "pending",
       "source": "suggest",
       "competition": "medium"
+    },
+    {
+      "keyword": "chatgpt 最新 機能",
+      "intent": "F",
+      "score": 107.7,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "新NISA改正 スイッチング いつから",
+      "intent": "F",
+      "score": 106.0,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 2,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.11
+      }
+    },
+    {
+      "keyword": "ChatGPT 最新モデル 無料",
+      "intent": "F",
+      "score": 104.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "新NISA改正 2026 いつから",
+      "intent": "F",
+      "score": 104.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "新NISA改正 2026 復活",
+      "intent": "F",
+      "score": 104.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "新NISA 改正 2026 改悪",
+      "intent": "F",
+      "score": 104.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "積立 nisa 制度 改正",
+      "intent": "F",
+      "score": 104.7,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
     }
   ]
 }
