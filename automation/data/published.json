@@ -1,4 +1,161 @@
 {
-  "posts": [],
-  "synced_at": null
+  "synced_at": "2026-06-27T14:19:43.200035+00:00",
+  "posts": [
+    {
+      "id": 247,
+      "slug": "bitradex-guide",
+      "title": "【2026年版】BitradeX完全ガイド｜始め方・運用・出金・紹介報酬まで全解説",
+      "url": "https://growfolio-note.com/bitradex-guide/",
+      "categories": [
+        "始め方"
+      ],
+      "keywords": [
+        "【2026年版】BitradeX完全ガイド｜始め方・運用・出金・紹介報酬まで全解説"
+      ]
+    },
+    {
+      "id": 244,
+      "slug": "bitradex-tax",
+      "title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "url": "https://growfolio-note.com/bitradex-tax/",
+      "categories": [
+        "税金"
+      ],
+      "keywords": [
+        "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説"
+      ]
+    },
+    {
+      "id": 240,
+      "slug": "bitradex-affiliate",
+      "title": "BitradeXアフィリエイトのやり方｜ゼロから紹介報酬を稼ぐ5ステップと集客のコツ",
+      "url": "https://growfolio-note.com/bitradex-affiliate/",
+      "categories": [
+        "紹介報酬"
+      ],
+      "keywords": [
+        "BitradeXアフィリエイトのやり方｜ゼロから紹介報酬を稼ぐ5ステップと集客のコツ"
+      ]
+    },
+    {
+      "id": 231,
+      "slug": "bitradex-referral-system",
+      "title": "BitradeXの紹介報酬（アフィリエイト）の仕組みを徹底解説｜報酬率・受け取り方・稼ぎ方",
+      "url": "https://growfolio-note.com/bitradex-referral-system/",
+      "categories": [
+        "紹介報酬"
+      ],
+      "keywords": [
+        "BitradeXの紹介報酬（アフィリエイト）の仕組みを徹底解説｜報酬率・受け取り方・稼ぎ方"
+      ]
+    },
+    {
+      "id": 219,
+      "slug": "bitradex-ai-plan",
+      "title": "【徹底比較】BitradeXのAI運用プランの選び方｜Daily・30D・90D・180D・360Dの違い",
+      "url": "https://growfolio-note.com/bitradex-ai-plan/",
+      "categories": [
+        "運用・実績"
+      ],
+      "keywords": [
+        "【徹底比較】BitradeXのAI運用プランの選び方｜Daily・30D・90D・180D・360Dの違い"
+      ]
+    },
+    {
+      "id": 210,
+      "slug": "bitradex-risk",
+      "title": "BitradeXの危険性とリスクを正直に解説｜元本割れ・詐欺の可能性は？実運用者の本音",
+      "url": "https://growfolio-note.com/bitradex-risk/",
+      "categories": [
+        "リスク・評判"
+      ],
+      "keywords": [
+        "BitradeXの危険性とリスクを正直に解説｜元本割れ・詐欺の可能性は？実運用者の本音"
+      ]
+    },
+    {
+      "id": 207,
+      "slug": "bitradex-who-should",
+      "title": "BitradeXをやめた方がいい人・向いてる人の特徴｜始める前のセルフチェック",
+      "url": "https://growfolio-note.com/bitradex-who-should/",
+      "categories": [
+        "リスク・評判"
+      ],
+      "keywords": [
+        "BitradeXをやめた方がいい人・向いてる人の特徴｜始める前のセルフチェック"
+      ]
+    },
+    {
+      "id": 195,
+      "slug": "bitradex-review",
+      "title": "【実残高公開】BitradeXは怪しい？6,200ドルを実際に運用した正直レビュー｜メリット・デメリット全部話す",
+      "url": "https://growfolio-note.com/bitradex-review/",
+      "categories": [
+        "運用・実績"
+      ],
+      "keywords": [
+        "【実残高公開】BitradeXは怪しい？6,200ドルを実際に運用した正直レビュー｜メリット・デメリット全部話す"
+      ]
+    },
+    {
+      "id": 174,
+      "slug": "bitradex-invite-code",
+      "title": "【図解】BitradeXの招待コードの取得方法｜どこにある？なぜ必要？メリットも解説",
+      "url": "https://growfolio-note.com/bitradex-invite-code/",
+      "categories": [
+        "始め方"
+      ],
+      "keywords": [
+        "【図解】BitradeXの招待コードの取得方法｜どこにある？なぜ必要？メリットも解説"
+      ]
+    },
+    {
+      "id": 162,
+      "slug": "bitradex-kyc",
+      "title": "【図解】BitradeXのKYC（本人確認）のやり方｜必要書類・審査時間・通らない時の対処",
+      "url": "https://growfolio-note.com/bitradex-kyc/",
+      "categories": [
+        "始め方"
+      ],
+      "keywords": [
+        "【図解】BitradeXのKYC（本人確認）のやり方｜必要書類・審査時間・通らない時の対処"
+      ]
+    },
+    {
+      "id": 134,
+      "slug": "bitradex-withdraw-bitget",
+      "title": "【図解】BitradeXの出金方法と出金できない時の対処法｜USDTをBitgetに出金する手順",
+      "url": "https://growfolio-note.com/bitradex-withdraw-bitget/",
+      "categories": [
+        "出金・トラブル"
+      ],
+      "keywords": [
+        "【図解】BitradeXの出金方法と出金できない時の対処法｜USDTをBitgetに出金する手順"
+      ]
+    },
+    {
+      "id": 123,
+      "slug": "bitradex-network",
+      "title": "【保存版】BitradeXへのUSDT送金は「Arbitrum One」｜ネットワークの選び方と間違えない手順",
+      "url": "https://growfolio-note.com/bitradex-network/",
+      "categories": [
+        "始め方"
+      ],
+      "keywords": [
+        "【保存版】BitradeXへのUSDT送金は「Arbitrum One」｜ネットワークの選び方と間違えない手順"
+      ]
+    },
+    {
+      "id": 44,
+      "slug": "bitradex-start-smartphone",
+      "title": "【画像付き】BitradeXの始め方｜登録から入金・AI運用開始まで全手順",
+      "url": "https://growfolio-note.com/bitradex-start-smartphone/",
+      "categories": [
+        "始め方"
+      ],
+      "keywords": [
+        "【画像付き】BitradeXの始め方｜登録から入金・AI運用開始まで全手順"
+      ]
+    }
+  ]
 }
