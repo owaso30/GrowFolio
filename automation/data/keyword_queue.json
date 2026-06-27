@@ -5,9 +5,12 @@
       "keyword": "github copilot 機能比較",
       "intent": "D",
       "score": 139.9,
-      "status": "pending",
+      "status": "done",
       "source": "suggest",
-      "competition": "low"
+      "competition": "low",
+      "trend_fetched_at": "2026-06-27T15:44:37.889072+00:00",
+      "published_at": "2026-06-27T15:46:34.836766+00:00",
+      "post_url": "https://growfolio-note.com/github-copilot-plan-comparison-2026/"
     },
     {
       "keyword": "github copilot vscode 拡張 機能",

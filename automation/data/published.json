@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-06-27T14:25:10.424104+00:00",
+  "synced_at": "2026-06-27T15:44:33.726060+00:00",
   "posts": [
     {
       "id": 247,
@@ -156,6 +156,19 @@
       "keywords": [
         "【画像付き】BitradeXの始め方｜登録から入金・AI運用開始まで全手順"
       ]
+    },
+    {
+      "id": 257,
+      "slug": "github-copilot-plan-comparison-2026",
+      "title": "GitHub Copilot 機能比較2026：Free・Pr…",
+      "url": "https://growfolio-note.com/github-copilot-plan-comparison-2026/",
+      "categories": [
+        "ITキャリア"
+      ],
+      "keywords": [
+        "github copilot 機能比較"
+      ],
+      "source": "auto"
     }
   ]
 }
