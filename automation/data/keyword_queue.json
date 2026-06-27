@@ -1,0 +1,45 @@
+{
+  "updated_at": null,
+  "keywords": [
+    {
+      "keyword": "BitradeX ログインできない 対処",
+      "intent": "A",
+      "score": 121.0,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "low"
+    },
+    {
+      "keyword": "NISA 始め方 初心者 2026",
+      "intent": "C",
+      "score": 110.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "low"
+    },
+    {
+      "keyword": "ChatGPT 副業 始め方 口コミ",
+      "intent": "C",
+      "score": 92.9,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "low"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 雑所得 やり方",
+      "intent": "B",
+      "score": 88.5,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "low"
+    },
+    {
+      "keyword": "AI自動売買 税金 計算 方法",
+      "intent": "B",
+      "score": 85.2,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium"
+    }
+  ]
+}

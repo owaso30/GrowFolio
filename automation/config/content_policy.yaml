@@ -1,0 +1,151 @@
+# 自動投稿の編集方針（Money × Technology コンセプト全般）
+auto_publish:
+  description: "トレンド・ニュース起点で、ブログコンセプトに沿った記事を自動生成・公開"
+  allowed_categories:
+    - 始め方
+    - 運用・実績
+    - 出金・トラブル
+    - リスク・評判
+    - 紹介報酬
+    - 税金
+    - AI副業
+    - 投資入門
+  # キューに載せるKWのトピックフィルタ（いずれかを含むもの）
+  topic_keywords:
+    - AI
+    - 生成AI
+    - ChatGPT
+    - 副業
+    - 投資
+    - NISA
+    - 資産
+    - 仮想通貨
+    - 暗号資産
+    - BitradeX
+    - 自動売買
+    - 税金
+    - 確定申告
+    - 金融
+
+# トレンド収集・KW調査（柱の代わり）
+trend_research:
+  news_queries:
+    - 生成AI 副業
+    - ChatGPT 最新
+    - 仮想通貨 AI
+    - BitradeX
+    - 暗号資産 規制
+    - NISA 投資
+    - 資産運用 初心者
+    - AI 自動売買
+    - 仮想通貨 税金
+  suggest_seeds:
+    - AI 投資 最新
+    - 仮想通貨 確定申告
+    - 生成AI ニュース
+
+# ブルーオーシャンKW戦略（ロングテール × 競合回避）
+blue_ocean:
+  min_chars: 10
+  min_words: 2
+  max_words: 10
+  prefer_words_min: 3
+  reject_raw_news_headlines: true
+  reject_high_competition: true
+  use_serp_related: true
+  max_expansion_per_seed: 8
+  trend_bonus: 5
+  long_tail_bonus: 12
+  intent_modifier_bonus: 10
+  high_intent_bonus: 8
+  head_term_penalty: 25
+  preferred_intents: [A, B, C, D, E]
+  head_terms:
+    - 投資
+    - 仮想通貨
+    - 暗号資産
+    - ChatGPT
+    - 生成AI
+    - NISA
+    - 副業
+    - AI
+  intent_modifiers:
+    - 始め方
+    - やり方
+    - 方法
+    - 手順
+    - 初心者
+    - 比較
+    - 口コミ
+    - 評判
+    - できない
+    - 対処
+    - 税金
+    - 確定申告
+    - ログイン
+    - 設定
+    - レビュー
+    - 体験
+  expansion_modifiers:
+    - 始め方 初心者
+    - やり方
+    - 比較
+    - 口コミ
+    - できない 対処
+    - 評判
+    - 税金
+    - 設定方法
+  news_headline_markers:
+    - 速報
+    - 発表
+    - 推移
+    - 株価
+    - 決算
+    - が発表
+    - へ
+  reject_patterns:
+    - "^[ぁ-んァ-ンa-zA-Z0-9]{1,6}$"
+  serp:
+    min_opportunity_ratio: 0.25
+    blue_ocean_serp_bonus: 15
+    red_ocean_serp_penalty: 20
+    red_ocean_authority_threshold: 6
+    opportunity_domain_bonus: 4
+    authority_domain_penalty: 3
+    authority_domains:
+      - wikipedia.org
+      - yahoo.co.jp
+      - google.com
+      - go.jp
+      - mufg.jp
+      - sbi.co.jp
+      - rakuten.co.jp
+      - nikkei.com
+      - bloomberg.co.jp
+      - reuters.com
+    opportunity_domains:
+      - note.com
+      - hatena
+      - ameblo
+      - wordpress
+      - blogspot
+      - livedoor
+      - fc2.com
+      - personal
+
+intent_categories:
+  A: {name: トラブル解決, intent_depth: 5, conversion: 5}
+  B: {name: 税金, intent_depth: 4, conversion: 4}
+  C: {name: 手順×組合せ, intent_depth: 4, conversion: 5}
+  D: {name: 懐疑・比較, intent_depth: 5, conversion: 5}
+  E: {name: 運用報告, intent_depth: 3, conversion: 4}
+  F: {name: 指名・基本, intent_depth: 2, conversion: 3}
+
+editorial:
+  trend_research: true
+  max_trend_headlines: 8
+  require_fact_opinion_split: true
+  fact_section_heading: "いま起きていること（事実）"
+  opinion_section_heading: "筆者の考察・見解"
+  opinion_label: "【考察】"
+  fact_label: "【事実】"

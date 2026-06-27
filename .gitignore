@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+setup_part*.py
+_bootstrap_part1.py

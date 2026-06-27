@@ -1,0 +1,31 @@
+site:
+  name: グロウフォリオ
+  url: https://growfolio-note.com
+  tagline: "つくって、増やす。AI×投資の実践ノート"
+  concept: "Money × Technology — AI・投資・副業で、未来を変えよう。"
+publish:
+  articles_per_run: 1
+  default_status: publish
+content:
+  min_chars: 4000
+  max_chars: 6000
+  title_max_chars: 32
+  meta_description_chars: 120
+  body_images: 1
+  featured_image_size: "1792x1024"
+  body_image_size: "1024x1024"
+disclaimer:
+  affiliate: "本記事はアフィリエイト広告を含みます。"
+  crypto: "仮想通貨の運用はリスクを伴い、元本保証はありません。"
+  fsa: "BitradeXは海外サービスで日本の金融庁（FSA）登録はありません。"
+  general: "本記事は情報提供を目的としたもので、投資・運用を推奨するものではありません。最終判断はご自身の責任で行ってください。"
+  auto_article: "本記事はアフィリエイト広告を含みます。掲載リンクからの購入・申込により、運営者に報酬が発生する場合があります。本記事は情報提供を目的としたもので、特定の商品・サービスの利用を推奨するものではありません。"
+categories:
+  - {name: 始め方, slug: start}
+  - {name: 運用・実績, slug: operation}
+  - {name: 出金・トラブル, slug: withdraw}
+  - {name: リスク・評判, slug: risk}
+  - {name: 紹介報酬, slug: referral}
+  - {name: 税金, slug: tax}
+  - {name: AI副業, slug: ai-side-hustle}
+  - {name: 投資入門, slug: investing-basics}

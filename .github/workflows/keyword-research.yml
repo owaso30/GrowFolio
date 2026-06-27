@@ -1,0 +1,24 @@
+name: Keyword Research
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 18 * * 6'
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r automation/requirements.txt
+      - run: python -m pipeline research --max-keywords 10
+        working-directory: automation
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update keyword queue'
+          file_pattern: automation/data/keyword_queue.json

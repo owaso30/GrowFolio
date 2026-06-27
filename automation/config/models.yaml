@@ -1,0 +1,13 @@
+# LLM / 画像生成プロバイダ（環境変数で上書き可）
+
+llm:
+  provider: anthropic
+  model: claude-sonnet-4-6
+  max_tokens: 8192
+  temperature: 0.65
+
+images:
+  provider: fal
+  featured_model: fal-ai/flux-2-pro
+  body_model: fal-ai/flux-2-pro
+  prompt_suffix: ". Flat illustration, modern fintech style, no text, no numbers, no screenshots, conceptual UI diagram."

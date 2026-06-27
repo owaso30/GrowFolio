@@ -1,0 +1,41 @@
+# BitradeX / Amazon（url は .env または GitHub Secrets）
+# A8 案件は config/a8_programs.yaml で管理（url もファイル内に記載）
+
+programs:
+  bitradex:
+    name: BitradeX
+    description: 仮想通貨AI自動売買。BitradeX・暗号資産運用・AI360D 等の記事向け
+    url_env: BITRADEX_AFFILIATE_URL
+    default_url: "https://bitradex.com"
+    topics:
+      - BitradeX
+      - 仮想通貨
+      - AI自動売買
+      - 暗号資産
+      - 自動売買
+    default_anchor: BitradeXの公式サイトはこちら
+    cta_template: |
+      <div class="swell-block-button is-style-solid">
+      <a href="{url}" class="btn" rel="nofollow sponsored noopener" target="_blank">BitradeXの公式サイトはこちら</a>
+      </div>
+      <p>※招待コードが必要な場合は<a href="{guide_url}">招待コードの取得方法</a>もご確認ください。</p>
+
+  amazon_search:
+    name: Amazonアソシエイト
+    description: 書籍・ツール・関連商品の検索リンク。具体物の紹介・比較記事向け
+    tag_env: AMAZON_AFFILIATE_TAG
+    url_template: "https://www.amazon.co.jp/s?k={query}&tag={tag}"
+    topics:
+      - 書籍
+      - 本
+      - ガジェット
+      - ツール
+      - おすすめ
+    default_anchor: 関連商品をAmazonで探す
+    cta_template: |
+      <p class="affiliate-cta">▶ <a href="{url}" rel="nofollow sponsored noopener" target="_blank">{anchor}</a>（Amazon）</p>
+
+a8_cta_template: |
+  <div class="swell-block-button is-style-solid">
+  <a href="{url}" class="btn" rel="nofollow sponsored noopener" target="_blank">{anchor}</a>
+  </div>

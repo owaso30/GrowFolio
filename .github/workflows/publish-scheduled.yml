@@ -1,0 +1,48 @@
+name: Publish Scheduled Article
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (generate only, no publish)'
+        required: false
+        default: 'false'
+  schedule:
+    - cron: '0 0 * * 2,5'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r automation/requirements.txt
+      - run: python -m pipeline sync-posts
+        working-directory: automation
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+      - name: Publish article
+        working-directory: automation
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'claude-sonnet-4-6' }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          BITRADEX_AFFILIATE_URL: ${{ secrets.BITRADEX_AFFILIATE_URL }}
+          AMAZON_AFFILIATE_TAG: ${{ secrets.AMAZON_AFFILIATE_TAG }}
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python -m pipeline publish --count 1 --dry-run
+          else
+            python -m pipeline publish --count 1
+          fi
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update published data after auto-post'
+          file_pattern: automation/data/published.json automation/data/keyword_queue.json
