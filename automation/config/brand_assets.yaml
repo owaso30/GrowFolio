@@ -1,0 +1,39 @@
+# 記事画像用ブランドアセット（公式ロゴ URL / ローカルファイル）
+# logo_url が取得できない場合は assets/logos/{brand_key}.png を配置
+
+brands:
+  bitradex:
+    name: BitradeX
+    logo_url: "https://bitradex.com/favicon.ico"
+    bg_color: "#f0f7ff"
+    accent_color: "#1d4ed8"
+
+  github_copilot:
+    name: GitHub Copilot
+    logo_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+    bg_color: "#f6f8fa"
+    accent_color: "#24292f"
+
+  cursor:
+    name: Cursor
+    logo_url: "https://www.cursor.com/favicon.ico"
+    bg_color: "#f8fafc"
+    accent_color: "#0f172a"
+
+  vscode:
+    name: Visual Studio Code
+    logo_url: "https://code.visualstudio.com/assets/images/code-stable.png"
+    bg_color: "#f3f4f6"
+    accent_color: "#007acc"
+
+  claude:
+    name: Claude
+    logo_url: "https://www.anthropic.com/images/icons/apple-touch-icon.png"
+    bg_color: "#faf5f0"
+    accent_color: "#c96442"
+
+  microsoft_365:
+    name: Microsoft 365
+    logo_url: "https://www.microsoft.com/favicon.ico"
+    bg_color: "#f5f5f5"
+    accent_color: "#0078d4"

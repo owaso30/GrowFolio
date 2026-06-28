@@ -10,4 +10,4 @@ images:
   provider: fal
   featured_model: fal-ai/flux-2-pro
   body_model: fal-ai/flux-2-pro
-  prompt_suffix: ". Flat illustration, modern fintech style, no text, no numbers, no screenshots, conceptual UI diagram."
+  prompt_suffix: ". Minimal editorial photography or clean flat design. Soft natural lighting, neutral background, subtle real-world props. No text, no numbers, no UI screenshots, no fake logos, no 3D render, no neon glow, no glossy AI art aesthetic, no futuristic illustration."

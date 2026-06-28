@@ -37,11 +37,14 @@ class WordPressClient:
         r.raise_for_status()
         return r.json()
 
-    def list_posts(self, status: str = "publish", per_page: int = 100) -> list[dict]:
+    def list_posts(self, status: str = "publish", per_page: int = 100, *, context: str = "view") -> list[dict]:
         posts: list[dict] = []
         page = 1
         while True:
-            batch = self._get("posts", {"status": status, "per_page": per_page, "page": page, "_embed": 1})
+            batch = self._get(
+                "posts",
+                {"status": status, "per_page": per_page, "page": page, "_embed": 1, "context": context},
+            )
             if not batch:
                 break
             posts.extend(batch)
@@ -49,6 +52,12 @@ class WordPressClient:
                 break
             page += 1
         return posts
+
+    def get_post(self, post_id: int, *, context: str = "edit") -> dict:
+        return self._get(f"posts/{post_id}", {"context": context})
+
+    def update_post(self, post_id: int, data: dict) -> dict:
+        return self._post(f"posts/{post_id}", data)
 
     def get_categories(self) -> list[dict]:
         cats: list[dict] = []

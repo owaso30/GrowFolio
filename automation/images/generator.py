@@ -4,6 +4,11 @@ from __future__ import annotations
 from typing import Any
 
 from config_loader import load_yaml
+from images.brand_image import (
+    _editorial_flux_prompt,
+    brand_caption,
+    compose_brand_image,
+)
 from images.flux_client import generate_image_bytes
 from seo.ssp_meta import build_featured_alt
 
@@ -16,6 +21,28 @@ def _image_limits() -> tuple[int, str, str]:
     return body_count, featured_size, body_size
 
 
+def _image_bytes(
+    item: dict[str, Any],
+    *,
+    keyword: str,
+    title: str,
+    size: str,
+    role: str = "featured",
+) -> tuple[bytes, str]:
+    """Returns (png bytes, figcaption)."""
+    source = str(item.get("source", "flux")).lower()
+    brand_key = str(item.get("brand_key", "")).strip()
+
+    if source == "brand" and brand_key:
+        try:
+            return compose_brand_image(brand_key, size), brand_caption(brand_key)
+        except Exception:
+            pass
+
+    prompt = item.get("prompt") or _editorial_flux_prompt(keyword, title)
+    return generate_image_bytes(prompt, size=size, role=role), "※参考イメージ"
+
+
 def process_images(article: dict[str, Any], keyword: str) -> tuple[list[dict], str]:
     """Returns list of {bytes, filename, alt} and updated HTML body."""
     from content.generator import markdown_to_html
@@ -24,12 +51,15 @@ def process_images(article: dict[str, Any], keyword: str) -> tuple[list[dict], s
     html = markdown_to_html(article.get("markdown_body", ""))
     images: list[dict] = []
     prompts = article.get("image_prompts") or []
+    title = str(article.get("title", ""))
 
     feat = prompts[0] if prompts else {}
-    feat_prompt = feat.get("prompt") or f"Conceptual illustration about {keyword}, fintech, no text"
     feat_alt = build_featured_alt(article, keyword)
+    feat_bytes, _ = _image_bytes(
+        feat, keyword=keyword, title=title, size=featured_size, role="featured"
+    )
     images.append({
-        "bytes": generate_image_bytes(feat_prompt, size=featured_size, role="featured"),
+        "bytes": feat_bytes,
         "filename": "featured.png",
         "alt": feat_alt,
         "role": "featured",
@@ -37,7 +67,9 @@ def process_images(article: dict[str, Any], keyword: str) -> tuple[list[dict], s
 
     for i, item in enumerate(prompts[1 : 1 + max_body], start=1):
         placeholder = item.get("placeholder", f"[IMAGE:{i}]")
-        img_bytes = generate_image_bytes(item.get("prompt", keyword), size=body_size, role="body")
+        img_bytes, caption = _image_bytes(
+            item, keyword=keyword, title=title, size=body_size, role="body"
+        )
         alt = item.get("alt", keyword)
         filename = f"body-{i}.png"
         images.append({"bytes": img_bytes, "filename": filename, "alt": alt, "role": "body"})
@@ -45,7 +77,7 @@ def process_images(article: dict[str, Any], keyword: str) -> tuple[list[dict], s
         figure = (
             f'<figure class="wp-block-image">'
             f'<img src="BODY_IMAGE_{i}" alt="{alt}" />'
-            f'<figcaption>※イメージ図</figcaption></figure>'
+            f"<figcaption>{caption}</figcaption></figure>"
         )
         if placeholder in html:
             html = html.replace(placeholder, figure)

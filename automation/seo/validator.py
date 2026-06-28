@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import re
 
+from config_loader import load_yaml
+
 NG_PATTERNS = [
     (r"絶対儲かる", "収益は保証されません"),
     (r"元本保証", "元本保証はありません"),
@@ -18,10 +20,13 @@ def apply_legal_filter(text: str) -> str:
     return text
 
 
-def validate_title(title: str, max_chars: int = 32) -> str:
+def validate_title(title: str, max_chars: int | None = None) -> str:
+    """投稿タイトルを整形。省略記号（…）での切り詰めは行わない。"""
     title = title.strip()
-    if len(title) > max_chars:
-        return title[: max_chars - 1] + "…"
+    if max_chars is None:
+        max_chars = int(load_yaml("site.yaml").get("content", {}).get("title_max_chars", 0))
+    if max_chars > 0 and len(title) > max_chars:
+        return title[:max_chars].rstrip()
     return title
 
 

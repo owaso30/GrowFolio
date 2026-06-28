@@ -333,6 +333,15 @@ editorial:
   min_reference_sources: 3
   fact_section_heading: "いま起きていること（事実）"
   opinion_section_heading: "筆者の考察・見解"
-  opinion_label: "【考察】"
   fact_label: "【事実】"
+  fact_badge_text: "事実"
+  opinion_label: "【考察】"
+  opinion_badge_text: "考察"
   source_section_heading: "参考・関連情報"
+  images:
+    prefer_brand_logo: true
+    avoid_ai_aesthetic: true
+    flux_style: "editorial minimal photo or clean flat design, no neon, no 3D, no fake UI"
+  emphasis:
+    min_cap_boxes: 2
+    min_mark_highlights: 3

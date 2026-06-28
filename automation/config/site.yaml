@@ -9,7 +9,7 @@ publish:
 content:
   min_chars: 4000
   max_chars: 6000
-  title_max_chars: 32
+  title_max_chars: 0
   meta_description_chars: 120
   body_images: 1
   featured_image_size: "1792x1024"

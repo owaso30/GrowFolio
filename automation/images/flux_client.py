@@ -24,7 +24,8 @@ def _parse_size(size: str) -> dict[str, int]:
 def _enhance_prompt(prompt: str) -> str:
     suffix = _image_config().get(
         "prompt_suffix",
-        ". Flat illustration, modern fintech style, no text, no numbers, no screenshots, conceptual UI diagram.",
+        ". Minimal editorial photography or clean flat design. Soft natural lighting, neutral background. "
+        "No text, no numbers, no UI screenshots, no fake logos, no 3D render, no neon glow, no glossy AI art.",
     )
     return prompt.rstrip(".") + suffix
 

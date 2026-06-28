@@ -330,3 +330,83 @@ def inject_affiliates_into_html(
                 soup.append(BeautifulSoup(rendered["end"][0], "html.parser"))
 
     return str(soup)
+
+
+_LEGACY_AFFILIATE_RE = re.compile(
+    r'<aside class="growfolio-affiliate[^>]*>.*?</aside>\s*'
+    r'|<p class="affiliate-cta">.*?</p>\s*'
+    r'|<div class="swell-block-button[^>]*>.*?</div>\s*',
+    re.DOTALL,
+)
+_INLINE_SPONSORED_AMAZON_RE = re.compile(
+    r'<a href="[^"]*amazon\.co\.jp[^"]*"[^>]*rel="[^"]*sponsored[^"]*"[^>]*>([^<]+)</a>',
+    re.IGNORECASE,
+)
+
+
+def strip_legacy_affiliate_html(html: str) -> str:
+    """末尾CTA・SWELLボタン・旧バナーを除去。インラインの sponsored Amazon リンクもテキスト化。"""
+    if not html:
+        return html
+    html = _LEGACY_AFFILIATE_RE.sub("", html)
+    html = _INLINE_SPONSORED_AMAZON_RE.sub(r"\1", html)
+    # FAQ 内など tag なし Amazon リンクも除去（バナー intro に集約）
+    html = re.sub(
+        r'<a href="[^"]*amazon\.co\.jp[^"]*">([^<]+)</a>',
+        r"\1",
+        html,
+        flags=re.IGNORECASE,
+    )
+    return html
+
+
+def it_career_affiliate_placements(*, intro_query: str = "AI コーディング エディタ 開発 入門") -> list[dict]:
+    """ITキャリア系記事の intro / mid / end 配置（id=266 準拠）。"""
+    return [
+        {
+            "program": "amazon_search",
+            "slot": "intro",
+            "query": intro_query,
+            "heading": "AI開発・エディタ活用の基礎を書籍で固める",
+            "teaser": "CopilotやVSCodeを使いこなすための開発スキル・プロンプト設計の入門書をAmazonでまとめて探せます。",
+            "anchor": "AI開発入門書をAmazonで探す",
+        },
+        {
+            "program": "a8_お名前_com",
+            "slot": "mid",
+            "heading": "開発ポートフォリオ・技術ブログを始めるなら",
+            "teaser": "ITキャリアアップには自分の技術発信が有効です。ドメイン取得から始めてポートフォリオサイトを構築しましょう。",
+            "anchor": "お名前.comでドメインを取得する",
+        },
+        {
+            "program": "a8_楽天アフィリエイト",
+            "slot": "end",
+            "heading": "開発スキルで稼ぐ×資産形成を同時に進める",
+            "teaser": "ITスキルで副業収入を増やしながら、楽天経済圏を活用した資産形成も検討してみましょう。",
+            "anchor": "楽天アフィリエイトで副業を始める",
+        },
+    ]
+
+
+def reapply_affiliates_to_html(
+    html: str,
+    placements: list[dict] | None,
+    *,
+    site_url: str = "",
+    keyword: str = "",
+    fact_heading: str = "いま起きていること（事実）",
+    opinion_heading: str = "筆者の考察・見解",
+    source_heading: str = "参考・関連情報",
+) -> str:
+    """旧アフィリエイトを除去してから intro / mid / end バナーを再配置。"""
+    cleaned = strip_legacy_affiliate_html(html)
+    return inject_affiliates_into_html(
+        cleaned,
+        placements,
+        site_url=site_url,
+        keyword=keyword,
+        fact_heading=fact_heading,
+        opinion_heading=opinion_heading,
+        source_heading=source_heading,
+    )
+
