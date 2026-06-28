@@ -108,6 +108,9 @@ def resolve_program(prog_id: str) -> dict | None:
         affiliates = _load_affiliates_cfg()
         merged = dict(prog)
         merged["cta_template"] = affiliates.get("a8_cta_template", "")
+        merged["style_key"] = "a8"
+        merged.setdefault("default_heading", f"{merged.get('name', '関連サービス')}がおすすめ")
+        merged.setdefault("default_teaser", "記事のテーマに関連するサービスです。詳細は公式サイトでご確認ください。")
         return merged
 
     prog = get_standard_programs().get(prog_id)

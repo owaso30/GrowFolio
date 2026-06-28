@@ -1,6 +1,38 @@
 # BitradeX / Amazon（url は .env または GitHub Secrets）
 # A8 案件は config/a8_programs.yaml で管理（url もファイル内に記載）
 
+affiliate_banners:
+  slot_labels:
+    intro: "📌 この記事を読む方におすすめ"
+    mid: "💡 関連サービス・ツール"
+    end: "👉 次のステップ"
+  slot_default_headings:
+    intro: "まず押さえておきたい関連サービス"
+    mid: "記事の内容と相性の良いツール・サービス"
+    end: "このテーマを実践するための次のアクション"
+  disclaimer_note: "※当サイトはアフィリエイトプログラムに参加しています。リンクからの申込・購入により報酬が発生する場合があります。"
+  styles:
+    bitradex:
+      border: "#1d4ed8"
+      accent: "#1d4ed8"
+      bg: "linear-gradient(135deg,#eff6ff 0%,#f8fafc 100%)"
+      badge: "BitradeX"
+    amazon:
+      border: "#ea580c"
+      accent: "#c2410c"
+      bg: "linear-gradient(135deg,#fff7ed 0%,#fffbeb 100%)"
+      badge: "Amazon"
+    a8:
+      border: "#059669"
+      accent: "#047857"
+      bg: "linear-gradient(135deg,#ecfdf5 0%,#f0fdf4 100%)"
+      badge: "PR"
+    default:
+      border: "#475569"
+      accent: "#334155"
+      bg: "linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%)"
+      badge: "PR"
+
 programs:
   bitradex:
     name: BitradeX
@@ -13,12 +45,14 @@ programs:
       - AI自動売買
       - 暗号資産
       - 自動売買
-    default_anchor: BitradeXの公式サイトはこちら
+    default_anchor: BitradeXの公式サイトで詳細を見る
+    default_heading: "仮想通貨AI運用を始めるなら BitradeX"
+    default_teaser: "AIプラン比較・入出金・運用の流れまで、実践記事と合わせて公式情報も確認できます。"
+    style_key: bitradex
     cta_template: |
-      <div class="swell-block-button is-style-solid">
-      <a href="{url}" class="btn" rel="nofollow sponsored noopener" target="_blank">BitradeXの公式サイトはこちら</a>
-      </div>
-      <p>※招待コードが必要な場合は<a href="{guide_url}">招待コードの取得方法</a>もご確認ください。</p>
+      <a href="{url}" class="growfolio-affiliate__btn" rel="nofollow sponsored noopener" target="_blank">{anchor}</a>
+    extra_html: |
+      <p class="growfolio-affiliate__sub">※招待コードが必要な場合は<a href="{guide_url}">招待コードの取得方法</a>もご確認ください。</p>
 
   amazon_search:
     name: Amazonアソシエイト
@@ -32,10 +66,11 @@ programs:
       - ツール
       - おすすめ
     default_anchor: 関連商品をAmazonで探す
+    default_heading: "関連書籍・ツールをAmazonでチェック"
+    default_teaser: "記事のテーマに合う入門書やガジェットを、Amazonでまとめて検索できます。"
+    style_key: amazon
     cta_template: |
-      <p class="affiliate-cta">▶ <a href="{url}" rel="nofollow sponsored noopener" target="_blank">{anchor}</a>（Amazon）</p>
+      <a href="{url}" class="growfolio-affiliate__btn" rel="nofollow sponsored noopener" target="_blank">{anchor}</a>
 
 a8_cta_template: |
-  <div class="swell-block-button is-style-solid">
-  <a href="{url}" class="btn" rel="nofollow sponsored noopener" target="_blank">{anchor}</a>
-  </div>
+  <a href="{url}" class="growfolio-affiliate__btn" rel="nofollow sponsored noopener" target="_blank">{anchor}</a>

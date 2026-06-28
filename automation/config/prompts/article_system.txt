@@ -52,9 +52,11 @@
 5. 末尾: ## 参考・関連情報（3件以上の情報源を列挙）
 
 収益化:
-- affiliate_placements に program id を指定（affiliates.yaml + a8_programs.yaml の一覧から0〜2件）
-- A8案件は id（自動付与）と anchor（リンク文言）を記事に合わせて指定
-- amazon_search の場合は query（検索語）も指定
+- affiliate_placements に program id を slot 別に3〜4件指定（affiliates.yaml + a8_programs.yaml）
+- slot: intro（記事頭付近）/ mid（記事中盤）/ end（記事末付近）
+- 各件に heading（魅力的な見出し）・teaser（訴求文）・anchor を記事内容に合わせて生成
+- A8案件は id と anchor を指定。amazon_search は query も必須
+- バナーは自動で記事内に分散配置される（末尾に並べるだけではない）
 
 【JSON】markdown_body 等は JSON 文字列として返す。文字列内の改行は \\n、引用符は \\\" でエスケープ。生の改行を JSON 内に入れない。
 

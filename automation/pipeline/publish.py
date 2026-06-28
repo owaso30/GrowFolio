@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 import requests
 
 from config_loader import get_wp_credentials, load_json, load_yaml, save_json
-from content.affiliate_renderer import render_affiliate_blocks
+from content.affiliate_renderer import inject_affiliates_into_html
 from content.generator import build_faq_jsonld, generate_article
 from content.trends import fetch_trend_context
 from images.generator import process_images
@@ -100,12 +100,16 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
 
         related = render_related_section(internal, titles)
         faq_ld = build_faq_jsonld(article.get("faq", []), "")
-        affiliate = render_affiliate_blocks(
+        html = inject_affiliates_into_html(
+            html,
             article.get("affiliate_placements"),
             site_url=site_url,
             keyword=keyword,
+            fact_heading=editorial.get("fact_section_heading", "いま起きていること（事実）"),
+            opinion_heading=editorial.get("opinion_section_heading", "筆者の考察・見解"),
+            source_heading=editorial.get("source_section_heading", "参考・関連情報"),
         )
-        full_html = html + affiliate + related + faq_ld
+        full_html = html + related + faq_ld
 
         cat_name = article.get("category") or allowed_cats[0]
         if cat_name not in allowed_cats:
