@@ -1,6 +1,18 @@
 {
-  "synced_at": "2026-06-27T15:44:33.726060+00:00",
+  "synced_at": "2026-06-28T04:21:38.057516+00:00",
   "posts": [
+    {
+      "id": 257,
+      "slug": "github-copilot-plan-comparison-2026",
+      "title": "GitHub Copilot 機能比較2026：Free・Pr…",
+      "url": "https://growfolio-note.com/github-copilot-plan-comparison-2026/",
+      "categories": [
+        "ITキャリア"
+      ],
+      "keywords": [
+        "GitHub Copilot 機能比較2026：Free・Pr…"
+      ]
+    },
     {
       "id": 247,
       "slug": "bitradex-guide",
@@ -158,15 +170,15 @@
       ]
     },
     {
-      "id": 257,
-      "slug": "github-copilot-plan-comparison-2026",
-      "title": "GitHub Copilot 機能比較2026：Free・Pr…",
-      "url": "https://growfolio-note.com/github-copilot-plan-comparison-2026/",
+      "id": 266,
+      "slug": "cursor-vscode-difference-2026",
+      "title": "CursorとVSCodeの違い2026年版｜AI統合エディタ…",
+      "url": "https://growfolio-note.com/cursor-vscode-difference-2026/",
       "categories": [
         "ITキャリア"
       ],
       "keywords": [
-        "github copilot 機能比較"
+        "Cursor VSCode 違い"
       ],
       "source": "auto"
     }
