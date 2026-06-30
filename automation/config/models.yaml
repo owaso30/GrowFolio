@@ -10,4 +10,4 @@ images:
   provider: fal
   featured_model: fal-ai/flux-2-pro
   body_model: fal-ai/flux-2-pro
-  prompt_suffix: ". Minimal editorial photography or clean flat design. Soft natural lighting, neutral background, subtle real-world props. No text, no numbers, no UI screenshots, no fake logos, no 3D render, no neon glow, no glossy AI art aesthetic, no futuristic illustration."
+  prompt_suffix: ". Near-futuristic clean digital illustration, polished vector aesthetic with soft depth, elegant gradients, crisp composition. Topic must be visually obvious. No photorealism, no readable text, no watermarks, no official logos, no oversaturated colors, no chaotic AI slop, no generic abstract blobs unrelated to the topic."

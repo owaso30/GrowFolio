@@ -40,6 +40,14 @@ def main() -> None:
     p_sources.add_argument("--slug", default="", help="特定スラッグのみ更新")
     p_sources.add_argument("--post-id", type=int, default=0, help="特定投稿IDのみ更新")
 
+    p_feat = sub.add_parser(
+        "apply-featured-images",
+        help="公開済み記事のアイキャッチをロゴ＋テーマ写真のハイブリッドへ更新",
+    )
+    p_feat.add_argument("--dry-run", action="store_true")
+    p_feat.add_argument("--slug", default="", help="特定スラッグのみ更新")
+    p_feat.add_argument("--post-id", type=int, default=0, help="特定投稿IDのみ更新")
+
     args = parser.parse_args()
 
     if args.command == "sync-posts":
@@ -68,6 +76,13 @@ def main() -> None:
     elif args.command == "apply-source-links":
         from pipeline.apply_source_links import apply_source_links_to_posts
         apply_source_links_to_posts(
+            dry_run=args.dry_run,
+            slug=args.slug or None,
+            post_id=args.post_id or None,
+        )
+    elif args.command == "apply-featured-images":
+        from pipeline.apply_featured_images import apply_featured_images_to_posts
+        apply_featured_images_to_posts(
             dry_run=args.dry_run,
             slug=args.slug or None,
             post_id=args.post_id or None,

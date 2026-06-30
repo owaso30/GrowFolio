@@ -8,6 +8,8 @@ from images.brand_image import (
     _editorial_flux_prompt,
     brand_caption,
     compose_brand_image,
+    compose_hybrid_brand_image,
+    pick_brand_key,
 )
 from images.flux_client import generate_image_bytes
 from seo.ssp_meta import build_featured_alt
@@ -26,20 +28,35 @@ def _image_bytes(
     *,
     keyword: str,
     title: str,
+    slug: str = "",
     size: str,
     role: str = "featured",
 ) -> tuple[bytes, str]:
     """Returns (png bytes, figcaption)."""
     source = str(item.get("source", "flux")).lower()
     brand_key = str(item.get("brand_key", "")).strip()
+    scene_prompt = str(item.get("scene_prompt", "") or item.get("prompt", "")).strip()
+    resolved_brand = brand_key or pick_brand_key(keyword, title, slug=slug) or ""
 
     if source == "brand" and brand_key:
         try:
+            if role == "featured":
+                return (
+                    compose_hybrid_brand_image(
+                        brand_key,
+                        keyword=keyword,
+                        title=title,
+                        slug=slug,
+                        scene_prompt=scene_prompt,
+                        size=size,
+                    ),
+                    brand_caption(brand_key, hybrid=True),
+                )
             return compose_brand_image(brand_key, size), brand_caption(brand_key)
         except Exception:
             pass
 
-    prompt = item.get("prompt") or _editorial_flux_prompt(keyword, title)
+    prompt = scene_prompt or _editorial_flux_prompt(keyword, title, resolved_brand, slug)
     return generate_image_bytes(prompt, size=size, role=role), "※参考イメージ"
 
 
@@ -52,11 +69,12 @@ def process_images(article: dict[str, Any], keyword: str) -> tuple[list[dict], s
     images: list[dict] = []
     prompts = article.get("image_prompts") or []
     title = str(article.get("title", ""))
+    slug = str(article.get("slug", ""))
 
     feat = prompts[0] if prompts else {}
     feat_alt = build_featured_alt(article, keyword)
     feat_bytes, _ = _image_bytes(
-        feat, keyword=keyword, title=title, size=featured_size, role="featured"
+        feat, keyword=keyword, title=title, slug=slug, size=featured_size, role="featured"
     )
     images.append({
         "bytes": feat_bytes,
@@ -68,7 +86,7 @@ def process_images(article: dict[str, Any], keyword: str) -> tuple[list[dict], s
     for i, item in enumerate(prompts[1 : 1 + max_body], start=1):
         placeholder = item.get("placeholder", f"[IMAGE:{i}]")
         img_bytes, caption = _image_bytes(
-            item, keyword=keyword, title=title, size=body_size, role="body"
+            item, keyword=keyword, title=title, slug=slug, size=body_size, role="body"
         )
         alt = item.get("alt", keyword)
         filename = f"body-{i}.png"

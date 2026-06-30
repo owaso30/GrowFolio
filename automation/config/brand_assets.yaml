@@ -16,14 +16,14 @@ brands:
 
   cursor:
     name: Cursor
-    logo_url: "https://www.cursor.com/favicon.ico"
+    logo_url: ""
     bg_color: "#f8fafc"
     accent_color: "#0f172a"
 
   vscode:
     name: Visual Studio Code
-    logo_url: "https://code.visualstudio.com/assets/images/code-stable.png"
-    bg_color: "#f3f4f6"
+    logo_url: ""
+    bg_color: "#f0f4f8"
     accent_color: "#007acc"
 
   claude:
