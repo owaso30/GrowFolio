@@ -2,7 +2,11 @@
 from __future__ import annotations
 
 from config_loader import load_yaml
-from content.affiliate_renderer import it_career_affiliate_placements, reapply_affiliates_to_html
+from content.affiliate_renderer import (
+    bitradex_affiliate_placements,
+    it_career_affiliate_placements,
+    reapply_affiliates_to_html,
+)
 from seo.content_policy import get_editorial_policy
 from wordpress.client import WordPressClient
 
@@ -21,6 +25,18 @@ def _post_title(post: dict) -> str:
     return str(title)
 
 
+def _is_bitradex_post(post: dict) -> bool:
+    return str(post.get("slug", "")).startswith("bitradex")
+
+
+def _is_it_career_post(post: dict) -> bool:
+    slug = str(post.get("slug", "")).lower()
+    return any(
+        token in slug
+        for token in ("copilot", "cursor", "vscode", "claude", "it-career")
+    )
+
+
 def _intro_query_for_post(post: dict, keyword: str) -> str:
     slug = post.get("slug", "")
     if "copilot" in slug or "copilot" in keyword.lower():
@@ -35,8 +51,9 @@ def apply_affiliates_to_posts(
     dry_run: bool = False,
     slug: str | None = None,
     post_id: int | None = None,
+    bitradex_only: bool = False,
 ) -> list[dict]:
-    """ITキャリア系記事を id=266 同様の intro / mid / end バナー配置へ更新。"""
+    """公開済み記事に intro / mid / end バナーを配置・更新。"""
     client = WordPressClient()
     site_url = load_yaml("site.yaml")["site"]["url"]
     editorial = get_editorial_policy()
@@ -50,16 +67,32 @@ def apply_affiliates_to_posts(
         if post_id and pid != post_id:
             continue
 
-        content = _post_content(post)
-        if not content or "growfolio-affiliate growfolio-affiliate--intro" in content:
-            if slug or post_id:
-                pass
-            else:
+        is_bitradex = _is_bitradex_post(post)
+        is_it = _is_it_career_post(post)
+
+        if bitradex_only and not is_bitradex:
+            continue
+        if not bitradex_only and not slug and not post_id:
+            if not is_bitradex and not is_it:
                 continue
 
+        content = _post_content(post)
+        if not content:
+            continue
+
+        if is_bitradex:
+            placements = bitradex_affiliate_placements(post_slug, _post_title(post))
+        elif is_it:
+            if "growfolio-affiliate growfolio-affiliate--intro" in content:
+                continue
+            keyword = post_slug.replace("-", " ")
+            placements = it_career_affiliate_placements(
+                intro_query=_intro_query_for_post(post, keyword)
+            )
+        else:
+            continue
+
         keyword = post_slug.replace("-", " ")
-        intro_query = _intro_query_for_post(post, keyword)
-        placements = it_career_affiliate_placements(intro_query=intro_query)
         new_content = reapply_affiliates_to_html(
             content,
             placements,

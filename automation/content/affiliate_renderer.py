@@ -270,6 +270,70 @@ def _intro_anchor(soup: BeautifulSoup) -> Tag | None:
     return first_p
 
 
+def _content_h2s(soup: BeautifulSoup) -> list[Tag]:
+    """関連記事リンク以外の本文 h2。"""
+    h2s: list[Tag] = []
+    for h2 in soup.find_all("h2"):
+        text = h2.get_text(strip=True)
+        if "関連記事" in text:
+            continue
+        h2s.append(h2)
+    return h2s
+
+
+def _resolve_mid_target(
+    soup: BeautifulSoup,
+    *,
+    fact_heading: str,
+    opinion_heading: str,
+) -> tuple[str, Tag] | None:
+    """mid バナーの挿入位置（before/after, 基準ノード）。"""
+    opinion_h2 = _find_h2(soup, opinion_heading)
+    if opinion_h2:
+        return ("before", opinion_h2)
+
+    fact_h2 = _find_h2(soup, fact_heading)
+    if fact_h2:
+        return ("after", fact_h2)
+
+    h2s = _content_h2s(soup)
+    if len(h2s) >= 4:
+        return ("before", h2s[3])
+    if len(h2s) >= 3:
+        return ("before", h2s[2])
+    if len(h2s) >= 2:
+        return ("before", h2s[1])
+    if h2s:
+        return ("after", h2s[0])
+    return None
+
+
+def _resolve_end_target(soup: BeautifulSoup, *, source_heading: str) -> tuple[str, Tag] | None:
+    """end バナーの挿入位置。"""
+    source_h2 = _find_h2(soup, source_heading)
+    if source_h2:
+        return ("before", source_h2)
+
+    h2s = _content_h2s(soup)
+    for h2 in reversed(h2s):
+        text = h2.get_text(strip=True)
+        if any(key in text for key in ("まとめ", "FAQ", "よくある質問")):
+            return ("before", h2)
+    if h2s:
+        return ("before", h2s[-1])
+    return None
+
+
+def _apply_insert(soup: BeautifulSoup, target: tuple[str, Tag] | None, html: str) -> None:
+    if not target or not html:
+        return
+    mode, node = target
+    if mode == "before":
+        _insert_before(node, html)
+    else:
+        _insert_after(node, html)
+
+
 def inject_affiliates_into_html(
     html: str,
     placements: list[dict] | None,
@@ -301,33 +365,25 @@ def inject_affiliates_into_html(
     if rendered["intro"]:
         _insert_after(_intro_anchor(soup), rendered["intro"][0])
 
-    opinion_h2 = _find_h2(soup, opinion_heading)
-    fact_h2 = _find_h2(soup, fact_heading)
-    source_h2 = _find_h2(soup, source_heading)
-
+    mid_target = _resolve_mid_target(
+        soup,
+        fact_heading=fact_heading,
+        opinion_heading=opinion_heading,
+    )
     if rendered["mid"]:
-        if opinion_h2:
-            _insert_before(opinion_h2, rendered["mid"][0])
-        elif fact_h2:
-            _insert_after(fact_h2, rendered["mid"][0])
-        else:
-            _insert_after(_intro_anchor(soup), rendered["mid"][0])
+        _apply_insert(soup, mid_target, rendered["mid"][0])
 
     if len(rendered["mid"]) > 1:
-        if source_h2:
-            _insert_before(source_h2, rendered["mid"][1])
-        elif opinion_h2:
-            _insert_after(opinion_h2, rendered["mid"][1])
+        end_target = _resolve_end_target(soup, source_heading=source_heading)
+        second_mid_target = end_target or mid_target
+        _apply_insert(soup, second_mid_target, rendered["mid"][1])
 
+    end_target = _resolve_end_target(soup, source_heading=source_heading)
     if rendered["end"]:
-        if source_h2:
-            _insert_before(source_h2, rendered["end"][0])
+        if end_target:
+            _apply_insert(soup, end_target, rendered["end"][0])
         else:
-            last_h2 = soup.find_all("h2")
-            if last_h2:
-                _insert_before(last_h2[-1], rendered["end"][0])
-            else:
-                soup.append(BeautifulSoup(rendered["end"][0], "html.parser"))
+            soup.append(BeautifulSoup(rendered["end"][0], "html.parser"))
 
     return str(soup)
 
@@ -358,6 +414,239 @@ def strip_legacy_affiliate_html(html: str) -> str:
         flags=re.IGNORECASE,
     )
     return html
+
+
+def bitradex_affiliate_placements(slug: str, title: str = "") -> list[dict]:
+    """BitradeX系記事の intro / mid / end 配置（記事ごとに Amazon・A8・BitradeX を分散）。"""
+    s = slug.lower()
+    text = f"{slug} {title}".lower()
+
+    def _b(
+        program: str,
+        slot: str,
+        *,
+        heading: str,
+        teaser: str,
+        anchor: str,
+        query: str = "",
+    ) -> dict:
+        item = {
+            "program": program,
+            "slot": slot,
+            "heading": heading,
+            "teaser": teaser,
+            "anchor": anchor,
+        }
+        if query:
+            item["query"] = query
+        return item
+
+    if "tax" in s:
+        return [
+            _b(
+                "amazon_search",
+                "intro",
+                query="仮想通貨 税金 確定申告 初心者",
+                heading="仮想通貨の税金・確定申告を学ぶなら",
+                teaser="暗号資産の損益計算や申告の基礎が分かる入門書を、記事の内容とあわせてAmazonで探せます。",
+                anchor="仮想通貨の税金入門書をAmazonで探す",
+            ),
+            _b(
+                "a8_楽天アフィリエイト",
+                "mid",
+                heading="副業収入の資産化も視野に入れる",
+                teaser="運用益の管理と並行して、副業・アフィリエイトで収入源を増やす選択肢もあります。",
+                anchor="楽天アフィリエイトで副業を始める",
+            ),
+            _b(
+                "bitradex",
+                "end",
+                heading="AI運用の公式情報もあわせて確認",
+                teaser="税金の話とセットで、BitradeXの運用ルールや出金の流れも押さえておきましょう。",
+                anchor="BitradeXの公式サイトで詳細を見る",
+            ),
+        ]
+
+    if "affiliate" in s or "referral" in s:
+        return [
+            _b(
+                "bitradex",
+                "intro",
+                heading="BitradeXの紹介報酬を本気で狙うなら",
+                teaser="招待コード・報酬体系・集客のコツまで、公式情報で最新条件を確認できます。",
+                anchor="BitradeXの公式サイトで詳細を見る",
+            ),
+            _b(
+                "a8_楽天アフィリエイト",
+                "mid",
+                heading="アフィリエイトの基礎を固めるなら",
+                teaser="紹介報酬を伸ばすには、ASPの仕組み理解も重要です。楽天アフィリエイトから始めるのも一手です。",
+                anchor="楽天アフィリエイトに登録する",
+            ),
+            _b(
+                "a8_お名前_com",
+                "end",
+                heading="紹介用のサイト・ブログを立ち上げる",
+                teaser="独自ドメインを取って発信基盤を作れば、紹介リンクの信頼感も高まります。",
+                anchor="お名前.comでドメインを取得する",
+            ),
+        ]
+
+    if "risk" in s or "who-should" in s or "review" in s:
+        return [
+            _b(
+                "amazon_search",
+                "intro",
+                query="仮想通貨 投資 リスク 本",
+                heading="リスクを理解してから判断する",
+                teaser="暗号資産の仕組みとリスク管理の基礎が学べる書籍を、Amazonでまとめて探せます。",
+                anchor="仮想通貨リスクの入門書をAmazonで探す",
+            ),
+            _b(
+                "bitradex",
+                "mid",
+                heading="公式の運用ルール・プランを再確認",
+                teaser="評判記事だけでなく、AIプランや手数料など一次情報もあわせて確認して判断材料にしましょう。",
+                anchor="BitradeXの公式サイトで詳細を見る",
+            ),
+            _b(
+                "a8_dmm証券",
+                "end",
+                heading="リスク分散の選択肢：つみたて投資も",
+                teaser="仮想通貨だけに集中せず、NISAなど堅実な資産形成を並行する考え方もあります。",
+                anchor="DMM証券で口座開設を申し込む",
+            ),
+        ]
+
+    if "withdraw" in s or "network" in s or "kyc" in s:
+        return [
+            _b(
+                "bitradex",
+                "intro",
+                heading="出金・入金の前に公式手順を確認",
+                teaser="ネットワーク設定やKYC、出金先の指定は公式の最新案内が確実です。",
+                anchor="BitradeXの公式サイトで詳細を見る",
+            ),
+            _b(
+                "amazon_search",
+                "mid",
+                query="仮想通貨 ウォレット 入門",
+                heading="送金・保管の基礎知識を補強",
+                teaser="ネットワークやウォレットの基礎が分かる入門書で、ミス送金のリスクを下げられます。",
+                anchor="仮想通貨入門書をAmazonで探す",
+            ),
+            _b(
+                "a8_dmm証券",
+                "end",
+                heading="国内口座での資産管理も検討",
+                teaser="海外サービスと国内証券口座を使い分ける運用設計も、長期的には有効です。",
+                anchor="DMM証券で口座開設を申し込む",
+            ),
+        ]
+
+    if "invite" in s:
+        return [
+            _b(
+                "bitradex",
+                "intro",
+                heading="招待コードは公式から取得",
+                teaser="コードの場所や入力タイミングは変更されることもあるため、公式の案内を優先しましょう。",
+                anchor="BitradeXの公式サイトで詳細を見る",
+            ),
+            _b(
+                "amazon_search",
+                "mid",
+                query="仮想通貨 始め方 本",
+                heading="始める前に基礎を押さえる",
+                teaser="招待コードを使う前に、暗号資産の基礎知識を入門書で固めておくと安心です。",
+                anchor="仮想通貨入門書をAmazonで探す",
+            ),
+            _b(
+                "a8_お名前_com",
+                "end",
+                heading="紹介記事を書くならドメインから",
+                teaser="自分のメディアで紹介する場合、独自ドメインがあると信頼感が増します。",
+                anchor="お名前.comでドメインを取得する",
+            ),
+        ]
+
+    if "ai-plan" in s:
+        return [
+            _b(
+                "bitradex",
+                "intro",
+                heading="AI運用プランは公式で比較",
+                teaser="Daily・30D・90Dなど各プランの条件は、公式の最新情報で確認するのが確実です。",
+                anchor="BitradeXの公式サイトで詳細を見る",
+            ),
+            _b(
+                "amazon_search",
+                "mid",
+                query="AI 投資 自動化 本",
+                heading="AI運用の考え方を深掘り",
+                teaser="アルゴリズム運用やリスク管理の考え方が学べる書籍をAmazonで探せます。",
+                anchor="AI投資の入門書をAmazonで探す",
+            ),
+            _b(
+                "a8_dmm証券",
+                "end",
+                heading="攻めと守りのポートフォリオ設計",
+                teaser="AI運用と並行して、NISAで長期資産を組み合わせる選択肢もあります。",
+                anchor="DMM証券で口座開設を申し込む",
+            ),
+        ]
+
+    if "start" in s or "guide" in s or "smartphone" in s:
+        return [
+            _b(
+                "bitradex",
+                "intro",
+                heading="BitradeXを始めるなら公式から",
+                teaser="登録・入金・AI運用開始まで、最新の手順と招待コードの要否を公式で確認できます。",
+                anchor="BitradeXの公式サイトで詳細を見る",
+            ),
+            _b(
+                "amazon_search",
+                "mid",
+                query="仮想通貨 初心者 本 2026",
+                heading="始める前に入門書で基礎固め",
+                teaser="仕組みとリスクを理解してから始められるよう、初心者向けの書籍をAmazonで探しましょう。",
+                anchor="仮想通貨入門書をAmazonで探す",
+            ),
+            _b(
+                "a8_エックスサーバー_5",
+                "end",
+                heading="運用記録・発信ブログを作るなら",
+                teaser="自分の投資メモや実践記を残すブログ基盤は、エックスサーバーからすぐ始められます。",
+                anchor="エックスサーバーでレンタルサーバーを申し込む",
+            ),
+        ]
+
+    # フォールバック（BitradeX系のその他）
+    return [
+        _b(
+            "bitradex",
+            "intro",
+            heading="BitradeXの最新情報は公式で",
+            teaser="プラン・手数料・キャンペーンは変更されるため、都度公式サイトで確認しましょう。",
+            anchor="BitradeXの公式サイトで詳細を見る",
+        ),
+        _b(
+            "amazon_search",
+            "mid",
+            query="仮想通貨 BitradeX" if "bitradex" in text else "仮想通貨 初心者",
+            heading="関連書籍で理解を深める",
+            teaser="記事のテーマに合う仮想通貨・投資の入門書をAmazonでまとめて探せます。",
+            anchor="関連書籍をAmazonで探す",
+        ),
+        _b(
+            "a8_vps",
+            "end",
+            heading="副業・発信基盤を整えるなら",
+            teaser="投資ノートやアフィリエイトサイトを運用するなら、VPSで本格的な環境を構築できます。",
+            anchor="エックスサーバーVPSを申し込む",
+        ),
+    ]
 
 
 def it_career_affiliate_placements(*, intro_query: str = "AI コーディング エディタ 開発 入門") -> list[dict]:
