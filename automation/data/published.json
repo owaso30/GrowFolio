@@ -1,16 +1,28 @@
 {
-  "synced_at": "2026-06-28T04:21:38.057516+00:00",
+  "synced_at": "2026-06-30T12:29:04.535962+00:00",
   "posts": [
+    {
+      "id": 266,
+      "slug": "cursor-vscode-difference-2026",
+      "title": "CursorとVSCodeの違い2026年版｜AI統合エディタ・Copilot・Claude Code比較",
+      "url": "https://growfolio-note.com/cursor-vscode-difference-2026/",
+      "categories": [
+        "ITキャリア"
+      ],
+      "keywords": [
+        "CursorとVSCodeの違い2026年版｜AI統合エディタ・Copilot・Claude Code比較"
+      ]
+    },
     {
       "id": 257,
       "slug": "github-copilot-plan-comparison-2026",
-      "title": "GitHub Copilot 機能比較2026：Free・Pr…",
+      "title": "GitHub Copilot 機能比較2026年版｜Free・Pro・Pro+・Business・Enterprise 完全比較",
       "url": "https://growfolio-note.com/github-copilot-plan-comparison-2026/",
       "categories": [
         "ITキャリア"
       ],
       "keywords": [
-        "GitHub Copilot 機能比較2026：Free・Pr…"
+        "GitHub Copilot 機能比較2026年版｜Free・Pro・Pro+・Business・Enterprise 完全比較"
       ]
     },
     {
@@ -170,15 +182,15 @@
       ]
     },
     {
-      "id": 266,
-      "slug": "cursor-vscode-difference-2026",
-      "title": "CursorとVSCodeの違い2026年版｜AI統合エディタ…",
-      "url": "https://growfolio-note.com/cursor-vscode-difference-2026/",
+      "id": 312,
+      "slug": "vscode-1116-github-copilot-chat-builtin-2026",
+      "title": "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱へ——開発者が知るべき変更点と今後の展望",
+      "url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-2026/",
       "categories": [
         "ITキャリア"
       ],
       "keywords": [
-        "Cursor VSCode 違い"
+        "github copilot vscode 拡張 機能"
       ],
       "source": "auto"
     }

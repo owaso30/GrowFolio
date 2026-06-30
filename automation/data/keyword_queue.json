@@ -21,9 +21,12 @@
       "keyword": "github copilot vscode 拡張 機能",
       "intent": "D",
       "score": 134.3,
-      "status": "pending",
+      "status": "done",
       "source": "suggest",
-      "competition": "medium"
+      "competition": "medium",
+      "trend_fetched_at": "2026-06-30T12:29:09.862001+00:00",
+      "published_at": "2026-06-30T12:31:13.880476+00:00",
+      "post_url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-2026/"
     },
     {
       "keyword": "vscode github copilot 機能",
