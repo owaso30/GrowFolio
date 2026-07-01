@@ -1,6 +1,18 @@
 {
-  "synced_at": "2026-06-30T12:29:04.535962+00:00",
+  "synced_at": "2026-07-01T20:01:16.830552+00:00",
   "posts": [
+    {
+      "id": 312,
+      "slug": "vscode-1116-github-copilot-chat-builtin-2026",
+      "title": "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱へ——開発者が知るべき変更点と今後の展望",
+      "url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-2026/",
+      "categories": [
+        "ITキャリア"
+      ],
+      "keywords": [
+        "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱へ——開発者が知るべき変更点と今後の展望"
+      ]
+    },
     {
       "id": 266,
       "slug": "cursor-vscode-difference-2026",
@@ -180,19 +192,6 @@
       "keywords": [
         "【画像付き】BitradeXの始め方｜登録から入金・AI運用開始まで全手順"
       ]
-    },
-    {
-      "id": 312,
-      "slug": "vscode-1116-github-copilot-chat-builtin-2026",
-      "title": "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱へ——開発者が知るべき変更点と今後の展望",
-      "url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-2026/",
-      "categories": [
-        "ITキャリア"
-      ],
-      "keywords": [
-        "github copilot vscode 拡張 機能"
-      ],
-      "source": "auto"
     }
   ]
 }
