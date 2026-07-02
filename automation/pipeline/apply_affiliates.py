@@ -52,6 +52,7 @@ def apply_affiliates_to_posts(
     slug: str | None = None,
     post_id: int | None = None,
     bitradex_only: bool = False,
+    all_posts: bool = False,
 ) -> list[dict]:
     """公開済み記事に intro / mid / end バナーを配置・更新。"""
     client = WordPressClient()
@@ -70,9 +71,11 @@ def apply_affiliates_to_posts(
         is_bitradex = _is_bitradex_post(post)
         is_it = _is_it_career_post(post)
 
-        if bitradex_only and not is_bitradex:
+        if all_posts:
+            pass
+        elif bitradex_only and not is_bitradex:
             continue
-        if not bitradex_only and not slug and not post_id:
+        elif not bitradex_only and not slug and not post_id:
             if not is_bitradex and not is_it:
                 continue
 
@@ -80,19 +83,16 @@ def apply_affiliates_to_posts(
         if not content:
             continue
 
+        keyword = post_slug.replace("-", " ")
         if is_bitradex:
             placements = bitradex_affiliate_placements(post_slug, _post_title(post))
         elif is_it:
-            if "growfolio-affiliate growfolio-affiliate--intro" in content:
-                continue
-            keyword = post_slug.replace("-", " ")
             placements = it_career_affiliate_placements(
                 intro_query=_intro_query_for_post(post, keyword)
             )
         else:
-            continue
+            placements = []
 
-        keyword = post_slug.replace("-", " ")
         new_content = reapply_affiliates_to_html(
             content,
             placements,

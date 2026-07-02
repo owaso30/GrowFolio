@@ -71,8 +71,8 @@
 ブロック記法 [[ラベル|本文]] は Markdown 内にそのまま書く（公開時に SWELL の cap_box へ自動変換）。
 
 収益化:
-- affiliate_placements に program id を slot 別に3〜4件指定（affiliates.yaml + a8_programs.yaml）
-- slot: intro（記事頭付近）/ mid（記事中盤）/ end（記事末付近）
+- affiliate_placements に program id を slot 別に **最大3件**指定（affiliates.yaml + a8_programs.yaml）
+- slot: intro（記事頭付近）**1件** / mid（記事中盤）**1件** / end（記事末付近）**1件のみ**
 - 各件に heading（魅力的な見出し）・teaser（訴求文）・anchor を記事内容に合わせて生成
 - A8案件は id と anchor を指定。amazon_search は query も必須
 - バナーは自動で記事内に分散配置される（末尾に並べるだけではない）

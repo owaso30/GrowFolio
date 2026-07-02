@@ -23,6 +23,10 @@ def _category_names(post: dict) -> str:
     return " ".join(names)
 
 
+def _is_bitradex_post(slug: str) -> bool:
+    return str(slug).lower().startswith("bitradex")
+
+
 def apply_featured_images_to_posts(
     *,
     dry_run: bool = False,
@@ -39,6 +43,15 @@ def apply_featured_images_to_posts(
         if post_id and pid != post_id:
             continue
         if slug and post_slug != slug:
+            continue
+
+        if _is_bitradex_post(post_slug):
+            results.append({
+                "id": pid,
+                "slug": post_slug,
+                "skipped": True,
+                "reason": "bitradex featured image preserved",
+            })
             continue
 
         title = _post_title(post)

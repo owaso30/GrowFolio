@@ -30,6 +30,13 @@ BRAND_PATTERNS: list[tuple[str, str, int]] = [
     ("claude code", "claude", 14),
     ("anthropic", "claude", 10),
     ("claude", "claude", 9),
+    ("generative engine optimization", "claude", 12),
+    ("generative engine", "claude", 10),
+    ("perplexity", "claude", 8),
+    ("nisa", "nisa", 14),
+    ("債券etf", "nisa", 10),
+    ("債券 etf", "nisa", 10),
+    ("投資入門", "nisa", 6),
 ]
 
 SLUG_PREFIX_BOOSTS: list[tuple[str, str, int]] = [
@@ -111,6 +118,101 @@ def _load_brands() -> dict[str, dict[str, Any]]:
     return data.get("brands", {})
 
 
+def _hybrid_featured_layout() -> dict[str, float]:
+    if not BRAND_ASSETS_PATH.exists():
+        return {
+            "panel_width_ratio": 0.36,
+            "logo_max_width_ratio_of_panel": 0.78,
+            "logo_max_height_ratio_of_canvas": 0.34,
+        }
+    data = yaml.safe_load(BRAND_ASSETS_PATH.read_text(encoding="utf-8")) or {}
+    defaults = {
+        "panel_width_ratio": 0.36,
+        "logo_max_width_ratio_of_panel": 0.78,
+        "logo_max_height_ratio_of_canvas": 0.34,
+    }
+    cfg = data.get("hybrid_featured", {}) or {}
+    return {**defaults, **cfg}
+
+
+def _hybrid_logo_bounds(width: int, height: int) -> tuple[int, int, int]:
+    """左パネル幅とロゴの最大枠（幅・高さ）を返す。"""
+    layout = _hybrid_featured_layout()
+    panel_w = int(width * float(layout["panel_width_ratio"]))
+    max_w = int(panel_w * float(layout["logo_max_width_ratio_of_panel"]))
+    max_h = int(height * float(layout["logo_max_height_ratio_of_canvas"]))
+    return panel_w, max_w, max_h
+
+
+def _trim_transparent(logo: Image.Image) -> Image.Image:
+    """透明余白を除去。"""
+    logo = logo.convert("RGBA")
+    bbox = logo.split()[-1].getbbox()
+    return logo.crop(bbox) if bbox else logo
+
+
+def _trim_uniform_border(logo: Image.Image, tolerance: int = 22) -> Image.Image:
+    """角と同色の余白（favicon 等の白・ベージュ枠）を除去。"""
+    logo = logo.convert("RGBA")
+    w, h = logo.size
+    if w < 4 or h < 4:
+        return logo
+
+    pixels = logo.load()
+    ref = pixels[0, 0][:3]
+
+    def is_border(x: int, y: int) -> bool:
+        r, g, b, a = pixels[x, y]
+        if a < 16:
+            return True
+        return all(abs(channel - ref_channel) <= tolerance for channel, ref_channel in zip((r, g, b), ref))
+
+    top = 0
+    while top < h and all(is_border(x, top) for x in range(w)):
+        top += 1
+    bottom = h - 1
+    while bottom >= top and all(is_border(x, bottom) for x in range(w)):
+        bottom -= 1
+    left = 0
+    while left < w and all(is_border(left, y) for y in range(top, bottom + 1)):
+        left += 1
+    right = w - 1
+    while right >= left and all(is_border(right, y) for y in range(top, bottom + 1)):
+        right -= 1
+
+    if left < right and top < bottom:
+        return logo.crop((left, top, right + 1, bottom + 1))
+    return logo
+
+
+def _prepare_logo_for_hybrid(logo: Image.Image) -> Image.Image:
+    """ハイブリッド左パネル用に余白を除去。"""
+    logo = _trim_transparent(logo)
+    logo = _trim_uniform_border(logo)
+    return logo
+
+
+def _fit_logo_for_hybrid_panel(logo: Image.Image, max_w: int, max_h: int) -> Image.Image:
+    """ロゴを左パネル枠に収め、ITキャリア記事と同じ見た目の大きさに揃える。"""
+    logo = _prepare_logo_for_hybrid(logo.copy())
+    if logo.width <= 0 or logo.height <= 0:
+        return logo
+
+    # vscode / Copilot / Cursor と同じ正方形スロット（辺長 max_h）に収める
+    box = max_h
+    logo.thumbnail((box, box), Image.Resampling.LANCZOS)
+
+    long_edge = max(logo.width, logo.height)
+    if long_edge < box:
+        scale = box / long_edge
+        new_w = min(int(round(logo.width * scale)), box)
+        new_h = min(int(round(logo.height * scale)), box)
+        if new_w > 0 and new_h > 0:
+            logo = logo.resize((new_w, new_h), Image.Resampling.LANCZOS)
+
+    return logo
+
+
 def normalize_image_prompts(
     prompts: list[dict] | None,
     *,
@@ -167,6 +269,7 @@ BRAND_PALETTE_HINTS: dict[str, str] = {
     "claude": "warm terracotta #c96442, cream paper tones, calm research palette",
     "microsoft_365": "Microsoft blue #0078d4, office productivity neutrals",
     "bitradex": "deep finance blue #1d4ed8, calm trust-building blues and soft whites",
+    "nisa": "fresh green #059669, calm portfolio growth tones, trustworthy finance palette",
 }
 
 BRAND_FALLBACK_SCENES: dict[str, str] = {
@@ -193,6 +296,10 @@ BRAND_FALLBACK_SCENES: dict[str, str] = {
     "bitradex": (
         "crypto portfolio dashboard with AI strategy graph and calm upward trend line, "
         "fintech trust aesthetic, clean data visualization panels"
+    ),
+    "nisa": (
+        "long-term investment portfolio dashboard with NISA tax-free badge, "
+        "bond ETF and stock allocation pie chart, calm green growth aesthetic"
     ),
 }
 
@@ -346,16 +453,29 @@ def _fetch_logo(url: str) -> Image.Image:
         headers={"User-Agent": "GrowfolioAutomation/1.0"},
     )
     response.raise_for_status()
+    content_type = (response.headers.get("content-type") or "").lower()
+    if "html" in content_type:
+        raise ValueError(f"URL returned HTML instead of an image: {url}")
     return Image.open(BytesIO(response.content)).convert("RGBA")
 
 
 def _load_logo(brand_key: str, brand: dict[str, Any]) -> Image.Image:
-    local = ASSETS_DIR / f"{brand_key}.png"
-    if local.is_file() and local.stat().st_size > 1024:
-        return Image.open(local).convert("RGBA")
+    for suffix in (".png", ".webp", ".jpg", ".jpeg", ".ico", ".svg"):
+        local = ASSETS_DIR / f"{brand_key}{suffix}"
+        if local.is_file() and local.stat().st_size > 512:
+            img = Image.open(local)
+            if suffix == ".svg":
+                # cairosvg 等は未導入のため PNG 配置を推奨
+                raise FileNotFoundError(
+                    f"SVG logo requires PNG export: assets/logos/{brand_key}.png"
+                )
+            return img.convert("RGBA")
     url = (brand.get("logo_url") or "").strip()
     if url:
-        return _fetch_logo(url)
+        img = _fetch_logo(url)
+        if img.width < 32 and img.height < 32:
+            raise ValueError(f"Logo too small from URL for {brand_key}")
+        return img
     raise FileNotFoundError(
         f"Logo not found for brand: {brand_key}. Place assets/logos/{brand_key}.png"
     )
@@ -395,13 +515,10 @@ def compose_hybrid_brand_image(
     canvas = photo.copy()
     draw = ImageDraw.Draw(canvas)
 
-    panel_w = int(width * 0.36)
+    panel_w, max_w, max_h = _hybrid_logo_bounds(width, height)
     draw.rectangle([0, 0, panel_w, height], fill=bg)
 
-    logo = _load_logo(brand_key, brand)
-    max_w = int(panel_w * 0.78)
-    max_h = int(height * 0.34)
-    logo.thumbnail((max_w, max_h), Image.Resampling.LANCZOS)
+    logo = _fit_logo_for_hybrid_panel(_load_logo(brand_key, brand), max_w, max_h)
     lx = (panel_w - logo.width) // 2
     ly = (height - logo.height) // 2 - height // 40
     canvas.paste(logo, (lx, ly), logo)

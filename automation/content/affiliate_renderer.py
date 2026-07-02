@@ -21,7 +21,7 @@ from content.affiliate_catalog import (
 )
 
 VALID_SLOTS = ("intro", "mid", "end")
-SLOT_LIMITS = {"intro": 1, "mid": 2, "end": 1}
+SLOT_LIMITS = {"intro": 1, "mid": 1, "end": 1}
 
 
 def _affiliates_cfg() -> dict:
@@ -146,7 +146,7 @@ def normalize_affiliate_placements(
     placements: list[dict] | None,
     keyword: str,
 ) -> list[dict]:
-    """スロット正規化・不足分の自動補完（intro 1 / mid 1-2 / end 1）。"""
+    """スロット正規化・不足分の自動補完（intro 1 / mid 1 / end 1）。"""
     load_env()
     valid = all_program_ids()
     configured = [p for p in list_all_programs(configured_only=True)]
@@ -308,6 +308,30 @@ def _resolve_mid_target(
     return None
 
 
+def _resolve_second_mid_target(
+    soup: BeautifulSoup,
+    *,
+    opinion_heading: str,
+    fact_heading: str,
+) -> tuple[str, Tag] | None:
+    """2件目の mid 用。記事末（FAQ・参考）の直前ではなく、考察セクション内へ寄せる。"""
+    opinion_h2 = _find_h2(soup, opinion_heading)
+    h2s = _content_h2s(soup)
+    for h2 in h2s:
+        text = h2.get_text(strip=True)
+        if any(key in text for key in ("FAQ", "よくある質問", "まとめ", "参考")):
+            if opinion_h2:
+                return ("before", h2)
+            break
+    if opinion_h2:
+        return ("after", opinion_h2)
+    return _resolve_mid_target(
+        soup,
+        fact_heading=fact_heading,
+        opinion_heading=opinion_heading,
+    )
+
+
 def _resolve_end_target(soup: BeautifulSoup, *, source_heading: str) -> tuple[str, Tag] | None:
     """end バナーの挿入位置。"""
     source_h2 = _find_h2(soup, source_heading)
@@ -374,8 +398,16 @@ def inject_affiliates_into_html(
         _apply_insert(soup, mid_target, rendered["mid"][0])
 
     if len(rendered["mid"]) > 1:
-        end_target = _resolve_end_target(soup, source_heading=source_heading)
-        second_mid_target = end_target or mid_target
+        # end スロットがある場合、2件目の mid を記事末に置かない（末尾は end 1件のみ）
+        if rendered["end"]:
+            second_mid_target = _resolve_second_mid_target(
+                soup,
+                opinion_heading=opinion_heading,
+                fact_heading=fact_heading,
+            )
+        else:
+            end_target = _resolve_end_target(soup, source_heading=source_heading)
+            second_mid_target = end_target or mid_target
         _apply_insert(soup, second_mid_target, rendered["mid"][1])
 
     end_target = _resolve_end_target(soup, source_heading=source_heading)

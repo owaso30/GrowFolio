@@ -71,8 +71,16 @@ def generate_article(
     min_sources = editorial.get("min_reference_sources", 3)
     affiliate_catalog = format_catalog_for_prompt()
 
+    forced_category = keyword_item.get("category", "").strip()
+    category_instruction = (
+        f"指定カテゴリ（必ずこのカテゴリ名を category に使用）: {forced_category}"
+        if forced_category
+        else f"category は {'/'.join(allowed_cats)} のいずれかから記事内容に最も合うものを選ぶ"
+    )
+
     user_prompt = f"""対策キーワード（トレンド起点）: {keyword}
 意図カテゴリ: {keyword_item.get('intent', 'C')}
+{category_instruction}
 
 === 直近ニュース・トレンド（記事に反映すること） ===
 {trend_context or '（取得なし。業界の一般的動向を事実と考察に分けて記述）'}
@@ -144,7 +152,7 @@ image_prompts:
 - 実残高スクショ風・管理画面の伪造は禁止
 
 affiliate_placements:
-- 3〜4件を slot 別に指定（intro 1件 / mid 1〜2件 / end 1件）
+- **最大3件**を slot 別に指定（intro 1件 / mid 1件 / end 1件）。記事末に並ぶのは end のみ
 - 各件に program, slot, heading（20〜35字の魅力的な見出し）, teaser（1〜2行の訴求文）, anchor を必須
 - A8は id（a8_programs.yaml）と anchor を記事内容に合わせて生成
 - amazon_search は query も必須
