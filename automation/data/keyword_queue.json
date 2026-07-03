@@ -58,9 +58,12 @@
       "keyword": "vscode github copilot 機能",
       "intent": "D",
       "score": 134.2,
-      "status": "pending",
+      "status": "done",
       "source": "suggest",
-      "competition": "medium"
+      "competition": "medium",
+      "trend_fetched_at": "2026-07-03T03:18:20.861167+00:00",
+      "published_at": "2026-07-03T03:20:53.955691+00:00",
+      "post_url": "https://growfolio-note.com/vscode-github-copilot-features-2026/"
     },
     {
       "keyword": "仮想通貨 税金 タイミング",
