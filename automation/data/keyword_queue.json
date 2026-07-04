@@ -1,69 +1,18 @@
 {
-  "updated_at": "2026-07-02T12:29:41.887544+00:00",
+  "updated_at": "2026-07-04T19:01:13.904127+00:00",
   "keywords": [
     {
-      "keyword": "GEO 生成エンジン最適化 副業 2026 Perplexity ChatGPT 影響",
+      "keyword": "github copilot vscode 拡張 機能",
       "intent": "D",
-      "score": 9999,
-      "status": "done",
-      "source": "manual_blue_ocean",
-      "category": "AI副業",
-      "competition": "low",
-      "added_at": "2026-07-02T12:29:41.887544+00:00",
-      "trend_fetched_at": "2026-07-02T12:30:09.277808+00:00",
-      "published_at": "2026-07-02T12:32:26.754965+00:00",
-      "post_url": "https://growfolio-note.com/geo-generative-engine-optimization-side-hustle-2026/"
-    },
-    {
-      "keyword": "金利上昇 新NISA 2026 成長投資枠 債券ETF 影響",
-      "intent": "D",
-      "score": 9998,
-      "status": "done",
-      "source": "manual_blue_ocean",
-      "category": "投資入門",
-      "competition": "low",
-      "added_at": "2026-07-02T12:29:41.887544+00:00",
-      "trend_fetched_at": "2026-07-02T12:32:29.313584+00:00",
-      "published_at": "2026-07-02T12:35:04.788905+00:00",
-      "post_url": "https://growfolio-note.com/nisa-growth-investment-bond-etf-interest-rate-2026/"
-    },
-    {
-      "keyword": "Cursor VSCode 違い",
-      "intent": "D",
-      "score": 137.8,
-      "status": "done",
-      "source": "serp_related",
+      "score": 138.3,
+      "status": "pending",
+      "source": "suggest",
       "competition": "medium",
       "serp": {
         "authority_hits": 0,
         "opportunity_hits": 1,
-        "opportunity_ratio": 0.12
-      },
-      "trend_fetched_at": "2026-06-28T05:50:28.065262+00:00",
-      "published_at": "2026-06-28T04:23:58.269410+00:00",
-      "post_url": "https://growfolio-note.com/cursor-vscode-difference-2026/"
-    },
-    {
-      "keyword": "github copilot vscode 拡張 機能",
-      "intent": "D",
-      "score": 134.3,
-      "status": "done",
-      "source": "suggest",
-      "competition": "medium",
-      "trend_fetched_at": "2026-06-30T12:29:09.862001+00:00",
-      "published_at": "2026-06-30T12:31:13.880476+00:00",
-      "post_url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-2026/"
-    },
-    {
-      "keyword": "vscode github copilot 機能",
-      "intent": "D",
-      "score": 134.2,
-      "status": "done",
-      "source": "suggest",
-      "competition": "medium",
-      "trend_fetched_at": "2026-07-03T03:18:20.861167+00:00",
-      "published_at": "2026-07-03T03:20:53.955691+00:00",
-      "post_url": "https://growfolio-note.com/vscode-github-copilot-features-2026/"
+        "opportunity_ratio": 0.1
+      }
     },
     {
       "keyword": "仮想通貨 税金 タイミング",
@@ -244,6 +193,19 @@
       "competition": "medium"
     },
     {
+      "keyword": "github copilot 最新モデル",
+      "intent": "F",
+      "score": 108.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
       "keyword": "chatgpt 最新 ニュース 取得",
       "intent": "F",
       "score": 107.9,
@@ -334,6 +296,19 @@
       }
     },
     {
+      "keyword": "新NISA 改正 2026 成長投資枠",
+      "intent": "F",
+      "score": 105.0,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
       "keyword": "ChatGPT 最新モデル 無料",
       "intent": "F",
       "score": 104.8,
@@ -386,6 +361,19 @@
       }
     },
     {
+      "keyword": "新 nisa 制度 改正 2026",
+      "intent": "F",
+      "score": 104.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
       "keyword": "積立 nisa 制度 改正",
       "intent": "F",
       "score": 104.7,
@@ -394,6 +382,84 @@
       "competition": "medium",
       "serp": {
         "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "新 nisa 制度 改正",
+      "intent": "F",
+      "score": 104.6,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "openai 最新 発表",
+      "intent": "F",
+      "score": 104.6,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "ai コード エディタ cursor と は",
+      "intent": "F",
+      "score": 103.1,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "low",
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 2,
+        "opportunity_ratio": 0.25
+      }
+    },
+    {
+      "keyword": "ソフトバンク openai 発表",
+      "intent": "F",
+      "score": 101.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 2,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "chatgpt 最新 ニュース",
+      "intent": "F",
+      "score": 101.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 2,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "新NISA 改正 2,400万円",
+      "intent": "F",
+      "score": 101.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 2,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
       }
