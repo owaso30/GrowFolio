@@ -5,14 +5,17 @@
       "keyword": "github copilot vscode 拡張 機能",
       "intent": "D",
       "score": 138.3,
-      "status": "pending",
+      "status": "done",
       "source": "suggest",
       "competition": "medium",
       "serp": {
         "authority_hits": 0,
         "opportunity_hits": 1,
         "opportunity_ratio": 0.1
-      }
+      },
+      "trend_fetched_at": "2026-07-07T11:29:33.273210+00:00",
+      "published_at": "2026-07-07T11:31:53.328508+00:00",
+      "post_url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-changes/"
     },
     {
       "keyword": "仮想通貨 税金 タイミング",

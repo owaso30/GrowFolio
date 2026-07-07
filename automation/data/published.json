@@ -1,6 +1,18 @@
 {
-  "synced_at": "2026-07-03T03:18:14.974339+00:00",
+  "synced_at": "2026-07-07T11:29:26.657874+00:00",
   "posts": [
+    {
+      "id": 397,
+      "slug": "vscode-github-copilot-features-2026",
+      "title": "VS Code v1.116でGitHub Copilot Chatが同梱に——2026年4〜5月の新機能まとめと開発現場への影響",
+      "url": "https://growfolio-note.com/vscode-github-copilot-features-2026/",
+      "categories": [
+        "ITキャリア"
+      ],
+      "keywords": [
+        "VS Code v1.116でGitHub Copilot Chatが同梱に——2026年4〜5月の新機能まとめと開発現場への影響"
+      ]
+    },
     {
       "id": 368,
       "slug": "nisa-growth-investment-bond-etf-interest-rate-2026",
@@ -218,15 +230,15 @@
       ]
     },
     {
-      "id": 397,
-      "slug": "vscode-github-copilot-features-2026",
-      "title": "VS Code v1.116でGitHub Copilot Chatが同梱に——2026年4〜5月の新機能まとめと開発現場への影響",
-      "url": "https://growfolio-note.com/vscode-github-copilot-features-2026/",
+      "id": 400,
+      "slug": "vscode-1116-github-copilot-chat-builtin-changes",
+      "title": "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱——何が変わり何が変わらないのか",
+      "url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-changes/",
       "categories": [
         "ITキャリア"
       ],
       "keywords": [
-        "vscode github copilot 機能"
+        "github copilot vscode 拡張 機能"
       ],
       "source": "auto"
     }
