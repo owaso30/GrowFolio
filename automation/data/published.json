@@ -1,6 +1,42 @@
 {
-  "synced_at": "2026-07-07T11:29:26.657874+00:00",
+  "synced_at": "2026-07-10T03:20:50.785077+00:00",
   "posts": [
+    {
+      "id": 407,
+      "slug": "ladder-x-audnzd-stable",
+      "title": "LADDER-X — 片建て/両建て切替ナンピンEA｜開発メモとBT・フォワード結果",
+      "url": "https://growfolio-note.com/ladder-x-audnzd-stable/",
+      "categories": [
+        "FX自動売買"
+      ],
+      "keywords": [
+        "LADDER-X — 片建て/両建て切替ナンピンEA｜開発メモとBT・フォワード結果"
+      ]
+    },
+    {
+      "id": 404,
+      "slug": "nanpin-ea-hatan-joken",
+      "title": "ナンピンEAが破綻する3つの条件｜高レバレッジ口座でも油断できない話",
+      "url": "https://growfolio-note.com/nanpin-ea-hatan-joken/",
+      "categories": [
+        "FX自動売買"
+      ],
+      "keywords": [
+        "ナンピンEAが破綻する3つの条件｜高レバレッジ口座でも油断できない話"
+      ]
+    },
+    {
+      "id": 400,
+      "slug": "vscode-1116-github-copilot-chat-builtin-changes",
+      "title": "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱——何が変わり何が変わらないのか",
+      "url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-changes/",
+      "categories": [
+        "ITキャリア"
+      ],
+      "keywords": [
+        "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱——何が変わり何が変わらないのか"
+      ]
+    },
     {
       "id": 397,
       "slug": "vscode-github-copilot-features-2026",
@@ -230,15 +266,15 @@
       ]
     },
     {
-      "id": 400,
-      "slug": "vscode-1116-github-copilot-chat-builtin-changes",
-      "title": "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱——何が変わり何が変わらないのか",
-      "url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-changes/",
+      "id": 438,
+      "slug": "crypto-tax-timing-bunri-kazei-2026",
+      "title": "仮想通貨の税金「申告分離課税」移行で何が変わる？2026年最新の課税タイミングと節税戦略",
+      "url": "https://growfolio-note.com/crypto-tax-timing-bunri-kazei-2026/",
       "categories": [
-        "ITキャリア"
+        "税金"
       ],
       "keywords": [
-        "github copilot vscode 拡張 機能"
+        "仮想通貨 税金 タイミング"
       ],
       "source": "auto"
     }

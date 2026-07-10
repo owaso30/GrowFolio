@@ -21,9 +21,12 @@
       "keyword": "仮想通貨 税金 タイミング",
       "intent": "B",
       "score": 132.7,
-      "status": "pending",
+      "status": "done",
       "source": "trend_expand",
-      "competition": "low"
+      "competition": "low",
+      "trend_fetched_at": "2026-07-10T03:20:55.702344+00:00",
+      "published_at": "2026-07-10T03:23:37.990890+00:00",
+      "post_url": "https://growfolio-note.com/crypto-tax-timing-bunri-kazei-2026/"
     },
     {
       "keyword": "仮想通貨 税金 クリプタクト",
