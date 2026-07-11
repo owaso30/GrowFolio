@@ -1,32 +1,44 @@
 {
-  "updated_at": "2026-07-04T19:01:13.904127+00:00",
+  "updated_at": "2026-07-11T18:49:02.674105+00:00",
   "keywords": [
+    {
+      "keyword": "Claude Code VS Code Cursor どっち？",
+      "intent": "D",
+      "score": 138.6,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.12
+      }
+    },
     {
       "keyword": "github copilot vscode 拡張 機能",
       "intent": "D",
       "score": 138.3,
-      "status": "done",
+      "status": "pending",
       "source": "suggest",
       "competition": "medium",
       "serp": {
         "authority_hits": 0,
         "opportunity_hits": 1,
         "opportunity_ratio": 0.1
-      },
-      "trend_fetched_at": "2026-07-07T11:29:33.273210+00:00",
-      "published_at": "2026-07-07T11:31:53.328508+00:00",
-      "post_url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-changes/"
+      }
     },
     {
-      "keyword": "仮想通貨 税金 タイミング",
-      "intent": "B",
-      "score": 132.7,
-      "status": "done",
-      "source": "trend_expand",
-      "competition": "low",
-      "trend_fetched_at": "2026-07-10T03:20:55.702344+00:00",
-      "published_at": "2026-07-10T03:23:37.990890+00:00",
-      "post_url": "https://growfolio-note.com/crypto-tax-timing-bunri-kazei-2026/"
+      "keyword": "vscode github copilot 機能",
+      "intent": "D",
+      "score": 138.2,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.12
+      }
     },
     {
       "keyword": "仮想通貨 税金 クリプタクト",
@@ -289,6 +301,19 @@
       }
     },
     {
+      "keyword": "openai 公式 発表",
+      "intent": "F",
+      "score": 107.6,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
       "keyword": "新NISA改正 スイッチング いつから",
       "intent": "F",
       "score": 106.0,
@@ -466,6 +491,84 @@
       "competition": "medium",
       "serp": {
         "authority_hits": 2,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "openai sora 発表",
+      "intent": "F",
+      "score": 101.7,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 2,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "OpenAI 最新 ニュース",
+      "intent": "F",
+      "score": 101.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 2,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "NISA 2026 改正",
+      "intent": "F",
+      "score": 101.6,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 2,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "NISA 改正 2027",
+      "intent": "F",
+      "score": 101.6,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 2,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "cursor‚Æclaude code ˜AŒg",
+      "intent": "F",
+      "score": 99.2,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.11
+      }
+    },
+    {
+      "keyword": "新NISA 改正 2027",
+      "intent": "F",
+      "score": 98.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "serp": {
+        "authority_hits": 3,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
       }
