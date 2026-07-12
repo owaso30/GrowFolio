@@ -4,6 +4,7 @@ from __future__ import annotations
 from config_loader import load_yaml
 from content.affiliate_renderer import (
     bitradex_affiliate_placements,
+    fx_auto_trading_affiliate_placements,
     it_career_affiliate_placements,
     reapply_affiliates_to_html,
 )
@@ -27,6 +28,22 @@ def _post_title(post: dict) -> str:
 
 def _is_bitradex_post(post: dict) -> bool:
     return str(post.get("slug", "")).startswith("bitradex")
+
+
+def _post_categories(post: dict) -> list[str]:
+    cats: list[str] = []
+    for term_group in post.get("_embedded", {}).get("wp:term", []):
+        for term in term_group:
+            if term.get("taxonomy") == "category":
+                cats.append(term.get("name", ""))
+    return cats
+
+
+def _is_fx_post(post: dict) -> bool:
+    if "FX自動売買" in _post_categories(post):
+        return True
+    slug = str(post.get("slug", "")).lower()
+    return any(token in slug for token in ("ladder-x", "nanpin-ea", "nanpin_ea"))
 
 
 def _is_it_career_post(post: dict) -> bool:
@@ -70,13 +87,14 @@ def apply_affiliates_to_posts(
 
         is_bitradex = _is_bitradex_post(post)
         is_it = _is_it_career_post(post)
+        is_fx = _is_fx_post(post)
 
         if all_posts:
             pass
         elif bitradex_only and not is_bitradex:
             continue
         elif not bitradex_only and not slug and not post_id:
-            if not is_bitradex and not is_it:
+            if not is_bitradex and not is_it and not is_fx:
                 continue
 
         content = _post_content(post)
@@ -90,6 +108,8 @@ def apply_affiliates_to_posts(
             placements = it_career_affiliate_placements(
                 intro_query=_intro_query_for_post(post, keyword)
             )
+        elif is_fx:
+            placements = fx_auto_trading_affiliate_placements(post_slug, _post_title(post))
         else:
             placements = []
 

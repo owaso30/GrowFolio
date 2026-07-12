@@ -436,6 +436,21 @@ def strip_legacy_affiliate_html(html: str) -> str:
     """末尾CTA・SWELLボタン・旧バナーを除去。インラインの sponsored Amazon リンクもテキスト化。"""
     if not html:
         return html
+    soup = BeautifulSoup(html, "html.parser")
+    for aside in soup.find_all("aside", class_="growfolio-affiliate"):
+        aside.decompose()
+    for tag in soup.find_all(True):
+        if tag.name == "aside":
+            continue
+        classes = tag.get("class")
+        if not classes:
+            continue
+        cleaned = [cls for cls in classes if not cls.startswith("growfolio-affiliate")]
+        if cleaned:
+            tag["class"] = cleaned
+        elif "class" in tag.attrs:
+            del tag["class"]
+    html = str(soup)
     html = _LEGACY_AFFILIATE_RE.sub("", html)
     html = _INLINE_SPONSORED_AMAZON_RE.sub(r"\1", html)
     # FAQ 内など tag なし Amazon リンクも除去（バナー intro に集約）
@@ -678,6 +693,79 @@ def bitradex_affiliate_placements(slug: str, title: str = "") -> list[dict]:
             teaser="投資ノートやアフィリエイトサイトを運用するなら、VPSで本格的な環境を構築できます。",
             anchor="エックスサーバーVPSを申し込む",
         ),
+    ]
+
+
+def fx_auto_trading_affiliate_placements(slug: str = "", title: str = "") -> list[dict]:
+    """FX自動売買系記事の intro / mid / end 配置。"""
+    s = slug.lower()
+    text = f"{slug} {title}".lower()
+
+    if "nanpin" in s or "hatan" in s or "破綻" in text:
+        intro_query = "FX ナンピン EA リスク 入門"
+        intro_heading = "ナンピンEAのリスクを書籍で押さえる"
+        intro_teaser = "MaxLevels・急変相場・ロット設計など、破綻条件を理解するためのFX入門書をAmazonでまとめて探せます。"
+        intro_anchor = "FX・EAリスクの入門書をAmazonで探す"
+    elif "ladder" in s:
+        intro_query = "FX 自動売買 EA MT4 入門"
+        intro_heading = "EA開発・検証の基礎を書籍で学ぶ"
+        intro_teaser = "バックテストの読み方やリスク管理の考え方が分かるFX自動売買の入門書をAmazonで探せます。"
+        intro_anchor = "FX自動売買の入門書をAmazonで探す"
+    else:
+        intro_query = "FX 自動売買 入門"
+        intro_heading = "FX自動売買の基礎を書籍で固める"
+        intro_teaser = "EAの仕組みやリスク管理の基礎が学べる書籍を、記事のテーマに合わせてAmazonで探せます。"
+        intro_anchor = "FX自動売買の入門書をAmazonで探す"
+
+    if "ladder" in s:
+        return [
+            {
+                "program": "amazon_search",
+                "slot": "intro",
+                "query": intro_query,
+                "heading": intro_heading,
+                "teaser": intro_teaser,
+                "anchor": intro_anchor,
+            },
+            {
+                "program": "a8_windows_vps",
+                "slot": "mid",
+                "heading": "MT4を24時間稼働させるならVPS",
+                "teaser": "自動売買EAを安定運用するには、自宅PCに頼らないVPS環境の検討も有効です。",
+                "anchor": "Windows VPSを申し込む",
+            },
+            {
+                "program": "a8_dmm証券",
+                "slot": "end",
+                "heading": "FXだけに集中しない資産設計も",
+                "teaser": "自動売買の収益と並行して、NISAなど堅実な資産形成を組み合わせる選択肢もあります。",
+                "anchor": "DMM証券で口座開設を申し込む",
+            },
+        ]
+
+    return [
+        {
+            "program": "amazon_search",
+            "slot": "intro",
+            "query": intro_query,
+            "heading": intro_heading,
+            "teaser": intro_teaser,
+            "anchor": intro_anchor,
+        },
+        {
+            "program": "a8_dmm証券",
+            "slot": "mid",
+            "heading": "リスク分散の視点で株式投資も",
+            "teaser": "FX口座のリスク管理と並行して、国内証券口座で長期資産を組み立てる考え方も有効です。",
+            "anchor": "DMM証券で口座開設を申し込む",
+        },
+        {
+            "program": "a8_楽天アフィリエイト",
+            "slot": "end",
+            "heading": "トレード収益以外の収入源も検討",
+            "teaser": "EA運用と並行して、アフィリエイトなど副業収入を増やす選択肢もあります。",
+            "anchor": "楽天アフィリエイトで副業を始める",
+        },
     ]
 
 
