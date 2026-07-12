@@ -1,45 +1,6 @@
 {
-  "updated_at": "2026-07-11T18:49:02.674105+00:00",
+  "updated_at": "2026-07-12T07:32:05.384066+00:00",
   "keywords": [
-    {
-      "keyword": "Claude Code VS Code Cursor どっち？",
-      "intent": "D",
-      "score": 138.6,
-      "status": "pending",
-      "source": "serp_related",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 1,
-        "opportunity_ratio": 0.12
-      }
-    },
-    {
-      "keyword": "github copilot vscode 拡張 機能",
-      "intent": "D",
-      "score": 138.3,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 1,
-        "opportunity_ratio": 0.1
-      }
-    },
-    {
-      "keyword": "vscode github copilot 機能",
-      "intent": "D",
-      "score": 138.2,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 1,
-        "opportunity_ratio": 0.12
-      }
-    },
     {
       "keyword": "仮想通貨 税金 クリプタクト",
       "intent": "B",
@@ -179,51 +140,6 @@
       }
     },
     {
-      "keyword": "github copilot 最新バージョン",
-      "intent": "F",
-      "score": 108.1,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium"
-    },
-    {
-      "keyword": "github copilot 最新 ニュース",
-      "intent": "F",
-      "score": 108.1,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium"
-    },
-    {
-      "keyword": "github copilot 最新情報",
-      "intent": "F",
-      "score": 108.0,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium"
-    },
-    {
-      "keyword": "github copilot 最新機能",
-      "intent": "F",
-      "score": 108.0,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium"
-    },
-    {
-      "keyword": "github copilot 最新モデル",
-      "intent": "F",
-      "score": 108.0,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      }
-    },
-    {
       "keyword": "chatgpt 最新 ニュース 取得",
       "intent": "F",
       "score": 107.9,
@@ -233,14 +149,6 @@
     },
     {
       "keyword": "ai エディタ cursor 最新",
-      "intent": "F",
-      "score": 107.8,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium"
-    },
-    {
-      "keyword": "github copilot 最新",
       "intent": "F",
       "score": 107.8,
       "status": "pending",
@@ -548,19 +456,6 @@
       }
     },
     {
-      "keyword": "cursor‚Æclaude code ˜AŒg",
-      "intent": "F",
-      "score": 99.2,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 1,
-        "opportunity_ratio": 0.11
-      }
-    },
-    {
       "keyword": "新NISA 改正 2027",
       "intent": "F",
       "score": 98.7,
@@ -572,6 +467,27 @@
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
       }
+    },
+    {
+      "keyword": "bitradex 出金 できない",
+      "intent": "A",
+      "score": 9094,
+      "status": "rewrite_candidate",
+      "source": "gsc_opportunity",
+      "cluster": "bitradex",
+      "fingerprint": [
+        "bitradex"
+      ],
+      "existing_slug": "bitradex-withdraw-bitget",
+      "existing_title": "【図解】BitradeXの出金方法と出金できない時の対処法｜USDTをBitgetに出金する手順",
+      "reason": "順位10.74（改善余地） / CTR 0.00%（タイトル/ディスクリ改善候補）",
+      "gsc": {
+        "impressions": 201,
+        "clicks": 0,
+        "ctr": 0.0,
+        "position": 10.74
+      },
+      "noted_at": "2026-07-12T07:32:00.695692+00:00"
     }
   ]
 }

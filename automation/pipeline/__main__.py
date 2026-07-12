@@ -37,6 +37,19 @@ def main() -> None:
         action="store_true",
         help="認証・API呼び出しなしで期間と設定だけ表示",
     )
+    p_analytics.add_argument(
+        "--no-seed-queue",
+        dest="seed_queue",
+        action="store_false",
+        help="GSC opportunities のキュー投入をスキップ（既定は投入する）",
+    )
+    p_analytics.set_defaults(seed_queue=True)
+
+    p_seed = sub.add_parser(
+        "seed-from-analytics",
+        help="analytics/latest.json の GSC opportunities を keyword_queue へ流す",
+    )
+    p_seed.add_argument("--max-items", type=int, default=10)
 
     p_badges = sub.add_parser("apply-badges", help="公開済み記事に【事実】【考察】バッジを一括適用")
     p_badges.add_argument("--dry-run", action="store_true")
@@ -92,6 +105,12 @@ def main() -> None:
             days=args.days or None,
             dry_run=args.dry_run,
         )
+        if not args.dry_run and args.seed_queue:
+            from pipeline.seed_from_analytics import seed_from_analytics
+            seed_from_analytics()
+    elif args.command == "seed-from-analytics":
+        from pipeline.seed_from_analytics import seed_from_analytics
+        seed_from_analytics(max_items=args.max_items)
     elif args.command == "apply-badges":
         from pipeline.apply_badges import apply_badges_to_posts
         apply_badges_to_posts(dry_run=args.dry_run, slug=args.slug or None)

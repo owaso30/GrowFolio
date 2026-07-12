@@ -41,3 +41,4 @@ jobs:
             automation/data/analytics/latest.json
             automation/data/analytics/summary.md
             automation/data/analytics/trend.json
+            automation/data/keyword_queue.json

@@ -1,6 +1,6 @@
-# 自動投稿の編集方針（Money × Technology コンセプト全般）
+# 自動投稿の編集方針（クラスター穴埋め＋重複防止）
 auto_publish:
-  description: "トレンド・ニュース起点で、ブログコンセプトに沿った記事を自動生成・公開"
+  description: "新規はクラスターの穴埋めのみ。同意図はリライト候補へ。"
   allowed_categories:
     - 始め方
     - 運用・実績
@@ -11,39 +11,104 @@ auto_publish:
     - AI副業
     - 投資入門
     - ITキャリア
+  # 火金の週2本枠（クラスター別）。枠が埋まったクラスターはスキップ。
+  weekly_quota:
+    bitradex: 1
+    tax: 1
+    other: 0
+  # IT系は自動枠から原則外し、月次上限のみ（緊急時の逃し弁）
+  monthly_quota:
+    it: 2
   # キューに載せるKWのトピックフィルタ（いずれかを含むもの）
+  # IT単発ニュースは意図的に薄くし、BitradeX・税金・制度を優先
   topic_keywords:
+    - BitradeX
+    - 仮想通貨
+    - 暗号資産
+    - 税金
+    - 確定申告
+    - クリプタクト
+    - NISA
+    - 投資
+    - 資産
+    - 金融
+    - 規制
+    - 制度
+    - 副業
     - AI
     - 生成AI
     - ChatGPT
-    - 副業
-    - 投資
-    - NISA
-    - 資産
-    - 仮想通貨
-    - 暗号資産
-    - BitradeX
-    - 自動売買
-    - 税金
-    - 確定申告
-    - 金融
-    - キャリア
-    - 転職
-    - エンジニア
-    - プログラミング
-    - 開発
-    - ITスキル
-    - スキルアップ
-    - Python
-    - JavaScript
-    - TypeScript
-    - GitHub
-    - VSCode
-    - Cursor
-    - 資格
-    - ポートフォリオ
-    - リモートワーク
-    - ITツール
+  # クラスター判定（KW・タイトル・slug に対して match_any）
+  clusters:
+    bitradex:
+      match_any:
+        - bitradex
+        - ビットレード
+    tax:
+      match_any:
+        - 税金
+        - 確定申告
+        - 雑所得
+        - 申告分離
+        - クリプタクト
+        - 課税
+    it:
+      match_any:
+        - vscode
+        - vs code
+        - github
+        - copilot
+        - cursor
+        - プログラミング
+        - エンジニア
+        - typescript
+        - javascript
+        - python
+        - 開発ツール
+  # 意図指紋用エンティティ正規化（同バケット判定）
+  entity_aliases:
+    bitradex:
+      - bitradex
+      - ビットレード
+    vscode:
+      - vscode
+      - vs code
+      - visual studio code
+    copilot:
+      - github copilot
+      - copilot chat
+      - copilot
+    cursor:
+      - cursor
+    chatgpt:
+      - chatgpt
+      - chat gpt
+      - openai
+    claude:
+      - claude
+      - anthropic
+    nisa:
+      - nisa
+      - 新nisa
+      - つみたてnisa
+    tax:
+      - 税金
+      - 確定申告
+      - 雑所得
+      - 申告分離
+      - クリプタクト
+    crypto:
+      - 仮想通貨
+      - 暗号資産
+      - crypto
+  fingerprint:
+    # 共通エンティティがこの数以上なら同意図扱い
+    min_shared_entities: 2
+    # エンティティ1つでも fuzzy がこの値以上なら重複
+    fuzzy_threshold: 72
+    # エンティティ一致時の追加 fuzzy 閾値（低め）
+    fuzzy_with_entity_threshold: 55
+    jaccard_threshold: 0.45
 
 # 自動投稿から除外するKW（個人名×評判・口コミ系）
 keyword_safety:
@@ -186,35 +251,27 @@ keyword_safety:
     - 確定申告
     - 対処
 
-# トレンド収集・KW調査（柱の代わり）
+# トレンド収集・KW調査（BitradeX・税金・制度を優先）
 trend_research:
   news_queries:
-    - ChatGPT 最新 機能
-    - Claude AI 開発 ツール
-    - 生成AI 副業 トレンド
-    - Cursor エディタ AI
-    - GitHub Copilot 最新
     - BitradeX 仮想通貨
     - 暗号資産 規制 2026
     - 仮想通貨 税金 改正
+    - 仮想通貨 確定申告
     - NISA 制度 改正
     - DeFi 規制 動向
-    - AI 自動売買 最新
     - 仮想通貨 取引所 規制
-    - OpenAI 発表
-    - ITエンジニア AI ツール
-    - クラウド AWS 最新
+    - クリプタクト 税金
+    - 暗号資産 申告分離課税
   suggest_seeds:
-    - ChatGPT 最新 ニュース
-    - Claude API 開発
+    - BitradeX 出金 できない
     - BitradeX 最新 動向
     - 暗号資産 規制 2026
     - NISA 制度 改正 2026
-    - Cursor AI エディタ
-    - GitHub Copilot 機能
-    - 生成AI 副業 トレンド
-    - DeFi 規制 影響
     - 仮想通貨 税金 改正
+    - 仮想通貨 税金 クリプタクト
+    - 仮想通貨 確定申告 やり方
+    - DeFi 規制 影響
 
 # ブルーオーシャンKW戦略（ロングテール × 競合回避）
 blue_ocean:
@@ -226,9 +283,9 @@ blue_ocean:
   reject_high_competition: true
   use_serp_related: true
   max_expansion_per_seed: 8
-  trend_bonus: 15
-  trend_focus_bonus: 22
-  news_focus_bonus: 22
+  trend_bonus: 10
+  trend_focus_bonus: 12
+  news_focus_bonus: 8
   specificity_bonus: 25
   long_tail_bonus: 10
   intent_modifier_bonus: 6
@@ -237,7 +294,7 @@ blue_ocean:
   procedure_penalty: 45
   generic_penalty: 35
   reputation_penalty: 35
-  preferred_intents: [A, B, D]
+  preferred_intents: [A, B]
   head_terms:
     - 投資
     - 仮想通貨
@@ -247,37 +304,25 @@ blue_ocean:
     - NISA
     - 副業
     - AI
-    - プログラミング
-    - エンジニア
-    - 開発
-    - Python
   intent_modifiers:
-    - 最新
     - 制度
     - 規制
     - 改正
-    - 発表
-    - 動向
-    - 影響
-    - 見通し
-    - 将来
-    - 展望
     - 税金
     - 確定申告
     - 比較
     - できない
     - 対処
-    - トレンド
+    - 反映されない
+    - ログイン
   expansion_modifiers:
-    - 最新 動向
     - 規制 影響
-    - 発表 内容
-    - 将来 展望
     - 制度 改正
     - 税金 改正
+    - 確定申告 やり方
     - 2026 最新
-    - トレンド 分析
-    - ニュース 解説
+    - できない 対処
+    - 反映されない 時間
     - 比較 特徴
   news_headline_markers:
     - 速報

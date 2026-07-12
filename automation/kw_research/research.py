@@ -1,12 +1,10 @@
-"""トレンド × ブルーオーシャンKW調査。"""
+"""トレンド × ブルーオーシャンKW調査（クラスター穴埋め＋重複防止）。"""
 from __future__ import annotations
 
 import os
 import re
 from datetime import datetime, timezone
 from typing import Any
-
-from rapidfuzz import fuzz
 
 from config_loader import load_json, save_json
 from content.trends import collect_trend_keywords, headline_to_keyword
@@ -17,7 +15,12 @@ from kw_research.blue_ocean import (
     passes_blue_ocean_filter,
     score_keyword,
 )
-from seo.content_policy import get_trend_config, is_allowed_for_auto
+from seo.content_policy import filter_auto_keywords, get_trend_config, is_allowed_for_auto
+from seo.fingerprint import (
+    classify_cluster,
+    find_cannibal_match,
+    intent_fingerprint,
+)
 
 SUGGEST_URL = "https://suggestqueries.google.com/complete/search?client=firefox&hl=ja&q="
 
@@ -42,7 +45,7 @@ def classify_intent(keyword: str) -> str:
     kw = keyword.lower()
     if any(x in kw for x in ["できない", "エラー", "反映されない", "対処", "トラブル", "ログイン"]):
         return "A"
-    if any(x in kw for x in ["税金", "確定申告", "雑所得"]):
+    if any(x in kw for x in ["税金", "確定申告", "雑所得", "申告分離", "クリプタクト"]):
         return "B"
     if any(x in kw for x in ["キャリア", "転職", "スキル", "資格", "学習", "エンジニア", "プログラミング", "開発", "ポートフォリオ"]):
         return "C"
@@ -56,14 +59,32 @@ def classify_intent(keyword: str) -> str:
 
 
 def is_duplicate(keyword: str, published: list[dict], threshold: int = 75) -> bool:
-    for post in published:
-        title = post.get("title", "")
-        if fuzz.partial_ratio(keyword, title) >= threshold:
-            return True
-        for tag in post.get("keywords", []):
-            if fuzz.ratio(keyword, tag) >= threshold:
-                return True
-    return False
+    """後方互換ラッパー。新規ロジックは find_cannibal_match を使う。"""
+    match = find_cannibal_match(keyword, published)
+    return match is not None
+
+
+def _record_rewrite_candidate(
+    rewrite_bucket: dict[str, dict[str, Any]],
+    keyword: str,
+    match: dict[str, Any],
+) -> None:
+    key = keyword.strip()
+    if not key or key in rewrite_bucket:
+        return
+    rewrite_bucket[key] = {
+        "keyword": key,
+        "intent": classify_intent(key),
+        "score": 0,
+        "status": "rewrite_candidate",
+        "source": "cannibal_guard",
+        "cluster": classify_cluster(key),
+        "fingerprint": sorted(intent_fingerprint(key)),
+        "existing_slug": match.get("slug") or "",
+        "existing_title": match.get("title") or "",
+        "reason": match.get("reason") or "cannibal",
+        "noted_at": datetime.now(timezone.utc).isoformat(),
+    }
 
 
 def _try_add(
@@ -71,17 +92,25 @@ def _try_add(
     keyword: str,
     published: list[dict],
     existing: set[str],
+    rewrite_bucket: dict[str, dict[str, Any]],
+    queue_items: list[dict[str, Any]],
     *,
     from_news: bool = False,
     source: str = "suggest",
     serp: dict[str, Any] | None = None,
 ) -> bool:
     kw = keyword.strip()
-    if not kw or kw in existing or is_duplicate(kw, published):
+    if not kw or kw in existing:
         return False
     if not is_allowed_for_auto(kw):
         return False
     if not passes_blue_ocean_filter(kw):
+        return False
+
+    match = find_cannibal_match(kw, published, queue_items=queue_items)
+    if match:
+        _record_rewrite_candidate(rewrite_bucket, kw, match)
+        print(f"  rewrite_candidate: {kw[:50]} -> {match.get('slug') or match.get('title', '')[:40]}")
         return False
 
     intent = classify_intent(kw)
@@ -102,6 +131,8 @@ def _try_add(
         "status": "pending",
         "source": source,
         "competition": meta.get("competition_level", "medium"),
+        "cluster": classify_cluster(kw),
+        "fingerprint": sorted(intent_fingerprint(kw)),
     }
     if meta.get("serp"):
         entry["serp"] = meta["serp"]
@@ -176,6 +207,8 @@ def _ingest_related_from_serp(
     candidates: dict[str, dict[str, Any]],
     published: list[dict],
     existing: set[str],
+    rewrite_bucket: dict[str, dict[str, Any]],
+    queue_items: list[dict[str, Any]],
 ) -> None:
     """SerpAPI の related searches / PAA から追加ロングテールを拾う。"""
     if not os.environ.get("SERPAPI_KEY"):
@@ -190,46 +223,113 @@ def _ingest_related_from_serp(
         if not serp:
             continue
         for related in serp.get("related_searches", []) + serp.get("people_also_ask", []):
-            _try_add(candidates, related, published, existing, source="serp_related")
+            _try_add(
+                candidates,
+                related,
+                published,
+                existing,
+                rewrite_bucket,
+                queue_items,
+                source="serp_related",
+            )
 
 
 def run_research(max_keywords: int = 10) -> dict[str, Any]:
     published = load_json("published.json").get("posts", [])
     queue = load_json("keyword_queue.json")
-    existing = {k["keyword"] for k in queue.get("keywords", []) if k.get("status") != "done"}
+    queue_items = list(queue.get("keywords", []))
+    existing = {
+        k["keyword"]
+        for k in queue_items
+        if k.get("status") in ("pending", "done", "rewrite_candidate")
+    }
     trend_cfg = get_trend_config()
 
     candidates: dict[str, dict[str, Any]] = {}
+    rewrite_bucket: dict[str, dict[str, Any]] = {}
 
     trend_seeds = _collect_trend_seeds()
     for kw in expand_long_tail_seeds(trend_seeds, fetch_suggestions):
-        _try_add(candidates, kw, published, existing, from_news=True, source="trend_expand")
+        _try_add(
+            candidates,
+            kw,
+            published,
+            existing,
+            rewrite_bucket,
+            queue_items,
+            from_news=True,
+            source="trend_expand",
+        )
 
     for seed in trend_cfg.get("news_queries", []) + trend_cfg.get("suggest_seeds", []):
         for kw in fetch_suggestions(seed)[:15]:
-            _try_add(candidates, kw, published, existing, source="suggest")
+            _try_add(
+                candidates,
+                kw,
+                published,
+                existing,
+                rewrite_bucket,
+                queue_items,
+                source="suggest",
+            )
 
-    _ingest_related_from_serp(candidates, published, existing)
+    _ingest_related_from_serp(candidates, published, existing, rewrite_bucket, queue_items)
 
     _rescore_with_serp(candidates)
 
     ranked = sorted(candidates.values(), key=lambda x: x["score"], reverse=True)
     new_items = ranked[:max_keywords]
 
-    merged = [
-        k for k in queue.get("keywords", [])
-        if k.get("status") == "pending" and is_allowed_for_auto(k.get("keyword", ""))
+    # 既存 done / rewrite_candidate を保持し、pending は再フィルタ
+    preserved = [
+        k for k in queue_items
+        if k.get("status") in ("done", "rewrite_candidate")
     ]
-    seen = {k["keyword"] for k in merged}
+    seen = {k["keyword"] for k in preserved}
+
+    pending_kept = [
+        k for k in queue_items
+        if k.get("status") == "pending"
+        and is_allowed_for_auto(k.get("keyword", ""))
+        and k["keyword"] not in seen
+    ]
+    # 既存 pending も再チェック（古い同意図を落とす）
+    refreshed_pending: list[dict[str, Any]] = []
+    for item in pending_kept:
+        match = find_cannibal_match(item["keyword"], published, queue_items=preserved)
+        if match:
+            _record_rewrite_candidate(rewrite_bucket, item["keyword"], match)
+            continue
+        item.setdefault("cluster", classify_cluster(item["keyword"]))
+        item.setdefault("fingerprint", sorted(intent_fingerprint(item["keyword"])))
+        refreshed_pending.append(item)
+        seen.add(item["keyword"])
+
     for item in new_items:
         if item["keyword"] not in seen:
-            merged.append(item)
+            refreshed_pending.append(item)
             seen.add(item["keyword"])
 
-    merged.sort(key=lambda x: x.get("score", 0), reverse=True)
+    for item in rewrite_bucket.values():
+        if item["keyword"] not in seen:
+            preserved.append(item)
+            seen.add(item["keyword"])
+
+    merged = preserved + refreshed_pending
+    merged = filter_auto_keywords(merged)
+    merged.sort(
+        key=lambda x: (
+            0 if x.get("status") == "pending" else 1,
+            -float(x.get("score") or 0),
+        )
+    )
     result = {
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "keywords": merged,
     }
     save_json("keyword_queue.json", result)
+    print(
+        f"Research done: pending={sum(1 for k in merged if k.get('status')=='pending')} "
+        f"rewrite_candidates={sum(1 for k in merged if k.get('status')=='rewrite_candidate')}"
+    )
     return result

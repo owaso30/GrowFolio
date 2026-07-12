@@ -37,8 +37,13 @@ def is_allowed_for_auto(keyword: str) -> bool:
 
 
 def filter_auto_keywords(keywords: list[dict]) -> list[dict]:
-    """コンセプト外の pending を除外。done は履歴として保持。"""
-    return [
-        k for k in keywords
-        if k.get("status") == "done" or is_allowed_for_auto(k.get("keyword", ""))
-    ]
+    """コンセプト外の pending を除外。done / rewrite_candidate は履歴として保持。"""
+    kept: list[dict] = []
+    for k in keywords:
+        status = k.get("status")
+        if status in ("done", "rewrite_candidate"):
+            kept.append(k)
+            continue
+        if status == "pending" and is_allowed_for_auto(k.get("keyword", "")):
+            kept.append(k)
+    return kept
