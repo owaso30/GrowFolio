@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-12T06:49:21.758113+00:00",
+  "fetched_at": "2026-07-12T06:55:00.526099+00:00",
   "period": {
     "start": "2026-06-14",
     "end": "2026-07-11",
@@ -977,7 +977,7 @@
     ]
   },
   "kpi": {
-    "article_count": 18,
+    "article_count": 23,
     "monthly_pv_estimate": 838,
     "target_3m": [
       1000,
