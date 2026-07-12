@@ -1,0 +1,43 @@
+name: Fetch Analytics (GSC + GA4)
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: '集計日数（空なら config の period_days=28）'
+        required: false
+        default: ''
+  schedule:
+    # 月曜 03:00 JST = 日曜 18:00 UTC
+    - cron: '0 18 * * 0'
+
+jobs:
+  analytics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r automation/requirements.txt
+      - name: Fetch GSC + GA4
+        working-directory: automation
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "${{ github.event.inputs.days }}" ]; then
+            python -m pipeline fetch-analytics --days "${{ github.event.inputs.days }}"
+          else
+            python -m pipeline fetch-analytics
+          fi
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update analytics snapshot (GSC + GA4)'
+          file_pattern: |
+            automation/data/analytics/latest.json
+            automation/data/analytics/summary.md
+            automation/data/analytics/trend.json

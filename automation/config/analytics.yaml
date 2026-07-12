@@ -1,0 +1,20 @@
+# GA4 / Search Console 自動計測
+period_days: 28
+gsc:
+  row_limit: 100
+ga4:
+  row_limit: 50
+opportunity:
+  # 表示はあるが順位が低い / CTRが低い → リライト候補
+  min_impressions: 20
+  min_position: 8.0
+  max_ctr: 0.03
+kpi:
+  # BitradeX_アフィリエイト完全ロードマップ の月間PV目標
+  targets:
+    month_3_pv_min: 1000
+    month_3_pv_max: 3000
+    month_6_pv_min: 5000
+    month_6_pv_max: 10000
+    month_12_pv_min: 20000
+    month_12_pv_max: 50000

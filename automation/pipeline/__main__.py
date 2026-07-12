@@ -1,4 +1,4 @@
-"""CLI entry: python -m pipeline [sync-posts|publish|research]"""
+"""CLI entry: python -m pipeline [sync-posts|publish|research|fetch-analytics]"""
 from __future__ import annotations
 
 import argparse
@@ -21,6 +21,22 @@ def main() -> None:
 
     p_res = sub.add_parser("research", help="キーワード調査してキュー更新")
     p_res.add_argument("--max-keywords", type=int, default=10)
+
+    p_analytics = sub.add_parser(
+        "fetch-analytics",
+        help="Search Console + GA4 を取得し data/analytics/ に保存",
+    )
+    p_analytics.add_argument(
+        "--days",
+        type=int,
+        default=0,
+        help="集計日数（未指定時は config/analytics.yaml の period_days）",
+    )
+    p_analytics.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="認証・API呼び出しなしで期間と設定だけ表示",
+    )
 
     p_badges = sub.add_parser("apply-badges", help="公開済み記事に【事実】【考察】バッジを一括適用")
     p_badges.add_argument("--dry-run", action="store_true")
@@ -70,6 +86,12 @@ def main() -> None:
         from kw_research.research import run_research
         result = run_research(max_keywords=args.max_keywords)
         print(f"Queue size: {len(result.get('keywords', []))}")
+    elif args.command == "fetch-analytics":
+        from analytics.report import fetch_analytics
+        fetch_analytics(
+            days=args.days or None,
+            dry_run=args.dry_run,
+        )
     elif args.command == "apply-badges":
         from pipeline.apply_badges import apply_badges_to_posts
         apply_badges_to_posts(dry_run=args.dry_run, slug=args.slug or None)

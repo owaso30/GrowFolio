@@ -1,0 +1,1 @@
+# Analytics snapshots are written by `python -m pipeline fetch-analytics`

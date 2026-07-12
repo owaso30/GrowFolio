@@ -4,3 +4,4 @@ __pycache__/
 .venv/
 setup_part*.py
 _bootstrap_part1.py
+secret/
