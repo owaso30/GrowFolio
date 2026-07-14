@@ -1,6 +1,7 @@
 # 自動投稿の編集方針（クラスター穴埋め＋重複防止）
+# 方針: ブルーオーシャンのロングテール × IT/投資トレンドTOP。エディタ単発は出さない。
 auto_publish:
-  description: "新規はクラスターの穴埋めのみ。同意図はリライト候補へ。"
+  description: "新規はクラスター穴埋めのみ。同意図はリライト候補へ。IT・投資トレンドで勝負。"
   allowed_categories:
     - 始め方
     - 運用・実績
@@ -11,16 +12,20 @@ auto_publish:
     - AI副業
     - 投資入門
     - ITキャリア
-  # 火金の週2本枠（クラスター別）。枠が埋まったクラスターはスキップ。
+    - 相場・市況
+    - テック動向
+  # 火金の週2本枠（スコア上位のうち、枠の空いているクラスターを選ぶ）
   weekly_quota:
     bitradex: 1
     tax: 1
+    it: 1
+    invest: 1
     other: 0
-  # IT系は自動枠から原則外し、月次上限のみ（緊急時の逃し弁）
+  # 月次の上限（週枠と併用。過剰な同クラスター連投を抑える）
   monthly_quota:
-    it: 2
+    it: 4
+    invest: 4
   # キューに載せるKWのトピックフィルタ（いずれかを含むもの）
-  # IT単発ニュースは意図的に薄くし、BitradeX・税金・制度を優先
   topic_keywords:
     - BitradeX
     - 仮想通貨
@@ -38,7 +43,45 @@ auto_publish:
     - AI
     - 生成AI
     - ChatGPT
+    - LLM
+    - Web3
+    - Web4
+    - NFT
+    - ブロックチェーン
+    - DeFi
+    - GameFi
+    - クラウド
+    - AWS
+    - Azure
+    - GCP
+    - Kubernetes
+    - Docker
+    - Terraform
+    - インフラ
+    - ネットワーク
+    - 情シス
+    - DevOps
+    - SRE
+    - セキュリティ
+    - フレームワーク
+    - プログラミング
+    - TypeScript
+    - Python
+    - Rust
+    - Go
+    - React
+    - Next.js
+    - 株
+    - 株式
+    - FX
+    - 為替
+    - 投資信託
+    - 投信
+    - ETF
+    - 日経
+    - ナスダック
   # クラスター判定（KW・タイトル・slug に対して match_any）
+  # 優先順は fingerprint.classify_cluster 側: bitradex > tax > it > invest
   clusters:
     bitradex:
       match_any:
@@ -54,32 +97,88 @@ auto_publish:
         - 課税
     it:
       match_any:
-        - vscode
-        - vs code
-        - github
-        - copilot
-        - cursor
-        - プログラミング
-        - エンジニア
+        # AI / 生成系
+        - 生成ai
+        - chatgpt
+        - openai
+        - claude
+        - gemini
+        - llm
+        - 大規模言語
+        - エージェントai
+        - aiエージェント
+        # Web3 / ゲーム / チェーン
+        - web3
+        - web4
+        - nft
+        - ブロックチェーン
+        - gamefi
+        - defi
+        # クラウド / インフラ / 情シス
+        - クラウド
+        - aws
+        - azure
+        - gcp
+        - google cloud
+        - kubernetes
+        - docker
+        - terraform
+        - インフラ
+        - ネットワーク
+        - 情シス
+        - devops
+        - sre
+        - ゼロトラスト
+        - セキュリティ
+        # 言語 / フレームワーク / スタック
+        - フレームワーク
+        - 技術スタック
         - typescript
         - javascript
         - python
-        - 開発ツール
+        - rust
+        - golang
+        - go言語
+        - kotlin
+        - swift
+        - react
+        - next.js
+        - nextjs
+        - vue
+        - laravel
+        - spring boot
+        - プログラミング言語
+    invest:
+      match_any:
+        - 株
+        - 株式
+        - 株主
+        - 日経
+        - ナスダック
+        - nasdaq
+        - s&p
+        - fx
+        - 為替
+        - 投資信託
+        - 投信
+        - etf
+        - nisa
+        - 新nisa
+        - 仮想通貨
+        - 暗号資産
+        - bitcoin
+        - ethereum
+        - ビットコイン
+        - イーサリアム
+        - 信用取引
+        - 配当
+        - 相場
+        - 市況
   # 意図指紋用エンティティ正規化（同バケット判定）
   entity_aliases:
     bitradex:
       - bitradex
       - ビットレード
-    vscode:
-      - vscode
-      - vs code
-      - visual studio code
-    copilot:
-      - github copilot
-      - copilot chat
-      - copilot
-    cursor:
-      - cursor
     chatgpt:
       - chatgpt
       - chat gpt
@@ -87,6 +186,59 @@ auto_publish:
     claude:
       - claude
       - anthropic
+    gemini:
+      - gemini
+      - google gemini
+    llm:
+      - llm
+      - 大規模言語モデル
+    aws:
+      - aws
+      - amazon web services
+    azure:
+      - azure
+    gcp:
+      - gcp
+      - google cloud
+    kubernetes:
+      - kubernetes
+      - k8s
+    docker:
+      - docker
+    terraform:
+      - terraform
+    react:
+      - react
+      - react.js
+    nextjs:
+      - next.js
+      - nextjs
+    rust:
+      - rust
+    golang:
+      - golang
+      - go言語
+    python:
+      - python
+    typescript:
+      - typescript
+    web3:
+      - web3
+      - web 3
+    web4:
+      - web4
+      - web 4
+    nft:
+      - nft
+      - nftゲーム
+    defi:
+      - defi
+    gamefi:
+      - gamefi
+      - nftゲーム
+    blockchain:
+      - ブロックチェーン
+      - blockchain
     nisa:
       - nisa
       - 新nisa
@@ -101,6 +253,22 @@ auto_publish:
       - 仮想通貨
       - 暗号資産
       - crypto
+      - bitcoin
+      - ethereum
+    stock:
+      - 株
+      - 株式
+      - 日経
+      - nasdaq
+      - ナスダック
+    fx:
+      - fx
+      - 為替
+      - 外国為替
+    fund:
+      - 投資信託
+      - 投信
+      - etf
   fingerprint:
     # 共通エンティティがこの数以上なら同意図扱い
     min_shared_entities: 2
@@ -110,7 +278,7 @@ auto_publish:
     fuzzy_with_entity_threshold: 55
     jaccard_threshold: 0.45
 
-# 自動投稿から除外するKW（個人名×評判・口コミ系）
+# 自動投稿から除外するKW（個人名×評判・口コミ系 / エディタ単発など）
 keyword_safety:
   block_all_reputation_keywords: true
   reputation_modifiers:
@@ -132,6 +300,15 @@ keyword_safety:
     - ギャンブル
     - 知恵袋
     - スロット
+    # IDE / AIエディタ単発はSEO優先度が低いため自動枠から除外
+    - cursor
+    - vscode
+    - vs code
+    - visual studio code
+    - github copilot
+    - copilot chat
+    - windsurf
+    - continue.dev
   low_quality_modifiers:
     - おかしい
     - やばい
@@ -139,6 +316,10 @@ keyword_safety:
     - bitradex
     - nisa
     - chatgpt
+    - claude
+    - gemini
+    - openai
+    - llm
     - sbi
     - coincheck
     - bitflyer
@@ -154,20 +335,30 @@ keyword_safety:
     - python
     - javascript
     - typescript
-    - github
-    - vscode
-    - cursor
+    - rust
+    - golang
+    - react
+    - next.js
     - aws
     - azure
+    - gcp
+    - kubernetes
     - docker
-    - claude
-    - openai
-    - copilot
+    - terraform
+    - devops
+    - sre
+    - web3
+    - web4
+    - nft
     - defi
-    - dex
+    - gamefi
+    - ブロックチェーン
     - etf
+    - fx
+    - 投資信託
+    - 日経
+    - nasdaq
     - クリプタクト
-    - bitradex
   # 手順・やり方系（画像依存が高い → キューから除外）
   procedure_modifiers:
     - やり方
@@ -201,10 +392,9 @@ keyword_safety:
     - BitradeX
     - ChatGPT
     - Claude
-    - Cursor
-    - Copilot
-    - GitHub
+    - Gemini
     - OpenAI
+    - LLM
     - NISA
     - SBI
     - Coincheck
@@ -213,13 +403,31 @@ keyword_safety:
     - DeFi
     - DEX
     - ETF
+    - Web3
+    - Web4
+    - NFT
+    - GameFi
     - クリプタクト
     - 金融庁
     - 国税庁
     - TypeScript
     - Python
+    - Rust
+    - Go
+    - React
+    - Next.js
     - AWS
+    - Azure
+    - GCP
+    - Kubernetes
     - Docker
+    - Terraform
+    - DevOps
+    - SRE
+    - FX
+    - 日経平均
+    - ナスダック
+    - 投資信託
   trend_focus_modifiers:
     - 最新
     - ニュース
@@ -236,6 +444,14 @@ keyword_safety:
     - 税金
     - 確定申告
     - 対処
+    - 急騰
+    - 急落
+    - 相場
+    - 市況
+    - アップデート
+    - リリース
+    - 採用
+    - 移行
   # 後方互換（参照のみ・手順語は含めない）
   news_focus_modifiers:
     - 最新
@@ -250,24 +466,64 @@ keyword_safety:
     - 税金
     - 確定申告
     - 対処
+    - 相場
+    - 市況
 
-# トレンド収集・KW調査（BitradeX・税金・制度を優先）
+# トレンド収集・KW調査（IT/投資の話題TOP＋BitradeX・税金）
 trend_research:
   news_queries:
-    - BitradeX 仮想通貨
+    # 投資・金融
+    - 仮想通貨 相場 最新
     - 暗号資産 規制 2026
     - 仮想通貨 税金 改正
-    - 仮想通貨 確定申告
+    - ビットコイン ETF 動向
+    - 株式市場 見通し 2026
+    - 日経平均 動向
+    - FX 為替 介入
+    - 投資信託 人気 ランキング
     - NISA 制度 改正
-    - DeFi 規制 動向
-    - 仮想通貨 取引所 規制
+    - ETF 資金流入 最新
+    # IT・クラウド・AI
+    - 生成AI 最新 動向
+    - LLM エージェント 動向
+    - OpenAI 発表 最新
+    - クラウド AWS Azure 比較 2026
+    - Kubernetes セキュリティ 動向
+    - ゼロトラスト 導入 最新
+    - Web3 規制 動向
+    - NFT ゲーム 市場 動向
+    - Rust 採用 企業 動向
+    - Next.js アップデート 最新
+    - 情シス DX クラウド移行
+    - DevOps SRE ベストプラクティス 2026
+    # BitradeX / 税金（収益・コンバージョン）
+    - BitradeX 仮想通貨
+    - 仮想通貨 確定申告
     - クリプタクト 税金
     - 暗号資産 申告分離課税
   suggest_seeds:
+    # 投資ブルーオーシャン
+    - ビットコイン ETF 影響 個人
+    - 日経平均 急落 要因 解説
+    - FX 介入 いつ 見通し
+    - 投資信託 信託報酬 比較 2026
+    - NISA 成長投資枠 改正 影響
+    - 仮想通貨 規制 日本 2026
+    - ETF インド株 人気 理由
+    # ITブルーオーシャン
+    - 生成AI エージェント 業務活用 注意点
+    - LLM コスト 最適化 企業
+    - AWS 値上げ 影響 2026
+    - Kubernetes セキュリティ 設定 監査
+    - ゼロトラスト VPN 廃止 事例
+    - Web3 身份証明 規制 日本
+    - NFTゲーム 収益 税金 扱い
+    - Rust 組み込み 採用 理由
+    - Next.js App Router 移行 判断
+    - 情シス クラウド移行 失敗 回避
+    # 既存収益系
     - BitradeX 出金 できない
     - BitradeX 最新 動向
-    - 暗号資産 規制 2026
-    - NISA 制度 改正 2026
     - 仮想通貨 税金 改正
     - 仮想通貨 税金 クリプタクト
     - 仮想通貨 確定申告 やり方
@@ -304,6 +560,10 @@ blue_ocean:
     - NISA
     - 副業
     - AI
+    - 株
+    - FX
+    - クラウド
+    - Web3
   intent_modifiers:
     - 制度
     - 規制
@@ -315,6 +575,14 @@ blue_ocean:
     - 対処
     - 反映されない
     - ログイン
+    - 動向
+    - 影響
+    - 見通し
+    - 導入
+    - 移行
+    - 採用
+    - 急騰
+    - 急落
   expansion_modifiers:
     - 規制 影響
     - 制度 改正
@@ -324,6 +592,10 @@ blue_ocean:
     - できない 対処
     - 反映されない 時間
     - 比較 特徴
+    - 動向 解説
+    - 導入 注意点
+    - コスト 影響
+    - 個人 投資家
   news_headline_markers:
     - 速報
     - 発表
@@ -369,6 +641,8 @@ intent_categories:
   D: {name: 懐疑・比較, intent_depth: 5, conversion: 5}
   E: {name: 運用報告, intent_depth: 3, conversion: 4}
   F: {name: 指名・基本, intent_depth: 2, conversion: 3}
+  G: {name: ITトレンド, intent_depth: 4, conversion: 3}
+  H: {name: 投資市況, intent_depth: 4, conversion: 4}
 
 editorial:
   trend_research: true

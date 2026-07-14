@@ -1,53 +1,17 @@
 {
-  "updated_at": "2026-07-12T07:32:05.384066+00:00",
+  "updated_at": "2026-07-14T12:41:05.173875+00:00",
   "keywords": [
-    {
-      "keyword": "仮想通貨 税金 クリプタクト",
-      "intent": "B",
-      "score": 132.7,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "low"
-    },
-    {
-      "keyword": "仮想通貨 税金 変わる",
-      "intent": "B",
-      "score": 132.6,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "low"
-    },
     {
       "keyword": "自由研究 税金 ロボット",
       "intent": "B",
       "score": 132.6,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "low"
-    },
-    {
-      "keyword": "仮想通貨 税金 改正",
-      "intent": "B",
-      "score": 132.5,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "low"
-    },
-    {
-      "keyword": "仮想通貨 税金 計算",
-      "intent": "B",
-      "score": 132.5,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "low"
-    },
-    {
-      "keyword": "仮想通貨 税金 いつ",
-      "intent": "B",
-      "score": 132.5,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "low"
+      "competition": "low",
+      "cluster": "tax",
+      "fingerprint": [
+        "tax"
+      ]
     },
     {
       "keyword": "chatgpt トレンド 分析",
@@ -55,7 +19,11 @@
       "score": 122.8,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium"
+      "competition": "medium",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "スプレッド 仮想通貨 比較",
@@ -63,7 +31,11 @@
       "score": 122.7,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium"
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "crypto"
+      ]
     },
     {
       "keyword": "chatgpt 最新 動向",
@@ -71,7 +43,11 @@
       "score": 122.7,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium"
+      "competition": "medium",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "仮想通貨 比較 取引所",
@@ -79,39 +55,11 @@
       "score": 122.5,
       "status": "pending",
       "source": "trend_expand",
-      "competition": "medium"
-    },
-    {
-      "keyword": "BitradeX ログインできない 対処",
-      "intent": "A",
-      "score": 121.0,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "low"
-    },
-    {
-      "keyword": "仮想通貨 税金 改正 いつから",
-      "intent": "B",
-      "score": 118.8,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "low"
-    },
-    {
-      "keyword": "仮想通貨 税金 改正 個人",
-      "intent": "B",
-      "score": 118.7,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "low"
-    },
-    {
-      "keyword": "日本 仮想通貨 税金 改正",
-      "intent": "B",
-      "score": 118.7,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "low"
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "crypto"
+      ]
     },
     {
       "keyword": "ChatGPT アップデート 最新",
@@ -124,7 +72,11 @@
         "authority_hits": 1,
         "opportunity_hits": 1,
         "opportunity_ratio": 0.11
-      }
+      },
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "新NISA スイッチング 将来",
@@ -137,7 +89,11 @@
         "authority_hits": 1,
         "opportunity_hits": 1,
         "opportunity_ratio": 0.11
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "chatgpt 最新 ニュース 取得",
@@ -145,15 +101,11 @@
       "score": 107.9,
       "status": "pending",
       "source": "suggest",
-      "competition": "medium"
-    },
-    {
-      "keyword": "ai エディタ cursor 最新",
-      "intent": "F",
-      "score": 107.8,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium"
+      "competition": "medium",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "nisa 制度 改正 2026",
@@ -161,7 +113,11 @@
       "score": 107.8,
       "status": "pending",
       "source": "suggest",
-      "competition": "medium"
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "nisa 制度 改正 いつから",
@@ -169,7 +125,11 @@
       "score": 107.8,
       "status": "pending",
       "source": "suggest",
-      "competition": "medium"
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "nisa 制度 改正 2026 年",
@@ -177,7 +137,11 @@
       "score": 107.8,
       "status": "pending",
       "source": "suggest",
-      "competition": "medium"
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "ジュニア nisa 制度 改正",
@@ -185,7 +149,11 @@
       "score": 107.8,
       "status": "pending",
       "source": "suggest",
-      "competition": "medium"
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "openai chatgpt 発表",
@@ -193,7 +161,11 @@
       "score": 107.8,
       "status": "pending",
       "source": "suggest",
-      "competition": "medium"
+      "competition": "medium",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "chatgpt 最新 機能",
@@ -206,7 +178,11 @@
         "authority_hits": 0,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "openai 公式 発表",
@@ -219,7 +195,11 @@
         "authority_hits": 0,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "新NISA改正 スイッチング いつから",
@@ -232,7 +212,11 @@
         "authority_hits": 2,
         "opportunity_hits": 1,
         "opportunity_ratio": 0.11
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "新NISA 改正 2026 成長投資枠",
@@ -245,7 +229,11 @@
         "authority_hits": 1,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "ChatGPT 最新モデル 無料",
@@ -258,7 +246,11 @@
         "authority_hits": 1,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "新NISA改正 2026 いつから",
@@ -271,7 +263,11 @@
         "authority_hits": 1,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "新NISA改正 2026 復活",
@@ -284,7 +280,11 @@
         "authority_hits": 1,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "新NISA 改正 2026 改悪",
@@ -297,7 +297,11 @@
         "authority_hits": 1,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "新 nisa 制度 改正 2026",
@@ -310,7 +314,11 @@
         "authority_hits": 1,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "積立 nisa 制度 改正",
@@ -323,7 +331,11 @@
         "authority_hits": 1,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "新 nisa 制度 改正",
@@ -336,7 +348,11 @@
         "authority_hits": 1,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "openai 最新 発表",
@@ -349,20 +365,11 @@
         "authority_hits": 1,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
-    },
-    {
-      "keyword": "ai コード エディタ cursor と は",
-      "intent": "F",
-      "score": 103.1,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "low",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 2,
-        "opportunity_ratio": 0.25
-      }
+      },
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "ソフトバンク openai 発表",
@@ -375,7 +382,11 @@
         "authority_hits": 2,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "chatgpt 最新 ニュース",
@@ -388,7 +399,11 @@
         "authority_hits": 2,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "新NISA 改正 2,400万円",
@@ -401,7 +416,11 @@
         "authority_hits": 2,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "openai sora 発表",
@@ -414,7 +433,11 @@
         "authority_hits": 2,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "OpenAI 最新 ニュース",
@@ -427,7 +450,11 @@
         "authority_hits": 2,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ]
     },
     {
       "keyword": "NISA 2026 改正",
@@ -440,7 +467,11 @@
         "authority_hits": 2,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "NISA 改正 2027",
@@ -453,7 +484,11 @@
         "authority_hits": 2,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
     },
     {
       "keyword": "新NISA 改正 2027",
@@ -466,7 +501,191 @@
         "authority_hits": 3,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ]
+    },
+    {
+      "keyword": "株式市場 見通し 2026",
+      "intent": "F",
+      "score": 97.7,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "stock"
+      ]
+    },
+    {
+      "keyword": "日経平均 外国人投資家 動向",
+      "intent": "F",
+      "score": 97.7,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "stock"
+      ]
+    },
+    {
+      "keyword": "京都中央信用金庫 投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 80.1,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ]
+    },
+    {
+      "keyword": "三井住友銀行 投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 80.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ]
+    },
+    {
+      "keyword": "八十二銀行 投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 80.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ]
+    },
+    {
+      "keyword": "京都信用金庫 投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 80.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ]
+    },
+    {
+      "keyword": "価格. com 投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 80.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ]
+    },
+    {
+      "keyword": "北九州 銀行 投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 80.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ]
+    },
+    {
+      "keyword": "みずほ銀行 投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 80.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ]
+    },
+    {
+      "keyword": "楽天証券 投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 79.9,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ]
+    },
+    {
+      "keyword": "東洋証券 投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 79.9,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ]
+    },
+    {
+      "keyword": "fx 為替 介入 どうなる",
+      "intent": "F",
+      "score": 79.7,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fx"
+      ]
+    },
+    {
+      "keyword": "fx 為替 介入 時間 帯",
+      "intent": "F",
+      "score": 79.7,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fx"
+      ]
+    },
+    {
+      "keyword": "投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 79.7,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ]
+    },
+    {
+      "keyword": "fx 為替 介入 と は",
+      "intent": "F",
+      "score": 79.6,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fx"
+      ]
     },
     {
       "keyword": "bitradex 出金 できない",
@@ -488,6 +707,339 @@
         "position": 10.74
       },
       "noted_at": "2026-07-12T07:32:00.695692+00:00"
+    },
+    {
+      "keyword": "nisa 制度 改正 案",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 2026",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=95.65217391304348",
+      "noted_at": "2026-07-14T12:40:04.584750+00:00"
+    },
+    {
+      "keyword": "nisa 制度 改正 要望",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 2026",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=91.66666666666666",
+      "noted_at": "2026-07-14T12:40:06.100545+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 計算ツール",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:13.431615+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 バレない",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:14.060773+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 いくらから",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:14.650566+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 税率",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:15.252756+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 簡単",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:15.857388+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 損益通算",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:16.469083+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 添付書類",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:17.009863+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 計算",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:17.610828+00:00"
+    },
+    {
+      "keyword": "暗号資産 申告分離課税 いつから",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:20.060685+00:00"
+    },
+    {
+      "keyword": "暗号資産 申告分離課税 いつ",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:20.606365+00:00"
+    },
+    {
+      "keyword": "仮想通貨 税金 クリプタクト",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:35.909987+00:00"
+    },
+    {
+      "keyword": "仮想通貨 税金 変わる",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:36.246132+00:00"
+    },
+    {
+      "keyword": "仮想通貨 税金 改正",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:37.201128+00:00"
+    },
+    {
+      "keyword": "仮想通貨 税金 計算",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:37.548066+00:00"
+    },
+    {
+      "keyword": "仮想通貨 税金 いつ",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:37.872883+00:00"
+    },
+    {
+      "keyword": "BitradeX ログインできない 対処",
+      "intent": "A",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "bitradex",
+      "fingerprint": [
+        "bitradex"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "entity+fuzzy shared=['bitradex'] fuzzy=57.14285714285714",
+      "noted_at": "2026-07-14T12:40:40.679334+00:00"
+    },
+    {
+      "keyword": "仮想通貨 税金 改正 いつから",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:41.012963+00:00"
+    },
+    {
+      "keyword": "仮想通貨 税金 改正 個人",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:41.355528+00:00"
+    },
+    {
+      "keyword": "日本 仮想通貨 税金 改正",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-14T12:40:41.690935+00:00"
     }
   ]
 }

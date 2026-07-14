@@ -46,12 +46,21 @@ def _select_publishable(
     # 選択中の仮カウント用にコピー
     simulated = list(queue_items)
 
+    # 公開選定では done / rewrite_candidate のみ照合（他 pending 同士の誤衝突を避ける）。
+    # 同一実行で選んだ分は simulated に done として足すので二重選定も防ぐ。
+    queue_for_cannibal = ("done", "rewrite_candidate")
+
     for item in pending:
         keyword = item.get("keyword", "")
         if not is_allowed_for_auto(keyword):
             continue
 
-        match = find_cannibal_match(keyword, published, queue_items=simulated)
+        match = find_cannibal_match(
+            keyword,
+            published,
+            queue_items=simulated,
+            queue_statuses=queue_for_cannibal,
+        )
         if match:
             item["status"] = "rewrite_candidate"
             item["existing_slug"] = match.get("slug") or ""
@@ -100,13 +109,16 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
     selected = _select_publishable(pending, published.get("posts", []), queue_items, count)
 
     if not selected:
-        # cannibal で rewrite_candidate 化した分を保存
+        # cannibal で rewrite_candidate 化した分を保存。
+        # 定期実行で「枠なし／穴なし」は正常系なので例外にせず空結果を返す
+        # （exit 1 だとキュー更新の auto-commit もスキップされる）。
         queue["keywords"] = filter_auto_keywords(queue_items)
         save_json("keyword_queue.json", queue)
-        raise RuntimeError(
-            "公開可能な pending がありません（重複ガードまたは週次クォータ）。"
+        print(
+            "WARN: 公開可能な pending がありません（重複ガードまたは週次クォータ）。"
             "research / seed-from-analytics を実行するか、rewrite_candidate を確認してください。"
         )
+        return []
 
     link_map = build_link_map(published.get("posts", []))
     titles = {p["slug"]: p["title"] for p in published.get("posts", [])}
@@ -118,8 +130,13 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
         keyword = item["keyword"]
         print(f"generating (auto): {keyword} [cluster={item.get('cluster')}]")
 
-        # 公開直前の最終ガード
-        match = find_cannibal_match(keyword, published.get("posts", []), queue_items=queue_items)
+        # 公開直前の最終ガード（pending 同士は除外・自己照合なし）
+        match = find_cannibal_match(
+            keyword,
+            published.get("posts", []),
+            queue_items=queue_items,
+            queue_statuses=("done", "rewrite_candidate"),
+        )
         if match:
             item["status"] = "rewrite_candidate"
             item["existing_slug"] = match.get("slug") or ""

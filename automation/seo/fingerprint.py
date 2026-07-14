@@ -42,12 +42,12 @@ def intent_fingerprint(*parts: str) -> frozenset[str]:
 
 
 def classify_cluster(keyword: str, title: str = "", slug: str = "") -> str:
-    """bitradex / tax / it / other を返す。"""
+    """bitradex / tax / it / invest / other を返す。"""
     cfg = get_auto_publish_config()
     clusters: dict[str, Any] = cfg.get("clusters", {}) or {}
     text = _normalize_text(keyword, title, slug)
-    # 優先順: bitradex > tax > it
-    for name in ("bitradex", "tax", "it"):
+    # 優先順: bitradex > tax > it > invest（税金付き仮想通貨は tax を優先）
+    for name in ("bitradex", "tax", "it", "invest"):
         spec = clusters.get(name) or {}
         for token in spec.get("match_any", []) or []:
             if _normalize_text(token) in text:
@@ -71,17 +71,24 @@ def find_cannibal_match(
     published: list[dict[str, Any]],
     *,
     queue_items: list[dict[str, Any]] | None = None,
+    queue_statuses: tuple[str, ...] | None = None,
 ) -> dict[str, Any] | None:
     """
     同意図の既存記事（またはキュー済み）を返す。
     戻り値例: {"slug": "...", "title": "...", "reason": "..."}
+
+    queue_statuses:
+      比較対象にするキュー status。未指定時は pending/done/rewrite_candidate。
+      公開選定では done/rewrite_candidate のみ渡し、他 pending との誤衝突を避ける。
     """
     cfg = get_auto_publish_config().get("fingerprint", {}) or {}
     min_shared = int(cfg.get("min_shared_entities", 2))
     fuzzy_threshold = int(cfg.get("fuzzy_threshold", 72))
     fuzzy_entity = int(cfg.get("fuzzy_with_entity_threshold", 55))
     jaccard_threshold = float(cfg.get("jaccard_threshold", 0.45))
+    allowed_statuses = queue_statuses or ("pending", "done", "rewrite_candidate")
 
+    kw_norm = _normalize_text(keyword)
     kw_entities = extract_entities(keyword)
     kw_tokens = _token_set(keyword)
 
@@ -94,12 +101,16 @@ def find_cannibal_match(
             "source": "published",
         })
     for item in queue_items or []:
-        if item.get("status") not in ("pending", "done", "rewrite_candidate"):
+        if item.get("status") not in allowed_statuses:
+            continue
+        item_kw = str(item.get("keyword") or "")
+        # 自分自身のキュー行とは照合しない（fuzzy/jaccard=1.0 で全滅する）
+        if kw_norm and _normalize_text(item_kw) == kw_norm:
             continue
         corpus.append({
             "slug": item.get("existing_slug") or item.get("slug") or "",
-            "title": item.get("keyword", ""),
-            "keywords": [item.get("keyword", "")],
+            "title": item_kw,
+            "keywords": [item_kw] if item_kw else [],
             "source": "queue",
         })
 
@@ -165,7 +176,7 @@ def count_cluster_publishes(
     """直近 N 日の自動投稿クラスター件数。"""
     now = datetime.now(timezone.utc)
     since = now - timedelta(days=days)
-    counts = {"bitradex": 0, "tax": 0, "it": 0, "other": 0}
+    counts = {"bitradex": 0, "tax": 0, "it": 0, "invest": 0, "other": 0}
 
     for item in queue_items:
         if item.get("status") != "done":
