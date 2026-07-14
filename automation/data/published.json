@@ -1,6 +1,42 @@
 {
-  "synced_at": "2026-07-10T03:20:50.785077+00:00",
+  "synced_at": "2026-07-14T12:46:03.719730+00:00",
   "posts": [
+    {
+      "id": 451,
+      "slug": "bitradex-progress-8300",
+      "title": "【運用経過】BitradeX残高8,300ドル｜AI360Dで着実に増えた途中報告（2026年7月）",
+      "url": "https://growfolio-note.com/bitradex-progress-8300/",
+      "categories": [
+        "運用・実績"
+      ],
+      "keywords": [
+        "【運用経過】BitradeX残高8,300ドル｜AI360Dで着実に増えた途中報告（2026年7月）"
+      ]
+    },
+    {
+      "id": 446,
+      "slug": "growfolio-start-here",
+      "title": "グロウフォリオのおすすめ記事｜評判・出金・税金・AI開発の読み方",
+      "url": "https://growfolio-note.com/growfolio-start-here/",
+      "categories": [
+        "投資入門"
+      ],
+      "keywords": [
+        "グロウフォリオのおすすめ記事｜評判・出金・税金・AI開発の読み方"
+      ]
+    },
+    {
+      "id": 438,
+      "slug": "crypto-tax-timing-bunri-kazei-2026",
+      "title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
+      "url": "https://growfolio-note.com/crypto-tax-timing-bunri-kazei-2026/",
+      "categories": [
+        "税金"
+      ],
+      "keywords": [
+        "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント"
+      ]
+    },
     {
       "id": 407,
       "slug": "ladder-x-audnzd-stable",
@@ -28,25 +64,25 @@
     {
       "id": 400,
       "slug": "vscode-1116-github-copilot-chat-builtin-changes",
-      "title": "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱——何が変わり何が変わらないのか",
+      "title": "【移動しました】VS Code 1.116でGitHub Copilot Chat拡張が標準同梱——何が変わり何が変わらないの",
       "url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-changes/",
       "categories": [
         "ITキャリア"
       ],
       "keywords": [
-        "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱——何が変わり何が変わらないのか"
+        "【移動しました】VS Code 1.116でGitHub Copilot Chat拡張が標準同梱——何が変わり何が変わらないの"
       ]
     },
     {
       "id": 397,
       "slug": "vscode-github-copilot-features-2026",
-      "title": "VS Code v1.116でGitHub Copilot Chatが同梱に——2026年4〜5月の新機能まとめと開発現場への影響",
+      "title": "【移動しました】VS Code v1.116でGitHub Copilot Chatが同梱に——2026年4〜5月の新機能まと",
       "url": "https://growfolio-note.com/vscode-github-copilot-features-2026/",
       "categories": [
         "ITキャリア"
       ],
       "keywords": [
-        "VS Code v1.116でGitHub Copilot Chatが同梱に——2026年4〜5月の新機能まとめと開発現場への影響"
+        "【移動しました】VS Code v1.116でGitHub Copilot Chatが同梱に——2026年4〜5月の新機能まと"
       ]
     },
     {
@@ -76,13 +112,13 @@
     {
       "id": 312,
       "slug": "vscode-1116-github-copilot-chat-builtin-2026",
-      "title": "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱へ——開発者が知るべき変更点と今後の展望",
+      "title": "VS Code 1.116でGitHub Copilot Chatが標準同梱へ｜変更点・使い方・今後の展望",
       "url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-2026/",
       "categories": [
         "ITキャリア"
       ],
       "keywords": [
-        "VS Code 1.116でGitHub Copilot Chat拡張が標準同梱へ——開発者が知るべき変更点と今後の展望"
+        "VS Code 1.116でGitHub Copilot Chatが標準同梱へ｜変更点・使い方・今後の展望"
       ]
     },
     {
@@ -172,13 +208,13 @@
     {
       "id": 210,
       "slug": "bitradex-risk",
-      "title": "BitradeXの危険性とリスクを正直に解説｜元本割れ・詐欺の可能性は？実運用者の本音",
+      "title": "BitradeXの危険性・リスクを正直に解説｜評判で気になる元本割れ・詐欺の懸念",
       "url": "https://growfolio-note.com/bitradex-risk/",
       "categories": [
         "リスク・評判"
       ],
       "keywords": [
-        "BitradeXの危険性とリスクを正直に解説｜元本割れ・詐欺の可能性は？実運用者の本音"
+        "BitradeXの危険性・リスクを正直に解説｜評判で気になる元本割れ・詐欺の懸念"
       ]
     },
     {
@@ -196,13 +232,13 @@
     {
       "id": 195,
       "slug": "bitradex-review",
-      "title": "【実残高公開】BitradeXは怪しい？6,200ドルを実際に運用した正直レビュー｜メリット・デメリット全部話す",
+      "title": "BitradeXの評判は？怪しい？6,200ドル実運用の正直レビュー",
       "url": "https://growfolio-note.com/bitradex-review/",
       "categories": [
         "運用・実績"
       ],
       "keywords": [
-        "【実残高公開】BitradeXは怪しい？6,200ドルを実際に運用した正直レビュー｜メリット・デメリット全部話す"
+        "BitradeXの評判は？怪しい？6,200ドル実運用の正直レビュー"
       ]
     },
     {
@@ -232,13 +268,13 @@
     {
       "id": 134,
       "slug": "bitradex-withdraw-bitget",
-      "title": "【図解】BitradeXの出金方法と出金できない時の対処法｜USDTをBitgetに出金する手順",
+      "title": "BitradeXで出金できないときの対処法｜反映されない原因とBitgetへの出し方",
       "url": "https://growfolio-note.com/bitradex-withdraw-bitget/",
       "categories": [
         "出金・トラブル"
       ],
       "keywords": [
-        "【図解】BitradeXの出金方法と出金できない時の対処法｜USDTをBitgetに出金する手順"
+        "BitradeXで出金できないときの対処法｜反映されない原因とBitgetへの出し方"
       ]
     },
     {
@@ -266,17 +302,19 @@
       ]
     },
     {
-      "id": 438,
-      "slug": "crypto-tax-timing-bunri-kazei-2026",
-      "title": "仮想通貨の税金「申告分離課税」移行で何が変わる？2026年最新の課税タイミングと節税戦略",
-      "url": "https://growfolio-note.com/crypto-tax-timing-bunri-kazei-2026/",
+      "id": 460,
+      "slug": "tax-robot-jiyukenkyu-viral-sns",
+      "title": "「税金ロボット自由研究」がSNSで2400万表示——子どもが可視化した税負担の現実と大人が学ぶべきこと",
+      "url": "https://growfolio-note.com/tax-robot-jiyukenkyu-viral-sns/",
       "categories": [
         "税金"
       ],
       "keywords": [
-        "仮想通貨 税金 タイミング"
+        "自由研究 税金 ロボット"
       ],
-      "source": "auto"
+      "source": "auto",
+      "cluster": "tax",
+      "published_at": "2026-07-14T12:49:42.391231+00:00"
     }
   ]
 }

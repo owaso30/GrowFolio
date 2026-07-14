@@ -5,13 +5,16 @@
       "keyword": "自由研究 税金 ロボット",
       "intent": "B",
       "score": 132.6,
-      "status": "pending",
+      "status": "done",
       "source": "trend_expand",
       "competition": "low",
       "cluster": "tax",
       "fingerprint": [
         "tax"
-      ]
+      ],
+      "trend_fetched_at": "2026-07-14T12:46:15.868606+00:00",
+      "published_at": "2026-07-14T12:49:42.391231+00:00",
+      "post_url": "https://growfolio-note.com/tax-robot-jiyukenkyu-viral-sns/"
     },
     {
       "keyword": "chatgpt トレンド 分析",
