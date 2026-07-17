@@ -34,9 +34,12 @@ def _image_bytes(
 ) -> tuple[bytes, str]:
     """Returns (png bytes, figcaption)."""
     source = str(item.get("source", "flux")).lower()
-    brand_key = str(item.get("brand_key", "")).strip()
+    llm_brand = str(item.get("brand_key", "")).strip()
     scene_prompt = str(item.get("scene_prompt", "") or item.get("prompt", "")).strip()
-    resolved_brand = brand_key or pick_brand_key(keyword, title, slug=slug) or ""
+    # 主題検出を最優先（LLMが誤って claude 等を付けても ChatGPT 記事は chatgpt にする）
+    detected = pick_brand_key(keyword, title, slug=slug) or ""
+    brand_key = detected or llm_brand
+    resolved_brand = brand_key
 
     if source == "brand" and brand_key:
         try:

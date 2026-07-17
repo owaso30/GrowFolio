@@ -83,10 +83,11 @@
 
 【画像 — ハイブリッドアイキャッチ】
 - アイキャッチ（image_prompts 先頭）は **可能なら `"source": "brand"`** + `brand_key`（左: 公式ロゴ、右: 記事テーマの近未来イラストを自動合成）
-- **brand_key は記事の主題サービスに合わせる**（VS Code本体の話→vscode、Copilot製品比較→github_copilot、Cursor→cursor 等）。公開時に自動補正されるが、意図に沿って指定すること
+- **brand_key は記事の主題サービスに合わせる**（ChatGPT/OpenAI→chatgpt、Claude→claude、VS Code→vscode、Copilot→github_copilot、Cursor→cursor 等）。公開時に自動補正されるが、意図に沿って指定すること
+- ChatGPT・OpenAI・OAI-SearchBot が主題なら **必ず chatgpt**（claude / anthropic は使わない）
 - 背景に **記事テーマが一目で分かる近未来イラスト**（エディタUI、プラン比較、オンボーディングフロー等）。写真風よりクリーンなベクター寄り
 - 背景を記事に合わせたい場合は任意で `scene_prompt`（英語・内容を具体的に・読める文字や公式ロゴなし）を付ける
 - 本文画像は brand（ロゴのみ）または控えめな Flux
-- brand_key: bitradex / github_copilot / cursor / vscode / claude / microsoft_365
+- brand_key: chatgpt / claude / bitradex / github_copilot / cursor / vscode / microsoft_365
 - Flux 使用時: 記事テーマ直結の近未来イラスト。テーマと無関係な抽象画・実残高スクショ風・偽の管理画面は禁止
 - 本文 [IMAGE:...] は最大1箇所まで（任意）

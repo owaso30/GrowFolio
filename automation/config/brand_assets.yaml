@@ -33,6 +33,13 @@ brands:
     bg_color: "#f0f4f8"
     accent_color: "#007acc"
 
+  chatgpt:
+    name: ChatGPT
+    # ローカル assets/logos/chatgpt.png を優先。URLはフォールバック
+    logo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/500px-ChatGPT_logo.svg.png"
+    bg_color: "#f7f7f8"
+    accent_color: "#10a37f"
+
   claude:
     name: Claude
     logo_url: "https://www.anthropic.com/images/icons/apple-touch-icon.png"

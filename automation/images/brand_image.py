@@ -27,12 +27,14 @@ BRAND_PATTERNS: list[tuple[str, str, int]] = [
     ("vscode", "vscode", 9),
     ("bitradex", "bitradex", 15),
     ("cursor", "cursor", 12),
+    # ChatGPT / OpenAI（Claudeより先・高スコアで主題を誤らない）
+    ("chatgpt", "chatgpt", 16),
+    ("chat gpt", "chatgpt", 16),
+    ("oai-searchbot", "chatgpt", 14),
+    ("openai", "chatgpt", 12),
     ("claude code", "claude", 14),
     ("anthropic", "claude", 10),
     ("claude", "claude", 9),
-    ("generative engine optimization", "claude", 12),
-    ("generative engine", "claude", 10),
-    ("perplexity", "claude", 8),
     ("nisa", "nisa", 14),
     ("債券etf", "nisa", 10),
     ("債券 etf", "nisa", 10),
@@ -44,6 +46,8 @@ SLUG_PREFIX_BOOSTS: list[tuple[str, str, int]] = [
     ("cursor-", "cursor", 10),
     ("github-copilot-", "github_copilot", 10),
     ("bitradex-", "bitradex", 10),
+    ("chatgpt-", "chatgpt", 12),
+    ("openai-", "chatgpt", 10),
     ("claude-", "claude", 10),
 ]
 
@@ -232,8 +236,10 @@ def normalize_image_prompts(
         if i == 0:
             if source not in ("brand", "flux"):
                 source = "brand" if brand_key else "flux"
-            if source == "brand" and brand_key:
+            # 検出できた主題ブランドは LLM 指定より優先（誤ロゴ防止）
+            if brand_key:
                 item["brand_key"] = brand_key
+                source = "brand"
         else:
             if source not in ("brand", "flux"):
                 source = "flux"
@@ -254,7 +260,8 @@ def normalize_image_prompts(
                 "alt": title or keyword,
             }
         )
-    elif normalized[0].get("source") == "brand" and brand_key:
+    elif brand_key:
+        normalized[0]["source"] = "brand"
         normalized[0]["brand_key"] = brand_key
     if normalized[0].get("source") == "flux" and not normalized[0].get("prompt"):
         normalized[0]["prompt"] = _editorial_flux_prompt(keyword, title, brand_key or "", slug)
@@ -266,6 +273,7 @@ BRAND_PALETTE_HINTS: dict[str, str] = {
     "vscode": "Visual Studio Code blue #007ACC, dark editor chrome #1E1E1E, soft cyan highlights",
     "github_copilot": "GitHub dark gray #24292f, Copilot purple-blue AI accents, clean developer UI tones",
     "cursor": "Cursor dark charcoal #0f172a, subtle silver UI chrome, focused minimal palette",
+    "chatgpt": "ChatGPT teal #10a37f, soft charcoal UI chrome, clean AI chat palette",
     "claude": "warm terracotta #c96442, cream paper tones, calm research palette",
     "microsoft_365": "Microsoft blue #0078d4, office productivity neutrals",
     "bitradex": "deep finance blue #1d4ed8, calm trust-building blues and soft whites",
@@ -284,6 +292,10 @@ BRAND_FALLBACK_SCENES: dict[str, str] = {
     "cursor": (
         "AI-native code editor with inline edit diff highlights and command palette overlay, "
         "fast iteration workflow, polished dark UI illustration"
+    ),
+    "chatgpt": (
+        "AI search and chat interface with review cards and crawler path lines feeding answers, "
+        "clean teal-accent product illustration about AI discovery"
     ),
     "claude": (
         "elegant chat-and-code hybrid workspace with document panel and reasoning thread, "

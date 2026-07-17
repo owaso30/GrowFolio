@@ -143,11 +143,13 @@ JSONのみ返してください:
 image_prompts:
 - 1件目は必須（アイキャッチ）。2件目以降は最大{body_images}件まで（不要なら1件のみ）
 - **アイキャッチはハイブリッド**: 記事の主題サービスがある場合は `"source": "brand"` + `brand_key`（左に公式ロゴ、右に記事テーマの近未来イラストを自動合成）
-- **brand_key は記事の主題に合わせる**（例: VS Codeアップデート記事→vscode、Copilot料金比較→github_copilot、Cursor比較→cursor、BitradeX→bitradex）。空欄でも可（自動判定）
+- **brand_key は記事の主題に合わせる**（例: ChatGPT/OpenAI→chatgpt、Claude→claude、VS Code→vscode、Copilot→github_copilot、Cursor→cursor、BitradeX→bitradex）。空欄でも可（自動判定）
 - より具体的な背景にしたい場合は `scene_prompt`（英語・記事内容を具体的に・読める文字や公式ロゴなし）を任意で指定
 - 背景は **記事テーマが一目で分かる近未来イラスト**（UI・ワークフロー・比較図など）。写真風よりクリーンなベクター寄りイラスト
 - 本文画像は brand（ロゴのみ）または控えめな Flux
-- brand_key 例: bitradex / github_copilot / cursor / vscode / claude / microsoft_365
+- brand_key 例: chatgpt / claude / bitradex / github_copilot / cursor / vscode / microsoft_365
+- ChatGPT・OpenAI・OAI-SearchBot が主題なら **必ず chatgpt**（claude/anthropic は使わない）
+- Claude・Anthropic が主題なら **claude**
 - Flux のみの場合も prompt / scene_prompt は記事テーマ直結の近未来イラスト。読める文字・公式ロゴ・実画面スクショの伪造は禁止
 - 実残高スクショ風・管理画面の伪造は禁止
 
