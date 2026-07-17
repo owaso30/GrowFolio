@@ -1,6 +1,18 @@
 {
-  "synced_at": "2026-07-14T12:46:03.719730+00:00",
+  "synced_at": "2026-07-17T02:39:07.103142+00:00",
   "posts": [
+    {
+      "id": 460,
+      "slug": "tax-robot-jiyukenkyu-viral-sns",
+      "title": "「税金ロボット自由研究」がSNSで2400万表示——子どもが可視化した税負担の現実と大人が学ぶべきこと",
+      "url": "https://growfolio-note.com/tax-robot-jiyukenkyu-viral-sns/",
+      "categories": [
+        "税金"
+      ],
+      "keywords": [
+        "「税金ロボット自由研究」がSNSで2400万表示——子どもが可視化した税負担の現実と大人が学ぶべきこと"
+      ]
+    },
     {
       "id": 451,
       "slug": "bitradex-progress-8300",
@@ -302,19 +314,19 @@
       ]
     },
     {
-      "id": 460,
-      "slug": "tax-robot-jiyukenkyu-viral-sns",
-      "title": "「税金ロボット自由研究」がSNSで2400万表示——子どもが可視化した税負担の現実と大人が学ぶべきこと",
-      "url": "https://growfolio-note.com/tax-robot-jiyukenkyu-viral-sns/",
+      "id": 463,
+      "slug": "chatgpt-ai-crawler-review-analysis-trend-2026",
+      "title": "ChatGPTのAIクローラーは口コミを人間の17倍読む——940万件ログ分析が示すAI検索時代のコンテンツ戦略",
+      "url": "https://growfolio-note.com/chatgpt-ai-crawler-review-analysis-trend-2026/",
       "categories": [
-        "税金"
+        "テック動向"
       ],
       "keywords": [
-        "自由研究 税金 ロボット"
+        "chatgpt トレンド 分析"
       ],
       "source": "auto",
-      "cluster": "tax",
-      "published_at": "2026-07-14T12:49:42.391231+00:00"
+      "cluster": "it",
+      "published_at": "2026-07-17T02:41:52.088644+00:00"
     }
   ]
 }

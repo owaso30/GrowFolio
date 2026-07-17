@@ -20,13 +20,16 @@
       "keyword": "chatgpt トレンド 分析",
       "intent": "F",
       "score": 122.8,
-      "status": "pending",
+      "status": "done",
       "source": "trend_expand",
       "competition": "medium",
       "cluster": "it",
       "fingerprint": [
         "chatgpt"
-      ]
+      ],
+      "trend_fetched_at": "2026-07-17T02:39:19.977928+00:00",
+      "published_at": "2026-07-17T02:41:52.088644+00:00",
+      "post_url": "https://growfolio-note.com/chatgpt-ai-crawler-review-analysis-trend-2026/"
     },
     {
       "keyword": "スプレッド 仮想通貨 比較",
