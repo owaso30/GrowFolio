@@ -1,89 +1,6 @@
 {
-  "updated_at": "2026-07-14T12:41:05.173875+00:00",
+  "updated_at": "2026-07-18T18:50:42.175370+00:00",
   "keywords": [
-    {
-      "keyword": "自由研究 税金 ロボット",
-      "intent": "B",
-      "score": 132.6,
-      "status": "done",
-      "source": "trend_expand",
-      "competition": "low",
-      "cluster": "tax",
-      "fingerprint": [
-        "tax"
-      ],
-      "trend_fetched_at": "2026-07-14T12:46:15.868606+00:00",
-      "published_at": "2026-07-14T12:49:42.391231+00:00",
-      "post_url": "https://growfolio-note.com/tax-robot-jiyukenkyu-viral-sns/"
-    },
-    {
-      "keyword": "chatgpt トレンド 分析",
-      "intent": "F",
-      "score": 122.8,
-      "status": "done",
-      "source": "trend_expand",
-      "competition": "medium",
-      "cluster": "it",
-      "fingerprint": [
-        "chatgpt"
-      ],
-      "trend_fetched_at": "2026-07-17T02:39:19.977928+00:00",
-      "published_at": "2026-07-17T02:41:52.088644+00:00",
-      "post_url": "https://growfolio-note.com/chatgpt-ai-crawler-review-analysis-trend-2026/"
-    },
-    {
-      "keyword": "スプレッド 仮想通貨 比較",
-      "intent": "D",
-      "score": 122.7,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "medium",
-      "cluster": "invest",
-      "fingerprint": [
-        "crypto"
-      ]
-    },
-    {
-      "keyword": "chatgpt 最新 動向",
-      "intent": "F",
-      "score": 122.7,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "medium",
-      "cluster": "it",
-      "fingerprint": [
-        "chatgpt"
-      ]
-    },
-    {
-      "keyword": "仮想通貨 比較 取引所",
-      "intent": "D",
-      "score": 122.5,
-      "status": "pending",
-      "source": "trend_expand",
-      "competition": "medium",
-      "cluster": "invest",
-      "fingerprint": [
-        "crypto"
-      ]
-    },
-    {
-      "keyword": "ChatGPT アップデート 最新",
-      "intent": "F",
-      "score": 108.8,
-      "status": "pending",
-      "source": "serp_related",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 1,
-        "opportunity_ratio": 0.11
-      },
-      "cluster": "it",
-      "fingerprint": [
-        "chatgpt"
-      ]
-    },
     {
       "keyword": "新NISA スイッチング 将来",
       "intent": "F",
@@ -99,95 +16,6 @@
       "cluster": "invest",
       "fingerprint": [
         "nisa"
-      ]
-    },
-    {
-      "keyword": "chatgpt 最新 ニュース 取得",
-      "intent": "F",
-      "score": 107.9,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "cluster": "it",
-      "fingerprint": [
-        "chatgpt"
-      ]
-    },
-    {
-      "keyword": "nisa 制度 改正 2026",
-      "intent": "F",
-      "score": 107.8,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "cluster": "invest",
-      "fingerprint": [
-        "nisa"
-      ]
-    },
-    {
-      "keyword": "nisa 制度 改正 いつから",
-      "intent": "F",
-      "score": 107.8,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "cluster": "invest",
-      "fingerprint": [
-        "nisa"
-      ]
-    },
-    {
-      "keyword": "nisa 制度 改正 2026 年",
-      "intent": "F",
-      "score": 107.8,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "cluster": "invest",
-      "fingerprint": [
-        "nisa"
-      ]
-    },
-    {
-      "keyword": "ジュニア nisa 制度 改正",
-      "intent": "F",
-      "score": 107.8,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "cluster": "invest",
-      "fingerprint": [
-        "nisa"
-      ]
-    },
-    {
-      "keyword": "openai chatgpt 発表",
-      "intent": "F",
-      "score": 107.8,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "cluster": "it",
-      "fingerprint": [
-        "chatgpt"
-      ]
-    },
-    {
-      "keyword": "chatgpt 最新 機能",
-      "intent": "F",
-      "score": 107.7,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      },
-      "cluster": "it",
-      "fingerprint": [
-        "chatgpt"
       ]
     },
     {
@@ -242,23 +70,6 @@
       ]
     },
     {
-      "keyword": "ChatGPT 最新モデル 無料",
-      "intent": "F",
-      "score": 104.8,
-      "status": "pending",
-      "source": "serp_related",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      },
-      "cluster": "it",
-      "fingerprint": [
-        "chatgpt"
-      ]
-    },
-    {
       "keyword": "新NISA改正 2026 いつから",
       "intent": "F",
       "score": 104.8,
@@ -310,57 +121,6 @@
       ]
     },
     {
-      "keyword": "新 nisa 制度 改正 2026",
-      "intent": "F",
-      "score": 104.8,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      },
-      "cluster": "invest",
-      "fingerprint": [
-        "nisa"
-      ]
-    },
-    {
-      "keyword": "積立 nisa 制度 改正",
-      "intent": "F",
-      "score": 104.7,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      },
-      "cluster": "invest",
-      "fingerprint": [
-        "nisa"
-      ]
-    },
-    {
-      "keyword": "新 nisa 制度 改正",
-      "intent": "F",
-      "score": 104.6,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      },
-      "cluster": "invest",
-      "fingerprint": [
-        "nisa"
-      ]
-    },
-    {
       "keyword": "openai 最新 発表",
       "intent": "F",
       "score": 104.6,
@@ -395,23 +155,6 @@
       ]
     },
     {
-      "keyword": "chatgpt 最新 ニュース",
-      "intent": "F",
-      "score": 101.8,
-      "status": "pending",
-      "source": "suggest",
-      "competition": "medium",
-      "serp": {
-        "authority_hits": 2,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      },
-      "cluster": "it",
-      "fingerprint": [
-        "chatgpt"
-      ]
-    },
-    {
       "keyword": "新NISA 改正 2,400万円",
       "intent": "F",
       "score": 101.8,
@@ -427,6 +170,21 @@
       "fingerprint": [
         "nisa"
       ]
+    },
+    {
+      "keyword": "投資戦略フェア 2026 大阪",
+      "intent": "F",
+      "score": 101.8,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
     },
     {
       "keyword": "openai sora 発表",
@@ -514,6 +272,21 @@
       ]
     },
     {
+      "keyword": "生成ai 最新 動向 2026",
+      "intent": "F",
+      "score": 97.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "it",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
       "keyword": "株式市場 見通し 2026",
       "intent": "F",
       "score": 97.7,
@@ -536,6 +309,21 @@
       "fingerprint": [
         "stock"
       ]
+    },
+    {
+      "keyword": "投資戦略フェア 2026 東京",
+      "intent": "F",
+      "score": 91.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
     },
     {
       "keyword": "京都中央信用金庫 投資信託 人気 ランキング",
@@ -694,6 +482,36 @@
       ]
     },
     {
+      "keyword": "AI 最新 技術 ニュース",
+      "intent": "F",
+      "score": 63.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "パン ローリング 投資戦略フェア",
+      "intent": "F",
+      "score": 54.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
       "keyword": "bitradex 出金 できない",
       "intent": "A",
       "score": 9094,
@@ -713,6 +531,36 @@
         "position": 10.74
       },
       "noted_at": "2026-07-12T07:32:00.695692+00:00"
+    },
+    {
+      "keyword": "自由研究 税金 ロボット",
+      "intent": "B",
+      "score": 132.6,
+      "status": "done",
+      "source": "trend_expand",
+      "competition": "low",
+      "cluster": "tax",
+      "fingerprint": [
+        "tax"
+      ],
+      "trend_fetched_at": "2026-07-14T12:46:15.868606+00:00",
+      "published_at": "2026-07-14T12:49:42.391231+00:00",
+      "post_url": "https://growfolio-note.com/tax-robot-jiyukenkyu-viral-sns/"
+    },
+    {
+      "keyword": "chatgpt トレンド 分析",
+      "intent": "F",
+      "score": 122.8,
+      "status": "done",
+      "source": "trend_expand",
+      "competition": "medium",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ],
+      "trend_fetched_at": "2026-07-17T02:39:19.977928+00:00",
+      "published_at": "2026-07-17T02:41:52.088644+00:00",
+      "post_url": "https://growfolio-note.com/chatgpt-ai-crawler-review-analysis-trend-2026/"
     },
     {
       "keyword": "nisa 制度 改正 案",
@@ -1046,6 +894,370 @@
       "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
       "reason": "shared_entities=['crypto', 'tax']",
       "noted_at": "2026-07-14T12:40:41.690935+00:00"
+    },
+    {
+      "keyword": "為替 介入 fx 儲かる",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "fx"
+      ],
+      "existing_slug": "",
+      "existing_title": "fx 為替 介入 どうなる",
+      "reason": "entity+fuzzy shared=['fx'] fuzzy=63.63636363636363",
+      "noted_at": "2026-07-18T18:48:34.926204+00:00"
+    },
+    {
+      "keyword": "三井住友信託銀行 投資信託 人気 ランキング",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ],
+      "existing_slug": "",
+      "existing_title": "京都中央信用金庫 投資信託 人気 ランキング",
+      "reason": "entity+fuzzy shared=['fund'] fuzzy=77.77777777777779",
+      "noted_at": "2026-07-18T18:48:37.287917+00:00"
+    },
+    {
+      "keyword": "nisa 制度 改正 いつ",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 2026",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=91.66666666666666",
+      "noted_at": "2026-07-18T18:48:38.995182+00:00"
+    },
+    {
+      "keyword": "2026 年 nisa 制度 改正",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 2026",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=80.0",
+      "noted_at": "2026-07-18T18:48:40.355407+00:00"
+    },
+    {
+      "keyword": "仮想通貨取引所 世界ランキング bitradex",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "bitradex",
+      "fingerprint": [
+        "bitradex",
+        "crypto"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "BitradeXの利益にかかる税金と確定申告のやり方｜仮想通貨の税金を初心者向けに解説",
+      "reason": "shared_entities=['bitradex', 'crypto']",
+      "noted_at": "2026-07-18T18:48:45.780943+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 無職",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "crypto-tax-timing-bunri-kazei-2026",
+      "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-18T18:48:46.700267+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 バレない 100万",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "crypto-tax-timing-bunri-kazei-2026",
+      "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-18T18:48:47.257761+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 損失 のみ",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "crypto-tax-timing-bunri-kazei-2026",
+      "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-07-18T18:48:48.025614+00:00"
+    },
+    {
+      "keyword": "スプレッド 仮想通貨 比較",
+      "intent": "D",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "crypto"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "仮想通貨 確定申告 計算ツール",
+      "reason": "entity+fuzzy shared=['crypto'] fuzzy=55.55555555555556",
+      "noted_at": "2026-07-18T18:49:38.156041+00:00"
+    },
+    {
+      "keyword": "chatgpt 最新 動向",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ],
+      "existing_slug": "",
+      "existing_title": "chatgpt トレンド 分析",
+      "reason": "entity+fuzzy shared=['chatgpt'] fuzzy=76.19047619047619",
+      "noted_at": "2026-07-18T18:49:39.066038+00:00"
+    },
+    {
+      "keyword": "仮想通貨 比較 取引所",
+      "intent": "D",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "crypto"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "仮想通貨 確定申告 計算ツール",
+      "reason": "entity+fuzzy shared=['crypto'] fuzzy=62.5",
+      "noted_at": "2026-07-18T18:49:40.086949+00:00"
+    },
+    {
+      "keyword": "ChatGPT アップデート 最新",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ],
+      "existing_slug": "chatgpt-ai-crawler-review-analysis-trend-2026",
+      "existing_title": "ChatGPTのAIクローラーは口コミを人間の17倍読む——940万件ログ分析が示すAI検索時代のコンテンツ戦略",
+      "reason": "entity+fuzzy shared=['chatgpt'] fuzzy=58.33333333333333",
+      "noted_at": "2026-07-18T18:49:40.278331+00:00"
+    },
+    {
+      "keyword": "chatgpt 最新 ニュース 取得",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ],
+      "existing_slug": "",
+      "existing_title": "chatgpt トレンド 分析",
+      "reason": "entity+fuzzy shared=['chatgpt'] fuzzy=69.56521739130434",
+      "noted_at": "2026-07-18T18:49:42.706261+00:00"
+    },
+    {
+      "keyword": "nisa 制度 改正 2026",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 案",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=95.65217391304348",
+      "noted_at": "2026-07-18T18:49:43.665867+00:00"
+    },
+    {
+      "keyword": "nisa 制度 改正 いつから",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 案",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=95.65217391304348",
+      "noted_at": "2026-07-18T18:49:44.636185+00:00"
+    },
+    {
+      "keyword": "nisa 制度 改正 2026 年",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 案",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=95.65217391304348",
+      "noted_at": "2026-07-18T18:49:45.597946+00:00"
+    },
+    {
+      "keyword": "ジュニア nisa 制度 改正",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 案",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=90.9090909090909",
+      "noted_at": "2026-07-18T18:49:46.570003+00:00"
+    },
+    {
+      "keyword": "openai chatgpt 発表",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ],
+      "existing_slug": "",
+      "existing_title": "chatgpt トレンド 分析",
+      "reason": "entity+fuzzy shared=['chatgpt'] fuzzy=64.0",
+      "noted_at": "2026-07-18T18:49:47.481683+00:00"
+    },
+    {
+      "keyword": "chatgpt 最新 機能",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ],
+      "existing_slug": "",
+      "existing_title": "chatgpt トレンド 分析",
+      "reason": "entity+fuzzy shared=['chatgpt'] fuzzy=76.19047619047619",
+      "noted_at": "2026-07-18T18:49:48.389860+00:00"
+    },
+    {
+      "keyword": "ChatGPT 最新モデル 無料",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ],
+      "existing_slug": "chatgpt-ai-crawler-review-analysis-trend-2026",
+      "existing_title": "ChatGPTのAIクローラーは口コミを人間の17倍読む——940万件ログ分析が示すAI検索時代のコンテンツ戦略",
+      "reason": "entity+fuzzy shared=['chatgpt'] fuzzy=60.86956521739131",
+      "noted_at": "2026-07-18T18:49:53.111832+00:00"
+    },
+    {
+      "keyword": "新 nisa 制度 改正 2026",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 案",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=91.66666666666666",
+      "noted_at": "2026-07-18T18:49:58.625636+00:00"
+    },
+    {
+      "keyword": "積立 nisa 制度 改正",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 案",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=90.9090909090909",
+      "noted_at": "2026-07-18T18:49:59.594233+00:00"
+    },
+    {
+      "keyword": "新 nisa 制度 改正",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "nisa 制度 改正 案",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=90.9090909090909",
+      "noted_at": "2026-07-18T18:50:00.555942+00:00"
+    },
+    {
+      "keyword": "chatgpt 最新 ニュース",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "it",
+      "fingerprint": [
+        "chatgpt"
+      ],
+      "existing_slug": "",
+      "existing_title": "chatgpt トレンド 分析",
+      "reason": "entity+fuzzy shared=['chatgpt'] fuzzy=69.56521739130434",
+      "noted_at": "2026-07-18T18:50:04.517856+00:00"
     }
   ]
 }
