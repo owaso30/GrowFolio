@@ -35,54 +35,14 @@ MOVED_CONTENT = f"""<!-- wp:paragraph -->
 <!-- /wp:html -->
 """
 
-HUB_SLUG = "growfolio-start-here"
-HUB_TITLE = "グロウフォリオのおすすめ記事｜評判・出金・税金・AI開発の読み方"
-HUB_DESC = (
-    "グロウフォリオの読み方ガイド。"
-    "BitradeXの評判・出金できない時の対処・税金、AI開発ツール比較など、目的別のおすすめ記事をまとめています。"
+# ハブ本文の最新版は adsense_remediate.py を正とする（再実行で上書き可能）
+from pipeline.adsense_remediate import (  # noqa: E402
+    HUB_CONTENT,
+    HUB_DESC,
+    HUB_TITLE,
 )
-HUB_CONTENT = """<!-- wp:paragraph -->
-<p>グロウフォリオは、<strong>AI開発 × 仮想通貨・資産運用</strong>の実践ノートです。目的別に、まず読むべき記事をまとめました。</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading">BitradeXを調べている方</h2>
-<!-- /wp:heading -->
-<!-- wp:list -->
-<ul class="wp-block-list">
-<li><a href="/bitradex-review/">BitradeXの評判は？怪しい？6,200ドル実運用の正直レビュー</a></li>
-<li><a href="/bitradex-withdraw-bitget/">BitradeXで出金できないときの対処法</a></li>
-<li><a href="/bitradex-risk/">BitradeXの危険性・リスクを正直に解説</a></li>
-<li><a href="/bitradex-start-smartphone/">BitradeXの始め方（画像付き）</a></li>
-<li><a href="/bitradex-guide/">BitradeX完全ガイド</a></li>
-</ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading">税金・資産形成</h2>
-<!-- /wp:heading -->
-<!-- wp:list -->
-<ul class="wp-block-list">
-<li><a href="/crypto-tax-timing-bunri-kazei-2026/">仮想通貨の税金「申告分離課税」移行で何が変わる？</a></li>
-<li><a href="/bitradex-tax/">BitradeXの利益にかかる税金と確定申告</a></li>
-</ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading">AI・開発ツール</h2>
-<!-- /wp:heading -->
-<!-- wp:list -->
-<ul class="wp-block-list">
-<li><a href="/cursor-vscode-difference-2026/">CursorとVSCodeの違い2026年版</a></li>
-<li><a href="/vscode-1116-github-copilot-chat-builtin-2026/">VS Code 1.116でCopilot Chatが標準同梱へ</a></li>
-<li><a href="/github-copilot-plan-comparison-2026/">GitHub Copilot 機能比較2026年版</a></li>
-</ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph -->
-<p>※投資・仮想通貨運用はリスクを伴います。最終判断はご自身の責任でお願いします。</p>
-<!-- /wp:paragraph -->
-"""
+HUB_SLUG = "growfolio-start-here"
 
 TAX_ID = 438
 BITRADEX_TAX_ID = 244

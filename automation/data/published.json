@@ -1,6 +1,42 @@
 {
-  "synced_at": "2026-07-17T02:39:07.103142+00:00",
+  "synced_at": "2026-07-18T10:31:54.058794+00:00",
   "posts": [
+    {
+      "id": 473,
+      "slug": "cursor-copilot-work-split-2026",
+      "title": "CursorとGitHub Copilotを実務で使い分ける｜役割分担の実践メモ（2026）",
+      "url": "https://growfolio-note.com/cursor-copilot-work-split-2026/",
+      "categories": [
+        "ITキャリア"
+      ],
+      "keywords": [
+        "CursorとGitHub Copilotを実務で使い分ける｜役割分担の実践メモ（2026）"
+      ]
+    },
+    {
+      "id": 471,
+      "slug": "nisa-start-checklist-2026",
+      "title": "NISAの始め方チェックリスト（2026）｜口座開設前に決める5つとよくある失敗",
+      "url": "https://growfolio-note.com/nisa-start-checklist-2026/",
+      "categories": [
+        "投資入門"
+      ],
+      "keywords": [
+        "NISAの始め方チェックリスト（2026）｜口座開設前に決める5つとよくある失敗"
+      ]
+    },
+    {
+      "id": 463,
+      "slug": "chatgpt-ai-crawler-review-analysis-trend-2026",
+      "title": "ChatGPTのAIクローラーは口コミを人間の17倍読む——940万件ログ分析が示すAI検索時代のコンテンツ戦略",
+      "url": "https://growfolio-note.com/chatgpt-ai-crawler-review-analysis-trend-2026/",
+      "categories": [
+        "テック動向"
+      ],
+      "keywords": [
+        "ChatGPTのAIクローラーは口コミを人間の17倍読む——940万件ログ分析が示すAI検索時代のコンテンツ戦略"
+      ]
+    },
     {
       "id": 460,
       "slug": "tax-robot-jiyukenkyu-viral-sns",
@@ -28,13 +64,13 @@
     {
       "id": 446,
       "slug": "growfolio-start-here",
-      "title": "グロウフォリオのおすすめ記事｜評判・出金・税金・AI開発の読み方",
+      "title": "グロウフォリオの読み方ガイド｜目的別おすすめ記事まとめ",
       "url": "https://growfolio-note.com/growfolio-start-here/",
       "categories": [
         "投資入門"
       ],
       "keywords": [
-        "グロウフォリオのおすすめ記事｜評判・出金・税金・AI開発の読み方"
+        "グロウフォリオの読み方ガイド｜目的別おすすめ記事まとめ"
       ]
     },
     {
@@ -71,30 +107,6 @@
       ],
       "keywords": [
         "ナンピンEAが破綻する3つの条件｜高レバレッジ口座でも油断できない話"
-      ]
-    },
-    {
-      "id": 400,
-      "slug": "vscode-1116-github-copilot-chat-builtin-changes",
-      "title": "【移動しました】VS Code 1.116でGitHub Copilot Chat拡張が標準同梱——何が変わり何が変わらないの",
-      "url": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-changes/",
-      "categories": [
-        "ITキャリア"
-      ],
-      "keywords": [
-        "【移動しました】VS Code 1.116でGitHub Copilot Chat拡張が標準同梱——何が変わり何が変わらないの"
-      ]
-    },
-    {
-      "id": 397,
-      "slug": "vscode-github-copilot-features-2026",
-      "title": "【移動しました】VS Code v1.116でGitHub Copilot Chatが同梱に——2026年4〜5月の新機能まと",
-      "url": "https://growfolio-note.com/vscode-github-copilot-features-2026/",
-      "categories": [
-        "ITキャリア"
-      ],
-      "keywords": [
-        "【移動しました】VS Code v1.116でGitHub Copilot Chatが同梱に——2026年4〜5月の新機能まと"
       ]
     },
     {
@@ -312,21 +324,6 @@
       "keywords": [
         "【画像付き】BitradeXの始め方｜登録から入金・AI運用開始まで全手順"
       ]
-    },
-    {
-      "id": 463,
-      "slug": "chatgpt-ai-crawler-review-analysis-trend-2026",
-      "title": "ChatGPTのAIクローラーは口コミを人間の17倍読む——940万件ログ分析が示すAI検索時代のコンテンツ戦略",
-      "url": "https://growfolio-note.com/chatgpt-ai-crawler-review-analysis-trend-2026/",
-      "categories": [
-        "テック動向"
-      ],
-      "keywords": [
-        "chatgpt トレンド 分析"
-      ],
-      "source": "auto",
-      "cluster": "it",
-      "published_at": "2026-07-17T02:41:52.088644+00:00"
     }
   ]
 }

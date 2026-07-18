@@ -643,6 +643,32 @@ def bitradex_affiliate_placements(slug: str, title: str = "") -> list[dict]:
             ),
         ]
 
+    if "progress" in s or "balance" in s or "運用経過" in text or "実績" in text:
+        return [
+            _b(
+                "bitradex",
+                "intro",
+                heading="運用の最新条件は公式で確認",
+                teaser="金利・プラン・出金ルールは変更されるため、実運用の前に公式の最新表示を確認しましょう。",
+                anchor="BitradeXの公式サイトで詳細を見る",
+            ),
+            _b(
+                "amazon_search",
+                "mid",
+                query="仮想通貨 複利 投資 本",
+                heading="複利と資金管理の考え方を学ぶ",
+                teaser="運用記録とあわせて、複利・資金管理の基礎が分かる書籍をAmazonで探せます。",
+                anchor="複利・投資の入門書をAmazonで探す",
+            ),
+            _b(
+                "a8_dmm証券",
+                "end",
+                heading="余剰資金の守りも並行して",
+                teaser="ハイリスク運用と並行し、NISAなど長期の土台を国内口座で整える考え方もあります。",
+                anchor="DMM証券で口座開設を申し込む",
+            ),
+        ]
+
     if "start" in s or "guide" in s or "smartphone" in s:
         return [
             _b(
