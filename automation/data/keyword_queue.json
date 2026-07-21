@@ -5,7 +5,7 @@
       "keyword": "新NISA スイッチング 将来",
       "intent": "F",
       "score": 108.8,
-      "status": "pending",
+      "status": "done",
       "source": "serp_related",
       "competition": "medium",
       "serp": {
@@ -16,7 +16,10 @@
       "cluster": "invest",
       "fingerprint": [
         "nisa"
-      ]
+      ],
+      "trend_fetched_at": "2026-07-21T02:42:09.484101+00:00",
+      "published_at": "2026-07-21T02:44:30.512508+00:00",
+      "post_url": "https://growfolio-note.com/new-nisa-switching-future-2026/"
     },
     {
       "keyword": "openai 公式 発表",
