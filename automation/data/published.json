@@ -1,6 +1,18 @@
 {
-  "synced_at": "2026-07-21T02:41:56.950001+00:00",
+  "synced_at": "2026-07-24T02:41:15.593548+00:00",
   "posts": [
+    {
+      "id": 490,
+      "slug": "new-nisa-switching-future-2026",
+      "title": "新NISAのスイッチングで将来を変える：2026年制度改正で何が変わり、どう動くべきか",
+      "url": "https://growfolio-note.com/new-nisa-switching-future-2026/",
+      "categories": [
+        "投資入門"
+      ],
+      "keywords": [
+        "新NISAのスイッチングで将来を変える：2026年制度改正で何が変わり、どう動くべきか"
+      ]
+    },
     {
       "id": 473,
       "slug": "cursor-copilot-work-split-2026",
@@ -324,21 +336,6 @@
       "keywords": [
         "【画像付き】BitradeXの始め方｜登録から入金・AI運用開始まで全手順"
       ]
-    },
-    {
-      "id": 490,
-      "slug": "new-nisa-switching-future-2026",
-      "title": "新NISAのスイッチングで将来を変える：2026年制度改正で何が変わり、どう動くべきか",
-      "url": "https://growfolio-note.com/new-nisa-switching-future-2026/",
-      "categories": [
-        "投資入門"
-      ],
-      "keywords": [
-        "新NISA スイッチング 将来"
-      ],
-      "source": "auto",
-      "cluster": "invest",
-      "published_at": "2026-07-21T02:44:30.512508+00:00"
     }
   ]
 }
