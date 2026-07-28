@@ -20,7 +20,7 @@
       "keyword": "生成ai 最新 動向 2026",
       "intent": "F",
       "score": 97.8,
-      "status": "pending",
+      "status": "done",
       "source": "suggest",
       "competition": "medium",
       "cluster": "it",
@@ -29,7 +29,10 @@
         "authority_hits": 0,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "trend_fetched_at": "2026-07-28T02:33:00.261258+00:00",
+      "published_at": "2026-07-28T02:35:54.714482+00:00",
+      "post_url": "https://growfolio-note.com/generative-ai-trends-2026-summer/"
     },
     {
       "keyword": "株式市場 見通し 2026",
