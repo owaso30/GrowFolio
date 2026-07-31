@@ -38,13 +38,16 @@
       "keyword": "株式市場 見通し 2026",
       "intent": "F",
       "score": 97.7,
-      "status": "pending",
+      "status": "done",
       "source": "suggest",
       "competition": "medium",
       "cluster": "invest",
       "fingerprint": [
         "stock"
-      ]
+      ],
+      "trend_fetched_at": "2026-07-31T02:49:27.492240+00:00",
+      "published_at": "2026-07-31T02:52:08.573586+00:00",
+      "post_url": "https://growfolio-note.com/stock-market-outlook-2026/"
     },
     {
       "keyword": "日経平均 外国人投資家 動向",
