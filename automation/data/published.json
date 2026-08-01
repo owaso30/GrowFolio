@@ -1,6 +1,18 @@
 {
-  "synced_at": "2026-07-31T02:49:15.330824+00:00",
+  "synced_at": "2026-08-01T19:13:30.831861+00:00",
   "posts": [
+    {
+      "id": 497,
+      "slug": "stock-market-outlook-2026",
+      "title": "株式市場2026年後半の見通し｜半導体SOX急落・FRB据え置き・セクターローテーションを徹底解説",
+      "url": "https://growfolio-note.com/stock-market-outlook-2026/",
+      "categories": [
+        "相場・市況"
+      ],
+      "keywords": [
+        "株式市場2026年後半の見通し｜半導体SOX急落・FRB据え置き・セクターローテーションを徹底解説"
+      ]
+    },
     {
       "id": 494,
       "slug": "generative-ai-trends-2026-summer",
@@ -348,21 +360,6 @@
       "keywords": [
         "【画像付き】BitradeXの始め方｜登録から入金・AI運用開始まで全手順"
       ]
-    },
-    {
-      "id": 497,
-      "slug": "stock-market-outlook-2026",
-      "title": "株式市場2026年後半の見通し｜半導体SOX急落・FRB据え置き・セクターローテーションを徹底解説",
-      "url": "https://growfolio-note.com/stock-market-outlook-2026/",
-      "categories": [
-        "相場・市況"
-      ],
-      "keywords": [
-        "株式市場 見通し 2026"
-      ],
-      "source": "auto",
-      "cluster": "invest",
-      "published_at": "2026-07-31T02:52:08.573586+00:00"
     }
   ]
 }
