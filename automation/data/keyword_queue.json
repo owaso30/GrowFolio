@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-25T18:55:09.371075+00:00",
+  "updated_at": "2026-08-01T18:56:17.930217+00:00",
   "keywords": [
     {
       "keyword": "投資戦略フェア 2026 大阪",
@@ -15,39 +15,6 @@
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
       }
-    },
-    {
-      "keyword": "生成ai 最新 動向 2026",
-      "intent": "F",
-      "score": 97.8,
-      "status": "done",
-      "source": "suggest",
-      "competition": "medium",
-      "cluster": "it",
-      "fingerprint": [],
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      },
-      "trend_fetched_at": "2026-07-28T02:33:00.261258+00:00",
-      "published_at": "2026-07-28T02:35:54.714482+00:00",
-      "post_url": "https://growfolio-note.com/generative-ai-trends-2026-summer/"
-    },
-    {
-      "keyword": "株式市場 見通し 2026",
-      "intent": "F",
-      "score": 97.7,
-      "status": "done",
-      "source": "suggest",
-      "competition": "medium",
-      "cluster": "invest",
-      "fingerprint": [
-        "stock"
-      ],
-      "trend_fetched_at": "2026-07-31T02:49:27.492240+00:00",
-      "published_at": "2026-07-31T02:52:08.573586+00:00",
-      "post_url": "https://growfolio-note.com/stock-market-outlook-2026/"
     },
     {
       "keyword": "日経平均 外国人投資家 動向",
@@ -470,6 +437,39 @@
       "existing_title": "新NISAのスイッチングで将来を変える：2026年制度改正で何が変わり、どう動くべきか",
       "reason": "entity+fuzzy shared=['nisa'] fuzzy=55.55555555555556",
       "noted_at": "2026-07-24T02:41:28.946149+00:00"
+    },
+    {
+      "keyword": "生成ai 最新 動向 2026",
+      "intent": "F",
+      "score": 97.8,
+      "status": "done",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "it",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      },
+      "trend_fetched_at": "2026-07-28T02:33:00.261258+00:00",
+      "published_at": "2026-07-28T02:35:54.714482+00:00",
+      "post_url": "https://growfolio-note.com/generative-ai-trends-2026-summer/"
+    },
+    {
+      "keyword": "株式市場 見通し 2026",
+      "intent": "F",
+      "score": 97.7,
+      "status": "done",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "stock"
+      ],
+      "trend_fetched_at": "2026-07-31T02:49:27.492240+00:00",
+      "published_at": "2026-07-31T02:52:08.573586+00:00",
+      "post_url": "https://growfolio-note.com/stock-market-outlook-2026/"
     },
     {
       "keyword": "京都中央信用金庫 投資信託 人気 ランキング",
@@ -1468,6 +1468,68 @@
       "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
       "reason": "shared_entities=['crypto', 'tax']",
       "noted_at": "2026-07-25T18:54:49.651534+00:00"
+    },
+    {
+      "keyword": "fx ドル 円 為替 介入",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "fx"
+      ],
+      "existing_slug": "",
+      "existing_title": "fx 為替 介入 どうなる",
+      "reason": "entity+fuzzy shared=['fx'] fuzzy=76.19047619047619",
+      "noted_at": "2026-08-01T18:55:57.390951+00:00"
+    },
+    {
+      "keyword": "nisa 制度 改正 2027",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "nisa"
+      ],
+      "existing_slug": "",
+      "existing_title": "NISA 改正 2027",
+      "reason": "entity+fuzzy shared=['nisa'] fuzzy=80.0",
+      "noted_at": "2026-08-01T18:55:59.078253+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 総平均法",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "crypto-tax-timing-bunri-kazei-2026",
+      "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-08-01T18:56:01.737482+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 個人事業主",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "crypto-tax-timing-bunri-kazei-2026",
+      "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-08-01T18:56:02.127843+00:00"
     }
   ]
 }
