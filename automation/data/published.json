@@ -1,6 +1,18 @@
 {
-  "synced_at": "2026-08-11T01:44:10.009761+00:00",
+  "synced_at": "2026-08-14T01:56:24.325899+00:00",
   "posts": [
+    {
+      "id": 501,
+      "slug": "nikkei-foreign-investor-trends-2026",
+      "title": "外国人投資家が2025年に日本株5兆円買い越し——2026年夏の動向と日経平均への影響を読む",
+      "url": "https://growfolio-note.com/nikkei-foreign-investor-trends-2026/",
+      "categories": [
+        "相場・市況"
+      ],
+      "keywords": [
+        "外国人投資家が2025年に日本株5兆円買い越し——2026年夏の動向と日経平均への影響を読む"
+      ]
+    },
     {
       "id": 497,
       "slug": "stock-market-outlook-2026",
@@ -360,21 +372,6 @@
       "keywords": [
         "【画像付き】BitradeXの始め方｜登録から入金・AI運用開始まで全手順"
       ]
-    },
-    {
-      "id": 501,
-      "slug": "nikkei-foreign-investor-trends-2026",
-      "title": "外国人投資家が2025年に日本株5兆円買い越し——2026年夏の動向と日経平均への影響を読む",
-      "url": "https://growfolio-note.com/nikkei-foreign-investor-trends-2026/",
-      "categories": [
-        "相場・市況"
-      ],
-      "keywords": [
-        "日経平均 外国人投資家 動向"
-      ],
-      "source": "auto",
-      "cluster": "invest",
-      "published_at": "2026-08-11T01:46:51.132227+00:00"
     }
   ]
 }
