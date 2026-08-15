@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-08T18:23:45.968392+00:00",
+  "updated_at": "2026-08-15T18:15:47.136728+00:00",
   "keywords": [
     {
       "keyword": "投資戦略フェア 2026 大阪",
@@ -15,21 +15,6 @@
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
       }
-    },
-    {
-      "keyword": "日経平均 外国人投資家 動向",
-      "intent": "F",
-      "score": 97.7,
-      "status": "done",
-      "source": "suggest",
-      "competition": "medium",
-      "cluster": "invest",
-      "fingerprint": [
-        "stock"
-      ],
-      "trend_fetched_at": "2026-08-11T01:44:22.191953+00:00",
-      "published_at": "2026-08-11T01:46:51.132227+00:00",
-      "post_url": "https://growfolio-note.com/nikkei-foreign-investor-trends-2026/"
     },
     {
       "keyword": "投資戦略フェア 2026 東京",
@@ -458,6 +443,21 @@
       "trend_fetched_at": "2026-07-28T02:33:00.261258+00:00",
       "published_at": "2026-07-28T02:35:54.714482+00:00",
       "post_url": "https://growfolio-note.com/generative-ai-trends-2026-summer/"
+    },
+    {
+      "keyword": "日経平均 外国人投資家 動向",
+      "intent": "F",
+      "score": 97.7,
+      "status": "done",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "stock"
+      ],
+      "trend_fetched_at": "2026-08-11T01:44:22.191953+00:00",
+      "published_at": "2026-08-11T01:46:51.132227+00:00",
+      "post_url": "https://growfolio-note.com/nikkei-foreign-investor-trends-2026/"
     },
     {
       "keyword": "株式市場 見通し 2026",
@@ -1533,6 +1533,37 @@
       "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
       "reason": "shared_entities=['crypto', 'tax']",
       "noted_at": "2026-08-01T18:56:02.127843+00:00"
+    },
+    {
+      "keyword": "仮想通貨の税率が最高55 から20 に",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "crypto"
+      ],
+      "existing_slug": "bitradex-tax",
+      "existing_title": "仮想通貨 確定申告 税率",
+      "reason": "entity+fuzzy shared=['crypto'] fuzzy=63.1578947368421",
+      "noted_at": "2026-08-15T18:15:19.749295+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 住民税",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "crypto-tax-timing-bunri-kazei-2026",
+      "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-08-15T18:15:28.196857+00:00"
     }
   ]
 }
