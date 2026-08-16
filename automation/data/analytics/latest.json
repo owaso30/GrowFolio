@@ -1,60 +1,60 @@
 {
-  "fetched_at": "2026-08-09T18:45:57.493069+00:00",
+  "fetched_at": "2026-08-16T18:33:13.107271+00:00",
   "period": {
-    "start": "2026-07-12",
-    "end": "2026-08-08",
+    "start": "2026-07-19",
+    "end": "2026-08-15",
     "days": 28
   },
   "gsc": {
     "site_url": "https://growfolio-note.com/",
     "totals": {
-      "clicks": 108,
-      "impressions": 1895,
-      "ctr": 0.056992,
-      "position": 11.75
+      "clicks": 120,
+      "impressions": 2536,
+      "ctr": 0.047319,
+      "position": 11.68
     },
     "top_queries": [
       {
-        "clicks": 18,
-        "impressions": 361,
-        "ctr": 0.049861,
-        "position": 8.63,
+        "clicks": 22,
+        "impressions": 316,
+        "ctr": 0.06962,
+        "position": 7.15,
         "query": "bitradex 税金"
       },
       {
         "clicks": 7,
-        "impressions": 34,
-        "ctr": 0.205882,
-        "position": 5.44,
+        "impressions": 31,
+        "ctr": 0.225806,
+        "position": 4.35,
         "query": "bitradex 確定申告"
       },
       {
         "clicks": 3,
-        "impressions": 39,
-        "ctr": 0.076923,
-        "position": 5.36,
-        "query": "bitradex 危険"
+        "impressions": 67,
+        "ctr": 0.044776,
+        "position": 6.9,
+        "query": "ビット レート x 税金"
       },
       {
         "clicks": 3,
-        "impressions": 76,
-        "ctr": 0.039474,
-        "position": 10.79,
+        "impressions": 83,
+        "ctr": 0.036145,
+        "position": 10.76,
         "query": "ビットレート x 出金できない"
       },
       {
         "clicks": 2,
-        "impressions": 8,
-        "ctr": 0.25,
-        "position": 43.75,
-        "query": "bitradex 評判"
+        "impressions": 23,
+        "ctr": 0.086957,
+        "position": 22.26,
+        "query": "bitradex 出金 拒否"
       },
       {
         "clicks": 1,
-        "impressions": 13,
-        "ctr": 0.076923,
-        "position": 26.54,
-        "query": "bitradex 出金 拒否"
+        "impressions": 100,
+        "ctr": 0.01,
+        "position": 19.26,
+        "query": "bitradex 出金できない"
       },
       {
         "clicks": 1,
@@ -65,9 +65,16 @@
       },
       {
         "clicks": 1,
-        "impressions": 30,
-        "ctr": 0.033333,
-        "position": 9.5,
+        "impressions": 32,
+        "ctr": 0.03125,
+        "position": 7.28,
+        "query": "bitradex 危険"
+      },
+      {
+        "clicks": 1,
+        "impressions": 29,
+        "ctr": 0.034483,
+        "position": 8.97,
         "query": "bitradex 紹介報酬"
       },
       {
@@ -76,6 +83,13 @@
         "ctr": 0.032258,
         "position": 9.61,
         "query": "bitradex 警告"
+      },
+      {
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 41.0,
+        "query": "bitradex 資産消えた"
       },
       {
         "clicks": 1,
@@ -93,16 +107,23 @@
       },
       {
         "clicks": 1,
-        "impressions": 4,
-        "ctr": 0.25,
-        "position": 18.25,
+        "impressions": 26,
+        "ctr": 0.038462,
+        "position": 4.46,
+        "query": "ビット レート x 確定申告"
+      },
+      {
+        "clicks": 1,
+        "impressions": 7,
+        "ctr": 0.142857,
+        "position": 41.43,
         "query": "ビットトレード x 出金 できない"
       },
       {
         "clicks": 1,
-        "impressions": 25,
-        "ctr": 0.04,
-        "position": 10.4,
+        "impressions": 39,
+        "ctr": 0.025641,
+        "position": 12.85,
         "query": "ビットレートx 出金できない"
       },
       {
@@ -114,23 +135,37 @@
       },
       {
         "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 11.0,
+        "query": "\"bitradex\" 出金 8月12日 2026"
+      },
+      {
+        "clicks": 0,
         "impressions": 2,
         "ctr": 0.0,
-        "position": 58.0,
+        "position": 11.0,
+        "query": "ai 360d"
+      },
+      {
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0.0,
+        "position": 60.0,
         "query": "bikdex 詐欺"
       },
       {
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 8,
         "ctr": 0.0,
-        "position": 19.83,
+        "position": 19.62,
         "query": "bitget 出金拒否"
       },
       {
         "clicks": 0,
         "impressions": 5,
         "ctr": 0.0,
-        "position": 84.4,
+        "position": 71.6,
         "query": "bitgettradex.net 詐欺"
       },
       {
@@ -142,23 +177,16 @@
       },
       {
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 1,
         "ctr": 0.0,
-        "position": 23.5,
+        "position": 23.0,
         "query": "bitradex kyc"
       },
       {
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 13,
         "ctr": 0.0,
-        "position": 27.0,
-        "query": "bitradex v1"
-      },
-      {
-        "clicks": 0,
-        "impressions": 11,
-        "ctr": 0.0,
-        "position": 9.27,
+        "position": 4.23,
         "query": "bitradex アフィリエイト"
       },
       {
@@ -170,44 +198,44 @@
       },
       {
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 1,
         "ctr": 0.0,
-        "position": 47.8,
+        "position": 46.0,
+        "query": "bitradex 再投資"
+      },
+      {
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0.0,
+        "position": 45.14,
         "query": "bitradex 出金"
       },
       {
         "clicks": 0,
-        "impressions": 46,
+        "impressions": 84,
         "ctr": 0.0,
-        "position": 19.07,
+        "position": 18.19,
         "query": "bitradex 出金 できない"
       },
       {
         "clicks": 0,
-        "impressions": 72,
+        "impressions": 7,
         "ctr": 0.0,
-        "position": 20.4,
-        "query": "bitradex 出金できない"
-      },
-      {
-        "clicks": 0,
-        "impressions": 5,
-        "ctr": 0.0,
-        "position": 21.0,
+        "position": 21.57,
         "query": "bitradex 出金停止"
       },
       {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 2,
         "ctr": 0.0,
-        "position": 21.75,
+        "position": 17.5,
         "query": "bitradex 出金方法"
       },
       {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 6,
         "ctr": 0.0,
-        "position": 11.0,
+        "position": 11.33,
         "query": "bitradex 収益引き出し"
       },
       {
@@ -219,44 +247,44 @@
       },
       {
         "clicks": 0,
-        "impressions": 16,
+        "impressions": 1,
         "ctr": 0.0,
-        "position": 44.81,
+        "position": 59.0,
+        "query": "bitradex 安全 性"
+      },
+      {
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0.0,
+        "position": 47.21,
         "query": "bitradex 怪しい"
       },
       {
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 1,
         "ctr": 0.0,
-        "position": 8.5,
+        "position": 10.0,
         "query": "bitradex 知恵袋"
       },
       {
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 12,
         "ctr": 0.0,
-        "position": 1.0,
-        "query": "bitradex 紹介"
+        "position": 47.25,
+        "query": "bitradex 詐欺"
+      },
+      {
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0.0,
+        "position": 38.56,
+        "query": "bitradex 評判"
       },
       {
         "clicks": 0,
         "impressions": 2,
         "ctr": 0.0,
-        "position": 34.5,
-        "query": "bitradex 被害"
-      },
-      {
-        "clicks": 0,
-        "impressions": 5,
-        "ctr": 0.0,
-        "position": 44.8,
-        "query": "bitradex 詐欺"
-      },
-      {
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0.0,
-        "position": 42.0,
+        "position": 67.5,
         "query": "bitradex 閉鎖"
       },
       {
@@ -275,10 +303,10 @@
       },
       {
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 52,
         "ctr": 0.0,
-        "position": 1.0,
-        "query": "chatgpt 口コミ"
+        "position": 7.73,
+        "query": "chatgpt 口コミ 17倍"
       },
       {
         "clicks": 0,
@@ -305,20 +333,6 @@
         "clicks": 0,
         "impressions": 1,
         "ctr": 0.0,
-        "position": 2.0,
-        "query": "cursor vscode 比較"
-      },
-      {
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0.0,
-        "position": 3.0,
-        "query": "github copilot business enterprise 違い"
-      },
-      {
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0.0,
         "position": 7.0,
         "query": "google antigravity vscode 比較"
       },
@@ -331,16 +345,16 @@
       },
       {
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 1,
         "ctr": 0.0,
-        "position": 6.0,
-        "query": "lany seo ai overview 対応"
+        "position": 2.0,
+        "query": "growfolio"
       },
       {
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0.0,
-        "position": 36.5,
+        "position": 41.33,
         "query": "nisa スイッチング"
       },
       {
@@ -361,13 +375,6 @@
         "clicks": 0,
         "impressions": 1,
         "ctr": 0.0,
-        "position": 97.0,
-        "query": "tradgrip 稼げる"
-      },
-      {
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0.0,
         "position": 3.0,
         "query": "vscode chat"
       },
@@ -375,21 +382,14 @@
         "clicks": 0,
         "impressions": 2,
         "ctr": 0.0,
-        "position": 3.5,
-        "query": "ビット レート x 確定申告"
+        "position": 59.0,
+        "query": "ビット レート x 怪しい"
       },
       {
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 2,
         "ctr": 0.0,
-        "position": 9.33,
-        "query": "ビット レート x 税金"
-      },
-      {
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0.0,
-        "position": 24.0,
+        "position": 23.5,
         "query": "ビット レート x 評判"
       },
       {
@@ -403,8 +403,22 @@
         "clicks": 0,
         "impressions": 1,
         "ctr": 0.0,
-        "position": 68.0,
+        "position": 71.0,
         "query": "ビットコイン 分離課税 いつ"
+      },
+      {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 48.0,
+        "query": "ビットトレード x やばい"
+      },
+      {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 68.0,
+        "query": "ビットトレード x 評判"
       },
       {
         "clicks": 0,
@@ -422,9 +436,9 @@
       },
       {
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 10,
         "ctr": 0.0,
-        "position": 67.0,
+        "position": 69.8,
         "query": "仮想通貨 税金 いつから"
       },
       {
@@ -436,6 +450,20 @@
       },
       {
         "clicks": 0,
+        "impressions": 4,
+        "ctr": 0.0,
+        "position": 80.5,
+        "query": "仮想通貨分離課税いつから"
+      },
+      {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 73.0,
+        "query": "新nisa スイッチング"
+      },
+      {
+        "clicks": 0,
         "impressions": 1,
         "ctr": 0.0,
         "position": 15.0,
@@ -444,74 +472,102 @@
     ],
     "top_pages": [
       {
-        "clicks": 40,
-        "impressions": 512,
-        "ctr": 0.078125,
-        "position": 7.75,
+        "clicks": 46,
+        "impressions": 508,
+        "ctr": 0.090551,
+        "position": 6.5,
         "page": "https://growfolio-note.com/bitradex-tax/"
       },
       {
-        "clicks": 35,
-        "impressions": 815,
-        "ctr": 0.042945,
-        "position": 11.37,
+        "clicks": 43,
+        "impressions": 1254,
+        "ctr": 0.03429,
+        "position": 11.21,
         "page": "https://growfolio-note.com/bitradex-withdraw-bitget/"
       },
       {
-        "clicks": 14,
-        "impressions": 172,
-        "ctr": 0.081395,
-        "position": 20.28,
+        "clicks": 10,
+        "impressions": 223,
+        "ctr": 0.044843,
+        "position": 22.69,
         "page": "https://growfolio-note.com/bitradex-risk/"
       },
       {
         "clicks": 6,
-        "impressions": 53,
-        "ctr": 0.113208,
-        "position": 13.83,
+        "impressions": 58,
+        "ctr": 0.103448,
+        "position": 11.76,
         "page": "https://growfolio-note.com/bitradex-ai-plan/"
       },
       {
-        "clicks": 3,
-        "impressions": 23,
-        "ctr": 0.130435,
-        "position": 6.13,
+        "clicks": 2,
+        "impressions": 24,
+        "ctr": 0.083333,
+        "position": 2.83,
         "page": "https://growfolio-note.com/"
-      },
-      {
-        "clicks": 3,
-        "impressions": 45,
-        "ctr": 0.066667,
-        "position": 37.16,
-        "page": "https://growfolio-note.com/bitradex-review/"
       },
       {
         "clicks": 2,
         "impressions": 19,
         "ctr": 0.105263,
-        "position": 8.53,
+        "position": 11.89,
         "page": "https://growfolio-note.com/bitradex-network/"
       },
       {
         "clicks": 2,
-        "impressions": 8,
-        "ctr": 0.25,
-        "position": 35.5,
-        "page": "https://growfolio-note.com/category/bitradex/"
+        "impressions": 16,
+        "ctr": 0.125,
+        "position": 7.56,
+        "page": "https://growfolio-note.com/tax-robot-jiyukenkyu-viral-sns/"
       },
       {
         "clicks": 1,
-        "impressions": 55,
-        "ctr": 0.018182,
-        "position": 14.87,
+        "impressions": 38,
+        "ctr": 0.026316,
+        "position": 14.76,
         "page": "https://growfolio-note.com/bitradex-guide/"
       },
       {
         "clicks": 1,
-        "impressions": 86,
-        "ctr": 0.011628,
-        "position": 8.05,
+        "impressions": 31,
+        "ctr": 0.032258,
+        "position": 8.94,
+        "page": "https://growfolio-note.com/bitradex-kyc/"
+      },
+      {
+        "clicks": 1,
+        "impressions": 15,
+        "ctr": 0.066667,
+        "position": 13.0,
+        "page": "https://growfolio-note.com/bitradex-progress-8300/"
+      },
+      {
+        "clicks": 1,
+        "impressions": 82,
+        "ctr": 0.012195,
+        "position": 7.76,
         "page": "https://growfolio-note.com/bitradex-referral-system/"
+      },
+      {
+        "clicks": 1,
+        "impressions": 50,
+        "ctr": 0.02,
+        "position": 39.42,
+        "page": "https://growfolio-note.com/bitradex-review/"
+      },
+      {
+        "clicks": 1,
+        "impressions": 25,
+        "ctr": 0.04,
+        "position": 9.32,
+        "page": "https://growfolio-note.com/category/bitradex/tax/"
+      },
+      {
+        "clicks": 1,
+        "impressions": 38,
+        "ctr": 0.026316,
+        "position": 6.18,
+        "page": "https://growfolio-note.com/nikkei-foreign-investor-trends-2026/"
       },
       {
         "clicks": 1,
@@ -522,45 +578,31 @@
       },
       {
         "clicks": 1,
-        "impressions": 7,
-        "ctr": 0.142857,
-        "position": 7.86,
-        "page": "https://growfolio-note.com/tax-robot-jiyukenkyu-viral-sns/"
-      },
-      {
-        "clicks": 1,
-        "impressions": 14,
-        "ctr": 0.071429,
-        "position": 8.21,
+        "impressions": 13,
+        "ctr": 0.076923,
+        "position": 8.31,
         "page": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-2026/"
       },
       {
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 0.25,
+        "position": 7.5,
+        "page": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-changes/"
+      },
+      {
         "clicks": 0,
-        "impressions": 15,
+        "impressions": 12,
         "ctr": 0.0,
-        "position": 13.47,
+        "position": 8.92,
         "page": "https://growfolio-note.com/bitradex-affiliate/"
       },
       {
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 1,
         "ctr": 0.0,
-        "position": 26.0,
+        "position": 11.0,
         "page": "https://growfolio-note.com/bitradex-invite-code/"
-      },
-      {
-        "clicks": 0,
-        "impressions": 31,
-        "ctr": 0.0,
-        "position": 10.35,
-        "page": "https://growfolio-note.com/bitradex-kyc/"
-      },
-      {
-        "clicks": 0,
-        "impressions": 7,
-        "ctr": 0.0,
-        "position": 23.71,
-        "page": "https://growfolio-note.com/bitradex-progress-8300/"
       },
       {
         "clicks": 0,
@@ -599,17 +641,66 @@
       },
       {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0.0,
-        "position": 8.25,
+        "position": 9.4,
         "page": "https://growfolio-note.com/bitradex-who-should/"
+      },
+      {
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0.0,
+        "position": 6.5,
+        "page": "https://growfolio-note.com/bitradex-withdraw-bitget/#index_id1"
+      },
+      {
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 6.2,
+        "page": "https://growfolio-note.com/bitradex-withdraw-bitget/#index_id10"
+      },
+      {
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 6.2,
+        "page": "https://growfolio-note.com/bitradex-withdraw-bitget/#index_id2"
       },
       {
         "clicks": 0,
         "impressions": 1,
         "ctr": 0.0,
-        "position": 7.0,
-        "page": "https://growfolio-note.com/category/%E3%83%86%E3%83%83%E3%82%AF%E5%8B%95%E5%90%91/"
+        "position": 8.0,
+        "page": "https://growfolio-note.com/bitradex-withdraw-bitget/#index_id3"
+      },
+      {
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 6.2,
+        "page": "https://growfolio-note.com/bitradex-withdraw-bitget/#index_id4"
+      },
+      {
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 6.2,
+        "page": "https://growfolio-note.com/bitradex-withdraw-bitget/#index_id7"
+      },
+      {
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0.0,
+        "position": 6.5,
+        "page": "https://growfolio-note.com/bitradex-withdraw-bitget/#index_id8"
+      },
+      {
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0.0,
+        "position": 6.2,
+        "page": "https://growfolio-note.com/bitradex-withdraw-bitget/#index_id9"
       },
       {
         "clicks": 0,
@@ -620,6 +711,13 @@
       },
       {
         "clicks": 0,
+        "impressions": 10,
+        "ctr": 0.0,
+        "position": 37.5,
+        "page": "https://growfolio-note.com/category/bitradex/"
+      },
+      {
+        "clicks": 0,
         "impressions": 1,
         "ctr": 0.0,
         "position": 20.0,
@@ -627,16 +725,16 @@
       },
       {
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 9,
         "ctr": 0.0,
         "position": 1.0,
         "page": "https://growfolio-note.com/category/bitradex/referral/"
       },
       {
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 4,
         "ctr": 0.0,
-        "position": 34.0,
+        "position": 45.0,
         "page": "https://growfolio-note.com/category/bitradex/risk/"
       },
       {
@@ -648,16 +746,9 @@
       },
       {
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 27,
         "ctr": 0.0,
-        "position": 27.0,
-        "page": "https://growfolio-note.com/category/bitradex/tax/"
-      },
-      {
-        "clicks": 0,
-        "impressions": 24,
-        "ctr": 0.0,
-        "position": 48.54,
+        "position": 49.26,
         "page": "https://growfolio-note.com/category/bitradex/withdrawal/"
       },
       {
@@ -669,30 +760,23 @@
       },
       {
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 79,
         "ctr": 0.0,
-        "position": 3.0,
-        "page": "https://growfolio-note.com/category/it-career/"
-      },
-      {
-        "clicks": 0,
-        "impressions": 20,
-        "ctr": 0.0,
-        "position": 9.9,
+        "position": 8.3,
         "page": "https://growfolio-note.com/chatgpt-ai-crawler-review-analysis-trend-2026/"
       },
       {
         "clicks": 0,
-        "impressions": 14,
+        "impressions": 13,
         "ctr": 0.0,
-        "position": 7.71,
+        "position": 12.62,
         "page": "https://growfolio-note.com/contact/"
       },
       {
         "clicks": 0,
-        "impressions": 23,
+        "impressions": 34,
         "ctr": 0.0,
-        "position": 50.52,
+        "position": 60.59,
         "page": "https://growfolio-note.com/crypto-tax-timing-bunri-kazei-2026/"
       },
       {
@@ -704,9 +788,9 @@
       },
       {
         "clicks": 0,
-        "impressions": 8,
+        "impressions": 6,
         "ctr": 0.0,
-        "position": 11.38,
+        "position": 26.5,
         "page": "https://growfolio-note.com/cursor-vscode-difference-2026/"
       },
       {
@@ -718,9 +802,9 @@
       },
       {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 10,
         "ctr": 0.0,
-        "position": 8.5,
+        "position": 6.8,
         "page": "https://growfolio-note.com/generative-ai-trends-2026-summer/"
       },
       {
@@ -746,9 +830,9 @@
       },
       {
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 4,
         "ctr": 0.0,
-        "position": 78.0,
+        "position": 28.0,
         "page": "https://growfolio-note.com/ladder-x-audcad-stable/"
       },
       {
@@ -760,16 +844,16 @@
       },
       {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 3,
         "ctr": 0.0,
-        "position": 40.0,
+        "position": 38.67,
         "page": "https://growfolio-note.com/nanpin-ea-hatan-joken/"
       },
       {
         "clicks": 0,
-        "impressions": 10,
+        "impressions": 14,
         "ctr": 0.0,
-        "position": 34.8,
+        "position": 34.79,
         "page": "https://growfolio-note.com/new-nisa-switching-future-2026/"
       },
       {
@@ -781,81 +865,85 @@
       },
       {
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0.0,
-        "position": 7.0,
+        "position": 7.67,
         "page": "https://growfolio-note.com/nisa-start-checklist-2026/"
       },
       {
         "clicks": 0,
         "impressions": 5,
         "ctr": 0.0,
-        "position": 5.8,
+        "position": 5.2,
         "page": "https://growfolio-note.com/page/3/"
       },
       {
         "clicks": 0,
-        "impressions": 19,
+        "impressions": 16,
         "ctr": 0.0,
-        "position": 5.58,
+        "position": 5.56,
         "page": "https://growfolio-note.com/profile/"
       },
       {
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 4,
         "ctr": 0.0,
-        "position": 4.0,
+        "position": 6.25,
         "page": "https://growfolio-note.com/stock-market-outlook-2026/"
-      },
-      {
-        "clicks": 0,
-        "impressions": 3,
-        "ctr": 0.0,
-        "position": 9.33,
-        "page": "https://growfolio-note.com/vscode-1116-github-copilot-chat-builtin-changes/"
       }
     ],
     "opportunities": [
       {
-        "query": "bitradex 税金",
-        "clicks": 18,
-        "impressions": 361,
-        "ctr": 0.049861,
-        "position": 8.63,
-        "reasons": [
-          "順位8.63（改善余地）"
-        ]
-      },
-      {
-        "query": "ビットレート x 出金できない",
-        "clicks": 3,
-        "impressions": 76,
-        "ctr": 0.039474,
-        "position": 10.79,
-        "reasons": [
-          "順位10.79（改善余地）"
-        ]
-      },
-      {
         "query": "bitradex 出金できない",
-        "clicks": 0,
-        "impressions": 72,
-        "ctr": 0.0,
-        "position": 20.4,
+        "clicks": 1,
+        "impressions": 100,
+        "ctr": 0.01,
+        "position": 19.26,
         "reasons": [
-          "順位20.4（改善余地）",
-          "CTR 0.00%（タイトル/ディスクリ改善候補）"
+          "順位19.26（改善余地）",
+          "CTR 1.00%（タイトル/ディスクリ改善候補）"
         ]
       },
       {
         "query": "bitradex 出金 できない",
         "clicks": 0,
-        "impressions": 46,
+        "impressions": 84,
         "ctr": 0.0,
-        "position": 19.07,
+        "position": 18.19,
         "reasons": [
-          "順位19.07（改善余地）",
+          "順位18.19（改善余地）",
           "CTR 0.00%（タイトル/ディスクリ改善候補）"
+        ]
+      },
+      {
+        "query": "ビットレート x 出金できない",
+        "clicks": 3,
+        "impressions": 83,
+        "ctr": 0.036145,
+        "position": 10.76,
+        "reasons": [
+          "順位10.76（改善余地）"
+        ]
+      },
+      {
+        "query": "chatgpt 口コミ 17倍",
+        "clicks": 0,
+        "impressions": 52,
+        "ctr": 0.0,
+        "position": 7.73,
+        "reasons": [
+          "CTR 0.00%（タイトル/ディスクリ改善候補）"
+        ]
+      },
+      {
+        "query": "ビットレートx 出金できない",
+        "clicks": 1,
+        "impressions": 39,
+        "ctr": 0.025641,
+        "position": 12.85,
+        "reasons": [
+          "順位12.85（改善余地）",
+          "CTR 2.56%（タイトル/ディスクリ改善候補）"
         ]
       },
       {
@@ -871,21 +959,21 @@
       {
         "query": "bitradex 紹介報酬",
         "clicks": 1,
-        "impressions": 30,
-        "ctr": 0.033333,
-        "position": 9.5,
+        "impressions": 29,
+        "ctr": 0.034483,
+        "position": 8.97,
         "reasons": [
-          "順位9.5（改善余地）"
+          "順位8.97（改善余地）"
         ]
       },
       {
-        "query": "ビットレートx 出金できない",
-        "clicks": 1,
-        "impressions": 25,
-        "ctr": 0.04,
-        "position": 10.4,
+        "query": "bitradex 出金 拒否",
+        "clicks": 2,
+        "impressions": 23,
+        "ctr": 0.086957,
+        "position": 22.26,
         "reasons": [
-          "順位10.4（改善余地）"
+          "順位22.26（改善余地）"
         ]
       }
     ]
@@ -893,142 +981,164 @@
   "ga4": {
     "property_id": "properties/541603080",
     "totals": {
-      "sessions": 522,
-      "totalUsers": 385,
-      "screenPageViews": 697,
-      "bounceRate": 0.4636,
-      "averageSessionDuration": 235.1728
+      "sessions": 531,
+      "totalUsers": 415,
+      "screenPageViews": 614,
+      "bounceRate": 0.4915,
+      "averageSessionDuration": 186.7984
     },
     "channels": [
       {
         "sessionDefaultChannelGroup": "Organic Search",
-        "sessions": 403,
-        "totalUsers": 298,
-        "screenPageViews": 493
+        "sessions": 420,
+        "totalUsers": 324,
+        "screenPageViews": 488
       },
       {
         "sessionDefaultChannelGroup": "Direct",
-        "sessions": 91,
-        "totalUsers": 74,
-        "screenPageViews": 104
+        "sessions": 102,
+        "totalUsers": 87,
+        "screenPageViews": 108
       },
       {
         "sessionDefaultChannelGroup": "Referral",
-        "sessions": 16,
-        "totalUsers": 4,
-        "screenPageViews": 85
-      },
-      {
-        "sessionDefaultChannelGroup": "Organic Social",
-        "sessions": 11,
-        "totalUsers": 9,
-        "screenPageViews": 13
+        "sessions": 7,
+        "totalUsers": 2,
+        "screenPageViews": 15
       },
       {
         "sessionDefaultChannelGroup": "Unassigned",
-        "sessions": 1,
-        "totalUsers": 1,
-        "screenPageViews": 2
+        "sessions": 2,
+        "totalUsers": 2,
+        "screenPageViews": 3
       }
     ],
     "landings": [
       {
+        "landingPagePlusQueryString": "/bitradex-withdraw-bitget/",
+        "sessions": 105,
+        "totalUsers": 87,
+        "screenPageViews": 115,
+        "bounceRate": 0.5619
+      },
+      {
         "landingPagePlusQueryString": "/bitradex-guide/",
-        "sessions": 93,
-        "totalUsers": 73,
-        "screenPageViews": 126,
-        "bounceRate": 0.3548
+        "sessions": 104,
+        "totalUsers": 83,
+        "screenPageViews": 134,
+        "bounceRate": 0.5192
       },
       {
         "landingPagePlusQueryString": "/bitradex-tax/",
-        "sessions": 93,
-        "totalUsers": 74,
-        "screenPageViews": 128,
-        "bounceRate": 0.4301
-      },
-      {
-        "landingPagePlusQueryString": "/bitradex-withdraw-bitget/",
-        "sessions": 92,
-        "totalUsers": 74,
-        "screenPageViews": 105,
-        "bounceRate": 0.5761
+        "sessions": 91,
+        "totalUsers": 72,
+        "screenPageViews": 119,
+        "bounceRate": 0.3846
       },
       {
         "landingPagePlusQueryString": "/bitradex-review/",
-        "sessions": 60,
-        "totalUsers": 54,
-        "screenPageViews": 88,
-        "bounceRate": 0.15
-      },
-      {
-        "landingPagePlusQueryString": "(not set)",
-        "sessions": 37,
-        "totalUsers": 34,
-        "screenPageViews": 0,
-        "bounceRate": 0.9459
+        "sessions": 49,
+        "totalUsers": 47,
+        "screenPageViews": 69,
+        "bounceRate": 0.1633
       },
       {
         "landingPagePlusQueryString": "/bitradex-risk/",
-        "sessions": 37,
-        "totalUsers": 35,
-        "screenPageViews": 46,
-        "bounceRate": 0.4054
+        "sessions": 39,
+        "totalUsers": 36,
+        "screenPageViews": 45,
+        "bounceRate": 0.3846
+      },
+      {
+        "landingPagePlusQueryString": "(not set)",
+        "sessions": 35,
+        "totalUsers": 32,
+        "screenPageViews": 0,
+        "bounceRate": 0.9714
       },
       {
         "landingPagePlusQueryString": "/",
-        "sessions": 25,
-        "totalUsers": 23,
-        "screenPageViews": 32,
-        "bounceRate": 0.84
-      },
-      {
-        "landingPagePlusQueryString": "/bitradex-progress-8300/",
-        "sessions": 15,
-        "totalUsers": 14,
-        "screenPageViews": 26,
-        "bounceRate": 0.4
+        "sessions": 20,
+        "totalUsers": 19,
+        "screenPageViews": 23,
+        "bounceRate": 0.8
       },
       {
         "landingPagePlusQueryString": "/bitradex-ai-plan/",
-        "sessions": 9,
-        "totalUsers": 6,
-        "screenPageViews": 11,
-        "bounceRate": 0.3333
+        "sessions": 10,
+        "totalUsers": 7,
+        "screenPageViews": 12,
+        "bounceRate": 0.3
       },
       {
         "landingPagePlusQueryString": "/new-nisa-switching-future-2026/",
-        "sessions": 8,
-        "totalUsers": 7,
-        "screenPageViews": 8,
-        "bounceRate": 0.5
+        "sessions": 10,
+        "totalUsers": 9,
+        "screenPageViews": 10,
+        "bounceRate": 0.4
       },
       {
         "landingPagePlusQueryString": "/stock-market-outlook-2026/",
-        "sessions": 7,
-        "totalUsers": 7,
-        "screenPageViews": 8,
-        "bounceRate": 0.1429
+        "sessions": 10,
+        "totalUsers": 10,
+        "screenPageViews": 11,
+        "bounceRate": 0.2
       },
       {
-        "landingPagePlusQueryString": "/bitradex-referral-system/",
+        "landingPagePlusQueryString": "/category/bitradex/start/",
+        "sessions": 7,
+        "totalUsers": 7,
+        "screenPageViews": 9,
+        "bounceRate": 0.5714
+      },
+      {
+        "landingPagePlusQueryString": "/bitradex-kyc/",
         "sessions": 6,
-        "totalUsers": 4,
-        "screenPageViews": 6,
-        "bounceRate": 0.8333
+        "totalUsers": 6,
+        "screenPageViews": 7,
+        "bounceRate": 0.6667
+      },
+      {
+        "landingPagePlusQueryString": "/nikkei-foreign-investor-trends-2026/",
+        "sessions": 6,
+        "totalUsers": 6,
+        "screenPageViews": 7,
+        "bounceRate": 0
       },
       {
         "landingPagePlusQueryString": "/bitradex-start-smartphone/",
         "sessions": 5,
         "totalUsers": 5,
-        "screenPageViews": 8,
-        "bounceRate": 0.2
+        "screenPageViews": 7,
+        "bounceRate": 0.6
       },
       {
-        "landingPagePlusQueryString": "/bitradex-kyc/",
+        "landingPagePlusQueryString": "/generative-ai-trends-2026-summer/",
+        "sessions": 5,
+        "totalUsers": 5,
+        "screenPageViews": 6,
+        "bounceRate": 0.8
+      },
+      {
+        "landingPagePlusQueryString": "/bitradex-progress-8300/",
         "sessions": 4,
         "totalUsers": 4,
-        "screenPageViews": 5,
+        "screenPageViews": 4,
         "bounceRate": 0.5
+      },
+      {
+        "landingPagePlusQueryString": "/vscode-1116-github-copilot-chat-builtin-2026/",
+        "sessions": 4,
+        "totalUsers": 4,
+        "screenPageViews": 4,
+        "bounceRate": 0.5
+      },
+      {
+        "landingPagePlusQueryString": "/bitradex-referral-system/",
+        "sessions": 3,
+        "totalUsers": 3,
+        "screenPageViews": 3,
+        "bounceRate": 0.6667
       },
       {
         "landingPagePlusQueryString": "/cursor-copilot-work-split-2026/",
@@ -1038,46 +1148,11 @@
         "bounceRate": 0.6667
       },
       {
-        "landingPagePlusQueryString": "/generative-ai-trends-2026-summer/",
-        "sessions": 3,
-        "totalUsers": 3,
-        "screenPageViews": 4,
-        "bounceRate": 0.6667
-      },
-      {
         "landingPagePlusQueryString": "/ladder-x-audcad-stable/",
         "sessions": 3,
         "totalUsers": 2,
         "screenPageViews": 7,
         "bounceRate": 0.3333
-      },
-      {
-        "landingPagePlusQueryString": "/category/bitradex/start/",
-        "sessions": 2,
-        "totalUsers": 2,
-        "screenPageViews": 4,
-        "bounceRate": 0
-      },
-      {
-        "landingPagePlusQueryString": "/chatgpt-ai-crawler-review-analysis-trend-2026/",
-        "sessions": 2,
-        "totalUsers": 1,
-        "screenPageViews": 38,
-        "bounceRate": 0
-      },
-      {
-        "landingPagePlusQueryString": "/contact/",
-        "sessions": 2,
-        "totalUsers": 2,
-        "screenPageViews": 2,
-        "bounceRate": 0.5
-      },
-      {
-        "landingPagePlusQueryString": "/crypto-tax-timing-bunri-kazei-2026/",
-        "sessions": 2,
-        "totalUsers": 2,
-        "screenPageViews": 2,
-        "bounceRate": 0
       },
       {
         "landingPagePlusQueryString": "/github-copilot-plan-comparison-2026/",
@@ -1090,8 +1165,8 @@
         "landingPagePlusQueryString": "/tax-robot-jiyukenkyu-viral-sns/",
         "sessions": 2,
         "totalUsers": 2,
-        "screenPageViews": 3,
-        "bounceRate": 0
+        "screenPageViews": 2,
+        "bounceRate": 0.5
       },
       {
         "landingPagePlusQueryString": "/2026/06/",
@@ -1115,25 +1190,18 @@
         "bounceRate": 0
       },
       {
-        "landingPagePlusQueryString": "/bitradex-progress-8300/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEeHlyFPb8cq45DaxSk8w5N0_Raja4ySsqaSzTZLhhkRdhXLsG2ChCvyM3nKDQ_aem_CifWG39j0MpMbFSc3kP1XQ",
-        "sessions": 1,
-        "totalUsers": 1,
-        "screenPageViews": 1,
-        "bounceRate": 1
-      },
-      {
-        "landingPagePlusQueryString": "/bitradex-progress-8300/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEewjMZA-yMjAoyIEWZlrS75t4BwX8wWeQcJcNsKx3EoEEeqXEc2E96iT0l5eE_aem_5dP98sSKpFTTn8rlL2WXzQ",
-        "sessions": 1,
-        "totalUsers": 1,
-        "screenPageViews": 1,
-        "bounceRate": 1
-      },
-      {
         "landingPagePlusQueryString": "/category/bitradex/",
         "sessions": 1,
         "totalUsers": 1,
         "screenPageViews": 1,
         "bounceRate": 0
+      },
+      {
+        "landingPagePlusQueryString": "/category/bitradex/tax/",
+        "sessions": 1,
+        "totalUsers": 1,
+        "screenPageViews": 1,
+        "bounceRate": 1
       },
       {
         "landingPagePlusQueryString": "/category/it-career/",
@@ -1143,18 +1211,25 @@
         "bounceRate": 1
       },
       {
-        "landingPagePlusQueryString": "/disclaimer/",
+        "landingPagePlusQueryString": "/contact/",
         "sessions": 1,
         "totalUsers": 1,
         "screenPageViews": 1,
         "bounceRate": 1
       },
       {
-        "landingPagePlusQueryString": "/growfolio-start-here/",
+        "landingPagePlusQueryString": "/crypto-tax-timing-bunri-kazei-2026/",
         "sessions": 1,
         "totalUsers": 1,
-        "screenPageViews": 20,
+        "screenPageViews": 1,
         "bounceRate": 0
+      },
+      {
+        "landingPagePlusQueryString": "/disclaimer/",
+        "sessions": 1,
+        "totalUsers": 1,
+        "screenPageViews": 1,
+        "bounceRate": 1
       },
       {
         "landingPagePlusQueryString": "/nisa-growth-investment-bond-etf-interest-rate-2026/",
@@ -1169,58 +1244,9 @@
         "totalUsers": 1,
         "screenPageViews": 1,
         "bounceRate": 1
-      },
-      {
-        "landingPagePlusQueryString": "/vscode-1116-github-copilot-chat-builtin-2026/",
-        "sessions": 1,
-        "totalUsers": 1,
-        "screenPageViews": 1,
-        "bounceRate": 1
       }
     ],
     "daily": [
-      {
-        "date": "20260712",
-        "sessions": 23,
-        "screenPageViews": 51,
-        "totalUsers": 18
-      },
-      {
-        "date": "20260713",
-        "sessions": 17,
-        "screenPageViews": 25,
-        "totalUsers": 14
-      },
-      {
-        "date": "20260714",
-        "sessions": 17,
-        "screenPageViews": 23,
-        "totalUsers": 14
-      },
-      {
-        "date": "20260715",
-        "sessions": 11,
-        "screenPageViews": 16,
-        "totalUsers": 9
-      },
-      {
-        "date": "20260716",
-        "sessions": 9,
-        "screenPageViews": 10,
-        "totalUsers": 8
-      },
-      {
-        "date": "20260717",
-        "sessions": 18,
-        "screenPageViews": 27,
-        "totalUsers": 17
-      },
-      {
-        "date": "20260718",
-        "sessions": 17,
-        "screenPageViews": 57,
-        "totalUsers": 14
-      },
       {
         "date": "20260719",
         "sessions": 11,
@@ -1346,12 +1372,54 @@
         "sessions": 23,
         "screenPageViews": 27,
         "totalUsers": 19
+      },
+      {
+        "date": "20260809",
+        "sessions": 28,
+        "screenPageViews": 30,
+        "totalUsers": 26
+      },
+      {
+        "date": "20260810",
+        "sessions": 30,
+        "screenPageViews": 30,
+        "totalUsers": 28
+      },
+      {
+        "date": "20260811",
+        "sessions": 10,
+        "screenPageViews": 11,
+        "totalUsers": 10
+      },
+      {
+        "date": "20260812",
+        "sessions": 18,
+        "screenPageViews": 18,
+        "totalUsers": 17
+      },
+      {
+        "date": "20260813",
+        "sessions": 14,
+        "screenPageViews": 14,
+        "totalUsers": 14
+      },
+      {
+        "date": "20260814",
+        "sessions": 11,
+        "screenPageViews": 12,
+        "totalUsers": 11
+      },
+      {
+        "date": "20260815",
+        "sessions": 10,
+        "screenPageViews": 11,
+        "totalUsers": 10
       }
     ]
   },
   "kpi": {
-    "article_count": 30,
-    "monthly_pv_estimate": 747,
+    "article_count": 31,
+    "monthly_pv_estimate": 658,
     "target_3m": [
       1000,
       3000
