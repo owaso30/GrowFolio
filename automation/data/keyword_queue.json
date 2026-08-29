@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-22T18:16:43.293662+00:00",
+  "updated_at": "2026-08-29T20:11:51.028563+00:00",
   "keywords": [
     {
       "keyword": "投資戦略フェア 2026 大阪",
@@ -1595,6 +1595,22 @@
       "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
       "reason": "shared_entities=['crypto', 'tax']",
       "noted_at": "2026-08-22T18:16:25.692382+00:00"
+    },
+    {
+      "keyword": "仮想通貨 確定申告 必要書類",
+      "intent": "B",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "tax",
+      "fingerprint": [
+        "crypto",
+        "tax"
+      ],
+      "existing_slug": "crypto-tax-timing-bunri-kazei-2026",
+      "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
+      "reason": "shared_entities=['crypto', 'tax']",
+      "noted_at": "2026-08-29T20:11:37.957969+00:00"
     }
   ]
 }
