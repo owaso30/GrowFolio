@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-12T19:53:10.834819+00:00",
+  "updated_at": "2026-09-19T19:49:31.683221+00:00",
   "keywords": [
     {
       "keyword": "投資戦略フェア 2026 大阪",
@@ -17,6 +17,21 @@
       }
     },
     {
+      "keyword": "dailymotion ドラマ 一覧",
+      "intent": "F",
+      "score": 93.9,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.12
+      }
+    },
+    {
       "keyword": "投資戦略フェア 2026 東京",
       "intent": "F",
       "score": 91.8,
@@ -27,6 +42,100 @@
       "fingerprint": [],
       "serp": {
         "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "ビットコインetf どこで 買える",
+      "intent": "F",
+      "score": 89.8,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "Dailymotion ドラマ 2026",
+      "intent": "F",
+      "score": 89.0,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "daily sun new york",
+      "intent": "F",
+      "score": 86.9,
+      "status": "pending",
+      "source": "trend_expand",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "Dailymotion で見れる ドラマ",
+      "intent": "F",
+      "score": 84.0,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.12
+      }
+    },
+    {
+      "keyword": "Daily sun number_i",
+      "intent": "F",
+      "score": 79.9,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "ビットコインETF 楽天証券 買い方",
+      "intent": "F",
+      "score": 76.9,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "invest",
+      "fingerprint": [
+        "fund"
+      ],
+      "serp": {
+        "authority_hits": 1,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
       }
