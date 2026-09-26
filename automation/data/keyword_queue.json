@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-19T19:49:31.683221+00:00",
+  "updated_at": "2026-09-26T20:23:43.065650+00:00",
   "keywords": [
     {
       "keyword": "投資戦略フェア 2026 大阪",
@@ -1720,6 +1720,21 @@
       "existing_title": "仮想通貨の税金はいつ・どう変わる？申告分離課税と2026年のポイント",
       "reason": "shared_entities=['crypto', 'tax']",
       "noted_at": "2026-08-29T20:11:37.957969+00:00"
+    },
+    {
+      "keyword": "fx 為替 介入 ロスカット",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "invest",
+      "fingerprint": [
+        "fx"
+      ],
+      "existing_slug": "",
+      "existing_title": "fx 為替 介入 どうなる",
+      "reason": "entity+fuzzy shared=['fx'] fuzzy=81.81818181818181",
+      "noted_at": "2026-09-26T20:23:10.260137+00:00"
     }
   ]
 }
