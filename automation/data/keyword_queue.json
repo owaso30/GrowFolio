@@ -1,4 +1,160 @@
 {
-  "updated_at": "2026-10-10T00:00:00+00:00",
-  "keywords": []
+  "updated_at": "2026-10-10T20:55:08.015872+00:00",
+  "keywords": [
+    {
+      "keyword": "スピニング リール 分解 清掃",
+      "intent": "F",
+      "score": 101.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "reel"
+      ],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.12
+      }
+    },
+    {
+      "keyword": "スピニングリール メンテナンス オイル",
+      "intent": "F",
+      "score": 99.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "prep",
+      "fingerprint": [
+        "reel"
+      ],
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.1
+      }
+    },
+    {
+      "keyword": "スピニング リール オーバーホール 料金",
+      "intent": "F",
+      "score": 99.0,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "reel"
+      ],
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.11
+      }
+    },
+    {
+      "keyword": "ダイワ リール グリス オイル 使い分け",
+      "intent": "F",
+      "score": 99.0,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "daiwa",
+        "reel"
+      ],
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.11
+      }
+    },
+    {
+      "keyword": "スピニングリール メンテナンス シマノ",
+      "intent": "F",
+      "score": 98.0,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "prep",
+      "fingerprint": [
+        "reel",
+        "shimano"
+      ],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "ライトゲームロッド 万能 シマノ",
+      "intent": "F",
+      "score": 97.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "rod",
+        "shimano"
+      ],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "アジング ライト タックル",
+      "intent": "F",
+      "score": 97.7,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "method",
+      "fingerprint": [
+        "ajing"
+      ]
+    },
+    {
+      "keyword": "ダイワ リール 注油 箇所",
+      "intent": "F",
+      "score": 97.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "daiwa",
+        "reel"
+      ]
+    },
+    {
+      "keyword": "シマノ リール 注油 箇所",
+      "intent": "F",
+      "score": 97.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "reel",
+        "shimano"
+      ]
+    },
+    {
+      "keyword": "スピニング リール 分解 図",
+      "intent": "F",
+      "score": 97.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "reel"
+      ]
+    }
+  ]
 }
