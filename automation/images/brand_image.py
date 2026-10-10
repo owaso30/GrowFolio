@@ -1,4 +1,4 @@
-"""公式ロゴ＋記事テーマ写真のハイブリッド画像（アイキャッチ・本文）。"""
+"""記事テーマに合わせた Flux 用の実写プロンプト。旧ブランドロゴ合成は使わない。"""
 from __future__ import annotations
 
 import re
@@ -15,49 +15,6 @@ from config_loader import AUTOMATION_ROOT
 ASSETS_DIR = AUTOMATION_ROOT / "assets" / "logos"
 BRAND_ASSETS_PATH = AUTOMATION_ROOT / "config" / "brand_assets.yaml"
 
-BRAND_PATTERNS: list[tuple[str, str, int]] = [
-    # pattern, brand_key, weight
-    ("microsoft 365 copilot", "microsoft_365", 15),
-    ("microsoft copilot", "microsoft_365", 12),
-    ("github copilot", "github_copilot", 14),
-    ("github-copilot", "github_copilot", 14),
-    ("visual studio code", "vscode", 12),
-    ("vs code", "vscode", 12),
-    ("vs-code", "vscode", 12),
-    ("vscode", "vscode", 9),
-    ("bitradex", "bitradex", 15),
-    ("cursor", "cursor", 12),
-    # ChatGPT / OpenAI（Claudeより先・高スコアで主題を誤らない）
-    ("chatgpt", "chatgpt", 16),
-    ("chat gpt", "chatgpt", 16),
-    ("oai-searchbot", "chatgpt", 14),
-    ("openai", "chatgpt", 12),
-    ("claude code", "claude", 14),
-    ("anthropic", "claude", 10),
-    ("claude", "claude", 9),
-    ("nisa", "nisa", 14),
-    ("債券etf", "nisa", 10),
-    ("債券 etf", "nisa", 10),
-    ("投資入門", "nisa", 6),
-]
-
-SLUG_PREFIX_BOOSTS: list[tuple[str, str, int]] = [
-    ("vscode-", "vscode", 10),
-    ("cursor-", "cursor", 10),
-    ("github-copilot-", "github_copilot", 10),
-    ("bitradex-", "bitradex", 10),
-    ("chatgpt-", "chatgpt", 12),
-    ("openai-", "chatgpt", 10),
-    ("claude-", "claude", 10),
-]
-
-COMPARISON_MARKERS = ("の違い", "比較", " vs ", "対決", "どっち", "どちら")
-
-
-def _normalize_match_text(*parts: str) -> str:
-    combined = " ".join(p for p in parts if p).lower()
-    return combined.replace("-", " ").replace("_", " ")
-
 
 def resolve_brand_key(
     keyword: str,
@@ -65,50 +22,9 @@ def resolve_brand_key(
     category: str = "",
     slug: str = "",
 ) -> str | None:
-    """記事の主題に最も関連する brand_key をスコアリングで決定。"""
-    slug_l = (slug or keyword).lower()
-    text = _normalize_match_text(keyword, title, category, slug_l)
-    scores: dict[str, int] = {}
-
-    for pattern, key, weight in BRAND_PATTERNS:
-        norm_pattern = pattern.replace("-", " ")
-        if norm_pattern in text or pattern in slug_l:
-            scores[key] = scores.get(key, 0) + weight
-
-    for prefix, key, boost in SLUG_PREFIX_BOOSTS:
-        if slug_l.startswith(prefix):
-            scores[key] = scores.get(key, 0) + boost
-
-    # 「copilot」単体: VS Code 文脈なら vscode を優先、GitHub 文脈なら github_copilot
-    if "copilot" in text or "copilot" in slug_l.replace("-", " "):
-        if scores.get("vscode", 0) > 0 or slug_l.startswith("vscode"):
-            scores["vscode"] = scores.get("vscode", 0) + 6
-        if "github" in text or "github" in slug_l:
-            scores["github_copilot"] = scores.get("github_copilot", 0) + 5
-        elif scores.get("github_copilot", 0) == 0:
-            scores["github_copilot"] = scores.get("github_copilot", 0) + 3
-
-    # 比較記事: タイトル先頭のブランドを優先（CursorとVSCodeの違い → cursor）
-    title_l = (title or keyword).lower()
-    for marker in COMPARISON_MARKERS:
-        if marker in title_l:
-            head = title_l.split(marker, 1)[0]
-            for pattern, key, weight in BRAND_PATTERNS:
-                norm_pattern = pattern.replace("-", " ")
-                if norm_pattern in _normalize_match_text(head):
-                    scores[key] = scores.get(key, 0) + weight
-            break
-
-    # Copilot 料金・プラン・機能比較は GitHub Copilot 製品が主題
-    product_focus = ("プラン", "料金", "機能比較", "plan", "pricing", "free", "pro", "business")
-    if any(token in text for token in product_focus) and (
-        scores.get("github_copilot", 0) > 0 or "copilot" in text
-    ):
-        scores["github_copilot"] = scores.get("github_copilot", 0) + 8
-
-    if not scores:
-        return None
-    return max(scores, key=scores.get)
+    """アイキャッチは Flux の実写にする。旧記事のブランドロゴは使わない。"""
+    del keyword, title, category, slug
+    return None
 
 
 def pick_brand_key(keyword: str, title: str = "", category: str = "", slug: str = "") -> str | None:
@@ -224,6 +140,7 @@ def normalize_image_prompts(
     title: str = "",
     category: str = "",
     slug: str = "",
+    species: str = "",
     max_body: int = 1,
 ) -> list[dict]:
     """アイキャッチは可能なら brand、本文は brand または控えめな flux。"""
@@ -263,113 +180,45 @@ def normalize_image_prompts(
     elif brand_key:
         normalized[0]["source"] = "brand"
         normalized[0]["brand_key"] = brand_key
-    if normalized[0].get("source") == "flux" and not normalized[0].get("prompt"):
+    if normalized[0].get("source") == "flux" and not (
+        normalized[0].get("prompt") or normalized[0].get("scene_prompt")
+    ):
         normalized[0]["prompt"] = _editorial_flux_prompt(keyword, title, brand_key or "", slug)
+
+    if max_body >= 1:
+        who = species or title or keyword
+        catch = {
+            "source": "flux",
+            "role": "catch",
+            "scene_prompt": (
+                f"One fish just landed, matching this article: {who}. "
+                "A modest catch, not a trophy. Lying on wet gray tetrapod concrete "
+                "at a Japanese harbor breakwater in the evening, warm low sun, harbor blurred. "
+                "Wet scales, mouth slightly open. No people, no hands, no text, no packaging, no lure."
+            ),
+            "alt": f"{who}が釣れた状態"[:100],
+            "caption": "この日の釣果です。",
+            "placeholder": "[IMAGE:1]",
+        }
+        if len(normalized) == 1:
+            normalized.append(catch)
+        else:
+            normalized[1] = catch
+        normalized = normalized[:2]
 
     return normalized
 
 
-BRAND_PALETTE_HINTS: dict[str, str] = {
-    "vscode": "Visual Studio Code blue #007ACC, dark editor chrome #1E1E1E, soft cyan highlights",
-    "github_copilot": "GitHub dark gray #24292f, Copilot purple-blue AI accents, clean developer UI tones",
-    "cursor": "Cursor dark charcoal #0f172a, subtle silver UI chrome, focused minimal palette",
-    "chatgpt": "ChatGPT teal #10a37f, soft charcoal UI chrome, clean AI chat palette",
-    "claude": "warm terracotta #c96442, cream paper tones, calm research palette",
-    "microsoft_365": "Microsoft blue #0078d4, office productivity neutrals",
-    "bitradex": "deep finance blue #1d4ed8, calm trust-building blues and soft whites",
-    "nisa": "fresh green #059669, calm portfolio growth tones, trustworthy finance palette",
-}
+BRAND_PALETTE_HINTS: dict[str, str] = {}
+BRAND_FALLBACK_SCENES: dict[str, str] = {}
 
-BRAND_FALLBACK_SCENES: dict[str, str] = {
-    "vscode": (
-        "sleek code editor window floating in space with syntax-colored line blocks, "
-        "file tree sidebar, developer-focused near-future UI illustration"
-    ),
-    "github_copilot": (
-        "AI pair-programming scene: code panel with ghost-text suggestion blocks appearing inline, "
-        "subtle sparkle motif, developer workflow illustration"
-    ),
-    "cursor": (
-        "AI-native code editor with inline edit diff highlights and command palette overlay, "
-        "fast iteration workflow, polished dark UI illustration"
-    ),
-    "chatgpt": (
-        "AI search and chat interface with review cards and crawler path lines feeding answers, "
-        "clean teal-accent product illustration about AI discovery"
-    ),
-    "claude": (
-        "elegant chat-and-code hybrid workspace with document panel and reasoning thread, "
-        "warm minimal interface illustration"
-    ),
-    "microsoft_365": (
-        "productivity suite hub with document, spreadsheet and chat tiles connected by soft lines, "
-        "enterprise workflow illustration"
-    ),
-    "bitradex": (
-        "crypto portfolio dashboard with AI strategy graph and calm upward trend line, "
-        "fintech trust aesthetic, clean data visualization panels"
-    ),
-    "nisa": (
-        "long-term investment portfolio dashboard with NISA tax-free badge, "
-        "bond ETF and stock allocation pie chart, calm green growth aesthetic"
-    ),
-}
-
-# (slug/title キーワード群, 記事テーマ直結のイラスト内容)
-ARTICLE_SCENE_RULES: list[tuple[tuple[str, ...], str]] = [
-    (
-        ("plan", "pricing", "プラン", "料金", "機能比較", "free tier", "business", "enterprise"),
-        "GitHub Copilot subscription plan comparison: three vertical plan cards "
-        "(Free, Pro, Business) with feature rows and check icons, infographic layout, "
-        "clear tier differences at a glance",
-    ),
-    (
-        ("extension", "拡張", "plugin", "プラグイン"),
-        "marketplace grid of extension tiles plugging into a code editor sidebar, "
-        "modular add-on ecosystem illustration",
-    ),
-    (
-        ("update", "release", "version", "アップデート", "最新", "バージョン", "1116"),
-        "software version release: editor window with 'new' badge and changelog panel, "
-        "fresh feature highlight glow on updated UI elements",
-    ),
-    (
-        ("tax", "税金", "確定申告"),
-        "tax filing workflow: calculator, annual report forms and crypto profit summary chart, "
-        "organized fiscal dashboard illustration",
-    ),
-    (
-        ("affiliate", "紹介", "アフィリエイト", "referral", "招待"),
-        "referral network diagram: user nodes connected by reward links to a central platform hub, "
-        "affiliate commission flow infographic",
-    ),
-    (
-        ("risk", "危険", "リスク", "怪しい"),
-        "risk assessment dashboard with warning meter, shield icon and balanced pros-cons panels, "
-        "cautious fintech evaluation mood",
-    ),
-    (
-        ("withdraw", "出金", "kyc", "入金", "始め方", "start", "guide", "ガイド"),
-        "step-by-step onboarding flow: account setup arrows through wallet, verification and deposit screens, "
-        "clean fintech tutorial illustration",
-    ),
-    (
-        ("ai plan", "ai運用", "運用プラン", "daily", "90d", "180d"),
-        "AI trading plan selector with timeline cards (Daily, 30D, 90D, 180D), "
-        "return curve previews per plan, investment strategy picker UI",
-    ),
-    (
-        ("review", "レビュー", "実残高", "運用"),
-        "portfolio performance dashboard with balance display and AI strategy status panel, "
-        "transparent results reporting illustration",
-    ),
-]
 
 ILLUSTRATION_STYLE = (
-    "Clean near-futuristic digital illustration for a premium technology blog hero image. "
-    "Polished flat-vector with soft depth, crisp shapes, elegant gradients, controlled lighting, "
-    "high-end product-design aesthetic. Clearly depicts the article topic. "
-    "Not photorealistic, not stock photo, not painterly AI slop."
+    "Photorealistic quiet photo for a weekend lure-fishing blog. "
+    "The tackle subject sits in the lower-left third, tack-sharp. "
+    "A Japanese rocky shore or small harbor is softly blurred behind it. "
+    "Camera at standing height, cool blue-gray water, warm low sun on the tackle. "
+    "No text, no logos, no borders, no faces."
 )
 
 
@@ -391,50 +240,20 @@ def build_article_scene_prompt(
     slug: str = "",
     brand_key: str = "",
 ) -> str:
-    """記事テーマに直結した近未来イラスト用プロンプト。"""
-    haystack = _normalize_match_text(keyword, title, slug)
-    palette = _brand_palette_hint(brand_key)
+    """週末のルアー釣りに直結した実写プロンプト。"""
     topic = _article_topic_label(keyword, title, slug)
-
-    def _format(scene: str) -> str:
-        return (
-            f"{ILLUSTRATION_STYLE} "
-            f"Article topic: {topic}. "
-            f"Scene: {scene} "
-            f"Color palette: {palette}. "
-            "No readable text, no watermarks, no official logos in the scene."
-        )
-
-    comparison_markers = ("違い", "difference", " vs ", "versus", "どっち", "比較")
-    if (
-        any(m in haystack for m in comparison_markers)
-        and "cursor" in haystack
-        and "vscode" in haystack
-    ):
-        return _format(
-            "split-screen comparison: Cursor AI editor on the left versus VS Code on the right, "
-            "contrasting UI chrome and AI features, versus layout with subtle divider"
-        )
-
-    if any(
-        token in haystack
-        for token in ("copilot chat", "copilot-chat", "chat builtin", "標準搭載", "builtin")
-    ):
-        return _format(
-            "VS Code editor window with Copilot Chat panel built into the sidebar, "
-            "chat bubbles beside code lines, built-in AI assistant clearly visible, "
-            "version update launch mood"
-        )
-
-    for tokens, scene in ARTICLE_SCENE_RULES:
-        if any(token in haystack for token in tokens):
-            return _format(scene)
-
-    fallback = BRAND_FALLBACK_SCENES.get(
+    palette = _brand_palette_hint(brand_key)
+    scene = BRAND_FALLBACK_SCENES.get(
         brand_key,
-        f"modern technology concept illustration directly about {topic}, clean UI shapes and relevant icons",
+        f"quiet realistic photo of weekend shore lure fishing related to {topic}, natural light, practical tackle",
     )
-    return _format(fallback)
+    return (
+        f"{ILLUSTRATION_STYLE} "
+        f"Article topic: {topic}. "
+        f"Scene: {scene} "
+        f"Color palette: {palette}. "
+        "No readable text, no watermarks, no official logos in the scene."
+    )
 
 
 def _editorial_flux_prompt(

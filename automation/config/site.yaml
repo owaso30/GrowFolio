@@ -1,8 +1,8 @@
 site:
   name: グロウフォリオ
   url: https://growfolio-note.com
-  tagline: "つくって、増やす。AI×投資の実践ノート"
-  concept: "Money × Technology — AI・投資・副業で、未来を変えよう。"
+  tagline: "昔ルアー釣りをしていた会社員が、週末に無理なく再開するための実践ブログ"
+  concept: "昔ルアー釣りをしていた会社員が、仕事や家族の予定を崩さず、週末の半日でルアー釣りを再開するための実践ノート。高いタックルも毎週の遠征も前提にしない。"
 publish:
   articles_per_run: 1
   default_status: publish
@@ -15,18 +15,23 @@ content:
   featured_image_size: "1792x1024"
   body_image_size: "1024x1024"
 disclaimer:
-  affiliate: "本記事はアフィリエイト広告を含みます。"
-  crypto: "仮想通貨の運用はリスクを伴い、元本保証はありません。"
-  fsa: "BitradeXは海外サービスで日本の金融庁（FSA）登録はありません。"
-  general: "本記事は情報提供を目的としたもので、投資・運用を推奨するものではありません。最終判断はご自身の責任で行ってください。"
-  auto_article: "本記事はアフィリエイト広告を含みます。掲載リンクからの購入・申込により、運営者に報酬が発生する場合があります。本記事は情報提供を目的としたもので、特定の商品・サービスの利用を推奨するものではありません。"
+  affiliate: "※本記事はアフィリエイト広告を含みます。"
+  general: "釣行は天候・足場・法令により危険が伴います。道具の選び方やポイントは一例です。安全と現地のルールを優先し、最終判断はご自身で行ってください。"
+  auto_article: "本記事はアフィリエイト広告を含みます。掲載リンクからの購入により、運営者に報酬が発生する場合があります。タックルや釣行の判断はご自身の責任で行ってください。"
 categories:
-  - {name: 始め方, slug: start}
-  - {name: 運用・実績, slug: operation}
-  - {name: 出金・トラブル, slug: withdraw}
-  - {name: リスク・評判, slug: risk}
-  - {name: 紹介報酬, slug: referral}
-  - {name: 税金, slug: tax}
-  - {name: AI副業, slug: ai-side-hustle}
-  - {name: 投資入門, slug: investing-basics}
-  - {name: ITキャリア, slug: it-career}
+  - {name: 釣具レビュー・比較, slug: gear-review}
+tags:
+  species:
+    - {name: 根魚, slug: rockfish, match: [根魚, ロックフィッシュ, メバル, カサゴ, アイナメ, ソイ, キジハタ]}
+    - {name: サーフ, slug: surf, match: [サーフ, 砂浜, ヒラメ, マゴチ, シロギス]}
+    - {name: シーバス, slug: seabass, match: [シーバス, スズキ]}
+    - {name: チニング, slug: chining, match: [チニング, チヌ, クロダイ]}
+    - {name: アジング, slug: ajing, match: [アジング, アジ]}
+    - {name: ブラックバス, slug: black-bass, match: [ブラックバス, バス釣り]}
+    - {name: トラウト, slug: trout, match: [トラウト, ニジマス, 管理釣り場, エリアトラウト]}
+  gear:
+    - {name: ロッド, slug: rod, match: [ロッド, 釣り竿]}
+    - {name: リール, slug: reel, match: [リール]}
+    - {name: ルアー, slug: lure, match: [ルアー, ワーム, プラグ, ミノー]}
+    - {name: ライン, slug: line, match: [ライン, リーダー, フロロ]}
+    - {name: バッグ, slug: bag, match: [バッグ, タックルバッグ]}

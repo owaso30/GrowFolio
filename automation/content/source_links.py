@@ -11,24 +11,7 @@ _URL_RE = re.compile(r"https?://[^\s<\"（]+")
 _PAREN_COLON_RE = re.compile(r"（([^）]*?):([^）]*?)）")
 
 # 参考行に URL が無い場合の既知ソース（部分一致 → 公式URL）
-SOURCE_URL_HINTS: list[tuple[str, str]] = [
-    (
-        "gihyo.jp「github.comでCopilot",
-        "https://gihyo.jp/article/2026/06/mastering-copilot-on-github",
-    ),
-    (
-        "AIsmiley「GitHub Copilotとは",
-        "https://aismiley.co.jp/ai_news/github-copilot-ai-tool/",
-    ),
-    (
-        "エクサウィザーズ「Claude Codeとは",
-        "https://exawizards.com/column/article/ai/claude-code/",
-    ),
-    (
-        "NTTドコモビジネス「【2026年最新版】Microsoft 365 Copilot",
-        "https://www.ntt.com/bizon/copilot.html",
-    ),
-]
+SOURCE_URL_HINTS: list[tuple[str, str]] = []
 
 
 def _clean_paren_colons(text: str) -> str:

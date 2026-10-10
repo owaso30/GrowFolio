@@ -10,11 +10,11 @@ WordPress（SWELL）× GitHub Actions による SEO 記事の自動生成・公�
 | 項目          | 設定                                                    |
 | ----------- | ----------------------------------------------------- |
 | 公開スパン       | **火・金 09:00 JST**（週2本）                                |
-| 1記事あたり      | 4,000〜6,000字 + **アイキャッチAI画像（本文0〜1枚）** + 直近IT/金融ニュース反映 |
+| 1記事あたり      | 4,000〜6,000字 + **アイキャッチ（本文0〜1枚）** + 季節・規則・タックルの確認 |
 | **AI**      | 記事: **Claude Sonnet 4.6** / 画像: **Flux（fal.ai）**      |
-| **自動投稿の対象** | **クラスター穴埋め**（BitradeXロングテール／税金・制度）。同意図は新規禁止 |
-| 記事構成        | **事実セクション**と**考察セクション**を明確に分離（【事実】/【考察】）              |
-| 収益          | **AdSense + BitradeX AF + 一般AF**（Amazon / A8）         |
+| **自動投稿の対象** | **週末に無理なくルアー釣りを再開する実践記事**。同意図は新規禁止 |
+| 記事構成        | **現場の条件**と**週末にやる判断**を分離（【事実】/【考察】）              |
+| 収益          | **AdSense + Amazonアソシエイト**（タックル検索）         |
 | テーマ選定       | GSC機会＋ブルーオーシャンKW。トレンドは種として使い、微差ニュースは量産しない |
 
 
@@ -22,7 +22,7 @@ WordPress（SWELL）× GitHub Actions による SEO 記事の自動生成・公�
 
 - **新規はクラスターの穴埋めのみ**。言い回しが違うだけの同意図記事は作らない。
 - 意図指紋（エンティティ正規化）で既存記事とぶつかったら `rewrite_candidate` にする（自動リライトはしない）。
-- 週次クォータ例: `bitradex: 1` / `tax: 1` / `other: 0`（`content_policy.yaml`）。
+- 週次クォータ例: `review: 1` / `method: 1` / `prep: 1` / `log: 1`（`content_policy.yaml`）。カテゴリは釣具レビュー・比較のみ。
 - 週次の `fetch-analytics` 後、GSC opportunities を高スコアでキューへ流す。
 
 公開前に Google News RSS（任意で SerpAPI）でトレンドを収集し、タイムリーな内容にしたうえで深い考察を加えます。
@@ -33,7 +33,7 @@ WordPress（SWELL）× GitHub Actions による SEO 記事の自動生成・公�
 | マイルストーン   | 累計記事数          | 主な目的                     |
 | --------- | -------------- | ------------------------ |
 | AdSense申請 | 13〜20本         | **今すぐ申請可能圏内**            |
-| 初成約（AF）   | 15〜25本         | BitradeXロングテール + 自動記事のAF |
+| 初成約（AF）   | 15〜25本         | タックル検索リンク付きの実践記事 |
 | 月1万PV級    | 40〜50本（6ヶ月目標）  | トピック拡張                   |
 | 本格収益      | 70〜90本（12ヶ月目標） | 新規 + リライト                |
 
@@ -108,8 +108,7 @@ add_action('init', function () {
 | `WP_APP_PASSWORD`        | Yes | アプリケーションパスワード                                                                    |
 | `ANTHROPIC_API_KEY`      | Yes | 記事生成（Claude Sonnet 4.6）— [console.anthropic.com](https://console.anthropic.com/) |
 | `FAL_KEY`                | Yes | 画像生成（Flux）— [fal.ai/dashboard/keys](https://fal.ai/dashboard/keys)（課金設定が必要）      |
-| `BITRADEX_AFFILIATE_URL` | 推奨  | BitradeX 招待リンク（自動記事CTA）                                                          |
-| `AMAZON_AFFILIATE_TAG`   | 推奨  | Amazonアソシエイト（自動記事CTA）                                                            |
+| `AMAZON_AFFILIATE_TAG`   | 推奨  | Amazonアソシエイト（タックル検索CTA）                                                            |
 | `SERPAPI_KEY`            | 任意  | ニュース・SERP分析の精度向上                                                                 |
 | `GA4_PROPERTY_ID`        | 計測時 | GA4 プロパティ ID（数字のみ）                                                              |
 | `GSC_SITE_URL`           | 計測時 | Search Console プロパティ URL（例: `https://growfolio-note.com/`）                       |
@@ -194,14 +193,15 @@ python -m pipeline publish --count 1          # 本番公開（dry-run 確認後
 
 | 要素       | 内容                                                     |
 | -------- | ------------------------------------------------------ |
-| トレンド     | 公開直前に IT・金融ニュースを収集（`content/trends.py`）                |
-| 事実       | H2「いま起きていること（事実）」— 出典付き・捏造なし                           |
-| 考察       | H2「筆者の考察・見解」— 【考察】と明記、不確実性を記載                          |
-| BitradeX | 記事内容が関連する場合、AIが `bitradex` CTA を選択                     |
-| 一般AF     | Amazon / A8 / BitradeX 等（AIが `affiliates.yaml` から自動選択） |
+| トレンド     | 公開直前に釣行・タックル・規則の話題を収集（`content/trends.py`）                |
+| 事実       | H2「現場の条件（事実）」— 出典付き・捏造なし                           |
+| 判断       | H2「週末にやるなら（判断）」— 【考察】と明記、安全と時間の制約を記載                          |
+| 収益       | Amazon のタックル検索（`affiliates.yaml`）。投資・仮想通貨案件は選ばない |
 
 
-設定: `[config/content_policy.yaml](config/content_policy.yaml)` / `[config/prompts/article_system.txt](config/prompts/article_system.txt)` / `[config/affiliates.yaml](config/affiliates.yaml)`
+設定: [投稿ルール.md](../投稿ルール.md) / `[config/content_policy.yaml](config/content_policy.yaml)` / `[config/prompts/article_system.txt](config/prompts/article_system.txt)` / `[config/affiliates.yaml](config/affiliates.yaml)`
+
+定期自動投稿は `投稿ルール.md` をシステムプロンプトに読み、カテゴリ、タグ、免責、アイキャッチの色枠、釣果写真、購入枠の商品写真をコード側でも揃える。
 
 ---
 
@@ -245,14 +245,14 @@ python -m pipeline publish --count 1          # 本番公開（dry-run 確認後
 ```yaml
 programs:
   - url: "https://px.a8.net/svt/ejp?a8mat=..."
-    keywords: [NISA, 投資]
+    keywords: [ロッド, リール]
 ```
 
 記事生成時、LLM がカタログから記事に合う id を選びます。`url` が空の案件は CTA がスキップされます。
 
-## BitradeX / Amazon
+## Amazon
 
-`[config/affiliates.yaml](config/affiliates.yaml)` で定義。URL / タグは `.env` と GitHub Secrets に設定。
+`[config/affiliates.yaml](config/affiliates.yaml)` でタックル検索を定義。タグは `.env` と GitHub Secrets の `AMAZON_AFFILIATE_TAG`。
 
 ---
 
@@ -280,8 +280,8 @@ programs:
 | NG              | 理由                                |
 | --------------- | --------------------------------- |
 | 1日に複数本の一括公開     | AdSense 審査・クロール品質に不利              |
-| 品質チェックなしの毎日量産   | 金融YMYL × Helpful Content で評価低下リスク |
-| 既存13本と被るKWの重複記事 | カニバリゼーション                         |
+| 品質チェックなしの毎日量産   | 安全や規則の誤記が残ると信頼を落とす |
+| 既存記事と被るKWの重複記事 | カニバリゼーション                         |
 
 
 ---
@@ -528,9 +528,7 @@ https://growfolio-note.com/wp-json/wp/v2/posts/記事ID?context=edit
 | ファイル                                                                                 | 内容              |
 | ------------------------------------------------------------------------------------ | --------------- |
 | [`../カテゴリ・著者ページ_SEO設定.md`](../カテゴリ・著者ページ_SEO設定.md) | カテゴリ・著者・固定ページのSEOメタ |
-| `[../BitradeX/BitradeX_アフィリエイト完全ロードマップ.md](../BitradeX/BitradeX_アフィリエイト完全ロードマップ.md)` | 収益KPI・KW戦略      |
-| `[../BitradeX/WordPress初期セットアップ手順書.md](../BitradeX/WordPress初期セットアップ手順書.md)`         | SWELL・プラグイン初期設定 |
-| `[config/](config/)`                                                                 | YAML 設定一式       |
+| [`config/`](config/)                                                                 | YAML 設定一式       |
 
 
 ---

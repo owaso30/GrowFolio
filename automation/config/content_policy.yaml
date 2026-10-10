@@ -1,284 +1,181 @@
-# 自動投稿の編集方針（クラスター穴埋め＋重複防止）
-# 方針: ブルーオーシャンのロングテール × IT/投資トレンドTOP。エディタ単発は出さない。
+# 自動投稿の編集方針
+# 昔ルアー釣りをしていた会社員が、週末に無理なく再開するための実践記事だけを出す。
 auto_publish:
-  description: "新規はクラスター穴埋めのみ。同意図はリライト候補へ。IT・投資トレンドで勝負。"
+  description: "週末半日でルアー釣りを再開する実践記事。投資・仮想通貨・ITは出さない。"
   allowed_categories:
-    - 始め方
-    - 運用・実績
-    - 出金・トラブル
-    - リスク・評判
-    - 紹介報酬
-    - 税金
-    - AI副業
-    - 投資入門
-    - ITキャリア
-    - 相場・市況
-    - テック動向
-  # 火金の週2本枠（スコア上位のうち、枠の空いているクラスターを選ぶ）
+    - 釣具レビュー・比較
   weekly_quota:
-    bitradex: 1
-    tax: 1
-    it: 1
-    invest: 1
-    other: 0
-  # 月次の上限（週枠と併用。過剰な同クラスター連投を抑える）
+    prep: 1
+    method: 1
+    review: 1
+    log: 1
+    other: 1
   monthly_quota:
-    it: 4
-    invest: 4
-  # キューに載せるKWのトピックフィルタ（いずれかを含むもの）
+    review: 4
+    method: 4
+  cluster_priority:
+    - prep
+    - method
+    - review
+    - log
   topic_keywords:
-    - BitradeX
-    - 仮想通貨
-    - 暗号資産
-    - 税金
-    - 確定申告
-    - クリプタクト
-    - NISA
-    - 投資
-    - 資産
-    - 金融
-    - 規制
-    - 制度
-    - 副業
-    - AI
-    - 生成AI
-    - ChatGPT
-    - LLM
-    - Web3
-    - Web4
-    - NFT
-    - ブロックチェーン
-    - DeFi
-    - GameFi
-    - クラウド
-    - AWS
-    - Azure
-    - GCP
-    - Kubernetes
-    - Docker
-    - Terraform
-    - インフラ
-    - ネットワーク
-    - 情シス
-    - DevOps
-    - SRE
-    - セキュリティ
-    - フレームワーク
-    - プログラミング
-    - TypeScript
-    - Python
-    - Rust
-    - Go
-    - React
-    - Next.js
-    - 株
-    - 株式
-    - FX
-    - 為替
-    - 投資信託
-    - 投信
-    - ETF
-    - 日経
-    - ナスダック
-  # クラスター判定（KW・タイトル・slug に対して match_any）
-  # 優先順は fingerprint.classify_cluster 側: bitradex > tax > it > invest
+    - ルアー
+    - 釣り
+    - 釣行
+    - バス
+    - シーバス
+    - ブラックバス
+    - エギング
+    - アジング
+    - メバリング
+    - チニング
+    - ロックフィッシュ
+    - タックル
+    - ロッド
+    - リール
+    - ライン
+    - リーダー
+    - ワーム
+    - プラグ
+    - ミノー
+    - バイブレーション
+    - ショア
+    - 堤防
+    - サーフ
+    - 河口
+    - 港
+    - 管理釣り場
+    - ポイント
+    - 週末
+    - 半日
+    - 会社員
+    - 再開
+    - ブランク
+    - ライフジャケット
+    - 針
+    - 結び
+    - メンテナンス
+    - 保管
+    - レビュー
+    - 比較
+    - 仕掛け
+    - 収納
+    - 準備
+    - 記録
   clusters:
-    bitradex:
+    prep:
       match_any:
-        - bitradex
-        - ビットレード
-    tax:
+        - 準備
+        - 収納
+        - メンテナンス
+        - 保管
+        - 点検
+        - 手入れ
+        - しまい
+    method:
       match_any:
-        - 税金
-        - 確定申告
-        - 雑所得
-        - 申告分離
-        - クリプタクト
-        - 課税
-    it:
+        - 仕掛け
+        - 釣り方
+        - 結び
+        - リグ
+        - シーバス
+        - ブラックバス
+        - バス釣り
+        - エギング
+        - アジング
+        - メバリング
+        - チニング
+        - ロックフィッシュ
+        - ナイトゲーム
+    review:
       match_any:
-        # AI / 生成系
-        - 生成ai
-        - chatgpt
-        - openai
-        - claude
-        - gemini
-        - llm
-        - 大規模言語
-        - エージェントai
-        - aiエージェント
-        # Web3 / ゲーム / チェーン
-        - web3
-        - web4
-        - nft
-        - ブロックチェーン
-        - gamefi
-        - defi
-        # クラウド / インフラ / 情シス
-        - クラウド
-        - aws
-        - azure
-        - gcp
-        - google cloud
-        - kubernetes
-        - docker
-        - terraform
-        - インフラ
-        - ネットワーク
-        - 情シス
-        - devops
-        - sre
-        - ゼロトラスト
-        - セキュリティ
-        # 言語 / フレームワーク / スタック
-        - フレームワーク
-        - 技術スタック
-        - typescript
-        - javascript
-        - python
-        - rust
-        - golang
-        - go言語
-        - kotlin
-        - swift
-        - react
-        - next.js
-        - nextjs
-        - vue
-        - laravel
-        - spring boot
-        - プログラミング言語
-    invest:
+        - レビュー
+        - 比較
+        - タックル
+        - ロッド
+        - リール
+        - ライン
+        - リーダー
+        - ワーム
+        - プラグ
+        - ミノー
+        - バイブレーション
+        - スピニング
+        - ベイト
+        - peライン
+        - フロロ
+    log:
       match_any:
-        - 株
-        - 株式
-        - 株主
-        - 日経
-        - ナスダック
-        - nasdaq
-        - s&p
-        - fx
-        - 為替
-        - 投資信託
-        - 投信
-        - etf
-        - nisa
-        - 新nisa
-        - 仮想通貨
-        - 暗号資産
-        - bitcoin
-        - ethereum
-        - ビットコイン
-        - イーサリアム
-        - 信用取引
-        - 配当
-        - 相場
-        - 市況
-  # 意図指紋用エンティティ正規化（同バケット判定）
+        - 釣行
+        - 記録
+        - 釣果
+        - 堤防
+        - サーフ
+        - 河口
+        - 港
+        - 管理釣り場
+        - ポイント
+        - ショア
+        - 漁港
+        - 週末
+        - 半日
   entity_aliases:
-    bitradex:
-      - bitradex
-      - ビットレード
-    chatgpt:
-      - chatgpt
-      - chat gpt
-      - openai
-    claude:
-      - claude
-      - anthropic
-    gemini:
-      - gemini
-      - google gemini
-    llm:
-      - llm
-      - 大規模言語モデル
-    aws:
-      - aws
-      - amazon web services
-    azure:
-      - azure
-    gcp:
-      - gcp
-      - google cloud
-    kubernetes:
-      - kubernetes
-      - k8s
-    docker:
-      - docker
-    terraform:
-      - terraform
-    react:
-      - react
-      - react.js
-    nextjs:
-      - next.js
-      - nextjs
-    rust:
-      - rust
-    golang:
-      - golang
-      - go言語
-    python:
-      - python
-    typescript:
-      - typescript
-    web3:
-      - web3
-      - web 3
-    web4:
-      - web4
-      - web 4
-    nft:
-      - nft
-      - nftゲーム
-    defi:
-      - defi
-    gamefi:
-      - gamefi
-      - nftゲーム
-    blockchain:
-      - ブロックチェーン
-      - blockchain
-    nisa:
-      - nisa
-      - 新nisa
-      - つみたてnisa
-    tax:
-      - 税金
-      - 確定申告
-      - 雑所得
-      - 申告分離
-      - クリプタクト
-    crypto:
-      - 仮想通貨
-      - 暗号資産
-      - crypto
-      - bitcoin
-      - ethereum
-    stock:
-      - 株
-      - 株式
-      - 日経
-      - nasdaq
-      - ナスダック
-    fx:
-      - fx
-      - 為替
-      - 外国為替
-    fund:
-      - 投資信託
-      - 投信
-      - etf
+    seabass:
+      - シーバス
+      - セイゴ
+      - スズキ
+    bass:
+      - ブラックバス
+      - バス釣り
+      - バス
+    eging:
+      - エギング
+      - アオリイカ
+    ajing:
+      - アジング
+      - アジ
+    mebaru:
+      - メバリング
+      - メバル
+    rod:
+      - ロッド
+      - 釣り竿
+    reel:
+      - リール
+      - スピニング
+      - ベイトリール
+    line:
+      - ライン
+      - pe
+      - フロロ
+      - リーダー
+    lure:
+      - ルアー
+      - ワーム
+      - プラグ
+      - ミノー
+    field:
+      - 堤防
+      - サーフ
+      - 河口
+      - 漁港
+      - 管理釣り場
+    weekend:
+      - 週末
+      - 半日
+      - 会社員
+    shimano:
+      - シマノ
+      - shimano
+    daiwa:
+      - ダイワ
+      - daiwa
   fingerprint:
-    # 共通エンティティがこの数以上なら同意図扱い
     min_shared_entities: 2
-    # エンティティ1つでも fuzzy がこの値以上なら重複
     fuzzy_threshold: 72
-    # エンティティ一致時の追加 fuzzy 閾値（低め）
     fuzzy_with_entity_threshold: 55
     jaccard_threshold: 0.45
 
-# 自動投稿から除外するKW（個人名×評判・口コミ系 / エディタ単発など）
 keyword_safety:
   block_all_reputation_keywords: true
   reputation_modifiers:
@@ -290,7 +187,6 @@ keyword_safety:
     - やばい
     - 詐欺
     - 返金
-    - やめた
   blocked_names:
     - フジマナ
   blocked_topics:
@@ -300,236 +196,110 @@ keyword_safety:
     - ギャンブル
     - 知恵袋
     - スロット
-    # IDE / AIエディタ単発はSEO優先度が低いため自動枠から除外
-    - cursor
-    - vscode
-    - vs code
-    - visual studio code
-    - github copilot
-    - copilot chat
-    - windsurf
-    - continue.dev
+    - BitradeX
+    - ビットレード
+    - 仮想通貨
+    - 暗号資産
+    - ビットコイン
+    - NISA
+    - 新NISA
+    - iDeCo
+    - 投資信託
+    - 確定申告
+    - FX
+    - ChatGPT
+    - Copilot
+    - Cursor
+    - 副業
   low_quality_modifiers:
     - おかしい
     - やばい
   trusted_entities:
-    - bitradex
-    - nisa
-    - chatgpt
-    - claude
-    - gemini
-    - openai
-    - llm
-    - sbi
-    - coincheck
-    - bitflyer
-    - bitbank
-    - gmo
-    - okj
-    - btcc
-    - nexo
-    - 確定申告
-    - 金融庁
-    - 国税庁
-    - 取引所
-    - python
-    - javascript
-    - typescript
-    - rust
-    - golang
-    - react
-    - next.js
-    - aws
-    - azure
-    - gcp
-    - kubernetes
-    - docker
-    - terraform
-    - devops
-    - sre
-    - web3
-    - web4
-    - nft
-    - defi
-    - gamefi
-    - ブロックチェーン
-    - etf
-    - fx
-    - 投資信託
-    - 日経
-    - nasdaq
-    - クリプタクト
-  # 手順・やり方系（画像依存が高い → キューから除外）
-  procedure_modifiers:
-    - やり方
-    - 手順
-    - 方法
-    - 始め方
-    - 設定方法
-    - ロードマップ
-    - ロード マップ
-    - 超初心者
-    - 初心者
-    - 設定
-    - 申請
-    - 登録
-    - サイト 無料
-    - 学習サイト
-    - 学習 アプリ
-    - 学習 ゲーム
-  # 汎用修飾語（特定サービス名なし → 除外）
+    - ルアー
+    - シーバス
+    - ブラックバス
+    - エギング
+    - アジング
+    - メバリング
+    - シマノ
+    - ダイワ
+    - アブガルシア
+    - ロッド
+    - リール
+    - 堤防
+    - 管理釣り場
+    - ライフジャケット
+  # 実践ブログなので手順語そのものは除外しない
+  procedure_modifiers: []
   generic_modifiers:
     - おすすめ
-    - 学習
-    - スキルアップ
-    - キャリアアップ
-    - 例
-    - 無料
-    - 比較 特徴
-    - 比較 時価総額
-  # 特定サービス・技術名（特定感ボーナス）
+    - ランキング
+    - 人気
   specific_entities:
-    - BitradeX
-    - ChatGPT
-    - Claude
-    - Gemini
-    - OpenAI
-    - LLM
-    - NISA
-    - SBI
-    - Coincheck
-    - bitFlyer
-    - GMO
-    - DeFi
-    - DEX
-    - ETF
-    - Web3
-    - Web4
-    - NFT
-    - GameFi
-    - クリプタクト
-    - 金融庁
-    - 国税庁
-    - TypeScript
-    - Python
-    - Rust
-    - Go
-    - React
-    - Next.js
-    - AWS
-    - Azure
-    - GCP
-    - Kubernetes
-    - Docker
-    - Terraform
-    - DevOps
-    - SRE
-    - FX
-    - 日経平均
-    - ナスダック
-    - 投資信託
+    - シーバス
+    - ブラックバス
+    - エギング
+    - アジング
+    - メバリング
+    - チニング
+    - ロックフィッシュ
+    - シマノ
+    - ダイワ
+    - アブガルシア
+    - 管理釣り場
+    - 堤防
+    - サーフ
+    - スピニング
+    - ベイトリール
+    - PEライン
+    - フロロカーボン
+    - ライフジャケット
   trend_focus_modifiers:
-    - 最新
-    - ニュース
-    - 制度
+    - シーズン
+    - 解禁
     - 規制
-    - 改正
-    - 発表
-    - 動向
-    - 影響
-    - 見通し
-    - 将来
-    - トレンド
-    - 展望
-    - 税金
-    - 確定申告
-    - 対処
-    - 急騰
-    - 急落
-    - 相場
-    - 市況
-    - アップデート
-    - リリース
-    - 採用
-    - 移行
-  # 後方互換（参照のみ・手順語は含めない）
+    - 規則
+    - 天気
+    - 水温
+    - 新製品
+    - 比較
+    - 点検
+    - 再開
+    - 半日
+    - 週末
   news_focus_modifiers:
-    - 最新
-    - ニュース
-    - 制度
+    - シーズン
+    - 解禁
     - 規制
-    - 改正
-    - 発表
-    - 動向
-    - 影響
-    - 見通し
-    - 税金
-    - 確定申告
-    - 対処
-    - 相場
-    - 市況
+    - 規則
+    - 天気
+    - 水温
+    - 新製品
 
-# トレンド収集・KW調査（IT/投資の話題TOP＋BitradeX・税金）
 trend_research:
   news_queries:
-    # 投資・金融
-    - 仮想通貨 相場 最新
-    - 暗号資産 規制 2026
-    - 仮想通貨 税金 改正
-    - ビットコイン ETF 動向
-    - 株式市場 見通し 2026
-    - 日経平均 動向
-    - FX 為替 介入
-    - 投資信託 人気 ランキング
-    - NISA 制度 改正
-    - ETF 資金流入 最新
-    # IT・クラウド・AI
-    - 生成AI 最新 動向
-    - LLM エージェント 動向
-    - OpenAI 発表 最新
-    - クラウド AWS Azure 比較 2026
-    - Kubernetes セキュリティ 動向
-    - ゼロトラスト 導入 最新
-    - Web3 規制 動向
-    - NFT ゲーム 市場 動向
-    - Rust 採用 企業 動向
-    - Next.js アップデート 最新
-    - 情シス DX クラウド移行
-    - DevOps SRE ベストプラクティス 2026
-    # BitradeX / 税金（収益・コンバージョン）
-    - BitradeX 仮想通貨
-    - 仮想通貨 確定申告
-    - クリプタクト 税金
-    - 暗号資産 申告分離課税
+    - シーバス シーズン ショア
+    - バス釣り 週末 半日
+    - エギング 季節 ショア
+    - アジング タックル ライト
+    - メバリング 堤防 夜
+    - 管理釣り場 ルアー エリアトラウト
+    - ルアー タックル ブランク 再開
+    - 釣り ライフジャケット ルール
+    - ショアジギング 会社員 時間
+    - スピニングリール メンテナンス
   suggest_seeds:
-    # 投資ブルーオーシャン
-    - ビットコイン ETF 影響 個人
-    - 日経平均 急落 要因 解説
-    - FX 介入 いつ 見通し
-    - 投資信託 信託報酬 比較 2026
-    - NISA 成長投資枠 改正 影響
-    - 仮想通貨 規制 日本 2026
-    - ETF インド株 人気 理由
-    # ITブルーオーシャン
-    - 生成AI エージェント 業務活用 注意点
-    - LLM コスト 最適化 企業
-    - AWS 値上げ 影響 2026
-    - Kubernetes セキュリティ 設定 監査
-    - ゼロトラスト VPN 廃止 事例
-    - Web3 身份証明 規制 日本
-    - NFTゲーム 収益 税金 扱い
-    - Rust 組み込み 採用 理由
-    - Next.js App Router 移行 判断
-    - 情シス クラウド移行 失敗 回避
-    # 既存収益系
-    - BitradeX 出金 できない
-    - BitradeX 最新 動向
-    - 仮想通貨 税金 改正
-    - 仮想通貨 税金 クリプタクト
-    - 仮想通貨 確定申告 やり方
-    - DeFi 規制 影響
+    - シーバス 半日 タックル 最小
+    - ブランク バス釣り 再開 ロッド
+    - 週末 堤防 アジング 時間
+    - 管理釣り場 ルアー 持参 リスト
+    - しまい込んだ リール 点検 ポイント
+    - エギング 初めて 再開 エギ 数
+    - 会社員 早朝 シーバス 移動時間
+    - PEライン 劣化 見分け 交換
+    - ライフジャケット ショア 義務 確認
+    - ワーム 保管 夏 溶ける
 
-# ブルーオーシャンKW戦略（ロングテール × 競合回避）
 blue_ocean:
   min_chars: 12
   min_words: 3
@@ -547,63 +317,41 @@ blue_ocean:
   intent_modifier_bonus: 6
   high_intent_bonus: 8
   head_term_penalty: 30
-  procedure_penalty: 45
+  procedure_penalty: 0
   generic_penalty: 35
   reputation_penalty: 35
-  preferred_intents: [A, B]
+  preferred_intents: [A, C, E, F]
   head_terms:
-    - 投資
-    - 仮想通貨
-    - 暗号資産
-    - ChatGPT
-    - 生成AI
-    - NISA
-    - 副業
-    - AI
-    - 株
-    - FX
-    - クラウド
-    - Web3
+    - 釣り
+    - ルアー
+    - バス
+    - タックル
   intent_modifiers:
-    - 制度
-    - 規制
-    - 改正
-    - 税金
-    - 確定申告
+    - 再開
+    - 半日
+    - 週末
+    - 点検
     - 比較
-    - できない
-    - 対処
-    - 反映されない
-    - ログイン
-    - 動向
-    - 影響
-    - 見通し
-    - 導入
-    - 移行
-    - 採用
-    - 急騰
-    - 急落
+    - 最小
+    - 足りる
+    - 持っていく
+    - 保管
+    - 安全
+    - 規則
   expansion_modifiers:
-    - 規制 影響
-    - 制度 改正
-    - 税金 改正
-    - 確定申告 やり方
-    - 2026 最新
-    - できない 対処
-    - 反映されない 時間
-    - 比較 特徴
-    - 動向 解説
-    - 導入 注意点
-    - コスト 影響
-    - 個人 投資家
+    - 半日 タックル
+    - ブランク 再開
+    - 会社員 週末
+    - 最小 セット
+    - 点検 ポイント
+    - 持っていく リスト
+    - 時間 目安
+    - 安全 規則
   news_headline_markers:
     - 速報
     - 発表
     - 推移
-    - 株価
-    - 決算
     - が発表
-    - へ
   reject_patterns:
     - "^[ぁ-んァ-ンa-zA-Z0-9]{1,6}$"
   serp:
@@ -618,12 +366,8 @@ blue_ocean:
       - yahoo.co.jp
       - google.com
       - go.jp
-      - mufg.jp
-      - sbi.co.jp
+      - amazon.co.jp
       - rakuten.co.jp
-      - nikkei.com
-      - bloomberg.co.jp
-      - reuters.com
     opportunity_domains:
       - note.com
       - hatena
@@ -635,32 +379,32 @@ blue_ocean:
       - personal
 
 intent_categories:
-  A: {name: トラブル解決, intent_depth: 5, conversion: 5}
-  B: {name: 税金, intent_depth: 4, conversion: 4}
-  C: {name: 手順×組合せ, intent_depth: 4, conversion: 5}
-  D: {name: 懐疑・比較, intent_depth: 5, conversion: 5}
-  E: {name: 運用報告, intent_depth: 3, conversion: 4}
-  F: {name: 指名・基本, intent_depth: 2, conversion: 3}
-  G: {name: ITトレンド, intent_depth: 4, conversion: 3}
-  H: {name: 投資市況, intent_depth: 4, conversion: 4}
+  A: {name: 失敗しやすい点, intent_depth: 5, conversion: 4}
+  B: {name: 規則・安全, intent_depth: 4, conversion: 3}
+  C: {name: 半日の段取り, intent_depth: 5, conversion: 4}
+  D: {name: 釣具レビュー・比較, intent_depth: 4, conversion: 5}
+  E: {name: 再開の記録, intent_depth: 3, conversion: 3}
+  F: {name: 基本の見直し, intent_depth: 3, conversion: 3}
+  G: {name: 季節の条件, intent_depth: 4, conversion: 3}
+  H: {name: 釣行記録, intent_depth: 4, conversion: 3}
 
 editorial:
   trend_research: true
   max_trend_headlines: 8
-  require_fact_opinion_split: true
-  require_multi_source: true
+  require_fact_opinion_split: false
+  require_multi_source: false
   min_reference_sources: 3
-  fact_section_heading: "いま起きていること（事実）"
-  opinion_section_heading: "筆者の考察・見解"
+  fact_section_heading: "現場の条件（事実）"
+  opinion_section_heading: "週末にやるなら（判断）"
   fact_label: "【事実】"
   fact_badge_text: "事実"
   opinion_label: "【考察】"
   opinion_badge_text: "考察"
   source_section_heading: "参考・関連情報"
   images:
-    prefer_brand_logo: true
+    prefer_brand_logo: false
     avoid_ai_aesthetic: true
-    flux_style: "editorial minimal photo or clean flat design, no neon, no 3D, no fake UI"
+    flux_style: "quiet realistic photo of weekend shore lure fishing, natural light, practical tackle, no neon, no readable text, no logos, no close-up faces"
   emphasis:
     min_cap_boxes: 2
     min_mark_highlights: 3

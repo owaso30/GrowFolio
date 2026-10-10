@@ -21,12 +21,27 @@ def _parse_size(size: str) -> dict[str, int]:
     return {"width": 1024, "height": 1024}
 
 
-def _enhance_prompt(prompt: str) -> str:
-    suffix = _image_config().get(
-        "prompt_suffix",
-        ". Minimal editorial photography or clean flat design. Soft natural lighting, neutral background. "
-        "No text, no numbers, no UI screenshots, no fake logos, no 3D render, no neon glow, no glossy AI art.",
-    )
+def _enhance_prompt(prompt: str, role: str = "featured") -> str:
+    cfg = _image_config()
+    if role == "catch":
+        suffix = cfg.get(
+            "catch_prompt_suffix",
+            ". Documentary horizontal photo. The fish is the subject, sharp, in the lower-left, "
+            "just landed on wet tetrapod at a Japanese harbor in the evening. "
+            "No people, no hands, no text, no logos, no packaging, no lure.",
+        )
+    elif role == "shop":
+        suffix = cfg.get(
+            "shop_prompt_suffix",
+            ". Clean product photograph on a plain light gray background. One fishing product only, "
+            "centered and sharp. No harbor, no fish, no people, no text, no watermark.",
+        )
+    else:
+        suffix = cfg.get(
+            "prompt_suffix",
+            ". Minimal editorial photography or clean flat design. Soft natural lighting, neutral background. "
+            "No text, no numbers, no UI screenshots, no fake logos, no 3D render, no neon glow, no glossy AI art.",
+        )
     return prompt.rstrip(".") + suffix
 
 
@@ -39,7 +54,7 @@ def generate_image_bytes(prompt: str, size: str = "1792x1024", *, role: str = "f
 
     url = FAL_RUN_URL.format(model_id=model)
     payload = {
-        "prompt": _enhance_prompt(prompt),
+        "prompt": _enhance_prompt(prompt, role),
         "image_size": _parse_size(size),
         "num_images": 1,
         "enable_safety_checker": True,

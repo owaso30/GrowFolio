@@ -2,12 +2,7 @@
 from __future__ import annotations
 
 from config_loader import load_yaml
-from content.affiliate_renderer import (
-    bitradex_affiliate_placements,
-    fx_auto_trading_affiliate_placements,
-    it_career_affiliate_placements,
-    reapply_affiliates_to_html,
-)
+from content.affiliate_renderer import reapply_affiliates_to_html
 from seo.content_policy import get_editorial_policy
 from wordpress.client import WordPressClient
 
@@ -26,41 +21,18 @@ def _post_title(post: dict) -> str:
     return str(title)
 
 
-def _is_bitradex_post(post: dict) -> bool:
-    return str(post.get("slug", "")).startswith("bitradex")
-
-
-def _post_categories(post: dict) -> list[str]:
-    cats: list[str] = []
-    for term_group in post.get("_embedded", {}).get("wp:term", []):
-        for term in term_group:
-            if term.get("taxonomy") == "category":
-                cats.append(term.get("name", ""))
-    return cats
-
-
-def _is_fx_post(post: dict) -> bool:
-    if "FX自動売買" in _post_categories(post):
-        return True
-    slug = str(post.get("slug", "")).lower()
-    return any(token in slug for token in ("ladder-x", "nanpin-ea", "nanpin_ea"))
-
-
-def _is_it_career_post(post: dict) -> bool:
-    slug = str(post.get("slug", "")).lower()
-    return any(
-        token in slug
-        for token in ("copilot", "cursor", "vscode", "claude", "it-career")
-    )
-
-
-def _intro_query_for_post(post: dict, keyword: str) -> str:
-    slug = post.get("slug", "")
-    if "copilot" in slug or "copilot" in keyword.lower():
-        return "GitHub Copilot AI開発 エンジニア"
-    if "cursor" in slug or "vscode" in slug:
-        return "AI コーディング エディタ 開発 入門"
-    return keyword or "AI コーディング エディタ 開発 入門"
+def _tackle_placements(title: str, slug: str) -> list[dict]:
+    query = title or slug.replace("-", " ")
+    return [
+        {
+            "program": "amazon_search",
+            "slot": "mid",
+            "query": query,
+            "heading": "この記事で触れた道具を探す",
+            "teaser": "全部買い直さず、記事で触れたタックルだけを確認できます。",
+            "anchor": "関連タックルをAmazonで探す",
+        }
+    ]
 
 
 def apply_affiliates_to_posts(
@@ -68,10 +40,8 @@ def apply_affiliates_to_posts(
     dry_run: bool = False,
     slug: str | None = None,
     post_id: int | None = None,
-    bitradex_only: bool = False,
-    all_posts: bool = False,
 ) -> list[dict]:
-    """公開済み記事に intro / mid / end バナーを配置・更新。"""
+    """公開済み記事に Amazon のタックル検索バナーを配置する。"""
     client = WordPressClient()
     site_url = load_yaml("site.yaml")["site"]["url"]
     editorial = get_editorial_policy()
@@ -84,56 +54,32 @@ def apply_affiliates_to_posts(
             continue
         if post_id and pid != post_id:
             continue
-
-        is_bitradex = _is_bitradex_post(post)
-        is_it = _is_it_career_post(post)
-        is_fx = _is_fx_post(post)
-
-        if all_posts:
-            pass
-        elif bitradex_only and not is_bitradex:
+        if not slug and not post_id:
             continue
-        elif not bitradex_only and not slug and not post_id:
-            if not is_bitradex and not is_it and not is_fx:
-                continue
 
         content = _post_content(post)
         if not content:
             continue
 
-        keyword = post_slug.replace("-", " ")
-        if is_bitradex:
-            placements = bitradex_affiliate_placements(post_slug, _post_title(post))
-        elif is_it:
-            placements = it_career_affiliate_placements(
-                intro_query=_intro_query_for_post(post, keyword)
-            )
-        elif is_fx:
-            placements = fx_auto_trading_affiliate_placements(post_slug, _post_title(post))
-        else:
-            placements = []
-
+        title = _post_title(post)
         new_content = reapply_affiliates_to_html(
             content,
-            placements,
+            _tackle_placements(title, post_slug),
             site_url=site_url,
-            keyword=keyword,
-            fact_heading=editorial.get("fact_section_heading", "いま起きていること（事実）"),
-            opinion_heading=editorial.get("opinion_section_heading", "筆者の考察・見解"),
+            keyword=title or post_slug.replace("-", " "),
+            fact_heading=editorial.get("fact_section_heading", "現場の条件（事実）"),
+            opinion_heading=editorial.get("opinion_section_heading", "週末にやるなら（判断）"),
             source_heading=editorial.get("source_section_heading", "参考・関連情報"),
         )
-
         if new_content == content:
             continue
 
-        entry = {
+        results.append({
             "id": pid,
             "slug": post_slug,
-            "title": _post_title(post),
+            "title": title,
             "updated": not dry_run,
-        }
-        results.append(entry)
-
+        })
         if dry_run:
             print(f"  [dry-run] would update: {post_slug} (id={pid})")
             continue

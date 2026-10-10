@@ -42,12 +42,12 @@ def intent_fingerprint(*parts: str) -> frozenset[str]:
 
 
 def classify_cluster(keyword: str, title: str = "", slug: str = "") -> str:
-    """bitradex / tax / it / invest / other を返す。"""
+    """content_policy のクラスター名、どれにも当たらなければ other。"""
     cfg = get_auto_publish_config()
     clusters: dict[str, Any] = cfg.get("clusters", {}) or {}
     text = _normalize_text(keyword, title, slug)
-    # 優先順: bitradex > tax > it > invest（税金付き仮想通貨は tax を優先）
-    for name in ("bitradex", "tax", "it", "invest"):
+    order = list(cfg.get("cluster_priority") or clusters.keys())
+    for name in order:
         spec = clusters.get(name) or {}
         for token in spec.get("match_any", []) or []:
             if _normalize_text(token) in text:
@@ -176,7 +176,9 @@ def count_cluster_publishes(
     """直近 N 日の自動投稿クラスター件数。"""
     now = datetime.now(timezone.utc)
     since = now - timedelta(days=days)
-    counts = {"bitradex": 0, "tax": 0, "it": 0, "invest": 0, "other": 0}
+    cluster_names = list((get_auto_publish_config().get("clusters") or {}).keys())
+    counts = {name: 0 for name in cluster_names}
+    counts["other"] = 0
 
     for item in queue_items:
         if item.get("status") != "done":
@@ -230,10 +232,5 @@ def quota_allows(cluster: str, queue_items: list[dict], published: list[dict]) -
     # weekly に無いクラスター（other 等）で weekly.other が 0 なら拒否
     if cluster == "other" and "other" in weekly and int(weekly.get("other", 0)) <= 0:
         return False, "weekly_quota other=0"
-
-    if cluster == "it" and "it" not in weekly:
-        # IT は weekly 未定義でも monthly のみ
-        if "it" in monthly and int(month_counts.get("it", 0)) >= int(monthly.get("it", 0)):
-            return False, f"monthly_quota it {month_counts.get('it', 0)}/{monthly.get('it', 0)}"
 
     return True, "ok"

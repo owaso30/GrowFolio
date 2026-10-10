@@ -181,7 +181,7 @@ def format_catalog_for_prompt() -> str:
     a8_items = [i for i in items if i["is_a8"]]
 
     if standard:
-        lines.append("【BitradeX / Amazon】")
+        lines.append("【Amazon】")
         for item in standard:
             lines.append(_format_line(item))
 

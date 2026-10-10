@@ -36,7 +36,6 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'claude-sonnet-4-6' }}
           FAL_KEY: ${{ secrets.FAL_KEY }}
-          BITRADEX_AFFILIATE_URL: ${{ secrets.BITRADEX_AFFILIATE_URL }}
           AMAZON_AFFILIATE_TAG: ${{ secrets.AMAZON_AFFILIATE_TAG }}
         run: |
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then

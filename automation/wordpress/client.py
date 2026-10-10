@@ -59,6 +59,22 @@ class WordPressClient:
     def update_post(self, post_id: int, data: dict) -> dict:
         return self._post(f"posts/{post_id}", data)
 
+    def delete_post(self, post_id: int) -> None:
+        r = requests.delete(
+            f"{self.api}/posts/{post_id}",
+            headers=self.headers,
+            params={"force": "true"},
+            timeout=60,
+        )
+        r.raise_for_status()
+
+    def find_post_by_slug(self, slug: str) -> dict | None:
+        rows = self._get(
+            "posts",
+            {"slug": slug, "status": "publish,draft,private,pending", "context": "edit", "per_page": 1},
+        )
+        return rows[0] if rows else None
+
     def get_categories(self) -> list[dict]:
         cats: list[dict] = []
         page = 1
@@ -71,6 +87,31 @@ class WordPressClient:
                 break
             page += 1
         return cats
+
+    def ensure_tag(self, name: str, slug: str = "", description: str = "") -> int:
+        for tag in self.get_tags():
+            if tag.get("name") == name:
+                return int(tag["id"])
+        payload: dict[str, Any] = {"name": name}
+        if slug:
+            payload["slug"] = slug
+        if description:
+            payload["description"] = description
+        created = self._post("tags", payload)
+        return int(created["id"])
+
+    def get_tags(self) -> list[dict]:
+        tags: list[dict] = []
+        page = 1
+        while True:
+            batch = self._get("tags", {"per_page": 100, "page": page})
+            if not batch:
+                break
+            tags.extend(batch)
+            if len(batch) < 100:
+                break
+            page += 1
+        return tags
 
     def ensure_category(self, name: str) -> int:
         for cat in self.get_categories():
@@ -99,10 +140,12 @@ class WordPressClient:
         content: str,
         slug: str,
         category_id: int,
+        tag_ids: list[int] | None,
         status: str,
         featured_media: int | None,
         meta_title: str,
         meta_description: str,
+        excerpt: str = "",
     ) -> dict:
         payload: dict[str, Any] = {
             "title": title,
@@ -110,11 +153,14 @@ class WordPressClient:
             "slug": slug,
             "status": status,
             "categories": [category_id],
+            "tags": tag_ids or [],
             "meta": {
                 SSP_META_TITLE: meta_title,
                 SSP_META_DESCRIPTION: meta_description,
             },
         }
+        if excerpt:
+            payload["excerpt"] = excerpt
         if featured_media:
             payload["featured_media"] = featured_media
         post = self._post("posts", payload)

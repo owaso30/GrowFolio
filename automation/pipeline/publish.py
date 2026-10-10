@@ -8,7 +8,7 @@ import requests
 
 from config_loader import get_wp_credentials, load_json, load_yaml, save_json
 from content.affiliate_renderer import inject_affiliates_into_html
-from content.generator import build_faq_jsonld, generate_article
+from content.generator import build_faq_jsonld, format_past_articles, generate_article, tag_catalog
 from content.trends import fetch_trend_context
 from images.generator import process_images
 from seo.content_policy import filter_auto_keywords, get_editorial_policy, is_allowed_for_auto
@@ -158,7 +158,13 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
                 print(f"  Trend fetch warning: {e}")
 
         internal = pick_internal_links(keyword, link_map, titles)
-        article = generate_article(item, internal, trend_context=trend_text)
+        past_articles = format_past_articles(published.get("posts", []))
+        article = generate_article(
+            item,
+            internal,
+            trend_context=trend_text,
+            past_articles=past_articles,
+        )
         ensure_featured_alt_in_prompts(article, keyword)
 
         if dry_run:
@@ -179,6 +185,9 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
             media_id = client.upload_media(img["bytes"], img["filename"], img["alt"])
             if img["role"] == "featured":
                 featured_id = media_id
+            elif img["role"] == "shop":
+                src = _media_source_url(client, media_id)
+                html = html.replace(img["placeholder"], src)
             else:
                 body_counter += 1
                 src = _media_source_url(client, media_id)
@@ -202,6 +211,15 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
             cat_name = allowed_cats[0]
 
         cat_id = client.ensure_category(cat_name)
+        tag_ids = [
+            client.ensure_tag(
+                item["name"],
+                item.get("slug", ""),
+                "釣種" if item.get("group") == "species" else "道具",
+            )
+            for item in tag_catalog()
+            if item["name"] in (article.get("tags") or [])
+        ]
         status = site.get("publish", {}).get("default_status", "publish")
         ssp = build_ssp_meta(article)
 
@@ -210,6 +228,7 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
             content=full_html,
             slug=article["slug"],
             category_id=cat_id,
+            tag_ids=tag_ids,
             status=status,
             featured_media=featured_id,
             meta_title=ssp[SSP_META_TITLE],
@@ -224,7 +243,9 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
             "title": article["title"],
             "url": post_url,
             "categories": [cat_name],
+            "tags": article.get("tags") or [],
             "keywords": [keyword],
+            "recap": article.get("recap") or article.get("meta_description") or "",
             "source": "auto",
             "cluster": item.get("cluster"),
             "published_at": published_at,

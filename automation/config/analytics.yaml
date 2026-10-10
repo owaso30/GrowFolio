@@ -10,7 +10,7 @@ opportunity:
   min_position: 8.0
   max_ctr: 0.03
 kpi:
-  # BitradeX_アフィリエイト完全ロードマップ の月間PV目標
+  # 週末の実践記事を積み上げたあとの月間PV目安
   targets:
     month_3_pv_min: 1000
     month_3_pv_max: 3000

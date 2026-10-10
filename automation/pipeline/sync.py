@@ -13,6 +13,11 @@ def sync_posts() -> dict:
     base = site["site"]["url"].rstrip("/")
 
     posts_out = []
+    previous = {
+        int(item["id"]): item
+        for item in load_json("published.json").get("posts", [])
+        if item.get("id")
+    }
     for post in client.list_posts():
         slug = post.get("slug", "")
         title = post.get("title", {})
@@ -20,18 +25,27 @@ def sync_posts() -> dict:
             title = title.get("rendered", "")
         link = post.get("link", f"{base}/{slug}/")
         cats = []
+        tags = []
         embedded = post.get("_embedded", {})
         for term_group in embedded.get("wp:term", []):
             for term in term_group:
                 if term.get("taxonomy") == "category":
                     cats.append(term.get("name", ""))
+                elif term.get("taxonomy") == "post_tag":
+                    tags.append(term.get("name", ""))
+        prev = previous.get(int(post["id"]), {})
         posts_out.append({
             "id": post["id"],
             "slug": slug,
             "title": title,
             "url": link,
-            "categories": cats,
-            "keywords": [title],
+            "categories": cats or prev.get("categories") or [],
+            "tags": tags or prev.get("tags") or [],
+            "keywords": prev.get("keywords") or [title],
+            "recap": prev.get("recap") or "",
+            "source": prev.get("source") or "sync",
+            "cluster": prev.get("cluster") or "",
+            "published_at": prev.get("published_at") or post.get("date_gmt") or "",
         })
 
     data = {

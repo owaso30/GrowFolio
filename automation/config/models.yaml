@@ -10,4 +10,4 @@ images:
   provider: fal
   featured_model: fal-ai/flux-2-pro
   body_model: fal-ai/flux-2-pro
-  prompt_suffix: ". Near-futuristic clean digital illustration, polished vector aesthetic with soft depth, elegant gradients, crisp composition. Topic must be visually obvious. No photorealism, no readable text, no watermarks, no official logos, no oversaturated colors, no chaotic AI slop, no generic abstract blobs unrelated to the topic."
+  prompt_suffix: ". Photorealistic quiet photograph for a weekend lure-fishing blog. Composition, always the same: horizontal frame, the tackle subject sits in the lower-left third and is tack-sharp, a Japanese rocky shore or small harbor behind it is softly blurred, camera at standing height as if the angler set the gear on the rock and stepped back one pace. Color: cool blue-gray water, warm low sun on the tackle, muted, never neon. No text, no letters, no logos, no watermarks, no borders, no graphic frames, no faces."

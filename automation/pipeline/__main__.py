@@ -63,16 +63,6 @@ def main() -> None:
     p_aff.add_argument("--dry-run", action="store_true")
     p_aff.add_argument("--slug", default="", help="特定スラッグのみ更新")
     p_aff.add_argument("--post-id", type=int, default=0, help="特定投稿IDのみ更新")
-    p_aff.add_argument(
-        "--bitradex-only",
-        action="store_true",
-        help="BitradeX系記事のみ更新（既存バナーを差し替え）",
-    )
-    p_aff.add_argument(
-        "--all",
-        action="store_true",
-        help="全公開記事のアフィリエイト配置を更新（記事末は end 1件のみ）",
-    )
 
     p_sources = sub.add_parser("apply-source-links", help="参考・関連情報の裸URLを文字リンク化")
     p_sources.add_argument("--dry-run", action="store_true")
@@ -81,7 +71,7 @@ def main() -> None:
 
     p_feat = sub.add_parser(
         "apply-featured-images",
-        help="公開済み記事のアイキャッチをロゴ＋テーマ写真のハイブリッドへ更新（BitradeX系は除外）",
+        help="公開済み記事のアイキャッチを更新",
     )
     p_feat.add_argument("--dry-run", action="store_true")
     p_feat.add_argument("--slug", default="", help="特定スラッグのみ更新")
@@ -123,8 +113,6 @@ def main() -> None:
             dry_run=args.dry_run,
             slug=args.slug or None,
             post_id=args.post_id or None,
-            bitradex_only=args.bitradex_only,
-            all_posts=args.all,
         )
     elif args.command == "apply-source-links":
         from pipeline.apply_source_links import apply_source_links_to_posts

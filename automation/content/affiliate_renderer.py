@@ -1,8 +1,9 @@
-"""一般・BitradeX・A8 アフィリエイトCTAのHTML生成と記事内配置。"""
+"""Amazon・A8 アフィリエイトCTAのHTML生成と記事内配置。"""
 from __future__ import annotations
 
 import os
 import re
+from html import escape
 from typing import Any
 from urllib.parse import quote
 
@@ -40,6 +41,134 @@ def _build_url(program: dict, placement: dict) -> str:
     return os.environ.get(url_env, program.get("default_url", ""))
 
 
+def amazon_search_url(query: str) -> str | None:
+    load_env()
+    program = resolve_program("amazon_search") or {}
+    tag = os.environ.get(program.get("tag_env", "AMAZON_AFFILIATE_TAG"), "")
+    template = program.get("url_template") or ""
+    if not tag or not template:
+        return None
+    return template.format(query=quote(query), tag=tag)
+
+
+def rakuten_search_url(query: str) -> str:
+    """承認済み楽天アフィリエイトIDで、モール検索へ飛ばす。"""
+    cfg = _affiliates_cfg().get("rakuten") or {}
+    hgc = cfg.get(
+        "hgc_path",
+        "0ea62065.34400275.0ea62066.204f04c0/a26062729741_4B65SJ_5O7P9U_2HOM_6C1VM",
+    )
+    prefix = cfg.get(
+        "a8_prefix",
+        "https://rpx.a8.net/svt/ejp?a8mat=4B65SJ+5O7P9U+2HOM+6C1VM&rakuten=y&a8ejpredirect=",
+    )
+    landing = "https://search.rakuten.co.jp/search/mall/" + quote(query) + "/"
+    hb = (
+        f"http://hb.afl.rakuten.co.jp/hgc/{hgc}"
+        f"?pc={quote(landing, safe='')}&m={quote(landing, safe='')}"
+    )
+    return prefix + quote(hb, safe="")
+
+
+def render_shop_pair(
+    query: str,
+    note: str = "",
+    heading: str = "",
+    image_url: str = "",
+    image_alt: str = "",
+) -> str:
+    """Amazon と楽天を同じ枠に並べる。CTA は価格・在庫の確認。"""
+    query = query.strip()
+    note = note.strip()
+    heading = heading.strip() or "価格と在庫を確認する"
+    image_url = image_url.strip()
+    image_alt = image_alt.strip() or f"{query}の商品画像"
+    amazon = amazon_search_url(query)
+    rakuten = rakuten_search_url(query)
+    btn = (
+        "display:block;padding:.9em .6em;color:#fff !important;font-weight:700;"
+        "text-decoration:none;border-radius:8px;text-align:center;line-height:1.45;"
+    )
+    cells = []
+    if amazon:
+        cells.append(
+            "<td style=\"width:50%;vertical-align:top;\">"
+            f"<a href=\"{escape(amazon, quote=True)}\" style=\"{btn}background:#c2410c;\" "
+            "rel=\"nofollow sponsored noopener\" target=\"_blank\">Amazonで価格・在庫を確認</a></td>"
+        )
+    cells.append(
+        "<td style=\"width:50%;vertical-align:top;\">"
+        f"<a href=\"{escape(rakuten, quote=True)}\" style=\"{btn}background:#bf0000;\" "
+        "rel=\"nofollow sponsored noopener\" target=\"_blank\">楽天市場で価格・在庫を確認</a></td>"
+    )
+    note_html = f"<p style=\"margin:0 0 .9em;font-size:.95em;line-height:1.75;color:#334155;\">{escape(note)}</p>" if note else ""
+    image_html = ""
+    if image_url:
+        image_html = (
+            '<p style="margin:0 0 1em;text-align:center;">'
+            f'<img src="{escape(image_url, quote=True)}" alt="{escape(image_alt)}" '
+            'style="max-width:360px;width:100%;height:auto;background:#fff;" />'
+            "</p>"
+        )
+    return (
+        "<aside class=\"growfolio-shops\" role=\"complementary\" "
+        "style=\"margin:2em 0;padding:1.25em 1.35em;border:2px solid #d6d3d1;"
+        "border-radius:14px;background:#fff;box-shadow:0 4px 14px rgba(15,23,42,.06);\">"
+        "<p style=\"margin:0 0 .35em;font-size:.78em;font-weight:700;letter-spacing:.04em;color:#78716c;\">"
+        "広告・アフィリエイト</p>"
+        f"<h3 style=\"margin:0 0 .6em;font-size:1.08em;line-height:1.55;color:#0f172a;\">{escape(heading)}</h3>"
+        f"<p style=\"margin:0 0 .8em;font-size:.95em;line-height:1.75;color:#334155;\">"
+        f"今回の記事で触れているのは「{escape(query)}」の検索です。"
+        "同シリーズでも長さ・硬さ・番手が異なるため、購入前に仕様を確認してください。</p>"
+        f"{image_html}"
+        f"{note_html}"
+        "<table style=\"width:100%;border-collapse:separate;border-spacing:12px 0;margin:0;\">"
+        f"<tr>{''.join(cells)}</tr></table>"
+        "</aside>"
+    )
+
+
+_SHOP_TOKEN = re.compile(
+    r"\[\[SHOP\|([^|\]]+)(?:\|([^|\]]*))?(?:\|([^|\]]*))?(?:\|([^|\]]*))?\]\]"
+)
+
+
+def prepare_shop_image_placeholders(md: str) -> tuple[str, list[dict[str, str]]]:
+    """画像URLが無い購入枠に、あとから差し替える印を付ける。"""
+    jobs: list[dict[str, str]] = []
+
+    def repl(match: re.Match[str]) -> str:
+        query = match.group(1).strip()
+        note = (match.group(2) or "").strip()
+        image_url = (match.group(3) or "").strip()
+        image_alt = (match.group(4) or "").strip() or f"{query}の商品画像"
+        if image_url.startswith("http"):
+            return match.group(0)
+        placeholder = f"SHOP_IMAGE_{len(jobs) + 1}"
+        jobs.append({"placeholder": placeholder, "query": query, "alt": image_alt})
+        return f"[[SHOP|{query}|{note}|{placeholder}|{image_alt}]]"
+
+    return _SHOP_TOKEN.sub(repl, md), jobs
+
+
+def expand_shop_tokens(md: str) -> str:
+    """本文中の [[SHOP|検索語|補足|画像URL|画像alt]] を、商品画像と購入ボタンに変える。"""
+
+    def repl(match: re.Match[str]) -> str:
+        query = match.group(1).strip()
+        note = (match.group(2) or "").strip()
+        image_url = (match.group(3) or "").strip()
+        image_alt = (match.group(4) or "").strip()
+        return "\n\n" + render_shop_pair(
+            query,
+            note,
+            image_url=image_url,
+            image_alt=image_alt,
+        ) + "\n\n"
+
+    return _SHOP_TOKEN.sub(repl, md)
+
+
 def _style_for_program(prog_id: str, program: dict) -> dict[str, str]:
     cfg = _affiliates_cfg().get("affiliate_banners", {})
     styles = cfg.get("styles", {})
@@ -59,7 +188,6 @@ def _banner_shell(
 ) -> str:
     cfg = _affiliates_cfg().get("affiliate_banners", {})
     labels = cfg.get("slot_labels", {})
-    note = cfg.get("disclaimer_note", "")
     style = _style_for_program(prog_id, program)
     label = labels.get(slot, "PR")
     badge = style.get("badge", program.get("name", "PR"))
@@ -86,7 +214,6 @@ def _banner_shell(
         f'<p style="margin:0 0 1em;font-size:.95em;line-height:1.75;color:#334155;">{teaser}</p>'
         f'{cta_html}'
         f'{extra_html or ""}'
-        f'<p style="margin:1em 0 0;font-size:.78em;line-height:1.6;color:#64748b;">{note}</p>'
         f"</aside>"
     )
 
@@ -99,11 +226,17 @@ def _render_one(prog_id: str, placement: dict, guide_url: str) -> str | None:
     if not program:
         return None
 
+    if prog_id == "amazon_search":
+        query = str(placement.get("query") or placement.get("anchor") or "").strip()
+        if not query or not amazon_search_url(query):
+            return None
+        return render_shop_pair(
+            query,
+            str(placement.get("teaser") or ""),
+            heading=str(placement.get("heading") or ""),
+        )
+
     url = _build_url(program, placement)
-    if prog_id == "amazon_search" and (not url or "tag=&" in url or url.endswith("tag=")):
-        return None
-    if prog_id == "bitradex" and not url:
-        return None
     if is_a8_program(prog_id) and not url:
         return None
 
@@ -223,7 +356,7 @@ def render_affiliate_blocks(
 ) -> str:
     """後方互換: 末尾結合用（非推奨）。"""
     load_env()
-    guide_url = f"{site_url.rstrip('/')}/bitradex-invite-code/" if site_url else ""
+    guide_url = ""
     blocks: list[str] = []
     for placement in normalize_affiliate_placements(placements, keyword):
         html = _render_one(placement["program"], placement, guide_url)
@@ -364,13 +497,15 @@ def inject_affiliates_into_html(
     *,
     site_url: str = "",
     keyword: str = "",
-    fact_heading: str = "いま起きていること（事実）",
-    opinion_heading: str = "筆者の考察・見解",
+    fact_heading: str = "現場の条件（事実）",
+    opinion_heading: str = "週末にやるなら（判断）",
     source_heading: str = "参考・関連情報",
 ) -> str:
     """記事 HTML に intro / mid / end スロットでバナーを分散配置。"""
+    if "growfolio-shops" in html:
+        return html
     load_env()
-    guide_url = f"{site_url.rstrip('/')}/bitradex-invite-code/" if site_url else ""
+    guide_url = ""
     items = normalize_affiliate_placements(placements, keyword)
     if not items:
         return html
@@ -463,374 +598,14 @@ def strip_legacy_affiliate_html(html: str) -> str:
     return html
 
 
-def bitradex_affiliate_placements(slug: str, title: str = "") -> list[dict]:
-    """BitradeX系記事の intro / mid / end 配置（記事ごとに Amazon・A8・BitradeX を分散）。"""
-    s = slug.lower()
-    text = f"{slug} {title}".lower()
-
-    def _b(
-        program: str,
-        slot: str,
-        *,
-        heading: str,
-        teaser: str,
-        anchor: str,
-        query: str = "",
-    ) -> dict:
-        item = {
-            "program": program,
-            "slot": slot,
-            "heading": heading,
-            "teaser": teaser,
-            "anchor": anchor,
-        }
-        if query:
-            item["query"] = query
-        return item
-
-    if "tax" in s:
-        return [
-            _b(
-                "amazon_search",
-                "intro",
-                query="仮想通貨 税金 確定申告 初心者",
-                heading="仮想通貨の税金・確定申告を学ぶなら",
-                teaser="暗号資産の損益計算や申告の基礎が分かる入門書を、記事の内容とあわせてAmazonで探せます。",
-                anchor="仮想通貨の税金入門書をAmazonで探す",
-            ),
-            _b(
-                "a8_楽天アフィリエイト",
-                "mid",
-                heading="副業収入の資産化も視野に入れる",
-                teaser="運用益の管理と並行して、副業・アフィリエイトで収入源を増やす選択肢もあります。",
-                anchor="楽天アフィリエイトで副業を始める",
-            ),
-            _b(
-                "bitradex",
-                "end",
-                heading="AI運用の公式情報もあわせて確認",
-                teaser="税金の話とセットで、BitradeXの運用ルールや出金の流れも押さえておきましょう。",
-                anchor="BitradeXの公式サイトで詳細を見る",
-            ),
-        ]
-
-    if "affiliate" in s or "referral" in s:
-        return [
-            _b(
-                "bitradex",
-                "intro",
-                heading="BitradeXの紹介報酬を本気で狙うなら",
-                teaser="招待コード・報酬体系・集客のコツまで、公式情報で最新条件を確認できます。",
-                anchor="BitradeXの公式サイトで詳細を見る",
-            ),
-            _b(
-                "a8_楽天アフィリエイト",
-                "mid",
-                heading="アフィリエイトの基礎を固めるなら",
-                teaser="紹介報酬を伸ばすには、ASPの仕組み理解も重要です。楽天アフィリエイトから始めるのも一手です。",
-                anchor="楽天アフィリエイトに登録する",
-            ),
-            _b(
-                "a8_お名前_com",
-                "end",
-                heading="紹介用のサイト・ブログを立ち上げる",
-                teaser="独自ドメインを取って発信基盤を作れば、紹介リンクの信頼感も高まります。",
-                anchor="お名前.comでドメインを取得する",
-            ),
-        ]
-
-    if "risk" in s or "who-should" in s or "review" in s:
-        return [
-            _b(
-                "amazon_search",
-                "intro",
-                query="仮想通貨 投資 リスク 本",
-                heading="リスクを理解してから判断する",
-                teaser="暗号資産の仕組みとリスク管理の基礎が学べる書籍を、Amazonでまとめて探せます。",
-                anchor="仮想通貨リスクの入門書をAmazonで探す",
-            ),
-            _b(
-                "bitradex",
-                "mid",
-                heading="公式の運用ルール・プランを再確認",
-                teaser="評判記事だけでなく、AIプランや手数料など一次情報もあわせて確認して判断材料にしましょう。",
-                anchor="BitradeXの公式サイトで詳細を見る",
-            ),
-            _b(
-                "a8_dmm証券",
-                "end",
-                heading="リスク分散の選択肢：つみたて投資も",
-                teaser="仮想通貨だけに集中せず、NISAなど堅実な資産形成を並行する考え方もあります。",
-                anchor="DMM証券で口座開設を申し込む",
-            ),
-        ]
-
-    if "withdraw" in s or "network" in s or "kyc" in s:
-        return [
-            _b(
-                "bitradex",
-                "intro",
-                heading="出金・入金の前に公式手順を確認",
-                teaser="ネットワーク設定やKYC、出金先の指定は公式の最新案内が確実です。",
-                anchor="BitradeXの公式サイトで詳細を見る",
-            ),
-            _b(
-                "amazon_search",
-                "mid",
-                query="仮想通貨 ウォレット 入門",
-                heading="送金・保管の基礎知識を補強",
-                teaser="ネットワークやウォレットの基礎が分かる入門書で、ミス送金のリスクを下げられます。",
-                anchor="仮想通貨入門書をAmazonで探す",
-            ),
-            _b(
-                "a8_dmm証券",
-                "end",
-                heading="国内口座での資産管理も検討",
-                teaser="海外サービスと国内証券口座を使い分ける運用設計も、長期的には有効です。",
-                anchor="DMM証券で口座開設を申し込む",
-            ),
-        ]
-
-    if "invite" in s:
-        return [
-            _b(
-                "bitradex",
-                "intro",
-                heading="招待コードは公式から取得",
-                teaser="コードの場所や入力タイミングは変更されることもあるため、公式の案内を優先しましょう。",
-                anchor="BitradeXの公式サイトで詳細を見る",
-            ),
-            _b(
-                "amazon_search",
-                "mid",
-                query="仮想通貨 始め方 本",
-                heading="始める前に基礎を押さえる",
-                teaser="招待コードを使う前に、暗号資産の基礎知識を入門書で固めておくと安心です。",
-                anchor="仮想通貨入門書をAmazonで探す",
-            ),
-            _b(
-                "a8_お名前_com",
-                "end",
-                heading="紹介記事を書くならドメインから",
-                teaser="自分のメディアで紹介する場合、独自ドメインがあると信頼感が増します。",
-                anchor="お名前.comでドメインを取得する",
-            ),
-        ]
-
-    if "ai-plan" in s:
-        return [
-            _b(
-                "bitradex",
-                "intro",
-                heading="AI運用プランは公式で比較",
-                teaser="Daily・30D・90Dなど各プランの条件は、公式の最新情報で確認するのが確実です。",
-                anchor="BitradeXの公式サイトで詳細を見る",
-            ),
-            _b(
-                "amazon_search",
-                "mid",
-                query="AI 投資 自動化 本",
-                heading="AI運用の考え方を深掘り",
-                teaser="アルゴリズム運用やリスク管理の考え方が学べる書籍をAmazonで探せます。",
-                anchor="AI投資の入門書をAmazonで探す",
-            ),
-            _b(
-                "a8_dmm証券",
-                "end",
-                heading="攻めと守りのポートフォリオ設計",
-                teaser="AI運用と並行して、NISAで長期資産を組み合わせる選択肢もあります。",
-                anchor="DMM証券で口座開設を申し込む",
-            ),
-        ]
-
-    if "progress" in s or "balance" in s or "運用経過" in text or "実績" in text:
-        return [
-            _b(
-                "bitradex",
-                "intro",
-                heading="運用の最新条件は公式で確認",
-                teaser="金利・プラン・出金ルールは変更されるため、実運用の前に公式の最新表示を確認しましょう。",
-                anchor="BitradeXの公式サイトで詳細を見る",
-            ),
-            _b(
-                "amazon_search",
-                "mid",
-                query="仮想通貨 複利 投資 本",
-                heading="複利と資金管理の考え方を学ぶ",
-                teaser="運用記録とあわせて、複利・資金管理の基礎が分かる書籍をAmazonで探せます。",
-                anchor="複利・投資の入門書をAmazonで探す",
-            ),
-            _b(
-                "a8_dmm証券",
-                "end",
-                heading="余剰資金の守りも並行して",
-                teaser="ハイリスク運用と並行し、NISAなど長期の土台を国内口座で整える考え方もあります。",
-                anchor="DMM証券で口座開設を申し込む",
-            ),
-        ]
-
-    if "start" in s or "guide" in s or "smartphone" in s:
-        return [
-            _b(
-                "bitradex",
-                "intro",
-                heading="BitradeXを始めるなら公式から",
-                teaser="登録・入金・AI運用開始まで、最新の手順と招待コードの要否を公式で確認できます。",
-                anchor="BitradeXの公式サイトで詳細を見る",
-            ),
-            _b(
-                "amazon_search",
-                "mid",
-                query="仮想通貨 初心者 本 2026",
-                heading="始める前に入門書で基礎固め",
-                teaser="仕組みとリスクを理解してから始められるよう、初心者向けの書籍をAmazonで探しましょう。",
-                anchor="仮想通貨入門書をAmazonで探す",
-            ),
-            _b(
-                "a8_エックスサーバー_5",
-                "end",
-                heading="運用記録・発信ブログを作るなら",
-                teaser="自分の投資メモや実践記を残すブログ基盤は、エックスサーバーからすぐ始められます。",
-                anchor="エックスサーバーでレンタルサーバーを申し込む",
-            ),
-        ]
-
-    # フォールバック（BitradeX系のその他）
-    return [
-        _b(
-            "bitradex",
-            "intro",
-            heading="BitradeXの最新情報は公式で",
-            teaser="プラン・手数料・キャンペーンは変更されるため、都度公式サイトで確認しましょう。",
-            anchor="BitradeXの公式サイトで詳細を見る",
-        ),
-        _b(
-            "amazon_search",
-            "mid",
-            query="仮想通貨 BitradeX" if "bitradex" in text else "仮想通貨 初心者",
-            heading="関連書籍で理解を深める",
-            teaser="記事のテーマに合う仮想通貨・投資の入門書をAmazonでまとめて探せます。",
-            anchor="関連書籍をAmazonで探す",
-        ),
-        _b(
-            "a8_vps",
-            "end",
-            heading="副業・発信基盤を整えるなら",
-            teaser="投資ノートやアフィリエイトサイトを運用するなら、VPSで本格的な環境を構築できます。",
-            anchor="エックスサーバーVPSを申し込む",
-        ),
-    ]
-
-
-def fx_auto_trading_affiliate_placements(slug: str = "", title: str = "") -> list[dict]:
-    """FX自動売買系記事の intro / mid / end 配置。"""
-    s = slug.lower()
-    text = f"{slug} {title}".lower()
-
-    if "nanpin" in s or "hatan" in s or "破綻" in text:
-        intro_query = "FX ナンピン EA リスク 入門"
-        intro_heading = "ナンピンEAのリスクを書籍で押さえる"
-        intro_teaser = "MaxLevels・急変相場・ロット設計など、破綻条件を理解するためのFX入門書をAmazonでまとめて探せます。"
-        intro_anchor = "FX・EAリスクの入門書をAmazonで探す"
-    elif "ladder" in s:
-        intro_query = "FX 自動売買 EA MT4 入門"
-        intro_heading = "EA開発・検証の基礎を書籍で学ぶ"
-        intro_teaser = "バックテストの読み方やリスク管理の考え方が分かるFX自動売買の入門書をAmazonで探せます。"
-        intro_anchor = "FX自動売買の入門書をAmazonで探す"
-    else:
-        intro_query = "FX 自動売買 入門"
-        intro_heading = "FX自動売買の基礎を書籍で固める"
-        intro_teaser = "EAの仕組みやリスク管理の基礎が学べる書籍を、記事のテーマに合わせてAmazonで探せます。"
-        intro_anchor = "FX自動売買の入門書をAmazonで探す"
-
-    if "ladder" in s:
-        return [
-            {
-                "program": "amazon_search",
-                "slot": "intro",
-                "query": intro_query,
-                "heading": intro_heading,
-                "teaser": intro_teaser,
-                "anchor": intro_anchor,
-            },
-            {
-                "program": "a8_windows_vps",
-                "slot": "mid",
-                "heading": "MT4を24時間稼働させるならVPS",
-                "teaser": "自動売買EAを安定運用するには、自宅PCに頼らないVPS環境の検討も有効です。",
-                "anchor": "Windows VPSを申し込む",
-            },
-            {
-                "program": "a8_dmm証券",
-                "slot": "end",
-                "heading": "FXだけに集中しない資産設計も",
-                "teaser": "自動売買の収益と並行して、NISAなど堅実な資産形成を組み合わせる選択肢もあります。",
-                "anchor": "DMM証券で口座開設を申し込む",
-            },
-        ]
-
-    return [
-        {
-            "program": "amazon_search",
-            "slot": "intro",
-            "query": intro_query,
-            "heading": intro_heading,
-            "teaser": intro_teaser,
-            "anchor": intro_anchor,
-        },
-        {
-            "program": "a8_dmm証券",
-            "slot": "mid",
-            "heading": "リスク分散の視点で株式投資も",
-            "teaser": "FX口座のリスク管理と並行して、国内証券口座で長期資産を組み立てる考え方も有効です。",
-            "anchor": "DMM証券で口座開設を申し込む",
-        },
-        {
-            "program": "a8_楽天アフィリエイト",
-            "slot": "end",
-            "heading": "トレード収益以外の収入源も検討",
-            "teaser": "EA運用と並行して、アフィリエイトなど副業収入を増やす選択肢もあります。",
-            "anchor": "楽天アフィリエイトで副業を始める",
-        },
-    ]
-
-
-def it_career_affiliate_placements(*, intro_query: str = "AI コーディング エディタ 開発 入門") -> list[dict]:
-    """ITキャリア系記事の intro / mid / end 配置（id=266 準拠）。"""
-    return [
-        {
-            "program": "amazon_search",
-            "slot": "intro",
-            "query": intro_query,
-            "heading": "AI開発・エディタ活用の基礎を書籍で固める",
-            "teaser": "CopilotやVSCodeを使いこなすための開発スキル・プロンプト設計の入門書をAmazonでまとめて探せます。",
-            "anchor": "AI開発入門書をAmazonで探す",
-        },
-        {
-            "program": "a8_お名前_com",
-            "slot": "mid",
-            "heading": "開発ポートフォリオ・技術ブログを始めるなら",
-            "teaser": "ITキャリアアップには自分の技術発信が有効です。ドメイン取得から始めてポートフォリオサイトを構築しましょう。",
-            "anchor": "お名前.comでドメインを取得する",
-        },
-        {
-            "program": "a8_楽天アフィリエイト",
-            "slot": "end",
-            "heading": "開発スキルで稼ぐ×資産形成を同時に進める",
-            "teaser": "ITスキルで副業収入を増やしながら、楽天経済圏を活用した資産形成も検討してみましょう。",
-            "anchor": "楽天アフィリエイトで副業を始める",
-        },
-    ]
-
-
 def reapply_affiliates_to_html(
     html: str,
     placements: list[dict] | None,
     *,
     site_url: str = "",
     keyword: str = "",
-    fact_heading: str = "いま起きていること（事実）",
-    opinion_heading: str = "筆者の考察・見解",
+    fact_heading: str = "現場の条件（事実）",
+    opinion_heading: str = "週末にやるなら（判断）",
     source_heading: str = "参考・関連情報",
 ) -> str:
     """旧アフィリエイトを除去してから intro / mid / end バナーを再配置。"""
