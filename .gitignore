@@ -5,3 +5,4 @@ __pycache__/
 setup_part*.py
 _bootstrap_part1.py
 secret/
+automation/data/local_publish_result.json
