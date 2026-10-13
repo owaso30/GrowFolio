@@ -25,7 +25,6 @@ def complete_json(system: str, user: str, *, repair_hint: str = "") -> str:
     cfg = _llm_config()
     model = os.environ.get("CLAUDE_MODEL", cfg.get("model", "claude-sonnet-4-6"))
     max_tokens = int(os.environ.get("CLAUDE_MAX_TOKENS", cfg.get("max_tokens", 8192)))
-    temperature = float(os.environ.get("CLAUDE_TEMPERATURE", cfg.get("temperature", 0.65)))
 
     prompt = user if not repair_hint else f"{user}\n\n{repair_hint}"
     system_full = f"{system.rstrip()}\n\n{_JSON_RULES}"
@@ -34,7 +33,6 @@ def complete_json(system: str, user: str, *, repair_hint: str = "") -> str:
     message = client.messages.create(
         model=model,
         max_tokens=max_tokens,
-        temperature=temperature,
         system=system_full,
         messages=[{"role": "user", "content": prompt}],
     )
