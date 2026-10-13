@@ -5,7 +5,7 @@
       "keyword": "スピニング リール 分解 清掃",
       "intent": "F",
       "score": 101.8,
-      "status": "pending",
+      "status": "done",
       "source": "serp_related",
       "competition": "medium",
       "cluster": "review",
@@ -16,7 +16,10 @@
         "authority_hits": 0,
         "opportunity_hits": 1,
         "opportunity_ratio": 0.12
-      }
+      },
+      "trend_fetched_at": "2026-10-13T12:20:19.121345+00:00",
+      "published_at": "2026-10-13T12:23:37.447629+00:00",
+      "post_url": "https://growfolio-note.com/reel-cleaning-spincast-maintenance/"
     },
     {
       "keyword": "スピニングリール メンテナンス オイル",

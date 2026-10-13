@@ -1,26 +1,6 @@
 {
-  "synced_at": "2026-10-10T11:42:35.132953+00:00",
+  "synced_at": "2026-10-13T12:20:15.089789+00:00",
   "posts": [
-    {
-      "id": 537,
-      "slug": "rockfish-bugants-note",
-      "title": "木更津沖堤防の夕方にカサゴ。バグアンツ3インチを使ってみた",
-      "url": "https://growfolio-note.com/rockfish-bugants-note/",
-      "categories": [
-        "釣具レビュー・比較"
-      ],
-      "tags": [
-        "根魚",
-        "ルアー"
-      ],
-      "keywords": [
-        "木更津沖堤防 カサゴ バグアンツ"
-      ],
-      "recap": "千葉県木更津市の木更津沖堤防で、夕方17時前後にカサゴを狙い、バグアンツ3インチを使った。ストレートワームのあとで、手のひらに余るサイズが1匹、バラシが1回。次は2インチを試す、と書いた。",
-      "source": "local",
-      "cluster": "rockfish-start",
-      "published_at": "2026-10-10T11:42:35.132953+00:00"
-    },
     {
       "id": 557,
       "slug": "surf-katakai-wedge",
@@ -40,6 +20,46 @@
       "source": "local",
       "cluster": "surf-katakai",
       "published_at": "2026-10-10T12:32:54.618229+00:00"
+    },
+    {
+      "id": 537,
+      "slug": "rockfish-bugants-note",
+      "title": "木更津沖堤防の夕方にカサゴ。バグアンツ3インチを使ってみた",
+      "url": "https://growfolio-note.com/rockfish-bugants-note/",
+      "categories": [
+        "釣具レビュー・比較"
+      ],
+      "tags": [
+        "ルアー",
+        "根魚"
+      ],
+      "keywords": [
+        "木更津沖堤防 カサゴ バグアンツ"
+      ],
+      "recap": "千葉県木更津市の木更津沖堤防で、夕方17時前後にカサゴを狙い、バグアンツ3インチを使った。ストレートワームのあとで、手のひらに余るサイズが1匹、バラシが1回。次は2インチを試す、と書いた。",
+      "source": "local",
+      "cluster": "rockfish-start",
+      "published_at": "2026-10-10T11:42:35.132953+00:00"
+    },
+    {
+      "id": 564,
+      "slug": "reel-cleaning-spincast-maintenance",
+      "title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
+      "url": "https://growfolio-note.com/reel-cleaning-spincast-maintenance/",
+      "categories": [
+        "釣具レビュー・比較"
+      ],
+      "tags": [
+        "根魚",
+        "リール"
+      ],
+      "keywords": [
+        "スピニング リール 分解 清掃"
+      ],
+      "recap": "帰宅後に自分のスピニングリールを分解清掃。ラインローラーとスプールシャフト周りの砂・古グリスを落とし、グリスとオイルを塗り直した。ギアボックス内部は今回未対応で、シャリ感が完全には消えず。次回はベアリング交換またはメーカーOHを検討する。",
+      "source": "auto",
+      "cluster": "review",
+      "published_at": "2026-10-13T12:23:37.447629+00:00"
     }
   ]
 }
