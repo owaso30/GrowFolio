@@ -25,7 +25,7 @@
       "keyword": "スピニングリール メンテナンス オイル",
       "intent": "F",
       "score": 99.0,
-      "status": "pending",
+      "status": "rewrite_candidate",
       "source": "suggest",
       "competition": "medium",
       "cluster": "prep",
@@ -36,13 +36,17 @@
         "authority_hits": 1,
         "opportunity_hits": 1,
         "opportunity_ratio": 0.1
-      }
+      },
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
+      "reason": "entity+fuzzy shared=['reel'] fuzzy=58.82352941176471",
+      "noted_at": "2026-10-16T03:24:42.985981+00:00"
     },
     {
       "keyword": "スピニング リール オーバーホール 料金",
       "intent": "F",
       "score": 99.0,
-      "status": "pending",
+      "status": "rewrite_candidate",
       "source": "serp_related",
       "competition": "medium",
       "cluster": "review",
@@ -53,7 +57,11 @@
         "authority_hits": 1,
         "opportunity_hits": 1,
         "opportunity_ratio": 0.11
-      }
+      },
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
+      "reason": "entity+fuzzy shared=['reel'] fuzzy=62.857142857142854",
+      "noted_at": "2026-10-16T03:24:43.146873+00:00"
     },
     {
       "keyword": "ダイワ リール グリス オイル 使い分け",
@@ -77,7 +85,7 @@
       "keyword": "スピニングリール メンテナンス シマノ",
       "intent": "F",
       "score": 98.0,
-      "status": "pending",
+      "status": "rewrite_candidate",
       "source": "suggest",
       "competition": "medium",
       "cluster": "prep",
@@ -89,7 +97,11 @@
         "authority_hits": 0,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
+      "reason": "entity+fuzzy shared=['reel'] fuzzy=58.82352941176471",
+      "noted_at": "2026-10-16T03:24:43.429315+00:00"
     },
     {
       "keyword": "ライトゲームロッド 万能 シマノ",
@@ -113,13 +125,16 @@
       "keyword": "アジング ライト タックル",
       "intent": "F",
       "score": 97.7,
-      "status": "pending",
+      "status": "done",
       "source": "suggest",
       "competition": "medium",
       "cluster": "method",
       "fingerprint": [
         "ajing"
-      ]
+      ],
+      "trend_fetched_at": "2026-10-16T03:24:44.857657+00:00",
+      "published_at": "2026-10-16T03:26:38.703948+00:00",
+      "post_url": "https://growfolio-note.com/ajing-futtu-jighead-light-tackle/"
     },
     {
       "keyword": "ダイワ リール 注油 箇所",

@@ -1,6 +1,26 @@
 {
-  "synced_at": "2026-10-13T12:20:15.089789+00:00",
+  "synced_at": "2026-10-16T03:24:41.333119+00:00",
   "posts": [
+    {
+      "id": 564,
+      "slug": "reel-cleaning-spincast-maintenance",
+      "title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
+      "url": "https://growfolio-note.com/reel-cleaning-spincast-maintenance/",
+      "categories": [
+        "釣具レビュー・比較"
+      ],
+      "tags": [
+        "リール",
+        "根魚"
+      ],
+      "keywords": [
+        "スピニング リール 分解 清掃"
+      ],
+      "recap": "帰宅後に自分のスピニングリールを分解清掃。ラインローラーとスプールシャフト周りの砂・古グリスを落とし、グリスとオイルを塗り直した。ギアボックス内部は今回未対応で、シャリ感が完全には消えず。次回はベアリング交換またはメーカーOHを検討する。",
+      "source": "auto",
+      "cluster": "review",
+      "published_at": "2026-10-13T12:23:37.447629+00:00"
+    },
     {
       "id": 557,
       "slug": "surf-katakai-wedge",
@@ -42,24 +62,24 @@
       "published_at": "2026-10-10T11:42:35.132953+00:00"
     },
     {
-      "id": 564,
-      "slug": "reel-cleaning-spincast-maintenance",
-      "title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
-      "url": "https://growfolio-note.com/reel-cleaning-spincast-maintenance/",
+      "id": 570,
+      "slug": "ajing-futtu-jighead-light-tackle",
+      "title": "富津公園の夜アジング——ジグ単1.5gを初めて使ってみた",
+      "url": "https://growfolio-note.com/ajing-futtu-jighead-light-tackle/",
       "categories": [
         "釣具レビュー・比較"
       ],
       "tags": [
-        "根魚",
-        "リール"
+        "アジング",
+        "ルアー"
       ],
       "keywords": [
-        "スピニング リール 分解 清掃"
+        "アジング ライト タックル"
       ],
-      "recap": "帰宅後に自分のスピニングリールを分解清掃。ラインローラーとスプールシャフト周りの砂・古グリスを落とし、グリスとオイルを塗り直した。ギアボックス内部は今回未対応で、シャリ感が完全には消えず。次回はベアリング交換またはメーカーOHを検討する。",
+      "recap": "千葉県富津公園、10月中旬夜20〜23時、アジ狙い、ジグ単1.5g（マルジン UZU）、20センチ台数匹。次回は同じ場所でワームサイズを変えた組み合わせを試す。",
       "source": "auto",
-      "cluster": "review",
-      "published_at": "2026-10-13T12:23:37.447629+00:00"
+      "cluster": "method",
+      "published_at": "2026-10-16T03:26:38.703948+00:00"
     }
   ]
 }
