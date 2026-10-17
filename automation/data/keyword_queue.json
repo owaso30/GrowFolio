@@ -1,6 +1,55 @@
 {
-  "updated_at": "2026-10-10T20:55:08.015872+00:00",
+  "updated_at": "2026-10-17T19:51:57.640739+00:00",
   "keywords": [
+    {
+      "keyword": "ダイワ リール グリス オイル 使い分け",
+      "intent": "F",
+      "score": 99.0,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "daiwa",
+        "reel"
+      ],
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.11
+      }
+    },
+    {
+      "keyword": "ライトゲームロッド 万能 シマノ",
+      "intent": "F",
+      "score": 97.8,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "rod",
+        "shimano"
+      ],
+      "serp": {
+        "authority_hits": 0,
+        "opportunity_hits": 0,
+        "opportunity_ratio": 0.0
+      }
+    },
+    {
+      "keyword": "ダイワ リール 注油 箇所",
+      "intent": "F",
+      "score": 97.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "daiwa",
+        "reel"
+      ]
+    },
     {
       "keyword": "スピニング リール 分解 清掃",
       "intent": "F",
@@ -64,24 +113,6 @@
       "noted_at": "2026-10-16T03:24:43.146873+00:00"
     },
     {
-      "keyword": "ダイワ リール グリス オイル 使い分け",
-      "intent": "F",
-      "score": 99.0,
-      "status": "pending",
-      "source": "serp_related",
-      "competition": "medium",
-      "cluster": "review",
-      "fingerprint": [
-        "daiwa",
-        "reel"
-      ],
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 1,
-        "opportunity_ratio": 0.11
-      }
-    },
-    {
       "keyword": "スピニングリール メンテナンス シマノ",
       "intent": "F",
       "score": 98.0,
@@ -104,24 +135,6 @@
       "noted_at": "2026-10-16T03:24:43.429315+00:00"
     },
     {
-      "keyword": "ライトゲームロッド 万能 シマノ",
-      "intent": "F",
-      "score": 97.8,
-      "status": "pending",
-      "source": "serp_related",
-      "competition": "medium",
-      "cluster": "review",
-      "fingerprint": [
-        "rod",
-        "shimano"
-      ],
-      "serp": {
-        "authority_hits": 0,
-        "opportunity_hits": 0,
-        "opportunity_ratio": 0.0
-      }
-    },
-    {
       "keyword": "アジング ライト タックル",
       "intent": "F",
       "score": 97.7,
@@ -137,42 +150,66 @@
       "post_url": "https://growfolio-note.com/ajing-futtu-jighead-light-tackle/"
     },
     {
-      "keyword": "ダイワ リール 注油 箇所",
+      "keyword": "スピニングリール メンテナンス ダイワ",
       "intent": "F",
-      "score": 97.7,
-      "status": "pending",
-      "source": "serp_related",
-      "competition": "medium",
-      "cluster": "review",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "prep",
       "fingerprint": [
         "daiwa",
         "reel"
-      ]
+      ],
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
+      "reason": "entity+fuzzy shared=['reel'] fuzzy=58.82352941176471",
+      "noted_at": "2026-10-17T19:51:54.875935+00:00"
+    },
+    {
+      "keyword": "スピニングリール メンテナンス グリス",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "prep",
+      "fingerprint": [
+        "reel"
+      ],
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
+      "reason": "entity+fuzzy shared=['reel'] fuzzy=58.82352941176471",
+      "noted_at": "2026-10-17T19:51:55.147809+00:00"
     },
     {
       "keyword": "シマノ リール 注油 箇所",
       "intent": "F",
-      "score": 97.7,
-      "status": "pending",
-      "source": "serp_related",
-      "competition": "medium",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
       "cluster": "review",
       "fingerprint": [
         "reel",
         "shimano"
-      ]
+      ],
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "スピニングリール メンテナンス シマノ",
+      "reason": "shared_entities=['reel', 'shimano']",
+      "noted_at": "2026-10-17T19:51:57.206550+00:00"
     },
     {
       "keyword": "スピニング リール 分解 図",
       "intent": "F",
-      "score": 97.7,
-      "status": "pending",
-      "source": "serp_related",
-      "competition": "medium",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
       "cluster": "review",
       "fingerprint": [
         "reel"
-      ]
+      ],
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
+      "reason": "entity+fuzzy shared=['reel'] fuzzy=89.65517241379311",
+      "noted_at": "2026-10-17T19:51:57.302060+00:00"
     }
   ]
 }
