@@ -5,7 +5,7 @@
       "keyword": "ダイワ リール グリス オイル 使い分け",
       "intent": "F",
       "score": 99.0,
-      "status": "pending",
+      "status": "rewrite_candidate",
       "source": "serp_related",
       "competition": "medium",
       "cluster": "review",
@@ -17,7 +17,11 @@
         "authority_hits": 1,
         "opportunity_hits": 1,
         "opportunity_ratio": 0.11
-      }
+      },
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "スピニングリール メンテナンス ダイワ",
+      "reason": "shared_entities=['daiwa', 'reel']",
+      "noted_at": "2026-10-20T03:41:31.057440+00:00"
     },
     {
       "keyword": "ライトゲームロッド 万能 シマノ",
@@ -41,14 +45,18 @@
       "keyword": "ダイワ リール 注油 箇所",
       "intent": "F",
       "score": 97.7,
-      "status": "pending",
+      "status": "rewrite_candidate",
       "source": "serp_related",
       "competition": "medium",
       "cluster": "review",
       "fingerprint": [
         "daiwa",
         "reel"
-      ]
+      ],
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "ダイワ リール グリス オイル 使い分け",
+      "reason": "shared_entities=['daiwa', 'reel']",
+      "noted_at": "2026-10-20T03:41:31.538317+00:00"
     },
     {
       "keyword": "スピニング リール 分解 清掃",
