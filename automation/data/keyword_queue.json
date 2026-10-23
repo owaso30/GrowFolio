@@ -27,7 +27,7 @@
       "keyword": "ライトゲームロッド 万能 シマノ",
       "intent": "F",
       "score": 97.8,
-      "status": "pending",
+      "status": "done",
       "source": "serp_related",
       "competition": "medium",
       "cluster": "review",
@@ -39,7 +39,10 @@
         "authority_hits": 0,
         "opportunity_hits": 0,
         "opportunity_ratio": 0.0
-      }
+      },
+      "trend_fetched_at": "2026-10-23T03:38:10.698903+00:00",
+      "published_at": "2026-10-23T03:40:34.637778+00:00",
+      "post_url": "https://growfolio-note.com/ajing-futtu-soare-bb-light-game-rod/"
     },
     {
       "keyword": "ダイワ リール 注油 箇所",
