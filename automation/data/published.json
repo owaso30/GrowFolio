@@ -1,6 +1,26 @@
 {
-  "synced_at": "2026-10-23T03:38:07.271176+00:00",
+  "synced_at": "2026-10-30T04:39:43.480057+00:00",
   "posts": [
+    {
+      "id": 576,
+      "slug": "ajing-futtu-soare-bb-light-game-rod",
+      "title": "富津公園の夜アジング——ソアレBB S76UL-Sを持ち込んでワームを替えてみた",
+      "url": "https://growfolio-note.com/ajing-futtu-soare-bb-light-game-rod/",
+      "categories": [
+        "釣具レビュー・比較"
+      ],
+      "tags": [
+        "アジング",
+        "ロッド"
+      ],
+      "keywords": [
+        "ライトゲームロッド 万能 シマノ"
+      ],
+      "recap": "千葉県富津公園、10月下旬夜20時すぎ、アジ狙い、シマノ ソアレBB S76UL-S＋ジグ単1.5g＋2インチピンテール、25センチ前後2匹・20センチ台1匹。次回は同じ場所でジグ単0.8gに落として感度の違いを見る。",
+      "source": "auto",
+      "cluster": "review",
+      "published_at": "2026-10-23T03:40:34.637778+00:00"
+    },
     {
       "id": 570,
       "slug": "ajing-futtu-jighead-light-tackle",
@@ -80,26 +100,6 @@
       "source": "local",
       "cluster": "rockfish-start",
       "published_at": "2026-10-10T11:42:35.132953+00:00"
-    },
-    {
-      "id": 576,
-      "slug": "ajing-futtu-soare-bb-light-game-rod",
-      "title": "富津公園の夜アジング——ソアレBB S76UL-Sを持ち込んでワームを替えてみた",
-      "url": "https://growfolio-note.com/ajing-futtu-soare-bb-light-game-rod/",
-      "categories": [
-        "釣具レビュー・比較"
-      ],
-      "tags": [
-        "アジング",
-        "ロッド"
-      ],
-      "keywords": [
-        "ライトゲームロッド 万能 シマノ"
-      ],
-      "recap": "千葉県富津公園、10月下旬夜20時すぎ、アジ狙い、シマノ ソアレBB S76UL-S＋ジグ単1.5g＋2インチピンテール、25センチ前後2匹・20センチ台1匹。次回は同じ場所でジグ単0.8gに落として感度の違いを見る。",
-      "source": "auto",
-      "cluster": "review",
-      "published_at": "2026-10-23T03:40:34.637778+00:00"
     }
   ]
 }
