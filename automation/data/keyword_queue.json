@@ -1,6 +1,21 @@
 {
-  "updated_at": "2026-10-24T19:59:13.324816+00:00",
+  "updated_at": "2026-10-31T20:48:19.392950+00:00",
   "keywords": [
+    {
+      "keyword": "釣り ライフジャケット ルール",
+      "intent": "F",
+      "score": 98.8,
+      "status": "pending",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.11
+      }
+    },
     {
       "keyword": "スピニング リール 分解 清掃",
       "intent": "F",
