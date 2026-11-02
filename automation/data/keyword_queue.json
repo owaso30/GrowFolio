@@ -5,7 +5,7 @@
       "keyword": "釣り ライフジャケット ルール",
       "intent": "F",
       "score": 98.8,
-      "status": "pending",
+      "status": "done",
       "source": "suggest",
       "competition": "medium",
       "cluster": "other",
@@ -14,7 +14,10 @@
         "authority_hits": 1,
         "opportunity_hits": 1,
         "opportunity_ratio": 0.11
-      }
+      },
+      "trend_fetched_at": "2026-11-02T08:31:32.229467+00:00",
+      "published_at": "2026-11-02T08:33:57.145994+00:00",
+      "post_url": "https://growfolio-note.com/ajing-futtu-jighead-08g-sensitivity/"
     },
     {
       "keyword": "スピニング リール 分解 清掃",

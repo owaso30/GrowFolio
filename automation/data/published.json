@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-11-02T08:29:50.719035+00:00",
+  "synced_at": "2026-11-02T08:31:28.873017+00:00",
   "posts": [
     {
       "id": 576,
@@ -100,6 +100,26 @@
       "source": "local",
       "cluster": "rockfish-start",
       "published_at": "2026-10-10T11:42:35.132953+00:00"
+    },
+    {
+      "id": 583,
+      "slug": "ajing-futtu-jighead-08g-sensitivity",
+      "title": "富津公園の夜アジング——ジグ単0.8gに落として感度の違いを確かめてきた",
+      "url": "https://growfolio-note.com/ajing-futtu-jighead-08g-sensitivity/",
+      "categories": [
+        "釣具レビュー・比較"
+      ],
+      "tags": [
+        "アジング",
+        "ルアー"
+      ],
+      "keywords": [
+        "釣り ライフジャケット ルール"
+      ],
+      "recap": "2026年11月、千葉県富津公園の岸壁、夜20時すぎ、アジ狙い、ソアレBB S76UL-S＋ジグ単0.8g（マルジン UZU）＋2インチピンテール、25センチ前後2匹・バラシ1。フォール中のアタリが中心。次回は同じ0.8gでワームをストレートに替えて、ピンテールとの違いを確かめる。",
+      "source": "auto",
+      "cluster": "other",
+      "published_at": "2026-11-02T08:33:57.145994+00:00"
     }
   ]
 }
