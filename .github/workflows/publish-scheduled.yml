@@ -10,6 +10,10 @@ on:
   schedule:
     - cron: '0 0 * * 2,5'
 
+concurrency:
+  group: blog-main-data
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -17,6 +21,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -43,7 +49,7 @@ jobs:
           else
             python -m pipeline publish --count 1
           fi
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: ./.github/actions/commit-and-push
         with:
           commit_message: 'chore: update published data after auto-post'
           file_pattern: automation/data/published.json automation/data/keyword_queue.json

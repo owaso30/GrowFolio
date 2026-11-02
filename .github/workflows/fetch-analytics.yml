@@ -11,6 +11,10 @@ on:
     # 月曜 03:00 JST = 日曜 18:00 UTC
     - cron: '0 18 * * 0'
 
+concurrency:
+  group: blog-main-data
+  cancel-in-progress: false
+
 jobs:
   analytics:
     runs-on: ubuntu-latest
@@ -18,6 +22,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -34,7 +40,7 @@ jobs:
           else
             python -m pipeline fetch-analytics
           fi
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: ./.github/actions/commit-and-push
         with:
           commit_message: 'chore: update analytics snapshot (GSC + GA4)'
           file_pattern: |

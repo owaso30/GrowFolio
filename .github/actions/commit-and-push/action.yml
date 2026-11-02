@@ -1,0 +1,46 @@
+name: Commit and push with rebase retry
+description: 変更があればコミットし、競合時は rebase して push を再試行する
+
+inputs:
+  commit_message:
+    description: コミットメッセージ
+    required: true
+  file_pattern:
+    description: git add するファイル（空白または改行区切り）
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Commit and push
+      shell: bash
+      env:
+        COMMIT_MESSAGE: ${{ inputs.commit_message }}
+        FILE_PATTERN: ${{ inputs.file_pattern }}
+      run: |
+        set -euo pipefail
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+        # shellcheck disable=SC2086
+        git add -- ${FILE_PATTERN}
+        if git diff --cached --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+
+        git commit -m "${COMMIT_MESSAGE}"
+
+        branch="${GITHUB_REF_NAME}"
+        for attempt in 1 2 3 4 5; do
+          if git push origin "HEAD:${branch}"; then
+            echo "Pushed on attempt ${attempt}"
+            exit 0
+          fi
+          echo "Push rejected (attempt ${attempt}). Fetching and rebasing..."
+          git fetch origin "${branch}"
+          git rebase "origin/${branch}"
+        done
+
+        echo "Failed to push after retries"
+        exit 1

@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: '0 18 1 * *'
 
+concurrency:
+  group: blog-main-data
+  cancel-in-progress: false
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -12,6 +16,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -36,7 +42,7 @@ jobs:
           WP_URL: ${{ secrets.WP_URL }}
           WP_USER: ${{ secrets.WP_USER }}
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: ./.github/actions/commit-and-push
         with:
           commit_message: 'chore: sync published posts from WordPress'
           file_pattern: automation/data/published.json
