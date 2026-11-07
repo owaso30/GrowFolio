@@ -1,24 +1,6 @@
 {
-  "updated_at": "2026-10-31T20:48:19.392950+00:00",
+  "updated_at": "2026-11-07T21:14:29.514434+00:00",
   "keywords": [
-    {
-      "keyword": "釣り ライフジャケット ルール",
-      "intent": "F",
-      "score": 98.8,
-      "status": "done",
-      "source": "suggest",
-      "competition": "medium",
-      "cluster": "other",
-      "fingerprint": [],
-      "serp": {
-        "authority_hits": 1,
-        "opportunity_hits": 1,
-        "opportunity_ratio": 0.11
-      },
-      "trend_fetched_at": "2026-11-02T08:31:32.229467+00:00",
-      "published_at": "2026-11-02T08:33:57.145994+00:00",
-      "post_url": "https://growfolio-note.com/ajing-futtu-jighead-08g-sensitivity/"
-    },
     {
       "keyword": "スピニング リール 分解 清掃",
       "intent": "F",
@@ -102,6 +84,24 @@
       "existing_title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
       "reason": "entity+fuzzy shared=['reel'] fuzzy=62.857142857142854",
       "noted_at": "2026-10-16T03:24:43.146873+00:00"
+    },
+    {
+      "keyword": "釣り ライフジャケット ルール",
+      "intent": "F",
+      "score": 98.8,
+      "status": "done",
+      "source": "suggest",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": [],
+      "serp": {
+        "authority_hits": 1,
+        "opportunity_hits": 1,
+        "opportunity_ratio": 0.11
+      },
+      "trend_fetched_at": "2026-11-02T08:31:32.229467+00:00",
+      "published_at": "2026-11-02T08:33:57.145994+00:00",
+      "post_url": "https://growfolio-note.com/ajing-futtu-jighead-08g-sensitivity/"
     },
     {
       "keyword": "スピニングリール メンテナンス シマノ",
