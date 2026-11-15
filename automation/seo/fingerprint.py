@@ -85,6 +85,12 @@ def find_cannibal_match(
     min_shared = int(cfg.get("min_shared_entities", 2))
     fuzzy_threshold = int(cfg.get("fuzzy_threshold", 72))
     fuzzy_entity = int(cfg.get("fuzzy_with_entity_threshold", 55))
+    generic_entities = {
+        str(x).strip()
+        for x in (cfg.get("generic_entities") or [])
+        if str(x).strip()
+    }
+    fuzzy_generic = int(cfg.get("fuzzy_generic_entity_threshold", max(fuzzy_entity, 78)))
     jaccard_threshold = float(cfg.get("jaccard_threshold", 0.45))
     allowed_statuses = queue_statuses or ("pending", "done", "rewrite_candidate")
 
@@ -135,12 +141,16 @@ def find_cannibal_match(
                 "source": row.get("source"),
             }
         if shared and fuzzy_best >= fuzzy_entity:
-            return {
-                "slug": slug,
-                "title": title,
-                "reason": f"entity+fuzzy shared={sorted(shared)} fuzzy={fuzzy_best}",
-                "source": row.get("source"),
-            }
+            # リール等の汎用エンティティ1個だけだと、メンテ系KWに全部吸い込まれて pending が枯れる。
+            only_generic = bool(shared) and shared.issubset(generic_entities)
+            needed = fuzzy_generic if only_generic and len(shared) == 1 else fuzzy_entity
+            if fuzzy_best >= needed:
+                return {
+                    "slug": slug,
+                    "title": title,
+                    "reason": f"entity+fuzzy shared={sorted(shared)} fuzzy={fuzzy_best}",
+                    "source": row.get("source"),
+                }
         if fuzzy_best >= fuzzy_threshold and (shared or jacc >= jaccard_threshold):
             return {
                 "slug": slug,

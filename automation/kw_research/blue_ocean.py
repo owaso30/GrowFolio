@@ -231,6 +231,10 @@ def expand_long_tail_seeds(seeds: list[str], fetch_suggestions) -> list[str]:
     seen: set[str] = set()
 
     for seed in seeds:
+        seed_norm = seed.lower().strip()
+        if seed_norm and seed_norm not in seen:
+            seen.add(seed_norm)
+            results.append(seed.strip())
         batch = [seed]
         for mod in modifiers[:10]:
             batch.append(f"{seed} {mod}".strip())

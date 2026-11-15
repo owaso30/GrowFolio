@@ -21,6 +21,7 @@ from seo.fingerprint import (
     find_cannibal_match,
     intent_fingerprint,
 )
+from seo.seasonal_seeds import ensure_seasonal_pending, seasonal_seed_keywords
 
 SUGGEST_URL = "https://suggestqueries.google.com/complete/search?client=firefox&hl=ja&q="
 
@@ -261,7 +262,22 @@ def run_research(max_keywords: int = 10) -> dict[str, Any]:
             source="trend_expand",
         )
 
-    for seed in trend_cfg.get("news_queries", []) + trend_cfg.get("suggest_seeds", []):
+    curated_seeds = (
+        list(trend_cfg.get("news_queries", []) or [])
+        + list(trend_cfg.get("suggest_seeds", []) or [])
+        + seasonal_seed_keywords()
+    )
+    for seed in curated_seeds:
+        # サジェストが空でも、キュレートした種そのものを候補にする
+        _try_add(
+            candidates,
+            seed,
+            published,
+            existing,
+            rewrite_bucket,
+            queue_items,
+            source="curated_seed",
+        )
         for kw in fetch_suggestions(seed)[:15]:
             _try_add(
                 candidates,
@@ -316,6 +332,9 @@ def run_research(max_keywords: int = 10) -> dict[str, Any]:
             seen.add(item["keyword"])
 
     merged = preserved + refreshed_pending
+    merged = filter_auto_keywords(merged)
+    # サジェストが枯れても旬の実践KWで pending を残す
+    merged = ensure_seasonal_pending(merged, published, min_pending=3)
     merged = filter_auto_keywords(merged)
     merged.sort(
         key=lambda x: (

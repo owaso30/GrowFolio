@@ -13,6 +13,7 @@ from content.trends import fetch_trend_context
 from images.generator import process_images
 from seo.content_policy import filter_auto_keywords, get_editorial_policy, is_allowed_for_auto
 from seo.fingerprint import classify_cluster, find_cannibal_match, intent_fingerprint, quota_allows
+from seo.seasonal_seeds import ensure_seasonal_pending
 from seo.internal_links import build_link_map, pick_internal_links, render_related_section
 from seo.ssp_meta import (
     SSP_META_DESCRIPTION,
@@ -99,6 +100,15 @@ def publish_next(count: int = 1, dry_run: bool = False) -> list[dict]:
     site_url = site["site"]["url"]
     editorial = get_editorial_policy()
     queue_items = list(queue.get("keywords", []))
+
+    # pending が空のときは旬シードを足してから選定する（11月以降の停止再発防止）
+    queue_items = ensure_seasonal_pending(
+        queue_items,
+        published.get("posts", []),
+        min_pending=3,
+    )
+    queue["keywords"] = filter_auto_keywords(queue_items)
+    save_json("keyword_queue.json", queue)
 
     pending = [
         k for k in queue_items
