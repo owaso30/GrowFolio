@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-11-13T05:23:23.958602+00:00",
+  "synced_at": "2026-11-15T08:21:21.106329+00:00",
   "posts": [
     {
       "id": 583,
@@ -120,6 +120,26 @@
       "source": "local",
       "cluster": "rockfish-start",
       "published_at": "2026-10-10T11:42:35.132953+00:00"
+    },
+    {
+      "id": 590,
+      "slug": "seabass-futtu-evening-floating-minnow",
+      "title": "富津岬の夕まずめにシーバス——晩秋ショアでフローティングミノーを試してきた",
+      "url": "https://growfolio-note.com/seabass-futtu-evening-floating-minnow/",
+      "categories": [
+        "釣具レビュー・比較"
+      ],
+      "tags": [
+        "シーバス",
+        "ルアー"
+      ],
+      "keywords": [
+        "シーバス 晩秋 ショア ミノー"
+      ],
+      "recap": "2026年11月下旬、千葉県富津岬先端付近のテトラ際、16時半〜18時すぎの夕まずめ、シーバス狙い、PE1号＋フローティングミノー110mm前後。60cm弱1匹キャッチ・バイト1回バラシ。次回は90mmクラスも持ち込み、低潮位での使い勝手を確かめる。",
+      "source": "auto",
+      "cluster": "method",
+      "published_at": "2026-11-15T08:23:27.161561+00:00"
     }
   ]
 }

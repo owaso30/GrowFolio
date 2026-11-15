@@ -239,6 +239,48 @@
       "existing_title": "木更津沖堤防のリールを帰宅後に分解清掃した話——スピニングの砂噛みをどこまで落とせるか",
       "reason": "entity+fuzzy shared=['reel'] fuzzy=89.65517241379311",
       "noted_at": "2026-10-17T19:51:57.302060+00:00"
+    },
+    {
+      "keyword": "シーバス 晩秋 ショア ミノー",
+      "intent": "F",
+      "score": 97.8,
+      "status": "done",
+      "source": "seasonal_seed",
+      "competition": "medium",
+      "cluster": "method",
+      "fingerprint": [
+        "bass",
+        "lure",
+        "seabass"
+      ],
+      "trend_fetched_at": "2026-11-15T08:21:28.385673+00:00",
+      "published_at": "2026-11-15T08:23:27.161561+00:00",
+      "post_url": "https://growfolio-note.com/seabass-futtu-evening-floating-minnow/"
+    },
+    {
+      "keyword": "メバル 堤防 夜 ジグ単",
+      "intent": "F",
+      "score": 97.6,
+      "status": "pending",
+      "source": "seasonal_seed",
+      "competition": "medium",
+      "cluster": "log",
+      "fingerprint": [
+        "field",
+        "mebaru"
+      ]
+    },
+    {
+      "keyword": "ヒラメ サーフ 朝 シンキング",
+      "intent": "F",
+      "score": 97.8,
+      "status": "pending",
+      "source": "seasonal_seed",
+      "competition": "medium",
+      "cluster": "log",
+      "fingerprint": [
+        "field"
+      ]
     }
   ]
 }
