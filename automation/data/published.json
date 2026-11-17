@@ -1,6 +1,26 @@
 {
-  "synced_at": "2026-11-15T08:21:21.106329+00:00",
+  "synced_at": "2026-11-17T06:51:08.393319+00:00",
   "posts": [
+    {
+      "id": 590,
+      "slug": "seabass-futtu-evening-floating-minnow",
+      "title": "富津岬の夕まずめにシーバス——晩秋ショアでフローティングミノーを試してきた",
+      "url": "https://growfolio-note.com/seabass-futtu-evening-floating-minnow/",
+      "categories": [
+        "釣具レビュー・比較"
+      ],
+      "tags": [
+        "シーバス",
+        "ルアー"
+      ],
+      "keywords": [
+        "シーバス 晩秋 ショア ミノー"
+      ],
+      "recap": "2026年11月下旬、千葉県富津岬先端付近のテトラ際、16時半〜18時すぎの夕まずめ、シーバス狙い、PE1号＋フローティングミノー110mm前後。60cm弱1匹キャッチ・バイト1回バラシ。次回は90mmクラスも持ち込み、低潮位での使い勝手を確かめる。",
+      "source": "auto",
+      "cluster": "method",
+      "published_at": "2026-11-15T08:23:27.161561+00:00"
+    },
     {
       "id": 583,
       "slug": "ajing-futtu-jighead-08g-sensitivity",
@@ -122,24 +142,24 @@
       "published_at": "2026-10-10T11:42:35.132953+00:00"
     },
     {
-      "id": 590,
-      "slug": "seabass-futtu-evening-floating-minnow",
-      "title": "富津岬の夕まずめにシーバス——晩秋ショアでフローティングミノーを試してきた",
-      "url": "https://growfolio-note.com/seabass-futtu-evening-floating-minnow/",
+      "id": 596,
+      "slug": "surf-katakai-wedge95s-morning-hirame",
+      "title": "片貝海岸の朝ヒラメ——ウェッジ95Sに替えて波の穏やかなサーフで使ってみた",
+      "url": "https://growfolio-note.com/surf-katakai-wedge95s-morning-hirame/",
       "categories": [
         "釣具レビュー・比較"
       ],
       "tags": [
-        "シーバス",
+        "サーフ",
         "ルアー"
       ],
       "keywords": [
-        "シーバス 晩秋 ショア ミノー"
+        "ヒラメ サーフ 朝 シンキング"
       ],
-      "recap": "2026年11月下旬、千葉県富津岬先端付近のテトラ際、16時半〜18時すぎの夕まずめ、シーバス狙い、PE1号＋フローティングミノー110mm前後。60cm弱1匹キャッチ・バイト1回バラシ。次回は90mmクラスも持ち込み、低潮位での使い勝手を確かめる。",
+      "recap": "2026年11月中旬朝、千葉県片貝海岸。波高1m未満・無風。ヒラメ狙い、シマノ ウェッジ95S（PE1号+フロロ30lb）。35cmのヒラメ1匹キャッチ、フグ1匹。次回は風がある日に120Sと95Sを同じ場所で投げ比べる。",
       "source": "auto",
-      "cluster": "method",
-      "published_at": "2026-11-15T08:23:27.161561+00:00"
+      "cluster": "log",
+      "published_at": "2026-11-17T06:53:12.804675+00:00"
     }
   ]
 }
