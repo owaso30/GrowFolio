@@ -1,6 +1,26 @@
 {
-  "synced_at": "2026-11-17T06:51:08.393319+00:00",
+  "synced_at": "2026-11-20T05:57:21.558918+00:00",
   "posts": [
+    {
+      "id": 596,
+      "slug": "surf-katakai-wedge95s-morning-hirame",
+      "title": "片貝海岸の朝ヒラメ——ウェッジ95Sに替えて波の穏やかなサーフで使ってみた",
+      "url": "https://growfolio-note.com/surf-katakai-wedge95s-morning-hirame/",
+      "categories": [
+        "釣具レビュー・比較"
+      ],
+      "tags": [
+        "サーフ",
+        "ルアー"
+      ],
+      "keywords": [
+        "ヒラメ サーフ 朝 シンキング"
+      ],
+      "recap": "2026年11月中旬朝、千葉県片貝海岸。波高1m未満・無風。ヒラメ狙い、シマノ ウェッジ95S（PE1号+フロロ30lb）。35cmのヒラメ1匹キャッチ、フグ1匹。次回は風がある日に120Sと95Sを同じ場所で投げ比べる。",
+      "source": "auto",
+      "cluster": "log",
+      "published_at": "2026-11-17T06:53:12.804675+00:00"
+    },
     {
       "id": 590,
       "slug": "seabass-futtu-evening-floating-minnow",
@@ -142,24 +162,24 @@
       "published_at": "2026-10-10T11:42:35.132953+00:00"
     },
     {
-      "id": 596,
-      "slug": "surf-katakai-wedge95s-morning-hirame",
-      "title": "片貝海岸の朝ヒラメ——ウェッジ95Sに替えて波の穏やかなサーフで使ってみた",
-      "url": "https://growfolio-note.com/surf-katakai-wedge95s-morning-hirame/",
+      "id": 602,
+      "slug": "rockfish-futtu-tetra-evening-2inch-worm",
+      "title": "富津岬のテトラで夕方カサゴ——2インチワームに替えて変わったこと",
+      "url": "https://growfolio-note.com/rockfish-futtu-tetra-evening-2inch-worm/",
       "categories": [
         "釣具レビュー・比較"
       ],
       "tags": [
-        "サーフ",
+        "根魚",
         "ルアー"
       ],
       "keywords": [
-        "ヒラメ サーフ 朝 シンキング"
+        "カサゴ テトラ 夕方 ワーム"
       ],
-      "recap": "2026年11月中旬朝、千葉県片貝海岸。波高1m未満・無風。ヒラメ狙い、シマノ ウェッジ95S（PE1号+フロロ30lb）。35cmのヒラメ1匹キャッチ、フグ1匹。次回は風がある日に120Sと95Sを同じ場所で投げ比べる。",
+      "recap": "2026年11月下旬夕方16時すぎ、千葉県富津岬テトラ帯。カサゴ狙い、エコギア バグアンツ2インチ＋ジグ単1.5g、PE0.6号＋フロロ4lb。手のひらサイズ1匹、バイト2回バラシ。次回は穴の広い場所で3インチと2インチを交互に使い、サイズ差の影響を確かめる。",
       "source": "auto",
-      "cluster": "log",
-      "published_at": "2026-11-17T06:53:12.804675+00:00"
+      "cluster": "review",
+      "published_at": "2026-11-20T05:59:22.185532+00:00"
     }
   ]
 }

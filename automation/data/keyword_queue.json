@@ -289,10 +289,25 @@
       "keyword": "カサゴ テトラ 夕方 ワーム",
       "intent": "F",
       "score": 90.0,
-      "status": "pending",
+      "status": "done",
       "source": "seasonal_seed",
       "competition": "medium",
       "cluster": "review",
+      "fingerprint": [
+        "lure"
+      ],
+      "trend_fetched_at": "2026-11-20T05:57:28.858475+00:00",
+      "published_at": "2026-11-20T05:59:22.185532+00:00",
+      "post_url": "https://growfolio-note.com/rockfish-futtu-tetra-evening-2inch-worm/"
+    },
+    {
+      "keyword": "チニング 秋 チヌ ワーム",
+      "intent": "F",
+      "score": 97.7,
+      "status": "pending",
+      "source": "seasonal_seed",
+      "competition": "medium",
+      "cluster": "method",
       "fingerprint": [
         "lure"
       ]
