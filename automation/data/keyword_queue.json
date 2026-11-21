@@ -1,20 +1,37 @@
 {
-  "updated_at": "2026-11-15T22:37:10.507804+00:00",
+  "updated_at": "2026-11-21T22:38:39.734298+00:00",
   "keywords": [
     {
-      "keyword": "ヒラメ サーフ 朝 シンキング",
+      "keyword": "チニング 秋 チヌ ワーム",
       "intent": "F",
-      "score": 97.8,
-      "status": "done",
+      "score": 97.7,
+      "status": "pending",
       "source": "seasonal_seed",
       "competition": "medium",
-      "cluster": "log",
+      "cluster": "method",
       "fingerprint": [
-        "field"
-      ],
-      "trend_fetched_at": "2026-11-17T06:51:14.592597+00:00",
-      "published_at": "2026-11-17T06:53:12.804675+00:00",
-      "post_url": "https://growfolio-note.com/surf-katakai-wedge95s-morning-hirame/"
+        "lure"
+      ]
+    },
+    {
+      "keyword": "船 ライフジャケット 義務",
+      "intent": "F",
+      "score": 97.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": []
+    },
+    {
+      "keyword": "漁師 ライフジャケット 義務",
+      "intent": "F",
+      "score": 97.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": []
     },
     {
       "keyword": "メバル 堤防 夜 ジグ単",
@@ -27,6 +44,83 @@
       "fingerprint": [
         "field",
         "mebaru"
+      ]
+    },
+    {
+      "keyword": "ワーム 保管 夏 溶ける",
+      "intent": "F",
+      "score": 78.6,
+      "status": "pending",
+      "source": "curated_seed",
+      "competition": "low",
+      "cluster": "prep",
+      "fingerprint": [
+        "lure"
+      ]
+    },
+    {
+      "keyword": "ヤマガブランクス 修理 保証書 なし",
+      "intent": "F",
+      "score": 72.9,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": []
+    },
+    {
+      "keyword": "ショアジギング 会社員 時間",
+      "intent": "F",
+      "score": 72.7,
+      "status": "pending",
+      "source": "curated_seed",
+      "competition": "medium",
+      "cluster": "log",
+      "fingerprint": [
+        "ajing",
+        "weekend"
+      ]
+    },
+    {
+      "keyword": "ヤマガブランクス 修理 期間",
+      "intent": "F",
+      "score": 72.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": []
+    },
+    {
+      "keyword": "ヤマガブランクス 修理 料金",
+      "intent": "F",
+      "score": 72.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": []
+    },
+    {
+      "keyword": "管理 釣り場 釣れない 発狂",
+      "intent": "F",
+      "score": 72.7,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "other",
+      "fingerprint": []
+    },
+    {
+      "keyword": "ワーム 溶けない ケース",
+      "intent": "F",
+      "score": 72.6,
+      "status": "pending",
+      "source": "serp_related",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "lure"
       ]
     },
     {
@@ -154,6 +248,21 @@
       "noted_at": "2026-10-16T03:24:43.429315+00:00"
     },
     {
+      "keyword": "ヒラメ サーフ 朝 シンキング",
+      "intent": "F",
+      "score": 97.8,
+      "status": "done",
+      "source": "seasonal_seed",
+      "competition": "medium",
+      "cluster": "log",
+      "fingerprint": [
+        "field"
+      ],
+      "trend_fetched_at": "2026-11-17T06:51:14.592597+00:00",
+      "published_at": "2026-11-17T06:53:12.804675+00:00",
+      "post_url": "https://growfolio-note.com/surf-katakai-wedge95s-morning-hirame/"
+    },
+    {
       "keyword": "ライトゲームロッド 万能 シマノ",
       "intent": "F",
       "score": 97.8,
@@ -224,6 +333,21 @@
       "post_url": "https://growfolio-note.com/ajing-futtu-jighead-light-tackle/"
     },
     {
+      "keyword": "カサゴ テトラ 夕方 ワーム",
+      "intent": "F",
+      "score": 90.0,
+      "status": "done",
+      "source": "seasonal_seed",
+      "competition": "medium",
+      "cluster": "review",
+      "fingerprint": [
+        "lure"
+      ],
+      "trend_fetched_at": "2026-11-20T05:57:28.858475+00:00",
+      "published_at": "2026-11-20T05:59:22.185532+00:00",
+      "post_url": "https://growfolio-note.com/rockfish-futtu-tetra-evening-2inch-worm/"
+    },
+    {
       "keyword": "スピニングリール メンテナンス ダイワ",
       "intent": "F",
       "score": 0,
@@ -286,31 +410,163 @@
       "noted_at": "2026-10-17T19:51:57.302060+00:00"
     },
     {
-      "keyword": "カサゴ テトラ 夕方 ワーム",
+      "keyword": "コンパクトに持ち運べるライトゲームロッド！ 『月下美人 MX MB』で楽しむ外房アジング",
       "intent": "F",
-      "score": 90.0,
-      "status": "done",
-      "source": "seasonal_seed",
-      "competition": "medium",
-      "cluster": "review",
-      "fingerprint": [
-        "lure"
-      ],
-      "trend_fetched_at": "2026-11-20T05:57:28.858475+00:00",
-      "published_at": "2026-11-20T05:59:22.185532+00:00",
-      "post_url": "https://growfolio-note.com/rockfish-futtu-tetra-evening-2inch-worm/"
-    },
-    {
-      "keyword": "チニング 秋 チヌ ワーム",
-      "intent": "F",
-      "score": 97.7,
-      "status": "pending",
-      "source": "seasonal_seed",
-      "competition": "medium",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
       "cluster": "method",
       "fingerprint": [
+        "ajing",
+        "rod"
+      ],
+      "existing_slug": "ajing-futtu-soare-bb-light-game-rod",
+      "existing_title": "富津公園の夜アジング——ソアレBB S76UL-Sを持ち込んでワームを替えてみた",
+      "reason": "shared_entities=['ajing', 'rod']",
+      "noted_at": "2026-11-21T22:36:18.885327+00:00"
+    },
+    {
+      "keyword": "シーバス シーズン ショア",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "method",
+      "fingerprint": [
+        "bass",
+        "seabass"
+      ],
+      "existing_slug": "seabass-futtu-evening-floating-minnow",
+      "existing_title": "富津岬の夕まずめにシーバス——晩秋ショアでフローティングミノーを試してきた",
+      "reason": "shared_entities=['bass', 'seabass']",
+      "noted_at": "2026-11-21T22:36:20.639618+00:00"
+    },
+    {
+      "keyword": "アジング タックル ライト",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "method",
+      "fingerprint": [
+        "ajing"
+      ],
+      "existing_slug": "ajing-futtu-jighead-light-tackle",
+      "existing_title": "富津公園の夜アジング——ジグ単1.5gを初めて使ってみた",
+      "reason": "entity+fuzzy shared=['ajing'] fuzzy=69.23076923076923",
+      "noted_at": "2026-11-21T22:36:21.518256+00:00"
+    },
+    {
+      "keyword": "ヒラメ サーフ 朝 ミノー",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "review",
+      "fingerprint": [
+        "field",
         "lure"
-      ]
+      ],
+      "existing_slug": "",
+      "existing_title": "ヒラメ サーフ 朝 シンキング",
+      "reason": "entity+fuzzy shared=['field'] fuzzy=86.95652173913044",
+      "noted_at": "2026-11-21T22:36:26.070696+00:00"
+    },
+    {
+      "keyword": "シーバス 半日 タックル 最小",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "method",
+      "fingerprint": [
+        "bass",
+        "seabass",
+        "weekend"
+      ],
+      "existing_slug": "seabass-futtu-evening-floating-minnow",
+      "existing_title": "富津岬の夕まずめにシーバス——晩秋ショアでフローティングミノーを試してきた",
+      "reason": "shared_entities=['bass', 'seabass']",
+      "noted_at": "2026-11-21T22:36:26.682433+00:00"
+    },
+    {
+      "keyword": "週末 堤防 アジング 時間",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "method",
+      "fingerprint": [
+        "ajing",
+        "field",
+        "weekend"
+      ],
+      "existing_slug": "",
+      "existing_title": "アジング ライト タックル",
+      "reason": "entity+fuzzy shared=['ajing'] fuzzy=55.55555555555556",
+      "noted_at": "2026-11-21T22:36:28.658259+00:00"
+    },
+    {
+      "keyword": "会社員 早朝 シーバス 移動時間",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "method",
+      "fingerprint": [
+        "bass",
+        "seabass",
+        "weekend"
+      ],
+      "existing_slug": "seabass-futtu-evening-floating-minnow",
+      "existing_title": "富津岬の夕まずめにシーバス——晩秋ショアでフローティングミノーを試してきた",
+      "reason": "shared_entities=['bass', 'seabass']",
+      "noted_at": "2026-11-21T22:36:32.647073+00:00"
+    },
+    {
+      "keyword": "スピニング リール 洗い方 村田",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "review",
+      "fingerprint": [
+        "reel"
+      ],
+      "existing_slug": "",
+      "existing_title": "スピニング リール 分解 清掃",
+      "reason": "entity+fuzzy shared=['reel'] fuzzy=80.0",
+      "noted_at": "2026-11-21T22:37:08.857373+00:00"
+    },
+    {
+      "keyword": "カウンター付き リール オーバーホール",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "review",
+      "fingerprint": [
+        "reel"
+      ],
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "スピニング リール オーバーホール 料金",
+      "reason": "fuzzy=72.22222222222221 jaccard=0.22",
+      "noted_at": "2026-11-21T22:37:10.641560+00:00"
+    },
+    {
+      "keyword": "SW リール メンテナンス",
+      "intent": "F",
+      "score": 0,
+      "status": "rewrite_candidate",
+      "source": "cannibal_guard",
+      "cluster": "prep",
+      "fingerprint": [
+        "reel"
+      ],
+      "existing_slug": "reel-cleaning-spincast-maintenance",
+      "existing_title": "スピニングリール メンテナンス オイル",
+      "reason": "fuzzy=76.92307692307692 jaccard=0.11",
+      "noted_at": "2026-11-21T22:37:11.229757+00:00"
     }
   ]
 }
