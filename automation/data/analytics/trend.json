@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T22:37:10.333046+00:00",
+  "updated_at": "2026-11-22T23:24:29.379330+00:00",
   "points": [
     {
       "fetched_at": "2026-07-12T06:49:21.758113+00:00",
@@ -39,6 +39,19 @@
       "ga4_pageviews": 26,
       "monthly_pv_estimate": 28,
       "article_count": 7
+    },
+    {
+      "fetched_at": "2026-11-22T23:24:29.379330+00:00",
+      "period_end": "2026-11-21",
+      "gsc_clicks": 3,
+      "gsc_impressions": 45,
+      "gsc_ctr": 0.066667,
+      "gsc_position": 22.6,
+      "ga4_sessions": 20,
+      "ga4_users": 17,
+      "ga4_pageviews": 23,
+      "monthly_pv_estimate": 25,
+      "article_count": 9
     }
   ]
 }

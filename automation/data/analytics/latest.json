@@ -1,39 +1,25 @@
 {
-  "fetched_at": "2026-11-15T22:37:10.333046+00:00",
+  "fetched_at": "2026-11-22T23:24:29.379330+00:00",
   "period": {
-    "start": "2026-10-18",
-    "end": "2026-11-14",
+    "start": "2026-10-25",
+    "end": "2026-11-21",
     "days": 28
   },
   "gsc": {
     "site_url": "https://growfolio-note.com/",
     "totals": {
-      "clicks": 4,
-      "impressions": 57,
-      "ctr": 0.070175,
-      "position": 15.44
+      "clicks": 3,
+      "impressions": 45,
+      "ctr": 0.066667,
+      "position": 22.6
     },
     "top_queries": [
-      {
-        "clicks": 0,
-        "impressions": 3,
-        "ctr": 0.0,
-        "position": 17.33,
-        "query": "2026年 金融マーケット予測、急激な円安進行"
-      },
       {
         "clicks": 0,
         "impressions": 1,
         "ctr": 0.0,
         "position": 10.0,
         "query": "bitradex"
-      },
-      {
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0.0,
-        "position": 33.0,
-        "query": "bitradex 詐欺"
       },
       {
         "clicks": 0,
@@ -53,30 +39,23 @@
       },
       {
         "clicks": 1,
-        "impressions": 4,
-        "ctr": 0.25,
-        "position": 5.5,
+        "impressions": 3,
+        "ctr": 0.333333,
+        "position": 6.67,
         "page": "https://growfolio-note.com/ajing-futtu-jighead-light-tackle/"
       },
       {
         "clicks": 1,
-        "impressions": 4,
-        "ctr": 0.25,
-        "position": 6.75,
-        "page": "https://growfolio-note.com/bitradex-kyc/"
-      },
-      {
-        "clicks": 1,
-        "impressions": 4,
-        "ctr": 0.25,
-        "position": 28.25,
-        "page": "https://growfolio-note.com/bitradex-progress-8300/"
+        "impressions": 13,
+        "ctr": 0.076923,
+        "position": 7.62,
+        "page": "https://growfolio-note.com/bitradex-invite-code/"
       },
       {
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0.0,
-        "position": 66.0,
+        "position": 46.33,
         "page": "https://growfolio-note.com/ajing-futtu-soare-bb-light-game-rod/"
       },
       {
@@ -88,24 +67,24 @@
       },
       {
         "clicks": 0,
-        "impressions": 11,
+        "impressions": 2,
         "ctr": 0.0,
-        "position": 15.64,
-        "page": "https://growfolio-note.com/bitradex-invite-code/"
+        "position": 8.5,
+        "page": "https://growfolio-note.com/bitradex-kyc/"
       },
       {
         "clicks": 0,
         "impressions": 2,
         "ctr": 0.0,
-        "position": 22.5,
+        "position": 4.5,
+        "page": "https://growfolio-note.com/bitradex-progress-8300/"
+      },
+      {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0.0,
+        "position": 8.0,
         "page": "https://growfolio-note.com/bitradex-review/"
-      },
-      {
-        "clicks": 0,
-        "impressions": 2,
-        "ctr": 0.0,
-        "position": 20.0,
-        "page": "https://growfolio-note.com/bitradex-risk/"
       },
       {
         "clicks": 0,
@@ -116,9 +95,9 @@
       },
       {
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 3,
         "ctr": 0.0,
-        "position": 13.0,
+        "position": 2.0,
         "page": "https://growfolio-note.com/category/bitradex/referral/"
       },
       {
@@ -144,16 +123,16 @@
       },
       {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 3,
         "ctr": 0.0,
-        "position": 15.25,
+        "position": 14.33,
         "page": "https://growfolio-note.com/cursor-vscode-difference-2026/"
       },
       {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0.0,
-        "position": 75.75,
+        "position": 118.4,
         "page": "https://growfolio-note.com/disclaimer/"
       },
       {
@@ -179,23 +158,23 @@
       },
       {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 2,
         "ctr": 0.0,
-        "position": 6.25,
+        "position": 8.0,
         "page": "https://growfolio-note.com/rockfish-bugants-note/"
       },
       {
         "clicks": 0,
-        "impressions": 12,
+        "impressions": 1,
         "ctr": 0.0,
-        "position": 10.08,
+        "position": 1.0,
         "page": "https://growfolio-note.com/stock-market-outlook-2026/"
       },
       {
         "clicks": 0,
         "impressions": 5,
         "ctr": 0.0,
-        "position": 14.2,
+        "position": 10.0,
         "page": "https://growfolio-note.com/surf-katakai-wedge/"
       },
       {
@@ -218,24 +197,30 @@
   "ga4": {
     "property_id": "properties/541603080",
     "totals": {
-      "sessions": 24,
-      "totalUsers": 21,
-      "screenPageViews": 26,
-      "bounceRate": 0.625,
-      "averageSessionDuration": 52.6658
+      "sessions": 20,
+      "totalUsers": 17,
+      "screenPageViews": 23,
+      "bounceRate": 0.65,
+      "averageSessionDuration": 55.6476
     },
     "channels": [
       {
         "sessionDefaultChannelGroup": "Organic Search",
-        "sessions": 14,
-        "totalUsers": 11,
-        "screenPageViews": 17
+        "sessions": 9,
+        "totalUsers": 7,
+        "screenPageViews": 13
       },
       {
         "sessionDefaultChannelGroup": "Direct",
-        "sessions": 9,
-        "totalUsers": 9,
-        "screenPageViews": 9
+        "sessions": 8,
+        "totalUsers": 8,
+        "screenPageViews": 8
+      },
+      {
+        "sessionDefaultChannelGroup": "Referral",
+        "sessions": 2,
+        "totalUsers": 1,
+        "screenPageViews": 2
       },
       {
         "sessionDefaultChannelGroup": "Unassigned",
@@ -247,30 +232,30 @@
     "landings": [
       {
         "landingPagePlusQueryString": "/",
-        "sessions": 8,
-        "totalUsers": 8,
-        "screenPageViews": 8,
+        "sessions": 7,
+        "totalUsers": 7,
+        "screenPageViews": 7,
         "bounceRate": 1
       },
       {
-        "landingPagePlusQueryString": "/surf-katakai-wedge/",
-        "sessions": 3,
-        "totalUsers": 3,
-        "screenPageViews": 3,
-        "bounceRate": 0
-      },
-      {
-        "landingPagePlusQueryString": "/ajing-futtu-jighead-light-tackle/",
+        "landingPagePlusQueryString": "/bitradex-invite-code/",
         "sessions": 2,
         "totalUsers": 2,
         "screenPageViews": 2,
-        "bounceRate": 0
+        "bounceRate": 0.5
       },
       {
-        "landingPagePlusQueryString": "/ajing-futtu-soare-bb-light-game-rod/",
+        "landingPagePlusQueryString": "/ladder-x-audcad-stable/",
         "sessions": 2,
         "totalUsers": 1,
-        "screenPageViews": 3,
+        "screenPageViews": 2,
+        "bounceRate": 0.5
+      },
+      {
+        "landingPagePlusQueryString": "/surf-katakai-wedge/",
+        "sessions": 2,
+        "totalUsers": 2,
+        "screenPageViews": 2,
         "bounceRate": 0
       },
       {
@@ -281,6 +266,13 @@
         "bounceRate": 1
       },
       {
+        "landingPagePlusQueryString": "/2026/11/",
+        "sessions": 1,
+        "totalUsers": 1,
+        "screenPageViews": 1,
+        "bounceRate": 1
+      },
+      {
         "landingPagePlusQueryString": "/ajing-futtu-jighead-08g-sensitivity/",
         "sessions": 1,
         "totalUsers": 1,
@@ -288,25 +280,11 @@
         "bounceRate": 0
       },
       {
-        "landingPagePlusQueryString": "/bitradex-invite-code/",
+        "landingPagePlusQueryString": "/ajing-futtu-soare-bb-light-game-rod/",
         "sessions": 1,
         "totalUsers": 1,
-        "screenPageViews": 1,
+        "screenPageViews": 2,
         "bounceRate": 0
-      },
-      {
-        "landingPagePlusQueryString": "/bitradex-kyc/",
-        "sessions": 1,
-        "totalUsers": 1,
-        "screenPageViews": 1,
-        "bounceRate": 1
-      },
-      {
-        "landingPagePlusQueryString": "/bitradex-progress-8300/",
-        "sessions": 1,
-        "totalUsers": 1,
-        "screenPageViews": 1,
-        "bounceRate": 1
       },
       {
         "landingPagePlusQueryString": "/bitradex-referral-system/",
@@ -323,57 +301,14 @@
         "bounceRate": 1
       },
       {
-        "landingPagePlusQueryString": "/category/bitradex/referral/",
+        "landingPagePlusQueryString": "/seabass-futtu-evening-floating-minnow/",
         "sessions": 1,
         "totalUsers": 1,
-        "screenPageViews": 1,
-        "bounceRate": 1
-      },
-      {
-        "landingPagePlusQueryString": "/vscode-1116-github-copilot-chat-builtin-2026/",
-        "sessions": 1,
-        "totalUsers": 1,
-        "screenPageViews": 1,
-        "bounceRate": 1
+        "screenPageViews": 2,
+        "bounceRate": 0
       }
     ],
     "daily": [
-      {
-        "date": "20261018",
-        "sessions": 2,
-        "screenPageViews": 2,
-        "totalUsers": 2
-      },
-      {
-        "date": "20261019",
-        "sessions": 1,
-        "screenPageViews": 1,
-        "totalUsers": 1
-      },
-      {
-        "date": "20261020",
-        "sessions": 1,
-        "screenPageViews": 1,
-        "totalUsers": 1
-      },
-      {
-        "date": "20261022",
-        "sessions": 2,
-        "screenPageViews": 2,
-        "totalUsers": 2
-      },
-      {
-        "date": "20261023",
-        "sessions": 3,
-        "screenPageViews": 3,
-        "totalUsers": 3
-      },
-      {
-        "date": "20261024",
-        "sessions": 3,
-        "screenPageViews": 3,
-        "totalUsers": 3
-      },
       {
         "date": "20261025",
         "sessions": 1,
@@ -439,12 +374,36 @@
         "sessions": 2,
         "screenPageViews": 2,
         "totalUsers": 2
+      },
+      {
+        "date": "20261115",
+        "sessions": 1,
+        "screenPageViews": 2,
+        "totalUsers": 1
+      },
+      {
+        "date": "20261118",
+        "sessions": 2,
+        "screenPageViews": 2,
+        "totalUsers": 2
+      },
+      {
+        "date": "20261119",
+        "sessions": 1,
+        "screenPageViews": 1,
+        "totalUsers": 1
+      },
+      {
+        "date": "20261121",
+        "sessions": 4,
+        "screenPageViews": 4,
+        "totalUsers": 3
       }
     ]
   },
   "kpi": {
-    "article_count": 7,
-    "monthly_pv_estimate": 28,
+    "article_count": 9,
+    "monthly_pv_estimate": 25,
     "target_3m": [
       1000,
       3000
