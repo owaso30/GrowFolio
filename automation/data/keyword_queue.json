@@ -5,13 +5,16 @@
       "keyword": "チニング 秋 チヌ ワーム",
       "intent": "F",
       "score": 97.7,
-      "status": "pending",
+      "status": "done",
       "source": "seasonal_seed",
       "competition": "medium",
       "cluster": "method",
       "fingerprint": [
         "lure"
-      ]
+      ],
+      "trend_fetched_at": "2026-11-24T08:41:50.916185+00:00",
+      "published_at": "2026-11-24T08:44:04.975147+00:00",
+      "post_url": "https://growfolio-note.com/chinning-futtu-evening-worm-autumn/"
     },
     {
       "keyword": "船 ライフジャケット 義務",
