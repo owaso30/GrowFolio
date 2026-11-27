@@ -1,6 +1,26 @@
 {
-  "synced_at": "2026-11-24T08:41:42.932135+00:00",
+  "synced_at": "2026-11-27T06:59:49.464219+00:00",
   "posts": [
+    {
+      "id": 608,
+      "slug": "chinning-futtu-evening-worm-autumn",
+      "title": "富津岬の夕まずめにチニング——秋の港でワームを試してきた",
+      "url": "https://growfolio-note.com/chinning-futtu-evening-worm-autumn/",
+      "categories": [
+        "釣具レビュー・比較"
+      ],
+      "tags": [
+        "チニング",
+        "ルアー"
+      ],
+      "keywords": [
+        "チニング 秋 チヌ ワーム"
+      ],
+      "recap": "2026年11月下旬、千葉県富津岬の港内岸壁、15〜17時すぎ。チヌ狙い、MLシーバスロッド流用、PE0.8号+フロロ2号リーダー、バークレイ チニング クロー3インチ+軽めジグヘッド。30cmそこそこのチヌ1匹、フグのかじりアタリ複数。次回はチニング専用のより細い穂先のロッドを持ち込み、感度の違いとアタリの取れ方を比べる。",
+      "source": "auto",
+      "cluster": "method",
+      "published_at": "2026-11-24T08:44:04.975147+00:00"
+    },
     {
       "id": 602,
       "slug": "rockfish-futtu-tetra-evening-2inch-worm",
@@ -182,24 +202,24 @@
       "published_at": "2026-10-10T11:42:35.132953+00:00"
     },
     {
-      "id": 608,
-      "slug": "chinning-futtu-evening-worm-autumn",
-      "title": "富津岬の夕まずめにチニング——秋の港でワームを試してきた",
-      "url": "https://growfolio-note.com/chinning-futtu-evening-worm-autumn/",
+      "id": 614,
+      "slug": "boat-lifejacket-obligation-guide",
+      "title": "船釣りのライフジャケット着用義務——小型船舶で知っておきたい規則と選び方",
+      "url": "https://growfolio-note.com/boat-lifejacket-obligation-guide/",
       "categories": [
         "釣具レビュー・比較"
       ],
       "tags": [
-        "チニング",
-        "ルアー"
+        "サーフ",
+        "バッグ"
       ],
       "keywords": [
-        "チニング 秋 チヌ ワーム"
+        "船 ライフジャケット 義務"
       ],
-      "recap": "2026年11月下旬、千葉県富津岬の港内岸壁、15〜17時すぎ。チヌ狙い、MLシーバスロッド流用、PE0.8号+フロロ2号リーダー、バークレイ チニング クロー3インチ+軽めジグヘッド。30cmそこそこのチヌ1匹、フグのかじりアタリ複数。次回はチニング専用のより細い穂先のロッドを持ち込み、感度の違いとアタリの取れ方を比べる。",
+      "recap": "2026年11月、小型船舶のライフジャケット着用義務をJCI情報と報道をもとに整理。固型式と膨脹式の違い、桜マーク確認の必要性、乗合船乗船前チェックポイントをまとめた。次回は来春の千葉乗合船釣り（ヒラメまたはシーバス）での実際の使用感をレポートする予定。",
       "source": "auto",
-      "cluster": "method",
-      "published_at": "2026-11-24T08:44:04.975147+00:00"
+      "cluster": "other",
+      "published_at": "2026-11-27T07:02:48.208646+00:00"
     }
   ]
 }

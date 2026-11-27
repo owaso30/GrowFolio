@@ -20,11 +20,14 @@
       "keyword": "船 ライフジャケット 義務",
       "intent": "F",
       "score": 97.7,
-      "status": "pending",
+      "status": "done",
       "source": "serp_related",
       "competition": "medium",
       "cluster": "other",
-      "fingerprint": []
+      "fingerprint": [],
+      "trend_fetched_at": "2026-11-27T06:59:55.107454+00:00",
+      "published_at": "2026-11-27T07:02:48.208646+00:00",
+      "post_url": "https://growfolio-note.com/boat-lifejacket-obligation-guide/"
     },
     {
       "keyword": "漁師 ライフジャケット 義務",
